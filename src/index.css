@@ -11,3 +11,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* variables de colores duppla*/
+:root {
+  --color-primario-btn:#6C9FFF;
+  --color-fondo:#FFFFFF;
+  --color-naranja-duppla:#FF864B;
+  --color-verde-duppla:#C5F5CA;
+  --color-cimiento-duppla:#0A3323;
+  
+}
+
+
+
+/*Estilos para el componente sing in*/
+
+.btn-registro{
+   color: var(--color-fondo);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-sing {
+  margin-top: 200px;
+  padding: 10px;
+  width: 380px;
+  height: auto;
+
+}
+
+.img-logotipo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  
+}
+
+.img-simbolo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.btn {
+  border-radius: 5px;
+}
+.btn-registro{
+  display: flex;
+  justify-content: center;  
+  margin-top: 50px;
+  background: var(--color-primario-btn);
+  
+}
+
+.btn-ingreso-google{
+  background-color: #FFFFFF;
+  border-radius: 5px;
+
+}
