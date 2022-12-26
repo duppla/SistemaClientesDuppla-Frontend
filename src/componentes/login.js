@@ -3,7 +3,7 @@ import Logotipo from "../img/Duppla_Logotipo_V2.png"
 import Simbolo from "../img/Duppla_Simbolo_V1.png"
 import Btngoogle from "../img/google.png"
 import Btnfacebook from "../img/facebook.png"
- 
+
 
 function login() {
     return (
@@ -16,35 +16,36 @@ function login() {
 
                         </div>
                         <div className="img-simbolo">
-
                             <img src={Logotipo} className="rounded" alt="duppla" width="240px" height="88px" />
                         </div>
 
-                        <div className="btn-registro">
-                            <button type="button" className="btn btn-registro text-center" width="400px" height="46px" p-5>
+                        <div className="centrado-btn ">
+                            <button type="button" className="btn btn-primary btn-registro text-center" width="400px" height="46px" p-5>
                                 REGISTRO DE CONTRASEÑA
                             </button>
-                          
-                                <div className="btn btn-ingreso-google">                                                                  
-                                <img src={Btngoogle} className="input-group-img" id="btnIngresoGoogle" alt="ingreso google" width="32px" height="16px" />
-                                <div>Sing in with Google</div>                          
-                            
-                                </div>
-                                <div className="btn btn-ingreso-google">                                                                  
-                                <img src={Btnfacebook} className="input-group-img" id="btnIngresoGoogle" alt="ingreso google" width="32px" height="16px" />
-                                <div>Sing in with Google</div>                          
-                            
-                                </div>
+                        </div>
+                        <div>
+                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" p-5>
+                                <img src={Btngoogle} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="32px" height="32px" />
+                                <div><b>Sing in with Google</b></div>
 
+                            </div>
+                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" p-5>
+                                <img src={Btnfacebook} className="input-group-img img-ingreso" id="btnIngresoFacebook" alt="ingreso google" width="32px" height="32px" />
+                                <div><b>Sing in with Facebook</b></div>
 
+                            </div>
+                            <div className="centrado-btn">                                
+                                <a href="#" class="stretched-link link-btn">Registro de contraseña</a>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
 
-        </div>
+        </div >
 
 
 

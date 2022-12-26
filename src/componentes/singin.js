@@ -33,16 +33,13 @@ function SingIn() {
 
                     </div>
                     <div className="img-simbolo">
-
                         <img src={Logotipo} className="rounded" alt="duppla" width="240px" height="88px" />
                     </div>
 
-                    <div className="btn-registro">
-                        <button type="button" className="btn btn-registro text-center" width="400px" height="46px" p-5>
+                    <div className="centrado-btn">
+                        <button type="button" className="btn btn-primary btn-registro text-center" width="400px" height="52px" p-5>
                             REGISTRO DE CONTRASEÑA
                         </button>
-
-
                     </div>
                 </div>
             </div>
