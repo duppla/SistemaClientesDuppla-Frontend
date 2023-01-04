@@ -102,3 +102,51 @@ code {
 .link-btn {
   text-decoration: none;
 }
+
+/*Estilos registro email y contraseña*/
+
+.register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: auto;
+
+}
+.container-register{
+
+  justify-content: center;
+ 
+   width: 430px;
+   height: auto;
+  margin-top: 30px;
+}
+.arrow-return {
+  margin-top: 10px;
+}
+.title-register{
+  margin-top: 30px;
+  font-size: 72px;
+}
+.form-register{
+  margin-top: 20px;
+}
+
+.input-register {
+   width: 352px;
+   height: 52px;
+}
+/*Estilos perfil*/
+.container-profile {
+  background-color: var(--color-naranja-duppla);
+}
+.profile{
+ width: 450px;
+ height: 100px;
+
+}
+.img-user{
+  width: 65px;
+  height: 65px;
+}
+

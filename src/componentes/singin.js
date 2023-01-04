@@ -30,12 +30,10 @@ function SingIn() {
                 <div className="container-sing">
                     <div className="img-logotipo">
                         <img src={Simbolo} className="rounded justify-content-center" alt="Simbolo duppla" width="60px" height="67px" />
-
                     </div>
                     <div className="img-simbolo">
                         <img src={Logotipo} className="rounded" alt="duppla" width="240px" height="88px" />
                     </div>
-
                     <div className="centrado-btn">
                         <button type="button" className="btn btn-primary btn-registro text-center" width="400px" height="52px" p-5>
                             REGISTRO DE CONTRASEÑA
