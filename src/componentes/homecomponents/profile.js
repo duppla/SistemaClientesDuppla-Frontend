@@ -1,5 +1,5 @@
 import React from "react";
-import Usuario from "../img/usuario.png"
+import Usuario from "../../img/usuario.png"
 
 function profile() {
     return (

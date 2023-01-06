@@ -1,12 +1,12 @@
 import React from "react";
 /*import { GoogleLogin } from '@react-oauth/google';*/
-import { useEffect } from 'react';
-import SingIn from "./singin";
+
+/*import SingIn from "./singin";*/
 import Logotipo from "../img/Duppla_Logotipo_V2.png"
 import Simbolo from "../img/Duppla_Simbolo_V1.png"
 import Btngoogle from "../img/google.png"
 import Btnfacebook from "../img/facebook.png"
-import { googleLogout } from "@react-oauth/google";
+/*import { googleLogout } from "@react-oauth/google";*/
 import FacebookLogin from 'react-facebook-login';
 
 

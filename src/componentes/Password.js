@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Register() {
+function password() {
     return (
 
         <div className="register">
@@ -12,21 +12,21 @@ function Register() {
                     </svg>
                 </div>
                 <div className="title-register">
-                    <h2> <b>Iniciar Sesión</b>
+                    <h2> <b>Registro de contraseña</b>
                     </h2>
                 </div>
                 <div className="form-register">
                     <form>
-                        <div className="mb-3">
-                            <input type="email" className="form-control input-register" id="exampleInputEmail1" placeholder="Correo electrónico" aria-describedby="emailHelp" height="46px" />
+                       <div className="mb-3">
 
+                            <input type="password" className="form-control input-register" placeholder="Contraseña" id="InputPassword" height="46px" />
                         </div>
                         <div className="mb-3">
 
-                            <input type="password" className="form-control input-register" placeholder="Contraseña" id="exampleInputPassword1" height="46px" />
+                            <input type="password" className="form-control input-register" placeholder="Confirmar contraseña" id="confirmarInputPassword" height="46px" />
                         </div>
 
-                        <button type="submit" className="btn btn-primary centrado-btn">SIGUIENTE</button>
+                        <button type="submit" className="btn btn-primary centrado-btn">ACCEDER</button>
                     </form>
 
 
@@ -44,4 +44,4 @@ function Register() {
 };
 
 
-export default Register;
+export default password;
