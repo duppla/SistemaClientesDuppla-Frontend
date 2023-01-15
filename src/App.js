@@ -1,20 +1,27 @@
 /*import './App.css';*/
 import React from 'react';
 import {
-  Route,
-  Routes 
+  Route,  
+  Routes,
+  BrowserRouter 
+  
+
 } from 'react-router-dom';
 import SingIn from './componentes/Singin';
 import Login from './componentes/Login';
 import Register from './componentes/Register';
 import Password from './componentes/Password';
 import Home from './componentes/Home';
-import Profile from './componentes/homecomponents/profile';
-import { useEffect } from 'react';
+import Profile from './componentes/homecomponents/Profile';
+import Documents from './componentes/homecomponents/Documents';
+import Property from './componentes/homecomponents/Property';
+import Calendar from './componentes/homecomponents/Calendar';
+import Offer from './componentes/homecomponents/Offer';
+/*import { useEffect } from 'react';*/
 /*import { AuthContextProvider } from './autenticacion/auth';*/
-import {Ingreso, Contraseña, Inicio, Perfil } from './clientauthentication/Paths';
+/*import {Ingreso, Contraseña, Inicio, Perfil } from './clientauthentication/Paths';
 import PublicRoute  from './componentes/route/PublicRoute';
-import PrivateRoute from './componentes/route/PrivateRoute';
+import PrivateRoute from './componentes/route/PrivateRoute';*/
 /*import login from './componentes/login';*/
 
 
@@ -22,7 +29,7 @@ import PrivateRoute from './componentes/route/PrivateRoute';
 
 function App() {
 
-  function handleCallbackResponse(response) {
+  /*function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
   }
   useEffect(() => {
@@ -37,25 +44,28 @@ function App() {
       { theme: "outline", size: "large" }
 
     )
-  }, []);
+  }, []);*/
 
 
   return (
-
+    <BrowserRouter>
       <Routes>
-        <Route path='/' element={<PublicRoute/>}>
+       <Route path='/' element={<Login />} ></Route>
         <Route path='/singIn' element={<SingIn />} ></Route>
-        <Route path={Ingreso} element={<Login />} ></Route>
+        <Route path='/login' element={<Login />} ></Route>
         <Route path='/register' element={<Register />} ></Route>
-        <Route path={Contraseña} element={<Password />} ></Route>
-        </Route>
-        <Route path={Inicio} element={<PrivateRoute/>}>
-        <Route path={Inicio}element={<Home />} ></Route>
-        <Route path={Perfil} element={<Profile />} ></Route>
-        </Route>
+        <Route path='/password' element={<Password />} ></Route>       
+     
+        <Route path='/home'element={<Home />} ></Route>
+        <Route path='/profile' element={<Profile />} ></Route>
+        <Route path='/documents' element={<Documents />} ></Route>
+        <Route path='/property' element={<Property />} ></Route>
+        <Route path='/calendar' element={<Calendar />} ></Route>
+        <Route path='/offer' element={<Offer />} ></Route>
+     
       </Routes>
 
-
+</BrowserRouter>
   );
 }
 

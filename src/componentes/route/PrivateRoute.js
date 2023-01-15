@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from "react";
+/*import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { Ingreso } from "../../clientauthentication/Paths";
 import {useAuthContext} from '../../clientauthentication/Auth';
@@ -22,4 +22,4 @@ import {useAuthContext} from '../../clientauthentication/Auth';
 
 }
 
-export default PrivateRoute;
+export default PrivateRoute;*/

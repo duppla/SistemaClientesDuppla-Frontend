@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from "react";
+/*import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { Inicio } from "../../clientauthentication/Paths";
 import {useAuthContext} from '../../clientauthentication/Auth';
@@ -21,4 +21,4 @@ function PublicRoute(){
  );
 
 } 
-export  default PublicRoute;
+export  default PublicRoute;*/
