@@ -1,8 +1,8 @@
 import React from "react";
-import Idocumento from "../img/iconodocumentos.png"
-import Iinmueble from "../img/iconoinmueble.png"
-import Iperfil from "../img/iconoperfil.png"
-import BarraProgreso from "../img/barraprogreso.png"
+import Idocumento from "../../img/iconodocumentos.png"
+import Iinmueble from "../../img/iconoinmueble.png"
+import Iperfil from "../../img/iconoperfil.png"
+import BarraProgreso from "../../img/barraprogreso.png"
 import { Link } from "react-router-dom";
 
 function Home() {

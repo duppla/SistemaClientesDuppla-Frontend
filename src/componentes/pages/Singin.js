@@ -1,6 +1,6 @@
 import React from "react";
-import Logotipo from "../img/Duppla_Logotipo_V2.png"
-import Simbolo from "../img/Duppla_Simbolo_V1.png"
+import Logotipo from "../../img/Duppla_Logotipo_V2.png"
+import Simbolo from "../../img/Duppla_Simbolo_V1.png"
 import { Link } from "react-router-dom";
 /*
 import Button from '@mui/material/Button';

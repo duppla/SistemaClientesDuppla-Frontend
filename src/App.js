@@ -3,15 +3,15 @@ import React from 'react';
 import {
   Route,  
   Routes,
-  BrowserRouter 
-  
+  BrowserRouter  
 
 } from 'react-router-dom';
-import SingIn from './componentes/Singin';
-import Login from './componentes/Login';
-import Register from './componentes/Register';
-import Password from './componentes/Password';
-import Home from './componentes/Home';
+import SingIn from './componentes/pages/Singin';
+import Login from './componentes/pages/Login';
+import Register from './componentes/pages/Register';
+import Home from './componentes/pages/Home';
+import Password from './componentes/pages/Password';
+import Error404 from './componentes/pages/Error404';
 import Profile from './componentes/homecomponents/Profile';
 import Documents from './componentes/homecomponents/Documents';
 import Property from './componentes/homecomponents/Property';
@@ -63,6 +63,7 @@ function App() {
         <Route path='/calendar' element={<Calendar />} ></Route>
         <Route path='/offer' element={<Offer />} ></Route>
      
+      <Route path='/error404' element={<Error404 />} ></Route>
       </Routes>
 
 </BrowserRouter>

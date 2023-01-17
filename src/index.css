@@ -127,11 +127,17 @@ code {
 }
 .arrow-return {
   margin-top: 10px;
+   text-decoration: none;
 }
 .title-register{
-  margin-top: 30px;
-  font-size: 72px;
+  padding: 0 0 5px 5px;
+  margin-top: 20px;
+  text-align: start;
+  margin-bottom: 20px;
+
 }
+  
+
 .form-register{
   margin-top: 20px;
 }
@@ -142,11 +148,11 @@ code {
 }
 /*Estilos perfil*/
 .container-profile {
-
-background-color: var(--color-fondo);
-width: auto;
+margin: 0;
+padding: 0;
+background: #F5F5F5;
+width: 100hv;
 height: auto;
-
  
 }
 
@@ -156,18 +162,14 @@ height: auto;
   justify-content:space-between;
   align-items: center;
   
-  
-  position: absolute;
-  width: 345px;
-  height: 90px;
+  width: 390px;
+  height: 100px;
   left: 14px;
   top: 70px;
   bottom: 100px;
   
   background: linear-gradient(138.67deg, #0A3323 16.71%, #C5F5CA 162.89%);
   border-radius: 5px;
-
-
 }
 
 .img-user{
@@ -175,6 +177,31 @@ height: auto;
   height: 80px;
   
 }
+.user-data-card{
+  background-color: var(--color-fondo);
+  width: 390px;
+  height: 800px;
+ 
+padding: 18px 138px 18px 16px;
+gap: 10px;
+
+
+width: 390px;
+  height: 600px;
+left: 16px;
+top: 204px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.06);
+border-radius: 5px;
+}
+ 
+/*sección datos en perfil*/
+.links{
+  text-decoration: none;
+}
+
+
 
 /* linea en perfil |*/
 hr{
@@ -199,7 +226,7 @@ transform: rotate(90deg);
 
 
 
-/*Estilos inicio o home apliación*/
+/*Estilos inicio o home aplicación*/
 
 .container-home{
 
@@ -209,7 +236,7 @@ transform: rotate(90deg);
 
 }
 
-
+/* trajeta perfil home*/
 .profile{
   display: flex;
   flex-direction:initial;
@@ -239,7 +266,7 @@ transform: rotate(90deg);
  }
 
 
-.Container-cards-seccion{
+.-datos-usuario{
   display: grid;
   grid-template-columns: 1fr ;
  
@@ -248,7 +275,7 @@ transform: rotate(90deg);
   gap: 16px;
   
   width: 380px;
-  height: 140px;
+  height: 100px;
   left: 25px;
   top: 210px;
   bottom: 100px;
@@ -292,7 +319,6 @@ border-radius: 12px;
 
 }
 
-
 .arrow-menu{
 
   width: 24px;
@@ -305,3 +331,5 @@ border-radius: 12px;
   width: 380px;
   height: auto;
 }
+
+

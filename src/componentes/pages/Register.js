@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Home from './Home';
+import { serialize} from 'cookie';
+
 
 
 
 function Register() {
 
-
+    /*Usa el estado para enviar al home */
     const navigate = useNavigate();
 
     const [prueba, setPrueba] = useState('false');
@@ -31,6 +32,8 @@ function Register() {
         setDatos(newDatos);
     }
 
+/*Propiedad del paquete  de cookie para volver el token una cookie*/
+   /* const serialized = serialize('datosUsuarioDuppla', token)*/
     /*Función que maneja el envio de la información del formulario */
 
     const handleSubmit = async (e) => {
@@ -55,11 +58,10 @@ function Register() {
                 } else {
                     if (!datos.email === response.status && datos.password === response.status) {
                         // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
-
                         alert('error');
-                    } else {                       
+                    } else {
                         navigate('/home');
-
+                        setDatos('');
                     }
                 }
             }).catch(function (error) {
@@ -68,15 +70,18 @@ function Register() {
         };
     };
 
+
+
+    
     return (
 
         <div className="register" id="formAuthLogin">
             <div className="container-register">
                 <div className="arrow-return">
-                <Link to='/login'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                    </svg>
+                    <Link to='/login'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                        </svg>
                     </Link>
                 </div>
                 <div className="title-register">

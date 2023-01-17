@@ -3,10 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 /*import SingIn from "./singin";*/
-import Logotipo from "../img/Duppla_Logotipo_V2.png"
-import Simbolo from "../img/Duppla_Simbolo_V1.png"
-import Btngoogle from "../img/google.png"
-import Btnfacebook from "../img/facebook.png"
+import Logotipo from "../../img/Duppla_Logotipo_V2.png"
+import Simbolo from "../../img/Duppla_Simbolo_V1.png"
+import Btngoogle from "../../img/google.png"
+import Btnfacebook from "../../img/facebook.png"
 /*import { googleLogout } from "@react-oauth/google";*/
 /*import FacebookLogin from 'react-facebook-login';*/
 function login() {
