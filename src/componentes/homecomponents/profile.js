@@ -151,7 +151,7 @@ function profile() {
                     </Link>
                 </div>
                 {/*componente  soporte*/}
-                <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" p-5>
+                <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" >
                     <div className="col-4">
                         <img src={Icerrarsesion} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
                     </div>
@@ -161,7 +161,7 @@ function profile() {
 
                 </div>
                 <div id="btnInicioGoogle">
-                    <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" p-5>
+                    <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" >
                         <img src={Icerrarsesion} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="64px" height="64px" />
                         <div><b>Cerrar sesión</b></div>
 

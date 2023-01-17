@@ -50,7 +50,7 @@ function login() {
 
 
                         <div id="btnInicioGoogle">
-                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" p-5>
+                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" >
                                 <img src={Btngoogle} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="32px" height="32px" />
                                 <div><b>Sing in with Google</b></div>
 
@@ -65,7 +65,7 @@ function login() {
                                 }}
                             />*/}
 
-                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" p-5>
+                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px">
                                 <img src={Btnfacebook} className="input-group-img img-ingreso" id="btnIngresoFacebook" alt="ingreso google" width="32px" height="32px" />
                                 <div><b>Sing in with Facebook</b></div>
 

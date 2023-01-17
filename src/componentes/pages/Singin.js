@@ -30,14 +30,20 @@ function SingIn() {
             <div className=" d-flex justify-content-center">
                 <div className="container-sing">
                     <div className="img-logotipo">
-                        <img src={Simbolo} className="rounded justify-content-center" alt="Simbolo duppla" width="60px" height="67px" />
+                        <img src={Simbolo} 
+                        className="rounded justify-content-center" 
+                        alt="Simbolo duppla" width="60px" height="67px" />
                     </div>
                     <div className="img-simbolo">
-                        <img src={Logotipo} className="rounded" alt="duppla" width="240px" height="88px" />
+                        <img src={Logotipo} 
+                        className="rounded" 
+                        alt="duppla" width="240px" height="88px" />
                     </div>
                     <div className="centrado-btn">
-                        <button  litype="button" className="btn btn-primary btn-registro text-center" width="400px" height="52px" p-5>
-                          <Link to='/login'>REGISTRO DE CONTRASEÑA</Link>  
+                        <button  litype="button" 
+                        className="btn btn-primary btn-registro text-center"
+                         width="400px" height="52px">
+                          <Link to='/password' className="links text-white">REGISTRO DE CONTRASEÑA</Link>  
                         </button>
                     </div>
                 </div>
