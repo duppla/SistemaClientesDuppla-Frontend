@@ -174,9 +174,9 @@ height: auto;
 
 .img-user{
   width: 70px;
-  height: 80px;
-  
+  height: 80px;  
 }
+
 .user-data-card{
   background-color: var(--color-fondo);
   width: 390px;
@@ -236,14 +236,13 @@ transform: rotate(90deg);
 
 }
 
-/* trajeta perfil home*/
+/* tarjeta perfil home*/
 .profile{
   display: flex;
   flex-direction:initial;
   justify-content:space-between;
   align-items: center;
-  
- 
+   
   width: 400px;
   height: 160px;
   left: 0px;
@@ -264,9 +263,28 @@ transform: rotate(90deg);
  .text-orange{
   color: var(--color-naranja-duppla);
  }
+ .Container-cards-seccion{
+  display: grid;
+  grid-template-columns: 1fr ;
+ 
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 390px;
+  height: 140px;
+  left: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
 
+ }
 
-.-datos-usuario{
+.tarjetasdatos-usuario {
   display: grid;
   grid-template-columns: 1fr ;
  
@@ -297,14 +315,14 @@ transform: rotate(90deg);
 
 .card-docs{
 
-  display: grid;
-  grid-template-columns: 1fr ;
+  display: flex;
+  justify-content: space-between;
   
   align-items: center;
   padding: 16px 24px;
   gap: 16px;
   
-  width: 380px;
+  width: 390px;
   height: 80px;
   left: 25px;
   top: 210px;
@@ -333,3 +351,30 @@ border-radius: 12px;
 }
 
 
+/*Estilos componenete inmueble-property*/
+
+.card-inmueble{
+  display: grid;
+  grid-template-columns: 1fr ;
+  
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 390px;
+  height: 170px;
+  left: 25px;
+  right: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  
+background-color: var(--color-fondo);
+border: 1px solid #E1EBF4;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+border-radius: 12px;
+
+
+
+
+}

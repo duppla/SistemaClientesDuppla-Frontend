@@ -3,8 +3,27 @@ import Iperfil from "../../img/iconoperfil.png";
 import Idata from "../../img/imgdata.png";
 import Icerrarsesion from "../../img/imgcerrarsesion.png";
 import { Link } from "react-router-dom";
+import Logout from "../pages/Logout";
 
 function profile() {
+
+
+function handleLogout() {
+
+    const logout = Logout();
+if (logout) {
+    alert('Ha ocurrido un error, intente nuevamente'); 
+}else
+console.log('esta pasando algo pero ni idea')
+
+
+
+    
+    
+}
+
+
+
     return (
         <div className="container-profile ">
             <div className="arrow-return">
@@ -151,7 +170,7 @@ function profile() {
                     </Link>
                 </div>
                 {/*componente  soporte*/}
-                <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" >
+                <div className="btn btn-ingreso-google centrado-btn"  onClick={handleLogout()}   width="400px" height="52px" >
                     <div className="col-4">
                         <img src={Icerrarsesion} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
                     </div>

@@ -1,8 +1,16 @@
-import React from "react";
+import {useContext, useCallback} from "react";
+import { Navigate } from "react-router-dom";
 
 
 
-function Logout(params) {
+
+function Logout() {
+ 
+ localStorage.removeItem('token');
+
+
+return Navigate('/login');
+
     
 }
 
