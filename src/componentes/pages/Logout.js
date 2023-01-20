@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 
 function Logout() {
  
- localStorage.removeItem('token');
+ localStorage.removeItem('tokenUser');
 
 
 return Navigate('/login');

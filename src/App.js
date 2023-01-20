@@ -23,12 +23,19 @@ import Offer from './componentes/homecomponents/Offer';
 import PublicRoute  from './componentes/route/PublicRoute';
 import PrivateRoute from './componentes/route/PrivateRoute';*/
 /*import login from './componentes/login';*/
+import ContextProvider from '././clientauthentication/contextuser'
+import useAuth from './hooks/useAuth';
 
+const Private = ({Item}) => {
 
-
+const {signed} = useAuth();
+ return signed > 0 ?<Item/>: <Register/>;
+ 
+};
 
 function App() {
-
+  
+  /*const [isLogged, setIsLogged] = useState (false);*/
   /*function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
   }
@@ -48,7 +55,9 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+
+    
+    
       <Routes>
        <Route path='/' element={<Login />} ></Route>
         <Route path='/singIn' element={<SingIn />} ></Route>
@@ -56,17 +65,17 @@ function App() {
         <Route path='/register' element={<Register />} ></Route>
         <Route path='/password' element={<Password />} ></Route>       
      
-        <Route path='/home'element={<Home />} ></Route>
-        <Route path='/profile' element={<Profile />} ></Route>
-        <Route path='/documents' element={<Documents />} ></Route>
-        <Route path='/property' element={<Property />} ></Route>
-        <Route path='/calendar' element={<Calendar />} ></Route>
-        <Route path='/offer' element={<Offer />} ></Route>
+        <Route exact path='/home'element={<Private Item = {Home} />} ></Route>
+        <Route exact path='/profile' element={< Private Item ={Profile} />} ></Route>
+        <Route exact path='/documents' element={<Private Item = {Documents} />} ></Route>
+        <Route exact path='/property' element={<Private Item = {Property} />} ></Route>
+        <Route exact path='/calendar' element={<Private Item = {Calendar} />} ></Route>
+        <Route exact path='/offer' element={<Private Item = {Offer} />} ></Route>
      
       <Route path='/error404' element={<Error404 />} ></Route>
       </Routes>
 
-</BrowserRouter>
+
   );
 }
 

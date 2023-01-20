@@ -5,46 +5,51 @@ import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
 import { Link, Navigate } from "react-router-dom";
+import  Login  from "./Login";
+import useToken from "../../clientauthentication/Auth";
+
+
+
+
 
 function Home() {
-
-  /*Función de verificación si esta el token en local y sino reirecionar a login*/
-
-
-
-
-  const isLogged = () => {
+  
+  {/*const isLogged = () => {
     const token = localStorage.getItem("tokenUser");
 
-    if (!token === null) {
-
-      Navigate('/login');
-
-      alert("Esta es una prueba de home");
-
-
-    } else {
-      console.log('inicio sessión');
-    }
+    if (token === null || token === '' )  {
+      
+        return Navigate('/login')
+      }
   }
 
   useEffect(() => {
 
-    if (isLogged() === false) {
+    if (!isLogged() === true) {
       alert("Esta es una prueba de home");
 
-    } else {
-      console.log('es el useEfecct');
+    } else {      
+        return Navigate('/login')
     }
 
-  }, []);
+  }, []);*/}
 
 
 
+  {/*const {token, setToken} = useToken();
+    
+  /*Función de verificación si esta el token en local y sino reirecionar a login*/
 
+{/*if (!token) {
 
+  return <Login setToken ={setToken}/>
 
+    } 
+  */}
 
+  
+
+}
   return (
     <div className="container-home">
       {/*Contenedor de perfil */}
@@ -87,7 +92,7 @@ function Home() {
 
             <div className="col-4">
               <h4 className="card-title"><b>Ultima oferta</b></h4><br />
-              <Link to='/documents' className="link-style">Abrir</Link>
+              <Link to='/offer' className="link-style">Abrir</Link>
             </div>
             <div className="col-4">
               <div className="card-body">

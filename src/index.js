@@ -1,20 +1,27 @@
 import React from 'react';
 /*import { useEffect } from 'react';*/
 import ReactDOM from 'react-dom/client';
+import {
+   
+    BrowserRouter  
+  
+  } from 'react-router-dom';
 
 import './index.css';
 /*import { GoogleOAuthProvider } from '@react-oauth/google';*/
 /*import Login from './componentes/login'*/
 import App from './App';
-/*import { AuthContextProvider } from './clientauthentication/Auth';  </AuthContextProvider><AuthContextProvider>*/
+import { AuthProvider } from './context/Contextauth'
 
 
-
+/*const accessToken = e.storage.get ('auth'); App is inInitiallyLogged = {!!accessToken}*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
- 
-    <App/>
+    <AuthProvider>
+    <BrowserRouter> 
+    <App />
+    </BrowserRouter>
+    </AuthProvider>
 
  
   

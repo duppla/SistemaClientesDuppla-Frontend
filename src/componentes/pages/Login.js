@@ -9,7 +9,24 @@ import Btngoogle from "../../img/google.png"
 import Btnfacebook from "../../img/facebook.png"
 /*import { googleLogout } from "@react-oauth/google";*/
 /*import FacebookLogin from 'react-facebook-login';*/
-function login() {
+import PropTypes from 'prop-types';
+
+{/*function setToken(userToken) {
+    localStorage.setItem('token', JSON.stringify(userToken));
+ }
+ 
+ function getToken() {
+ 
+   const tokenString = localStorage.getItem('token');
+   const userToken = JSON.parse(tokenString);
+   return userToken?.token;
+ 
+ }*/}
+
+
+
+function login( ) {
+
 
     /*const responseFacebook = (response) => {
         console.log(response);
