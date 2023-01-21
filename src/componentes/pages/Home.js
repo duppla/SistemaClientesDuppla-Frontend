@@ -1,55 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
 import { Link, Navigate } from "react-router-dom";
-import  Login  from "./Login";
-import useToken from "../../clientauthentication/Auth";
 
 
 
 
 
-function Home() {
-  
-  {/*const isLogged = () => {
-    const token = localStorage.getItem("tokenUser");
 
-    if (token === null || token === '' )  {
-      
-        return Navigate('/login')
-      }
-  }
-
-  useEffect(() => {
-
-    if (!isLogged() === true) {
-      alert("Esta es una prueba de home");
-
-    } else {      
-        return Navigate('/login')
-    }
-
-  }, []);*/}
+function Home() {   
 
 
-
-  {/*const {token, setToken} = useToken();
-    
-  /*Función de verificación si esta el token en local y sino reirecionar a login*/
-
-{/*if (!token) {
-
-  return <Login setToken ={setToken}/>
-
-    } 
-  */}
-
-  
-
-}
   return (
     <div className="container-home">
       {/*Contenedor de perfil */}

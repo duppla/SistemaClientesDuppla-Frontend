@@ -1,9 +1,11 @@
 /*import './App.css';*/
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import {
-  Route,  
+  Route,
   Routes,
-  BrowserRouter  
+  BrowserRouter,
+  Navigate,
+  useSearchParams
 
 } from 'react-router-dom';
 import SingIn from './componentes/pages/Singin';
@@ -17,24 +19,32 @@ import Documents from './componentes/homecomponents/Documents';
 import Property from './componentes/homecomponents/Property';
 import Calendar from './componentes/homecomponents/Calendar';
 import Offer from './componentes/homecomponents/Offer';
-/*import { useEffect } from 'react';*/
-/*import { AuthContextProvider } from './autenticacion/auth';*/
-/*import {Ingreso, Contraseña, Inicio, Perfil } from './clientauthentication/Paths';
-import PublicRoute  from './componentes/route/PublicRoute';
-import PrivateRoute from './componentes/route/PrivateRoute';*/
-/*import login from './componentes/login';*/
-import ContextProvider from '././clientauthentication/contextuser'
-import useAuth from './hooks/useAuth';
+import { AuthContext } from './context/Contextauth';
+import { AuthProvider } from './context/Contextauth';
 
-const Private = ({Item}) => {
 
-const {signed} = useAuth();
- return signed > 0 ?<Item/>: <Register/>;
- 
-};
+
 
 function App() {
-  
+//  el children viene de context
+  const Private = ({ children }) => {
+
+    const { authenticated, loanding } = useContext(AuthContext);
+// valida que este en localsotore- si no esta logueado se redirecciona a login
+
+    if (loanding) {
+      return <div>cargando...</div>;
+    }
+
+
+    if (!authenticated) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+    
+  }
+
   /*const [isLogged, setIsLogged] = useState (false);*/
   /*function handleCallbackResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
@@ -55,25 +65,26 @@ function App() {
 
 
   return (
-
-    
-    
+    <AuthProvider>
       <Routes>
-       <Route path='/' element={<Login />} ></Route>
+        <Route path='/' element={<Login />} ></Route>
         <Route path='/singIn' element={<SingIn />} ></Route>
         <Route path='/login' element={<Login />} ></Route>
         <Route path='/register' element={<Register />} ></Route>
-        <Route path='/password' element={<Password />} ></Route>       
-     
-        <Route exact path='/home'element={<Private Item = {Home} />} ></Route>
-        <Route exact path='/profile' element={< Private Item ={Profile} />} ></Route>
-        <Route exact path='/documents' element={<Private Item = {Documents} />} ></Route>
-        <Route exact path='/property' element={<Private Item = {Property} />} ></Route>
-        <Route exact path='/calendar' element={<Private Item = {Calendar} />} ></Route>
-        <Route exact path='/offer' element={<Private Item = {Offer} />} ></Route>
-     
-      <Route path='/error404' element={<Error404 />} ></Route>
+        <Route path='/password' element={<Password />} ></Route>
+
+        <Route exact path='/home' element={<Private><Home /></Private>} ></Route>
+        <Route exact path='/profile' element={<Private>< Profile /></Private>} ></Route>
+        <Route exact path='/documents' element={<Private><Documents /></Private>} ></Route>
+        <Route exact path='/property' element={<Private><Property /></Private>} ></Route>
+        <Route exact path='/calendar' element={<Private><Calendar /></Private>} ></Route>
+        <Route exact path='/offer' element={<Private><Offer /></Private>} ></Route>
+
+        <Route path='/error404' element={<Error404 />} ></Route>
       </Routes>
+
+
+    </AuthProvider>
 
 
   );

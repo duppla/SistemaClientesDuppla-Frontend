@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Navigate } from "react-router-dom";
+import React, { useState,  useContext } from 'react';
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { serialize } from 'cookie';
+/*import { serialize } from 'cookie';*/
+import { AuthContext } from '../../context/Contextauth';
 
 
 
 
 function Register() {
 
+    const {authenticated, login}=useContext(AuthContext);
+
+
     /*Usa el estado para enviar al home */
     const navigate = useNavigate();
 
-    /*const [prueba, setPrueba] = useState('false');*/
-
+   
     /*Datos enviados a través del servicio*/
     const [datos, setDatos] = useState({
         email: '',
         password: ''
     });
-    /*eventos del input*/
-    /*const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');*/
+    
 
     /*Función manejo de cambios en los inputs, maneja un evento e*/
 
@@ -33,68 +34,22 @@ function Register() {
 
     }
 
-    
-    /*let { name, value } = e.target;
-    let newDatos = { ...datos, [name]: value };
-    setDatos(newDatos);*/
-
-
-    /*Propiedad del paquete  de cookie para volver el token una cookie*/
-
-    {/*const serialized = serialize('datosUsuarioDuppla', token,{
-
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production'? true : false,
-    samesite: 'lax',
-    maxAge: 1000 * 60 * 60 ,
-    path: '/register'
-
-    }
-
-    });
-     const [token, setToken] = useState(serialized);  
-      useEffect(() => {
-          if (token ) {
-             console.log(token);
-
-          }else{
-             alert('Usuario o contraseña incorrecta');
-  
-          }
-      }, [token, navigate]);*/}
-
-
-
-
-    /*Función para enviar los datos al servidor*/
-    /*const handleToken= (e) => {
+        /*Función para enviar los datos al servidor cooki*/
+        /*const handleToken= (e) => {
         e.preventDefault();
         console.log(datos);
         axios.post('https://sistemas-clientes-duppla.herokuapp.com/users/login', datos)
           .then(res => {
                 console.log(res.data);
 
-           })**/
-
-
-
-    {/*} useEffect(() => {
-
-        const loggedUserJSON = localStorage.setItem("tokenUser", JSON.stringify(user));
-        if (loggedUserJSON) {
-            const user = JSON.parse(loggedUserJSON);
-            setDatos(user);
-        }
-    },[]);
-*/}
+           })*/
 
 
     /*Función que maneja el envio de la información del formulario */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-
+                
         // deberia validar que si el correo no es valido, no pase o de error
         if (datos.email === "" || datos.email === null || datos.password === "" || datos.password === null) {
             alert('El correo  o contraseña no puede estar vacio');
@@ -118,8 +73,8 @@ function Register() {
                         // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
                         alert('error');
                     } else {
-                        localStorage.setItem('tokenUser', response.data.token);
-                        navigate('/home');
+                        //localStorage.setItem('tokenUser', response.data.token);                        
+                        login(response.data.token);                       
                         setDatos('');
                     }
                 }
@@ -130,11 +85,10 @@ function Register() {
     };
 
 
-
-
     return (
 
         <div className="register" id="formAuthLogin">
+            <p>{String(authenticated)}</p>
             <div className="container-register">
                 <div className="arrow-return">
                     <Link to='/login'>
