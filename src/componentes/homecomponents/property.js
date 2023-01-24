@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Iperfil from "../../img/iconoperfil.png";
+import Istateg from "../../img/Istateg.png";
 import Idata from "../../img/imgdata.png";
 import Icerrarsesion from "../../img/imgcerrarsesion.png";
 import Iubicacion from "../../img/Iubicacion.png";
@@ -9,15 +11,23 @@ import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 
 function Property() {
 
-// consumo del Api de inmueble
+    // consumo del Api de inmueble
+    const [datosIn, setDatosIn] = useState({});
 
+    useEffect(() => {
+        // GET request using fetch inside useEffect React hook
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: '{"email":"sharyth.navarro@gmail.com"}'
+        };
+        fetch('https://sistemas-clientes-duppla.herokuapp.com/inm/getInm', options)
+            .then(response => response.json())
+            .then(response => setDatosIn(response))
+            .catch(err => console.error(err));
 
-
-
-
-
-
-
+        // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, []);
 
 
 
@@ -32,7 +42,7 @@ function Property() {
                     </svg>
                 </Link>
             </div><br />
-
+            {/*Carrusel de imagenes */}
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators"
@@ -68,6 +78,8 @@ function Property() {
                 </button>
             </div><br />
 
+            {/*información inmueble */}
+
             <div className="text-title-property">
 
                 <div>
@@ -87,24 +99,32 @@ function Property() {
                     <div className="col-8">
                         <div className="card-body">
                             <h5 className="card-title">Ubicación</h5><br />
-                            <p className="card-text"><b>Calle:----</b></p>
-                            <p className="card-text"><b>Barrio:----</b></p>
+                            <p className="card-text"><b>{datosIn.Direccion}</b></p>
+                            <p className="card-text"><b>{datosIn.Barrio}</b></p>
                         </div>
                         <div className="dropdown">
                             <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                 Ver más
                             </button>
-                            <div className="dropdown-menu p-4 text-muted" >
+                            <div className="dropdown-menu p-4 " >
                                 <ol className="list-group ">{/*list-group-numbered*/}
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">* m2: 48</div>
+
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="card-body col-2">
+                                                <img src={Istateg} className="img-fluid rounded-start warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                            </div>
+                                            <div className="fw-bold col-6">m2:{datosIn.Area }</div>
 
                                         </div>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">* Edad: 2 años</div>
+                                        <div className="row">
+                                        <div className="card-body col-2">
+                                                <img src={Istateg} className="img-fluid rounded-start warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                            </div>
+
+                                            <div className="fw-bold col-10">Edad: 2 años</div>
 
                                         </div>
                                     </li>
@@ -133,7 +153,7 @@ function Property() {
                                         </div>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
+                                        <div className="ms-2 ">
                                             <div className="fw-bold">*Piso: 4</div>
 
                                         </div>
@@ -181,7 +201,7 @@ function Property() {
                 <div>
                     <button type="button" class="btn btn-outline-primary btn-xl">CANCELAR</button>
                 </div><br />
-                
+
 
                 <div>
                     <button type="button" class="btn btn-outline-primary btn-xl btn-primary">ACEPTAR</button>

@@ -162,7 +162,6 @@ function Docs() {
                 <div className="card-docs  ">
                     <div className="card-body col-2">
                         <img src={Istateg} className="img-fluid rounded-start  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-
                     </div>
                     <div className="card-body col-8">
                         Autorización uso de imagen                  
