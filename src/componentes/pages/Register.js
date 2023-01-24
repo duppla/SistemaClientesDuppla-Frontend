@@ -66,7 +66,6 @@ function Register() {
                 console.log(response.data);
                 console.log(response.status);
                 if (!response.data.status === 200) {
-
                     console.log('error de login');
                 } else {
                     if (!datos.email === response.status && datos.password === response.status) {

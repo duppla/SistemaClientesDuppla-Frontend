@@ -8,6 +8,21 @@ import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 
 function Property() {
+
+// consumo del Api de inmueble
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         <div className="container-property">
             <div className="arrow-return">

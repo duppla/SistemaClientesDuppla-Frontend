@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 
 
-
 // creación de contexto global para auth-memoria central
 export const AuthContext = createContext({});
 
 
 export const AuthProvider = ({ children }) => {
+   
     const navigate = useNavigate();
 
     const [token, setToken] = useState(null);
@@ -23,18 +23,15 @@ export const AuthProvider = ({ children }) => {
             setToken(JSON.parse(recovereToken));
 
         }
-
-
         setLoanding(false);
 
 
     }, []);
 
-
+//ejemplo de operador ternario condicion ? true : false
     const login = (tokenUser) => {
 
         localStorage.setItem('token', JSON.stringify(tokenUser));
-
 
         if (tokenUser) {
             console.log('ver si entra el', tokenUser);
