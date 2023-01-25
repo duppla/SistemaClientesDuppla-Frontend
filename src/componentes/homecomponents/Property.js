@@ -1,12 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Iperfil from "../../img/iconoperfil.png";
 import Istateg from "../../img/Istateg.png";
-import Idata from "../../img/imgdata.png";
-import Icerrarsesion from "../../img/imgcerrarsesion.png";
 import Iubicacion from "../../img/Iubicacion.png";
 import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
+import Imgdefauld from "../../img/Imgdefauld.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 
 function Property() {
@@ -56,13 +54,13 @@ function Property() {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Idata} className="d-block w-100" alt="..." />
+                        <img src={Imgdefauld} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={Iperfil} className="d-block w-100" alt="..." />
+                        <img src={Imgdefauld} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={Icerrarsesion} className="d-block w-100" alt="..." />
+                        <img src={Imgdefauld} className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button"

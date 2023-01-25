@@ -3,6 +3,7 @@ import axios from "axios";
 import Iperfil from "../../img/iconoperfil.png";
 import Idata from "../../img/imgdata.png";
 import Icerrarsesion from "../../img/imgcerrarsesion.png";
+
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 
@@ -138,7 +139,7 @@ function profile() {
                             <div className="col-4">
                                 <div className="card-body">
                                     <p className="card-text"> <small className="text-muted">Ocupación</small><br /></p>
-                                    <p className="card-text"><b>Independiente</b></p>
+                                    <p className="card-text"><b>{data.profecion}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +169,7 @@ function profile() {
                             <div className="col-4">
                                 <div className="card-body">
                                     <p className="card-text"> <small className="text-muted">Ahorro</small><br /></p>
-                                    <p className="card-text"><b>25'000.000</b></p>
+                                    <p className="card-text"><b>{data.cuota_inicial}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -181,13 +182,6 @@ function profile() {
                             QUIERO EDITAR MIS DATOS
                         </button>
                     </Link>
-                </div>
-                {/*componente  soporte*/}
-                <div className="btn btn-ingreso-google centrado-btn" onClick={handleLogout} width="400px" height="52px" >
-                    <div className="col-4">
-                        <img src={Icerrarsesion} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
-                    </div>
-                    <div><b>Cerrar sección</b></div>
                 </div>
 
                   {/*componente cerrar sesión*/}

@@ -61,7 +61,7 @@ function Register() {
                 headers: { 'Content-Type': 'application/json' },
                 data: { email: datos.email, password: datos.password }
             };
-
+            
             axios.request(options).then(function (response) {
                 console.log(response.data);
                 console.log(response.status);
