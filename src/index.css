@@ -1,0 +1,379 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* variables de colores duppla*/
+:root {
+  --color-primario-btn:#6C9FFF;
+  --color-fondo:#FFFFFF;
+  --color-naranja-duppla:#FF864B;
+  --color-verde-duppla:#C5F5CA;
+  --color-cimiento-duppla:#0A3323;
+  --color-sombra-duppla:#EEEFF3;
+
+  
+}
+
+
+
+/*Estilos para el componente sing in*/
+
+.btn-registro{
+   color: var(--color-fondo);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-sing {
+ display: grid;
+ column-count: auto;
+  margin-top: 200px;
+  padding: 10px;
+  width: 380px;
+  height: auto;
+
+}
+
+.img-logotipo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+width: 327px;
+height: 269px;
+left: 24px;
+top: 180px;
+  
+}
+
+
+
+.btn {
+  border-radius: 5px;
+}
+.btn-registro{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  width: 315px; 
+  height: 46px;
+  border-radius: 10px;
+  box-shadow: 0 5 15 0 var(--color-sombra-duppla);
+  margin-top: 50px;
+  background: var(--color-primario-btn);
+  
+}
+.centrado-btn{
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  text-align: center;
+  width: 315px;
+  height: 46px;
+  margin-bottom: 50px;
+}
+
+.btn-ingreso-google{
+  background-color: #FFFFFF;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
+
+}
+
+.img-ingreso {
+  padding:  5px;
+}
+
+.btn-primary {
+  background-color: var(--color-primario-btn);
+}
+ 
+.link-btn {
+  text-decoration: none;
+}
+
+.btn-decoration{
+  text-decoration: none;
+}
+
+/*Estilos registro email y contraseña*/
+
+.register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  height: auto;
+
+}
+.container-register{
+
+  justify-content: center;
+ 
+   width: 430px;
+   height: auto;
+  margin-top: 30px;
+}
+.arrow-return {
+  margin-top: 10px;
+   text-decoration: none;
+}
+.title-register{
+  padding: 0 0 5px 5px;
+  margin-top: 20px;
+  text-align: start;
+  margin-bottom: 20px;
+
+}
+  
+
+.form-register{
+  margin-top: 20px;
+}
+
+.input-register {
+   width: 352px;
+   height: 52px;
+}
+/*Estilos perfil*/
+.container-profile {
+margin: 0;
+padding: 0;
+background: #F5F5F5;
+width: 100wv;
+height: auto;                                     
+ 
+}
+
+.profile-data{
+  display: flex;
+  flex-direction:initial;
+  justify-content:space-between;
+  align-items: center;
+  
+  width: 390px;
+  height: 100px;
+  left: 14px;
+  top: 70px;
+  bottom: 100px;
+  
+  background: linear-gradient(138.67deg, #0A3323 16.71%, #C5F5CA 162.89%);
+  border-radius: 5px;
+}
+
+.img-user{
+  width: 70px;
+  height: 80px;  
+}
+
+.user-data-card{
+  background-color: var(--color-fondo);
+  width: 390px;
+  height: 800px;
+ 
+padding: 18px 138px 18px 16px;
+gap: 10px;
+
+
+width: 390px;
+  height: 600px;
+left: 16px;
+top: 204px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.06);
+border-radius: 5px;
+}
+ 
+/*sección datos en perfil*/
+.links{
+  text-decoration: none;
+}
+
+
+
+/* linea en perfil |*/
+hr{
+position: absolute;
+width: 59px;
+height: 0px;
+left: 119px;
+top: 64px;
+
+border: 1px solid #E7E7E7;
+transform: rotate(90deg);
+
+}
+
+.link-styles{
+
+  color: var(--color-fondo);
+  left: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+
+/*Estilos inicio o home aplicación*/
+
+.container-home{
+
+  width: 500px;
+  height: 100vh;
+
+
+}
+
+/* tarjeta perfil home*/
+.profile{
+  display: flex;
+  flex-direction:initial;
+  justify-content:space-between;
+  align-items: center;
+   
+  width: 400px;
+  height: 160px;
+  left: 0px;
+  top: 0px;
+  bottom: 100px;
+  
+  background: linear-gradient(60.01deg, #0A3323 19.88%, #C5F5CA 217.71%);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 16%;
+  border-bottom-left-radius: 16% ;
+
+}
+
+.text-white{
+  color: var(--color-fondo);
+}
+ .text-orange{
+  color: var(--color-naranja-duppla);
+ }
+ .Container-cards-seccion{
+  display: grid;
+  grid-template-columns: 1fr ;
+ 
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 390px;
+  height: 140px;
+  left: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+ }
+
+.tarjetasdatos-usuario {
+  display: grid;
+  grid-template-columns: 1fr ;
+ 
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 380px;
+  height: 100px;
+  left: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
+.link-style{
+
+  color: #0A3323;
+  left: 25px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+.card-docs{
+
+  display: flex;
+  justify-content: space-between;
+  
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 390px;
+  height: 80px;
+  left: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  
+background-color: var(--color-fondo);
+border: 1px solid #E1EBF4;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+border-radius: 12px;
+
+
+}
+
+.arrow-menu{
+
+  width: 24px;
+  height: 24px;
+}
+
+
+.img-estados{
+
+  width: 380px;
+  height: auto;
+}
+
+
+/*Estilos componenete inmueble-property*/
+
+.card-inmueble{
+  display: grid;
+  grid-template-columns: 1fr ;
+  
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 390px;
+  height: 170px;
+  left: 25px;
+  right: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  
+background-color: var(--color-fondo);
+border: 1px solid #E1EBF4;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+border-radius: 12px;
+
+
+
+
+}
