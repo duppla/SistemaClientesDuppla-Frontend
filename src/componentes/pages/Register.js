@@ -86,9 +86,8 @@ function Register() {
 
     return (
 
-        <div className="register" id="formAuthLogin">
-            <p>{String(authenticated)}</p>
-            <div className="container-register">
+        <div className="register container-fluid" id="formAuthLogin">            
+            <div className="container-register container-sm">
                 <div className="arrow-return">
                     <Link to='/login'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
@@ -100,7 +99,7 @@ function Register() {
                     <h2> <b>Iniciar Sesión</b>
                     </h2>
                 </div>
-                <div className="form-register">
+                <div className="form-register container-sm">
                     <form onSubmit={handleSubmit} >
                         <div className="mb-3">
                             <input type="email"

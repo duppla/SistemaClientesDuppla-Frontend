@@ -23,7 +23,7 @@ function login( ) {
 
     return (
         <div className="login">
-            <div className=".container-fluid">
+            <div className="container-fluid">
                 <div className=" d-flex justify-content-center align-items-center" b-color="#0000">
                     <div className="container-sing">
                         <div className="img-logotipo">
