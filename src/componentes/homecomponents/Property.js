@@ -31,7 +31,7 @@ function Property() {
 
 
     return (
-        <div className="container-property">
+        <div className="container-property container-fluid">
             <div className="arrow-return">
                 <Link to='/home'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
@@ -77,18 +77,18 @@ function Property() {
 
             {/*información inmueble */}
 
-            <div className="text-title-property">
+            <div className="text-title-property container-sm">
 
                 <div>
-                    <h1 className="text-title-property-title"><b>Apartamento</b></h1>
-                    <p><b>240'000.000</b></p><br />
+                    <h1 className="text-title-property-title"><b>Apartamento{datosIn.Tipo_de_inmueble}</b></h1>
+                    <p><b>240'000.000</b></p><br/>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi sed consequat purus nulla faucibus morbi amet. Leo, aliquam amet at senectus et.
 
                     </p>
                 </div>
             </div><br />
-            <div className="card-inmueble">
+            <div className="card-inmueble container-sm">
                 <div className="row ">
                     <div className="col-2">
                         <img src={Iubicacion} className="img-fluid rounded-start " alt="..." width='24px' height='24px' />
@@ -99,59 +99,56 @@ function Property() {
                             <p className="card-text"><b>{datosIn.Direccion}</b></p>
                             <p className="card-text"><b>{datosIn.Barrio}</b></p>
                         </div>
-                        <div className="dropdown">
-                            <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        <div className="dropdown ">
+                            <button type="button" class="btn  dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                 Ver más
                             </button>
-                            <div className="dropdown-menu p-4 " >
-                                <ol className="list-group ">{/*list-group-numbered*/}
+                            <div className="dropdown-menu b-color-gris " >
+                                <ol className="list-group  ">{/*list-group-numbered*/}
 
                                     <li className=" list-group-item d-flex justify-content-start align-items-start">
                                         <div className="row" >
-                                            <div className="card-body col-2">
-                                                <img src={Istateg} className="img-fluid rounded-start warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                            </div>
-                                            <div className="fw-bold col-6">m2:{datosIn.Area }</div>
+                                            <div className="fw-bold col-6">m2:{datosIn.Area}</div>
 
                                         </div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="row">
-                                        <div className="card-body col-2">
-                                                <img src={Istateg} className="img-fluid rounded-start warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                            </div>
-
-                                            <div className="fw-bold col-10">Edad: 2 años</div>
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Edad:{ }</div>
 
                                         </div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">*Estrato: 3</div>
+
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Estrato:{datosIn.Estrato}</div>
 
                                         </div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">*Habitaciones: 2 </div>
+
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Habitaciones:{datosIn.Habitaciones}</div>
 
                                         </div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">*Baños: 1</div>
+
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Baños:{datosIn.Banos}</div>
 
                                         </div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">*Parqueadero: 3</div>
+
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Parqueadero:{datosIn.Parqueadero}</div>
 
                                         </div>
                                     </li>
-                                    <li className="list-group-item d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 ">
-                                            <div className="fw-bold">*Piso: 4</div>
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Piso:{datosIn.Piso}</div>
 
                                         </div>
                                     </li>
@@ -162,7 +159,7 @@ function Property() {
                 </div>
             </div>
 
-            <div className="card-inmueble">
+            <div className="card-inmueble container-sm ">
                 <div className="row ">
                     <div className="col-2">
                         <img src={Ievaluacionprecio} className="img-fluid rounded-start " alt="..." width='24px' height='24px' />
@@ -177,13 +174,13 @@ function Property() {
                     </div>
                 </div>
             </div>
-            <div className="card-inmueble">
+            <div className="card-inmueble container-sm">
                 <div className="row ">
                     <div className="col-2">
                         <img src={Ivalidacioninmueble} className="img-fluid rounded-start " alt="..." width='24px' height='24px' />
                     </div>
                     <div className="col-8">
-                        <div className="card-body">
+                        <div className="card-body ">
                             <h5 className="card-title">Evaluación técnica</h5><br />
                             <p className="card-text"><b>*Pendiente </b></p>
                             <p className="card-text"><b>*Programada</b></p>
@@ -196,12 +193,12 @@ function Property() {
 
             <div className="d-flex justify-content-center align-items-center">
                 <div>
-                    <button type="button" class="btn btn-outline-primary btn-xl">CANCELAR</button>
+                    <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
                 </div><br />
 
 
-                <div>
-                    <button type="button" class="btn btn-outline-primary btn-xl btn-primary">ACEPTAR</button>
+                <div className="">
+                    <button type="button" class="btn btn-outline-primary btn-d-cancel ">ACEPTAR</button>
 
                 </div>
             </div>

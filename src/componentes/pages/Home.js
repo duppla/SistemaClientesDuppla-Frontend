@@ -14,7 +14,7 @@ function Home() {
 
 
   return (
-    <div className="container-home">
+    <div className="container-home container-fluid">
       {/*Contenedor de perfil */}
       <div className="profile ">       
         <div className="col-4 ">
@@ -59,7 +59,6 @@ function Home() {
             <div className="col-4">
               <img src={Iinmueble} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
             </div>
-
             <div className="col-4">
               <h4 className="card-title"><b>Inmueble</b></h4><br />
               <Link to='/property' className="link-style">Abrir</Link>
@@ -105,17 +104,17 @@ function Home() {
       </div>
 
       {/*componente calendario*/}
-      <div className="centrado-btn " id="btnIniciarSesion">
-        <Link to='/Calendar'>
-          <button type="button" id="" className="btn btn-primary btn-registro text-center" width="400px" height="46px" >
+      <div className=" container-sm " id="btnIniciarSesion">
+        <Link to='/Calendar' className="links">
+          <button type="button"  className="btn btn-prueba text-center" width="400px" height="46px" >
             Agendar una cita
           </button>
         </Link>
       </div>
       {/*componente  soporte*/}
-      <div className="btn btn-ingreso-google centrado-btn" width="400px" height="48px" >
-        <Link to=''>
-          <div><b>Tengo algún problema</b></div>
+      <div className="btn btn-prueba-blanco text-center" width="400px" height="48px" >
+        <Link to='' className="links">
+          <div>Tengo algún problema</div>
         </Link>
       </div>
 

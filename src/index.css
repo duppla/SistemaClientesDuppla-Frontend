@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -20,6 +21,7 @@ code {
   --color-verde-duppla:#C5F5CA;
   --color-cimiento-duppla:#0A3323;
   --color-sombra-duppla:#EEEFF3;
+  --color-fondo-gris:#F9F9F9;
 
   
 }
@@ -31,6 +33,20 @@ code {
 .btn-registro{
    color: var(--color-fondo);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-blue{
+  color: var(--color-primario-btn);
+}
+
+.b-color-gris{
+  color: var(--color-fondo-gris)
+}
+
+
+li{
+
+  text-decoration: none;
 }
 
 .container-sing {
@@ -150,8 +166,7 @@ top: 180px;
 margin: 0;
 padding: 0;
 background: #F5F5F5;
-width: 100wv;
-height: auto;                                     
+height: 1200px;                                 
  
 }
 
@@ -263,14 +278,16 @@ transform: rotate(90deg);
   color: var(--color-naranja-duppla);
  }
  .Container-cards-seccion{
-  display: grid;
-  grid-template-columns: 1fr ;
+  display: flex;
+  justify-content: center;
  
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
   padding: 16px 24px;
   gap: 16px;
   
-  width: 390px;
+   width: 390px;
   height: 140px;
   left: 25px;
   top: 210px;
@@ -318,6 +335,8 @@ transform: rotate(90deg);
   justify-content: space-between;
   
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 16px 24px;
   gap: 16px;
   
@@ -333,8 +352,32 @@ border: 1px solid #E1EBF4;
 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 border-radius: 12px;
 
-
 }
+
+.card-docs-agenda{
+
+  display: flex;
+  justify-content: space-between;
+  
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 16px 24px;
+  gap: 16px;
+  
+  width: 390px;
+  height: 80px;
+  left: 25px;
+  top: 210px;
+  bottom: 100px;
+  
+  
+
+background: #FFFFFF;
+border: 1.4px solid #D0D0D0;
+border-radius: 10px;
+}
+
 
 .arrow-menu{
 
@@ -349,6 +392,58 @@ border-radius: 12px;
   height: auto;
 }
 
+.btn-prueba{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 0px;
+gap: 8px;
+
+
+width: 330px;
+height: 56px;
+left: 24px;
+margin-top: 20px;
+margin-bottom: 5px;
+
+background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
+/* M3/Elevation Light/1 */
+
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+}
+
+.btn-prueba-blanco{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0px;
+  gap: 8px;
+  
+  
+  width: 330px;
+  height: 56px;
+  left: 24px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+ 
+  
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #FFFFFF;
+border: 1px solid #6C9FFF;
+/* M3/Elevation Light/1 */
+
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+
+}
+
+.text-center{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
 
 /*Estilos componenete inmueble-property*/
 
@@ -374,6 +469,78 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 border-radius: 12px;
 
 
+}
+
+.card-body{
+
+  padding-bottom: 5px;
+
+}
+
+
+
+
+.btn-d-cancel {
+  box-sizing: border-box;
+
+position: relative;
+width: 160px;
+height: 52px;
+
+top: 24px;
+
+background: #81A1F8;
+color: var(--color-fondo);
+/* Neutral / Grey 800 */
+
+border: 0.5px solid #323F4B;
+border-radius: 10px;
+
+}
+
+.btn-d-aceptar{
+  box-sizing: border-box;
+
+position: relative;
+width: 160px;
+height: 52px;
+
+top: 24px;
+
+background: var(--color-fondo);
+color: #323F4B;
+/* Neutral / Grey 800 */
+
+border: 0.5px solid #323F4B;
+border-radius: 10px;
+}
+
+/*Responsive*/
+
+
+
+
+@media (min-width: 576px) { 
+
 
 
 }
+
+/*Dispositivos medianos (tabletas, 768px y más)*/
+@media (min-width: 768px) { 
+
+
+}
+
+/* Dispositivos grandes (escritorios, 992px y más)*/
+@media (min-width: 992px) {  }
+
+/* Dispositivos X-Large (escritorios grandes, 1200px y más)*/
+@media (min-width: 1200px) {  }
+
+/* Dispositivos XX-Large (escritorios más grandes, 1400px y más)*/
+@media (min-width: 1400px) {  }
+;
+
+
+
