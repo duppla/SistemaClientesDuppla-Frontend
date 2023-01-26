@@ -188,22 +188,21 @@ height: 1200px;
 
 .img-user{
   width: 70px;
-  height: 80px;  
+  height: 80px; 
+  padding-left: 10px;
+  left: 30px; 
 }
 
 .user-data-card{
   background-color: var(--color-fondo);
   width: 390px;
-  height: 800px;
+  height: 600px;
  
 padding: 18px 138px 18px 16px;
 gap: 10px;
-
-
-width: 390px;
-  height: 600px;
 left: 16px;
 top: 204px;
+margin-bottom: 30px;
 
 background: #FFFFFF;
 box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.06);
@@ -216,16 +215,15 @@ border-radius: 5px;
 }
 
 
-
 /* linea en perfil |*/
 hr{
 position: absolute;
-width: 59px;
+width: 80px;
 height: 0px;
-left: 119px;
+left: 90px;
 top: 64px;
 
-border: 1px solid #E7E7E7;
+border: 2px solid #FFFFFF;
 transform: rotate(90deg);
 
 }
@@ -391,7 +389,9 @@ border-radius: 10px;
   width: 380px;
   height: auto;
 }
-
+a{
+  text-decoration: none;
+}
 .btn-prueba{
 
 display: flex;
@@ -405,7 +405,7 @@ gap: 8px;
 width: 330px;
 height: 56px;
 left: 24px;
-margin-top: 20px;
+margin-top: 30px;
 margin-bottom: 5px;
 
 background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
@@ -426,7 +426,7 @@ border-radius: 10px;
   
   width: 330px;
   height: 56px;
-  left: 24px;
+ 
   margin-top: 20px;
   margin-bottom: 5px;
  
@@ -440,10 +440,31 @@ border-radius: 10px;
 
 }
 
+.centrado{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+
+.rounded-start{
+width: 58px;
+  height: 58px;
+  border-radius: 100%;
+}
+
+
 .text-center{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
+
+.text-blue {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: var(--color-primario-btn);
+}
+
 
 /*Estilos componenete inmueble-property*/
 

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
-import { Link, Navigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 
@@ -11,7 +11,23 @@ import { Link, Navigate } from "react-router-dom";
 
 
 function Home() {   
+//Datos del usuario
+  const [data, setData] = useState({});
 
+  useEffect(() => {
+      // GET request using fetch inside useEffect React hook
+      const options = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: '{"email":"sharyth.navarro@gmail.com"}'
+      };
+      fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
+          .then(response => response.json())
+          .then(response => setData(response))
+          .catch(err => console.error(err));
+
+      // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
 
   return (
     <div className="container-home container-fluid">
@@ -24,7 +40,7 @@ function Home() {
         </div><hr/>
         <div className="col-8">
           <div className="card-body">
-            <h5 className="card-title text-white" >Nombre Usuario</h5>
+            <h5 className="card-title text-white" >{data.nombre}</h5>
             <p className="text-orange">Fecha</p>
           </div>
           <Link to='/profile' className="link-styles">Abrir</Link>
@@ -105,17 +121,24 @@ function Home() {
 
       {/*componente calendario*/}
       <div className=" container-sm " id="btnIniciarSesion">
-        <Link to='/Calendar' className="links">
+      <a className="links"
+         href="https://calendly.com/agendadaniel">
           <button type="button"  className="btn btn-prueba text-center" width="400px" height="46px" >
             Agendar una cita
           </button>
-        </Link>
+          </a>
       </div>
       {/*componente  soporte*/}
-      <div className="btn btn-prueba-blanco text-center" width="400px" height="48px" >
-        <Link to='' className="links">
-          <div>Tengo algún problema</div>
-        </Link>
+      <div className=" container-sm " id="">
+       
+        <a className="links"
+         href="https://api.whatsapp.com/send?phone=573152559261">
+         
+         <button type="button"  className="btn btn-prueba-blanco text-blue links " width="400px" height="46px" >
+          Tengo algún problema
+          </button>
+          </a>
+     
       </div>
 
     </div>

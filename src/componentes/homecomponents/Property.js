@@ -81,7 +81,7 @@ function Property() {
 
                 <div>
                     <h1 className="text-title-property-title"><b>Apartamento{datosIn.Tipo_de_inmueble}</b></h1>
-                    <p><b>240'000.000</b></p><br/>
+                    <p><b>{datosIn.Valor_inmueble_compra_duppla}</b></p><br/>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi sed consequat purus nulla faucibus morbi amet. Leo, aliquam amet at senectus et.
 
@@ -114,7 +114,7 @@ function Property() {
                                     </li>
                                     <li className=" list-group-item d-flex justify-content-start align-items-start">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Edad:{ }</div>
+                                            <div className="fw-bold col-6">Edad:{datosIn.Antiguedad}</div>
 
                                         </div>
                                     </li>
@@ -167,7 +167,7 @@ function Property() {
                     <div className="col-8">
                         <div className="card-body">
                             <h5 className="card-title">Evaluación de precio</h5><br />
-                            <p className="card-text"><b>Precio oferta M2: $ 3'900.000 </b></p>
+                            <p className="card-text"><b>Precio oferta M2:{datosIn.Evaluacion_m2} </b></p>
                             <p className="card-text"><b>Precio oferta: $ 3'900.000</b></p>
                         </div>
 

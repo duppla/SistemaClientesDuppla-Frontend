@@ -55,7 +55,7 @@ function profile() {
                 <div className="">
                     <div className="row ">
                         <div className="col-4">
-                            <img src={Iperfil} className="img-fluid rounded-start img-user" alt="perfil" />
+                            <img src={Iperfil} className="img-fluid rounded-start img-user" alt="perfil" width="24px" height="24px" />
                         </div>
                         <div className="col-8">
                             <div className="card-body">
@@ -175,25 +175,27 @@ function profile() {
                         </div>
                     </div>
                 </div>
-                {/*componente calendario*/}
-                <div className="centrado-btn  container-sm" id="btnIniciarSesion">
-                    <Link to='/Calendar' className="links">
-                        <button type="button" id="" className="btn btn-primary btn-registro text-center" width="400px" height="46px" >
-                            QUIERO EDITAR MIS DATOS
-                        </button>
-                    </Link>
-                </div>
 
-                  {/*componente cerrar sesión*/}
-                <div id="btnInicioGoogle" onClick={handleLogout}>
-                    <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" >
-                        <img src={Icerrarsesion} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="64px" height="64px" />
-                        <div><b>Cerrar sesión</b></div>
+            </div>
 
+            {/*componente calendario*/}
+            <div className="centrado-btn  container-sm" id="btnIniciarSesion">
+                <Link to='' className="links">
+                    <button type="button" id="" className="btn btn-prueba text-white" width="400px" height="46px" >
+                        QUIERO EDITAR MIS DATOS
+                    </button>
+                </Link>
+            </div>
+
+            {/*componente cerrar sesión*/}
+            <div className="row centrado" id="btnInicioGoogle" onClick={handleLogout}>
+                <div className="btn  input-group btn-prueba-blanco " width="400px" height="56px" >
+                    <div className="col-2">
+                        <img src={Icerrarsesion} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="58px" height="58px" />
                     </div>
+                    <div className="col-6 text-center"><b>Cerrar sesión</b></div>
+
                 </div>
-
-
 
             </div>
         </div>

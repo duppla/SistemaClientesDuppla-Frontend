@@ -7,7 +7,7 @@ function Offer() {
 
 
   return (
-    <div className="container-calendar">
+    <div className="container-calendar container-fluid">
 
       <div className="Documents">
         <div className="arrow-return">
@@ -19,7 +19,7 @@ function Offer() {
         </div>
       </div>
       <div className="title-register">
-        <h1> <b>Calendario</b>
+        <h1> <b>Oferta</b>
         </h1>
       </div>
 
@@ -31,14 +31,14 @@ function Offer() {
       </div>
 
 
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center container-sm">
         <div>
-          <button type="button" class="btn btn-outline-primary btn-xl">CANCELAR</button>
+          <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
         </div><br />
 
 
-        <div>
-          <button type="button" class="btn btn-outline-primary btn-xl btn-primary">ACEPTAR</button>
+        <div className="">
+          <button type="button" class="btn btn-outline-primary btn-d-cancel ">ACEPTAR</button>
 
         </div>
       </div>
