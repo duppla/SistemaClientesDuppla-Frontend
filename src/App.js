@@ -17,7 +17,6 @@ import Error404 from './componentes/pages/Error404';
 import Profile from './componentes/homecomponents/Profile';
 import Documents from './componentes/homecomponents/Documents';
 import Property from './componentes/homecomponents/Property';
-import Calendar from './componentes/homecomponents/Calendar';
 import Offer from './componentes/homecomponents/Offer';
 import { AuthContext } from './context/Contextauth';
 import { AuthProvider } from './context/Contextauth';
@@ -77,7 +76,6 @@ function App() {
         <Route exact path='/profile' element={<Private>< Profile /></Private>} ></Route>
         <Route exact path='/documents' element={<Private><Documents /></Private>} ></Route>
         <Route exact path='/property' element={<Private><Property /></Private>} ></Route>
-        <Route exact path='/calendar' element={<Private><Calendar /></Private>} ></Route>
         <Route exact path='/offer' element={<Private><Offer /></Private>} ></Route>
 
         <Route path='/error404' element={<Error404 />} ></Route>

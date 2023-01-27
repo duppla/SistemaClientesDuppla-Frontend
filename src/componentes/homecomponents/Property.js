@@ -5,12 +5,18 @@ import Istateg from "../../img/Istateg.png";
 import Iubicacion from "../../img/Iubicacion.png";
 import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
 import Imgdefauld from "../../img/Imgdefauld.png";
+import Duppla_logotipo from "../../img/Duppla_Logotipo_V2.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
+import numeral from 'numeral';
+
+
+
 
 function Property() {
 
     // consumo del Api de inmueble
     const [datosIn, setDatosIn] = useState({});
+    const [formattedData, setFormattedData] = useState(null);
 
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
@@ -21,12 +27,26 @@ function Property() {
         };
         fetch('https://sistemas-clientes-duppla.herokuapp.com/inm/getInm', options)
             .then(response => response.json())
-            .then(response => setDatosIn(response))
+            .then(response => {
+                setDatosIn(response);
+                setFormattedData(numeral(datosIn).format('0,0.00'));
+
+            })
+
             .catch(err => console.error(err));
 
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
 
+    
+    const number = datosIn.Valor_inmueble_compra_duppla;
+    const formatter = new Intl.NumberFormat('es-ES', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+    const formattedNumber = formatter.format(number);
+    
 
 
 
@@ -54,13 +74,13 @@ function Property() {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Imgdefauld} className="d-block w-100" alt="..." />
+                        <img src={Duppla_logotipo} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={Imgdefauld} className="d-block w-100" alt="..." />
+                        <img src={Duppla_logotipo} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={Imgdefauld} className="d-block w-100" alt="..." />
+                        <img src={Duppla_logotipo} className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button"
@@ -81,7 +101,9 @@ function Property() {
 
                 <div>
                     <h1 className="text-title-property-title"><b>Apartamento{datosIn.Tipo_de_inmueble}</b></h1>
-                    <p><b>{datosIn.Valor_inmueble_compra_duppla}</b></p><br/>
+                    {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
+                    <p><b> {formattedNumber}</b></p><br />
+
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi sed consequat purus nulla faucibus morbi amet. Leo, aliquam amet at senectus et.
 

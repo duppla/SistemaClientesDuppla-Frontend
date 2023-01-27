@@ -11,6 +11,19 @@ import { Link} from "react-router-dom";
 
 
 function Home() {   
+
+// Función fecha
+
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0');
+let yyyy = today.getFullYear();
+
+let fecha = `${dd}/${mm}/${yyyy}`;
+
+
+
+
 //Datos del usuario
   const [data, setData] = useState({});
 
@@ -41,7 +54,7 @@ function Home() {
         <div className="col-8">
           <div className="card-body">
             <h5 className="card-title text-white" >{data.nombre}</h5>
-            <p className="text-orange">Fecha</p>
+            <p className="text-orange">{fecha}</p>
           </div>
           <Link to='/profile' className="link-styles">Abrir</Link>
         </div>
