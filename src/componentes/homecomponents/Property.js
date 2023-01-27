@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Istateg from "../../img/Istateg.png";
 import Iubicacion from "../../img/Iubicacion.png";
 import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
-import Imgdefauld from "../../img/Imgdefauld.png";
 import Duppla_logotipo from "../../img/Duppla_Logotipo_V2.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 import numeral from 'numeral';
@@ -215,7 +214,9 @@ function Property() {
 
             <div className="d-flex justify-content-center align-items-center">
                 <div>
+                <Link to='/home'>
                     <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
+                </Link>
                 </div><br />
 
 

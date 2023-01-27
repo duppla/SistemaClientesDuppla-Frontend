@@ -75,7 +75,9 @@ function Offer() {
 
       <div className="d-flex justify-content-center align-items-center container-sm">
         <div>
+        <Link to='/home'>
           <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
+       </Link>
         </div><br />
 
 
