@@ -104,7 +104,7 @@ let fecha = `${dd}/${mm}/${yyyy}`;
       </div>
       {/*Menú documentos*/}
       <div className="card-docs  ">
-        <div className="card-body col-8">
+        <div className="card-body col-8 text-center">
           <b>Menú documentos</b>
         </div>
         <div className="col-2 outline">
@@ -124,11 +124,11 @@ let fecha = `${dd}/${mm}/${yyyy}`;
 
       {/*Próxima reunión*/}
       <div className="card-docs ">
-        <div className="card-body col-6">
+        <div className="card-body col-6 text-center">
           Proxima reunión
         </div>
         <div className="col-6">
-          <p className="danger-text"> 01-12-2023 8:00 a.m.</p>
+          <p className="danger-text"> 27-01-2023 4:30 p.m.</p>
         </div>
       </div>
 

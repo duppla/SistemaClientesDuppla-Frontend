@@ -465,6 +465,11 @@ width: 58px;
   color: var(--color-primario-btn);
 }
 
+.danger-text{
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
 
 /*Estilos componenete inmueble-property*/
 

@@ -136,7 +136,7 @@ function Property() {
                                     </li>
                                     <li className=" list-group-item d-flex justify-content-start align-items-start">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Edad:{datosIn.Antiguedad}</div>
+                                            <div className="fw-bold col-6">Antigüedad:{datosIn.Antiguedad}</div>
 
                                         </div>
                                     </li>
@@ -190,7 +190,7 @@ function Property() {
                         <div className="card-body">
                             <h5 className="card-title">Evaluación de precio</h5><br />
                             <p className="card-text"><b>Precio oferta M2:{datosIn.Evaluacion_m2} </b></p>
-                            <p className="card-text"><b>Precio oferta: $ 3'900.000</b></p>
+                            <p className="card-text"><b>Precio oferta: $ 3.900.000</b></p>
                         </div>
 
                     </div>
