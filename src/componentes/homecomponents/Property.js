@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Istateg from "../../img/Istateg.png";
 import Iubicacion from "../../img/Iubicacion.png";
 import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
 import Duppla_logotipo from "../../img/Duppla_Logotipo_V2.png";
@@ -37,7 +36,7 @@ function Property() {
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
 
-    
+    //formateo de los datos de valor inmueble duppla
     const number = datosIn.Valor_inmueble_compra_duppla;
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
@@ -45,7 +44,7 @@ function Property() {
         maximumFractionDigits: 2
     });
     const formattedNumber = formatter.format(number);
-    
+
 
 
 
@@ -95,17 +94,14 @@ function Property() {
             </div><br />
 
             {/*información inmueble */}
-
             <div className="text-title-property container-sm">
 
                 <div>
                     <h1 className="text-title-property-title"><b>Apartamento{datosIn.Tipo_de_inmueble}</b></h1>
                     {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
                     <p><b> {formattedNumber}</b></p><br />
-
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi sed consequat purus nulla faucibus morbi amet. Leo, aliquam amet at senectus et.
-
                     </p>
                 </div>
             </div><br />
@@ -214,9 +210,9 @@ function Property() {
 
             <div className="d-flex justify-content-center align-items-center">
                 <div>
-                <Link to='/home'>
-                    <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
-                </Link>
+                    <Link to='/home'>
+                        <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
+                    </Link>
                 </div><br />
 
 

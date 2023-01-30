@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import Iperfil from "../../img/iconoperfil.png";
 import Idata from "../../img/imgdata.png";
 import Icerrarsesion from "../../img/imgcerrarsesion.png";
-
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 

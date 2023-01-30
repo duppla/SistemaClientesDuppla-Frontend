@@ -1,6 +1,5 @@
 import React, { useState,  useContext } from 'react';
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 /*import { serialize } from 'cookie';*/
 import { AuthContext } from '../../context/Contextauth';
@@ -10,13 +9,8 @@ import { AuthContext } from '../../context/Contextauth';
 
 function Register() {
 
-    const {authenticated, login}=useContext(AuthContext);
-
-
-    /*Usa el estado para enviar al home */
-    const navigate = useNavigate();
-
-   
+    const {login}=useContext(AuthContext);
+  
     /*Datos enviados a través del servicio*/
     const [datos, setDatos] = useState({
         email: '',
@@ -54,8 +48,8 @@ function Register() {
         if (datos.email === "" || datos.email === null || datos.password === "" || datos.password === null) {
             alert('El correo  o contraseña no puede estar vacio');
         } else {
-            console.log(datos);
-            const options = {
+            //console.log(datos.email);
+               const options = {
                 method: 'POST',
                 url: 'https://sistemas-clientes-duppla.herokuapp.com/users/login',
                 headers: { 'Content-Type': 'application/json' },
@@ -63,8 +57,8 @@ function Register() {
             };
             
             axios.request(options).then(function (response) {
-                console.log(response.data);
-                console.log(response.status);
+                //console.log(response.data);
+                //console.log(response.status);
                 if (!response.data.status === 200) {
                     console.log('error de login');
                 } else {

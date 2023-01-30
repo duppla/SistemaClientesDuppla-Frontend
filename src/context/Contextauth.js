@@ -34,16 +34,16 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('token', JSON.stringify(tokenUser));
 
         if (tokenUser) {
-            console.log('ver si entra el', tokenUser);
+            //console.log('ver si entra el', tokenUser);
             setToken({ token: tokenUser });
-            console.log(token);
+            //console.log(token);
             navigate('/home')
         } else {
             navigate('/register')
         }
     };
     const logout = () => {
-        console.log('logout');
+        //console.log('logout');
         localStorage.removeItem('token');
         setToken(null);
         navigate('/register');

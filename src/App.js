@@ -1,11 +1,9 @@
 /*import './App.css';*/
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   Route,
   Routes,
-  BrowserRouter,
-  Navigate,
-  useSearchParams
+  Navigate
 
 } from 'react-router-dom';
 import SingIn from './componentes/pages/Singin';
@@ -25,23 +23,19 @@ import { AuthProvider } from './context/Contextauth';
 
 
 function App() {
-//  el children viene de context
+  //  el children viene de context
   const Private = ({ children }) => {
 
     const { authenticated, loanding } = useContext(AuthContext);
-// valida que este en localsotore- si no esta logueado se redirecciona a login
+    // valida que este en localsotore- si no esta logueado se redirecciona a login
 
     if (loanding) {
       return <div>cargando...</div>;
     }
-
-
     if (!authenticated) {
       return <Navigate to="/login" />;
     }
-
     return children;
-    
   }
 
   /*const [isLogged, setIsLogged] = useState (false);*/
