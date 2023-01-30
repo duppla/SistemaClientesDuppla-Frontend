@@ -34,10 +34,29 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('token', JSON.stringify(tokenUser));
 
         if (tokenUser) {
-            //console.log('ver si entra el', tokenUser);
-            setToken({ token: tokenUser });
-            //console.log(token);
-            navigate('/home')
+           // console.log('ver si entra el', tokenUser);
+           // se verifica que el token sea el correcto
+            const options = {
+                method: 'POST',
+                headers: {
+                  Authorization: 'Bearer ' + tokenUser,
+                  
+                }
+              };
+              
+              fetch('https://sistemas-clientes-duppla.herokuapp.com/users/check', options)
+                .then(response => response.json())
+                .then(response => {
+                    setToken({ token: tokenUser });
+                    //console.log(response);        
+                    navigate('/home')
+
+                })
+                .catch(err => {                  
+                    
+                    console.error(err)                
+                    navigate('/register')
+                });
         } else {
             navigate('/register')
         }
