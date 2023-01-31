@@ -3,6 +3,8 @@ import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
+import Istateg from "../../img/Istateg.png"
+import Idupplaverdeblanco from "../../img/Idupplaverdeblanco.png"
 import { Link } from "react-router-dom";
 
 
@@ -12,7 +14,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
 
-  // Función fecha
+  // Función fecha del día actual
 
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, '0');
@@ -46,34 +48,42 @@ function Home() {
     <div className=" container-fluid ">
       {/*Contenedor de perfil */}
       <div className="profile ">
+        <div className="row contenedor-img-duppla">
+          <img src={Idupplaverdeblanco} className=" img-duppla" alt="" />
+        </div>
         <div className="col-4 ">
           <Link to='/profile' className="link-styles"> <img src={Iperfil}
-            className="img-fluid rounded-start img-user"
+            className="img-fluid  img-user"
             alt="perfil" />
           </Link>
         </div><hr />
         <div className="col-8">
           <div className="card-body">
-            <h5 className="card-title text-white" >{data.nombre}</h5><br/>
+            <h5 className="card-title card-home text-white" >{data.nombre}</h5>
             <p className="text-orange">{fecha}</p>
           </div>
         </div>
       </div>
+
       {/*Contenedor de oferta */}
       <div className="Container-cards-seccion d-grid" id="cardComponet">
         <div className="card-seccion"   >
           <div className="row ">
-            <div className="col-4">
-              <img src={Idocumento} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+            <div className="col-2">
+              <img src={Idocumento} className="img-icono-card  " alt="" />
             </div>
 
-            <div className="col-4">
+            <div className="col-4 card-home-offer">
               <h4 className="card-title"><b>Ultima oferta</b></h4><br />
               <Link to='/offer' className="link-style">Abrir</Link>
             </div>
-            <div className="col-4">
+            <div className="col-1">
+              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+            <div className="col-4">             
               <div className="card-body">
                 <p className="card-text"> Hoy 13/01/2022</p><br />
+                
                 <p className="card-text"> Por aprobar.</p>
               </div>
 
@@ -85,23 +95,30 @@ function Home() {
       <div className="Container-cards-seccion d-grid" id="cardComponet">
         <div className="card-seccion"   >
           <div className="row ">
-            <div className="col-4">
-              <img src={Iinmueble} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+            <div className="col-2">
+              <img src={Iinmueble} className="img-icono-card  " alt="" />
             </div>
-            <div className="col-4">
-              <h4 className="card-title"><b>Inmueble</b></h4><br />
-              <Link to='/property' className="link-style">Abrir</Link>
+
+            <div className="col-4 card-home-offer">
+              <h4 className="card-title card-top"><b>Inmueble</b></h4><br />
+              <br />
+              <Link to='/offer' className="link-style">Abrir</Link>
             </div>
-            <div className="col-4">
+            <div className="col-1">
+              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+            <div className="col-4">             
               <div className="card-body">
-                <p className="card-text"> Hoy 13/01/2022</p><br />
+                <p className="card-text"> Hoy 13/01/2022</p><br />                
                 <p className="card-text"> Por aprobar.</p>
               </div>
-
             </div>
           </div>
         </div>
       </div>
+
+
+
       {/*Menú documentos*/}
       <div className="card-docs  ">
         <div className="card-body col-8 text-center">
@@ -124,8 +141,8 @@ function Home() {
 
       {/*Próxima reunión*/}
       <div className="card-docs ">
-        <div className="card-body col-6 text-center">
-          Proxima reunión
+        <div className="card-body col-6  text-reu">
+          <b>Proxima reunión</b>
         </div>
         <div className="col-6">
           <p className="danger-text"> 27-01-2023 4:30 p.m.</p>
@@ -134,9 +151,9 @@ function Home() {
 
       {/*componente calendario*/}
       <div className=" container-sm " id="btnIniciarSesion">
-        <a className="links"
+        <a className="links text-white"
           href="https://calendly.com/agendadaniel">
-          <button type="button" className="btn btn-prueba text-center" width="400px" height="46px" >
+          <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
             Agendar una cita
           </button>
         </a>

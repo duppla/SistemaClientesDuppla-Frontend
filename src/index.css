@@ -186,12 +186,49 @@ height: 1200px;
   border-radius: 5px;
 }
 
-.img-user{
-  width: 70px;
-  height: 80px; 
-  padding-left: 10px;
-  left: 30px; 
+/*Manejo img de perfil y home*/
+.img-fluid {
+
+  width: 64px;
+  height: 63px; 
+  
 }
+
+.img-user{
+  margin-left: 32px;
+  margin-top: 30px;
+  }
+
+.img-user-img {
+  margin-top: 13px;
+  margin-left: 16px;
+  margin-bottom: 13px;
+  
+}
+
+.contenedor-img-duppla{
+  width: 80px;
+  height: 30px;
+ 
+}
+.img-duppla{
+
+  position: absolute;
+  padding: 0px;
+width: 80px;
+height: 28px;
+left: 283px;
+top: 20px;
+margin-left: 20px;
+margin-right: 24px;
+  
+
+}
+
+.card-home{
+  margin-top: 75px;
+ }
+
 
 .user-data-card{
   background-color: var(--color-fondo);
@@ -218,10 +255,12 @@ border-radius: 5px;
 /* linea en perfil |*/
 hr{
 position: absolute;
-width: 80px;
+
+width: 59px;
 height: 0px;
-left: 90px;
-top: 64px;
+left: 96px;
+top: 80px;
+bottom: 34px;
 
 border: 2px solid #FFFFFF;
 transform: rotate(90deg);
@@ -259,6 +298,32 @@ transform: rotate(90deg);
   background-repeat: no-repeat;
   border-bottom-right-radius: 16%;
   border-bottom-left-radius: 16% ;
+
+}
+
+.img-icono-card{
+
+width: 58px;
+height: 72px;
+left: 27.01px;
+margin-top: 25px;
+margin-right: 10px;
+bottom: 22px;
+
+}
+
+.btn-state-home{
+  margin-top: 93px;
+  margin-left: 5px;
+}
+
+.card-top {
+  margin-top: 10px;
+}
+
+.card-home-offer{
+  margin-left: 30px;
+  margin-right: 0px;
 
 }
 
@@ -385,6 +450,13 @@ border-radius: 10px;
 a{
   text-decoration: none;
 }
+
+.text-reu{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+
 .btn-prueba{
 
 display: flex;
@@ -421,7 +493,7 @@ border-radius: 10px;
   height: 56px;
  
   margin-top: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
  
   
 background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #FFFFFF;
@@ -462,6 +534,7 @@ width: 58px;
   color: red;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  margin: 2px;
 }
 
 /*Estilos componenete inmueble-property*/

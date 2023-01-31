@@ -53,7 +53,7 @@ function profile() {
                 <div className="">
                     <div className="row ">
                         <div className="col-4">
-                            <img src={Iperfil} className="img-fluid rounded-start img-user" alt="perfil" width="24px" height="24px" />
+                            <img src={Iperfil} className="img-fluid  img-user-img" alt="perfil" />
                         </div>
                         <div className="col-8">
                             <div className="card-body">
