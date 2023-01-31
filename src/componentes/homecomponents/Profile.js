@@ -202,12 +202,12 @@ function profile() {
             {/*componente cerrar sesión*/}
             <div className="row centrado" onClick={handleLogout}>
                 <div className="col-2 btn input-group btn-prueba-blanco  " width="400px" height="68px" >
-                    <div className="col-2">
-                        <img src={Icerrarsesion} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="58px" height="58px" />
-                    </div>
-                    <div className="col-8 ">
-                        <p className="text-btnloggout">Cerrar sesión</p>
-                    </div>
+
+                    <button type="button" id="" className="btn " >
+                        <b>Cerrar sesión</b>
+                    </button>
+
+
                 </div>
 
             </div>

@@ -95,7 +95,7 @@ function Home() {
       </div>
       {/*Contenedor de inmueble */}
       <div className="Container-cards-seccion d-grid" id="cardComponet">
-        <div className="card-seccion"   >
+        <div className="card-seccion"  >
           <div className="row ">
             <div className="col-2">
               <img src={Iinmueble} className="img-icono-card  " alt="" />
