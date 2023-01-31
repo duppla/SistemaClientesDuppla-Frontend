@@ -69,6 +69,27 @@ li{
   text-decoration: none;
 }
 
+.card-title{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+ 
+}
+
+.card-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin-top: 30px;
+  
+}
+
+.card-text-aprov{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: 4px;
+  
+}
+ 
+
 .container-sing {
  display: grid;
  column-count: auto;
@@ -282,14 +303,10 @@ border-radius: 5px;
 
 }
 
-
-
-
 .links{
   text-decoration: none;
 
 }
-
 
 /* linea en perfil |*/
 hr{
@@ -326,7 +343,7 @@ transform: rotate(90deg);
   justify-content:space-between;
   align-items: center;
    
-  width: 400px;
+  width: 390px;
   height: 160px;
   left: 0px;
   top: 0px;
@@ -354,12 +371,13 @@ bottom: 22px;
 }
 
 .btn-state-home{
-  margin-top: 93px;
+  margin-top: 70px;
   margin-left: 5px;
 }
 
 .card-top {
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-bottom: 4px;
 }
 
 .card-home-offer{

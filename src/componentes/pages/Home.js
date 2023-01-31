@@ -76,7 +76,7 @@ function Home() {
             </div>
 
             <div className="col-4 card-home-offer">
-              <h4 className="card-title"><b>Ultima oferta</b></h4><br />
+              <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
               <Link to='/offer' className="link-style">Abrir</Link>
             </div>
             <div className="col-1">
@@ -84,11 +84,9 @@ function Home() {
               </div>
             <div className="col-4">             
               <div className="card-body">
-                <p className="card-text"> Hoy 13/01/2022</p><br />
-                
-                <p className="card-text"> Por aprobar.</p>
+                <p className="card-text"> Hoy 13/01/2022</p>              
+                <p className="card-text-aprov"> Por aprobar.</p>
               </div>
-
             </div>
           </div>
         </div>
@@ -100,10 +98,8 @@ function Home() {
             <div className="col-2">
               <img src={Iinmueble} className="img-icono-card  " alt="" />
             </div>
-
             <div className="col-4 card-home-offer">
-              <h4 className="card-title card-top"><b>Inmueble</b></h4><br />
-              <br />
+              <h4 className="card-title card-top"><b>Inmueble</b></h4>           
               <Link to='/property' className="link-style">Abrir</Link>
             </div>
             <div className="col-1">
@@ -111,8 +107,8 @@ function Home() {
               </div>
             <div className="col-4">             
               <div className="card-body">
-                <p className="card-text"> Hoy 13/01/2022</p><br />                
-                <p className="card-text"> Por aprobar.</p>
+                <p className="card-text"> Hoy 13/01/2022</p>              
+                <p className="card-text-aprov"> Por aprobar.</p>
               </div>
             </div>
           </div>

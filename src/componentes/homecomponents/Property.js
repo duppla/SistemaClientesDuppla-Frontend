@@ -112,9 +112,9 @@ function Property() {
                     </div>
                     <div className="col-8">
                         <div className="card-body">
-                            <h5 className="card-title">Ubicación</h5><br />
-                            <p className="card-text"><b>{datosIn.Direccion}</b></p>
-                            <p className="card-text"><b>{datosIn.Barrio}</b></p>
+                            <h5 className="">Ubicación</h5><br />
+                            <p className=""><b>{datosIn.Direccion}</b></p>
+                            <p className=""><b>{datosIn.Barrio}</b></p>
                         </div>
                         <div className="dropdown ">
                             <button type="button" class="btn  dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -183,9 +183,9 @@ function Property() {
                     </div>
                     <div className="col-8">
                         <div className="card-body">
-                            <h5 className="card-title">Evaluación de precio</h5><br />
-                            <p className="card-text"><b>Precio oferta M2:{datosIn.Evaluacion_m2} </b></p>
-                            <p className="card-text"><b>Precio oferta: $ 3.900.000</b></p>
+                            <h5 className="">Evaluación de precio</h5><br />
+                            <p className=""><b>Precio oferta M2:{datosIn.Evaluacion_m2} </b></p>
+                            <p className=""><b>Precio oferta: $ 3.900.000</b></p>
                         </div>
 
                     </div>
@@ -198,10 +198,10 @@ function Property() {
                     </div>
                     <div className="col-8">
                         <div className="card-body ">
-                            <h5 className="card-title">Evaluación técnica</h5><br />
-                            <p className="card-text"><b>*Pendiente </b></p>
-                            <p className="card-text"><b>*Programada</b></p>
-                            <p className="card-text"><b>* Realizada </b></p>
+                            <h5 className="">Evaluación técnica</h5><br />
+                            <p className=""><b>*Pendiente </b></p>
+                            <p className=""><b>*Programada</b></p>
+                            <p className=""><b>* Realizada </b></p>
                         </div>
 
                     </div>

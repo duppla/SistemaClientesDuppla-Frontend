@@ -53,7 +53,7 @@ function profile() {
         <div className="container-profile container-fluid">
             <div className="arrow-return container sm">
                 <Link to='/home' className="links ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className="bi bi-arrow-left-short arrow-return" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className=" bi bi-arrow-left-short arrow-return" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
                 </Link>
@@ -71,8 +71,8 @@ function profile() {
                         </div>
                         <div className="col-8 ">
                             <div className="card-body"><br />
-                                <h5 className="card-title text-white "> {data.nombre}</h5>
-                                <p className="card-text text-white"><small className="text-muted">{data.email}</small></p>
+                                <h5 className="text-white "> {data.nombre}</h5>
+                                <p className=" text-white"><small className="text-muted">{data.email}</small></p>
                             </div>
                         </div>
                     </div>
@@ -89,8 +89,8 @@ function profile() {
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Cédula</small><br /></p>
-                                    <p className="card-text"><b>{data.cedula}</b></p>
+                                    <p className=""> <small className="text-muted">Cédula</small><br /></p>
+                                    <p className=""><b>{data.cedula}</b></p>
                                 </div>
 
                             </div>
@@ -105,8 +105,8 @@ function profile() {
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Teléfono</small><br /></p>
-                                    <p className="card-text"><b>{data.celular}</b></p>
+                                    <p className=""> <small className="text-muted">Teléfono</small><br /></p>
+                                    <p className=""><b>{data.celular}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -120,8 +120,8 @@ function profile() {
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Correo</small><br /></p>
-                                    <p className="card-text"><b>{data.email}</b></p>
+                                    <p className=""> <small className="text-muted">Correo</small><br /></p>
+                                    <p className=""><b>{data.email}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -135,8 +135,8 @@ function profile() {
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Ingreso</small><br /></p>
-                                    <p className="card-text"><b>{formattedNumber}</b></p>
+                                    <p className=""> <small className="text-muted">Ingreso</small><br /></p>
+                                    <p className=""><b>{formattedNumber}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -150,8 +150,8 @@ function profile() {
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Ocupación</small><br /></p>
-                                    <p className="card-text"><b>{data.profecion}</b></p>
+                                    <p className=""> <small className="text-muted">Ocupación</small><br /></p>
+                                    <p className=""><b>{data.profecion}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -165,8 +165,8 @@ function profile() {
                             </div>
                             <div className="col-6">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Ingresos adicionales</small><br /></p>
-                                    <p className="card-text"><b>No</b></p>
+                                    <p className=""> <small className="text-muted">Ingresos adicionales</small><br /></p>
+                                    <p className=""><b>No</b></p>
                                 </div>
                             </div>
                         </div>
@@ -180,8 +180,8 @@ function profile() {
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
-                                    <p className="card-text"> <small className="text-muted">Ahorro</small><br /></p>
-                                    <p className="card-text"><b>{formattedNumberr}</b></p>
+                                    <p className=""> <small className="text-muted">Ahorro</small><br /></p>
+                                    <p className=""><b>{formattedNumberr}</b></p>
                                 </div>
                             </div>
                         </div>
