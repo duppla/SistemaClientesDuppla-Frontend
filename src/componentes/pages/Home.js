@@ -43,7 +43,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="container-home container-fluid">
+    <div className=" container-fluid ">
       {/*Contenedor de perfil */}
       <div className="profile ">
         <div className="col-4 ">
