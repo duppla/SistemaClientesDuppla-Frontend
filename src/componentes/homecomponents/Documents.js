@@ -24,7 +24,7 @@ function Docs() {
 
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istatev} className="img-fluid   warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istatev} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -39,7 +39,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istatev} className="img-fluid  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istatev} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -54,7 +54,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istatev} className="img-fluid   warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istatev} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -70,7 +70,7 @@ function Docs() {
                 {/*docs en estado de validación */}
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateb} className="img-fluid  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -85,7 +85,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateb} className="img-fluid   warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateb} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -100,7 +100,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateb} className="img-fluid warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateb} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -116,7 +116,7 @@ function Docs() {
                 {/*Docs sin estado */}
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateg} className="img-fluid   warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -131,7 +131,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateg} className="img-fluid   warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -146,7 +146,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateg} className="img-fluid   warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
 
                     </div>
                     <div className="card-body col-8">
@@ -161,7 +161,7 @@ function Docs() {
                 </div>
                 <div className="card-docs  ">
                     <div className="card-body col-2">
-                        <img src={Istateg} className="img-fluid  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8">
                         Autorización uso de imagen                  

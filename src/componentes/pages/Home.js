@@ -46,6 +46,8 @@ function Home() {
 
   return (
     <div className=" container-fluid ">
+     <div className="container-sm">
+
       {/*Contenedor de perfil */}
       <div className="profile ">
         <div className="row contenedor-img-duppla">
@@ -102,7 +104,7 @@ function Home() {
             <div className="col-4 card-home-offer">
               <h4 className="card-title card-top"><b>Inmueble</b></h4><br />
               <br />
-              <Link to='/offer' className="link-style">Abrir</Link>
+              <Link to='/property' className="link-style">Abrir</Link>
             </div>
             <div className="col-1">
               <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
@@ -169,6 +171,7 @@ function Home() {
           </button>
         </a>
 
+      </div>
       </div>
 
     </div>
