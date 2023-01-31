@@ -1,62 +1,62 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
 
 
 
-function Home() {   
+function Home() {
 
-// Función fecha
+  // Función fecha
 
-let today = new Date();
-let dd = String(today.getDate()).padStart(2, '0');
-let mm = String(today.getMonth() + 1).padStart(2, '0');
-let yyyy = today.getFullYear();
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
+  let yyyy = today.getFullYear();
 
-let fecha = `${dd}/${mm}/${yyyy}`;
-
-
+  let fecha = `${dd}/${mm}/${yyyy}`;
 
 
-//Datos del usuario
+
+
+  //Datos del usuario
   const [data, setData] = useState({});
 
   useEffect(() => {
-      // GET request using fetch inside useEffect React hook
-      const options = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: '{"email":"sharyth.navarro@gmail.com"}'
-      };
-      fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
-          .then(response => response.json())
-          .then(response => setData(response))
-          .catch(err => console.error(err));
+    // GET request using fetch inside useEffect React hook
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: '{"email":"sharyth.navarro@gmail.com"}'
+    };
+    fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
+      .then(response => response.json())
+      .then(response => setData(response))
+      .catch(err => console.error(err));
 
-      // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
   return (
     <div className="container-home container-fluid">
       {/*Contenedor de perfil */}
-      <div className="profile ">       
+      <div className="profile ">
         <div className="col-4 ">
-          <img src={Iperfil}
+          <Link to='/profile' className="link-styles"> <img src={Iperfil}
             className="img-fluid rounded-start img-user"
             alt="perfil" />
-        </div><hr/>
+          </Link>
+        </div><hr />
         <div className="col-8">
           <div className="card-body">
-            <h5 className="card-title text-white" >{data.nombre}</h5>
+            <h5 className="card-title text-white" >{data.nombre}</h5><br/>
             <p className="text-orange">{fecha}</p>
           </div>
-          <Link to='/profile' className="link-styles">Abrir</Link>
         </div>
       </div>
       {/*Contenedor de oferta */}
@@ -134,24 +134,24 @@ let fecha = `${dd}/${mm}/${yyyy}`;
 
       {/*componente calendario*/}
       <div className=" container-sm " id="btnIniciarSesion">
-      <a className="links"
-         href="https://calendly.com/agendadaniel">
-          <button type="button"  className="btn btn-prueba text-center" width="400px" height="46px" >
+        <a className="links"
+          href="https://calendly.com/agendadaniel">
+          <button type="button" className="btn btn-prueba text-center" width="400px" height="46px" >
             Agendar una cita
           </button>
-          </a>
+        </a>
       </div>
       {/*componente  soporte*/}
       <div className=" container-sm " id="">
-       
+
         <a className="links"
-         href="https://api.whatsapp.com/send?phone=573152559261">
-         
-         <button type="button"  className="btn btn-prueba-blanco text-blue links " width="400px" height="46px" >
-          Tengo algún problema
+          href="https://api.whatsapp.com/send?phone=573152559261">
+
+          <button type="button" className="btn btn-prueba-blanco text-blue links " width="400px" height="46px" >
+            Tengo algún problema
           </button>
-          </a>
-     
+        </a>
+
       </div>
 
     </div>
