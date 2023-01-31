@@ -36,11 +36,24 @@ function profile() {
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
 
+
+
+    //formateo de los datos de valor inmueble duppla
+    const number = data.ingresos;
+    const numberr = data.cuota_inicial;
+    const formatter = new Intl.NumberFormat('es-ES', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+    const formattedNumber = formatter.format(number);
+    const formattedNumberr = formatter.format(numberr);
+
     return (
         <div className="container-profile container-fluid">
             <div className="arrow-return container sm">
-                <Link to='/home'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                <Link to='/home' className="links ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className="bi bi-arrow-left-short arrow-return" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
                 </Link>
@@ -49,15 +62,16 @@ function profile() {
                 <h1> <b>Perfil</b>
                 </h1>
             </div>
+            {/*Sesión de perfil */}
             <div className="profile-data container sm">
                 <div className="">
                     <div className="row ">
                         <div className="col-4">
                             <img src={Iperfil} className="img-fluid  img-user-img" alt="perfil" />
                         </div>
-                        <div className="col-8">
-                            <div className="card-body">
-                                <h5 className="card-title text-white"> {data.nombre}</h5>
+                        <div className="col-8 ">
+                            <div className="card-body"><br />
+                                <h5 className="card-title text-white "> {data.nombre}</h5>
                                 <p className="card-text text-white"><small className="text-muted">{data.email}</small></p>
                             </div>
                         </div>
@@ -71,7 +85,7 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className=" img-data-perfil" alt="" />
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
@@ -87,7 +101,7 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className="img-data-perfil" alt="" />
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
@@ -102,7 +116,7 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className="img-data-perfil" alt="" />
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
@@ -117,12 +131,12 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className="img-data-perfil" alt="" />
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
                                     <p className="card-text"> <small className="text-muted">Ingreso</small><br /></p>
-                                    <p className="card-text"><b>{data.ingresos}</b></p>
+                                    <p className="card-text"><b>{formattedNumber}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +146,7 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className="img-data-perfil" alt="" />
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
@@ -147,7 +161,7 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className="img-data-perfil" alt="" />
                             </div>
                             <div className="col-6">
                                 <div className="card-body">
@@ -162,12 +176,12 @@ function profile() {
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
-                                <img src={Idata} className="img-fluid rounded-start img-user warning font-medium-2 mr-2" alt="" />
+                                <img src={Idata} className="img-data-perfil" alt="" />
                             </div>
                             <div className="col-4">
                                 <div className="card-body">
                                     <p className="card-text"> <small className="text-muted">Ahorro</small><br /></p>
-                                    <p className="card-text"><b>{data.cuota_inicial}</b></p>
+                                    <p className="card-text"><b>{formattedNumberr}</b></p>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +191,7 @@ function profile() {
             </div>
 
             {/*componente calendario*/}
-            <div className="centrado-btn  container-sm" id="btnIniciarSesion">
+            <div className="centrado  container-sm" id="btnIniciarSesion">
                 <Link to='' className="links">
                     <button type="button" id="" className="btn btn-prueba text-white" width="400px" height="46px" >
                         QUIERO EDITAR MIS DATOS
@@ -186,13 +200,14 @@ function profile() {
             </div>
 
             {/*componente cerrar sesión*/}
-            <div className="row centrado" id="btnInicioGoogle" onClick={handleLogout}>
-                <div className="btn  input-group btn-prueba-blanco " width="400px" height="56px" >
+            <div className="row centrado" onClick={handleLogout}>
+                <div className="col-2 btn input-group btn-prueba-blanco  " width="400px" height="68px" >
                     <div className="col-2">
                         <img src={Icerrarsesion} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="58px" height="58px" />
                     </div>
-                    <div className="col-6 text-center"><b>Cerrar sesión</b></div>
-
+                    <div className="col-8 ">
+                        <p className="text-btnloggout">Cerrar sesión</p>
+                    </div>
                 </div>
 
             </div>

@@ -152,7 +152,7 @@ function Home() {
       </div>
 
       {/*componente calendario*/}
-      <div className=" container-sm " id="btnIniciarSesion">
+      <div className=" container-sm btn-center-home " id="btnIniciarSesion">
         <a className="links text-white"
           href="https://calendly.com/agendadaniel">
           <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
@@ -161,8 +161,7 @@ function Home() {
         </a>
       </div>
       {/*componente  soporte*/}
-      <div className=" container-sm " id="">
-
+      <div className=" container-sm btn-center-home  " id="">
         <a className="links"
           href="https://api.whatsapp.com/send?phone=573152559261">
 
