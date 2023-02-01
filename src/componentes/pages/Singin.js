@@ -7,19 +7,14 @@ function SingIn() {
 
     return (
         <div className=".container-fluid">
-            <div className=" d-flex justify-content-center">
-                <div className="container-sing">
-                    <div className="img-logotipo">
+            <div className=" centrado">
+                <div className="container-sing ">
+                    <div className="img-logotipo centrado">
                         <img src={Iduppla} 
                         className="rounded justify-content-center" 
                         alt="Simbolo duppla" />
                     </div>
-                    {/*<div className="img-simbolo">
-                        <img src={Logotipo} 
-                        className="rounded" 
-                        alt="duppla" width="240px" height="88px" />
-                    </div>*/}
-                    <div className="centrado-btn">
+                    <div className="centrado-btn centrado">
                         <button  litype="button" 
                         className="btn btn-primary btn-registro text-center"
                          width="400px" height="52px">

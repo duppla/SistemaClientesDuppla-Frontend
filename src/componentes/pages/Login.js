@@ -20,16 +20,15 @@ function login() {
 
 
     return (
-        <div className="login">
-            <div className="container-fluid">
-                <div className=" d-flex justify-content-center align-items-center" b-color="#0000">
+        <div className="container-fluid">
+            <div className="centrado">
+                <div className=" centrado" b-color="#0000">
                     <div className="container-sing">
-                        <div className="img-logotipo">
+                        <div className="img-logotipo centrado">
                             <img src={Iduppla} className="rounded justify-content-center" alt="Simbolo duppla" />
                         </div>
-
                         <Link to='/register' className="btn-decoration">
-                            <button type="button" id="" className="btn btn-primary btn-registro text-center" width="400px" height="46px" >
+                            <button type="button" id="" className="btn btn-primary btn-registro text-center centrado" width="400px" height="46px" >
                                 Iniciar sesión
                             </button>
                         </Link>

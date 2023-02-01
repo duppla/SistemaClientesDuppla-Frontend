@@ -27,7 +27,7 @@ code {
   
 }
 
-
+/*Configuración container*/
 .container-fluid{
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
@@ -36,18 +36,14 @@ code {
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
-
-
 .container-sm{
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
-
 .container-md{
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
 }
-
 
 /*Estilos para el componente sing in*/
 
@@ -55,7 +51,6 @@ code {
    color: var(--color-fondo);
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .text-blue{
   color: var(--color-primario-btn);
 }
@@ -91,8 +86,11 @@ li{
  
 
 .container-sing {
- display: grid;
- column-count: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   margin-top: 200px;
   padding: 10px;
   width: 380px;
@@ -101,10 +99,6 @@ li{
 }
 
 .img-logotipo{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
 width: 327px;
 height: 269px;
 left: 24px;
@@ -392,6 +386,22 @@ bottom: 22px;
  .text-orange{
   color: var(--color-naranja-duppla);
  }
+
+ .img-cerrar{
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.btn-cerrar{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+ 
  .Container-cards-seccion{
   display: flex;
   justify-content: center;
@@ -443,7 +453,6 @@ bottom: 22px;
   font-weight: 500;
 }
 
-
 .card-docs{
 
   display: flex;
@@ -492,7 +501,6 @@ background: #FFFFFF;
 border: 1.4px solid #D0D0D0;
 border-radius: 10px;
 }
-
 
 .arrow-menu{
 
