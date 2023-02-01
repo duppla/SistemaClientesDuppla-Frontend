@@ -91,7 +91,7 @@ li{
   justify-content: center;
   align-items: center;
   
-  margin-top: 200px;
+  margin-top: 180px;
   padding: 10px;
   width: 380px;
   height: auto;
@@ -166,21 +166,20 @@ top: 180px;
 
 /*Estilos registro email y contraseña*/
 
-.register{
+.register{  
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 450px;
-  height: auto;
 
 }
 .container-register{
-
-  justify-content: center;
- 
+  display: flex;
+  flex-direction: column;
    width: 430px;
    height: auto;
-  margin-top: 30px;
+   margin-top: 30px;
+
 }
 .arrow-return {
   margin-top: 10px;
@@ -192,17 +191,27 @@ top: 180px;
   margin-top: 20px;
   text-align: start;
   margin-bottom: 20px;
+  margin-left: 15px;
 
 }
   
-
 .form-register{
+  padding: 5px;;
   margin-top: 20px;
 }
 
+.btn-mover{
+  margin-left: 18px;
+}
+
 .input-register {
+
    width: 352px;
    height: 52px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 /*Estilos perfil*/
 .container-profile {

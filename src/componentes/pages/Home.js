@@ -36,13 +36,24 @@ function Home() {
       headers: { 'Content-Type': 'application/json' },
       body: '{"email":"sharyth.navarro@gmail.com"}'
     };
-    fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
+
+    fetch('https://sistemas-clientes-duppla.herokuapp.com/users/home', options)
+    .then(response => response.json())
+    .then(response => setData(response))
+    .catch(err => console.error(err));
+  
+
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
+
+{/*
+  fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
       .then(response => response.json())
       .then(response => setData(response))
       .catch(err => console.error(err));
 
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, []);
+*/}
+
 
   return (
     <div className=" container-fluid ">
@@ -85,7 +96,7 @@ function Home() {
             <div className="col-4">             
               <div className="card-body">
                 <p className="card-text"> Hoy 13/01/2022</p>              
-                <p className="card-text-aprov"> Por aprobar.</p>
+                <p className="card-text-aprov">{data.estado_oferta}</p>
               </div>
             </div>
           </div>
@@ -108,7 +119,7 @@ function Home() {
             <div className="col-4">             
               <div className="card-body">
                 <p className="card-text"> Hoy 13/01/2022</p>              
-                <p className="card-text-aprov"> Por aprobar.</p>
+                <p className="card-text-aprov">{data.estado_inm}.</p>
               </div>
             </div>
           </div>
@@ -171,17 +182,7 @@ function Home() {
 
     </div>
 
-
-
-
-
-
-
-
-
-
   );
 }
-
 
 export default Home;

@@ -80,8 +80,8 @@ function Register() {
 
     return (
 
-        <div className="register container-fluid" id="formAuthLogin">            
-            <div className="container-register container-sm">
+        <div className="container-fluid" id="formAuthLogin">            
+            <div className="">
                 <div className="arrow-return">
                     <Link to='/login'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
@@ -93,7 +93,7 @@ function Register() {
                     <h2> <b>Iniciar Sesión</b>
                     </h2>
                 </div>
-                <div className="form-register container-sm">
+                <div className="form-register  centrado container-sm">
                     <form onSubmit={handleSubmit} >
                         <div className="mb-3">
                             <input type="email"
@@ -119,7 +119,7 @@ function Register() {
 
                         </div>
                         <button type="submit"
-                            className="btn btn-primary centrado-btn">SIGUIENTE</button>
+                            className="btn btn-prueba text-center links text-white btn-mover ">SIGUIENTE</button>
                     </form>
 
 

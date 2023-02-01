@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Password() {
     return (
 
-        <div className="register">
+        <div className="container-fluid">
             <div className="container-register">
                 <div className="arrow-return">
                     <Link to='/login'>
@@ -19,7 +19,7 @@ function Password() {
                     <h2> <b>Registro de contraseña</b>
                     </h2>
                 </div>
-                <div className="form-register">
+                <div className="form-register centrado container-sm">
                     <form>
                         <div className="mb-3">
 
@@ -30,7 +30,7 @@ function Password() {
                             <input type="password" className="form-control input-register" placeholder="Confirmar contraseña" id="confirmarInputPassword" height="46px" />
                         </div>
 
-                        <button type="submit" className="btn btn-primary centrado-btn">ACCEDER</button>
+                        <button type="submit" className="btn btn-prueba text-center links text-white btn-mover">ACCEDER</button>
                     </form>
 
 
