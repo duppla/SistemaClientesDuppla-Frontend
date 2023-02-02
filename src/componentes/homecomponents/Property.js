@@ -92,11 +92,9 @@ function Property() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div><br />
-
             {/*información inmueble */}
             <div className="text-title-property container-sm">
-
-                <div>
+                <div className="description-apt">
                     <h1 className="text-title-property-title"><b>Apartamento{datosIn.Tipo_de_inmueble}</b></h1>
                     {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
                     <p><b> {formattedNumber}</b></p><br />
@@ -105,10 +103,10 @@ function Property() {
                     </p>
                 </div>
             </div><br />
-            <div className="card-inmueble container-sm">
+            <div className="card-inmueble container-fluid">
                 <div className="row ">
                     <div className="col-2">
-                        <img src={Iubicacion} className="img-fluid rounded-start " alt="..." width='24px' height='24px' />
+                        <img src={Iubicacion} className=" " alt="..." width='24px' height='24px' />
                     </div>
                     <div className="col-8">
                         <div className="card-body">
@@ -179,7 +177,7 @@ function Property() {
             <div className="card-inmueble container-sm ">
                 <div className="row ">
                     <div className="col-2">
-                        <img src={Ievaluacionprecio} className="img-fluid rounded-start " alt="..." width='24px' height='24px' />
+                        <img src={Ievaluacionprecio} className="" alt="..." width='24px' height='24px' />
                     </div>
                     <div className="col-8">
                         <div className="card-body">
@@ -194,10 +192,13 @@ function Property() {
             <div className="card-inmueble container-sm">
                 <div className="row ">
                     <div className="col-2">
-                        <img src={Ivalidacioninmueble} className="img-fluid rounded-start " alt="..." width='24px' height='24px' />
+                        <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
                     </div>
                     <div className="col-8">
-                        <div className="card-body ">
+                        <div className="col-2">
+
+                        </div>
+                        <div className="card-body  col 6">
                             <h5 className="">Evaluación técnica</h5><br />
                             <p className=""><b>*Pendiente </b></p>
                             <p className=""><b>*Programada</b></p>
@@ -208,14 +209,12 @@ function Property() {
                 </div>
             </div>
 
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="centrado space-btn-property ">
                 <div>
                     <Link to='/home'>
                         <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
                     </Link>
                 </div><br />
-
-
                 <div className="">
                     <button type="button" class="btn btn-outline-primary btn-d-cancel ">ACEPTAR</button>
 

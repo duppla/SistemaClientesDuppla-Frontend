@@ -7,11 +7,10 @@ import Ioferta from "../../img/Ioferta.png";
 
 function Offer() {
 
-
   return (
-    <div className="container-calendar container-fluid">
-
-      <div className="Documents">
+    <div className="container-fluid">
+      <div className="container-offer">
+      <div className="">
         <div className="arrow-return">
           <Link to='/home'>
             <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
@@ -66,7 +65,6 @@ function Offer() {
         </div><br />
       </div>
 
-
       <div className="d-flex justify-content-center align-items-center container-sm">
         <div>
           <Link to='/home'>
@@ -81,7 +79,7 @@ function Offer() {
         </div>
       </div>
 
-
+      </div>
 
 
 

@@ -77,6 +77,14 @@ li{
   
 }
 
+.card-text-docs {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin-top: 4px;
+ 
+ 
+}
+
 .card-text-aprov{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -346,7 +354,6 @@ transform: rotate(90deg);
   justify-content:space-between;
   align-items: center;
    
-
   left: 0px;
   top: 0px;
   bottom: 100px;
@@ -360,9 +367,7 @@ transform: rotate(90deg);
   border-bottom-left-radius: 16% ;
 
 }
-
 .img-icono-card{
-
 width: 36px;
 height: 48px;
 left: 27px;
@@ -371,31 +376,25 @@ margin-right: 16px;
 bottom: 22px;
 
 }
-
 .btn-state-home{
   margin-top: 70px;
   margin-left: 5px;
 }
-
 .card-top {
   margin-top: 30px;
   margin-bottom: 4px;
 }
-
 .card-home-offer{
   margin-left: 30px;
   margin-right: 0px;
   padding: 0px 0px 0px 8px;
-
 }
-
 .text-white{
   color: var(--color-fondo);
 }
  .text-orange{
   color: var(--color-naranja-duppla);
  }
-
  .img-cerrar{
   width: 40px;
   height: 40px;
@@ -403,14 +402,12 @@ bottom: 22px;
   margin-right: 15px;
   margin-bottom: 10px;
 }
-
 .btn-cerrar{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   margin-top: 5px;
   margin-bottom: 1opx;
-}
- 
+} 
  .Container-cards-seccion{
   display: flex;
   justify-content: center;
@@ -423,7 +420,7 @@ bottom: 22px;
   gap: 16px;
   
   width: 360px;
-  height: 116px;
+  height: 120px;
   margin-left: 16px;
   margin-right: 16px;
 
@@ -437,7 +434,6 @@ bottom: 22px;
   border-radius: 12px;
 
  }
-
 .tarjetasdatos-usuario {
   display: grid;
   grid-template-columns: 1fr ;
@@ -457,18 +453,13 @@ bottom: 22px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
 }
-
-
 .link-style{
-
   color: #0A3323;
   left: 25px;
   font-size: 14px;
   font-weight: 500;
 }
-
 .card-docs{
-
   display: flex;
   justify-content: space-between;
   
@@ -492,9 +483,6 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 border-radius: 12px;
 
 }
-
-
-
 .card-docs-agenda{
 
   display: flex;
@@ -515,23 +503,18 @@ background: #FFFFFF;
 border: 1.4px solid #D0D0D0;
 border-radius: 10px;
 }
-
 .arrow-menu{
-
   width: 24px;
   height: 24px;
 }
 .img-estados{
-
   width: 380px;
   height: auto;
 }
 a{
   text-decoration: none;
 }
-
 .btn-prueba{
-
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -552,20 +535,13 @@ background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
 box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 border-radius: 10px;
 }
-
 .btn-prueba-blanco{
-
-  
-
-  
-  
   width: 330px;
   height: 56px;
  
   margin-top: 20px;
   margin-bottom: 20px;
- 
-  
+   
 background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #FFFFFF;
 border: 1px solid #6C9FFF;
 /* M3/Elevation Light/1 */
@@ -574,20 +550,17 @@ box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 border-radius: 10px;
 
 }
-
 .centrado{
  display: flex;
  justify-content: center;
  align-items: center;
 
 }
-
 .rounded-start{
 width: 58px;
   height: 58px;
   border-radius: 100%;
 }
-
 .img-data-perfil{
 width: 48px;
 height: 48px;
@@ -596,12 +569,10 @@ margin-left: 16px;
 margin-bottom: 18px ;
 
 }
-
 .text-center{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
-
 .text-docs{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -636,6 +607,11 @@ top: -50px ;
 
 }
 
+.text-space {
+  margin-top: 15px;
+  padding: 0px 0px 0px 0px;
+}
+
 /*Estilos componenete inmueble-property*/
 
 .card-inmueble{
@@ -647,28 +623,18 @@ top: -50px ;
   gap: 16px;
   
   width: 390px;
-  height: 170px;
+  height: 180px;
   left: 25px;
   right: 25px;
   top: 210px;
   bottom: 100px;
-  
-  
-background-color: var(--color-fondo);
-border: 1px solid #E1EBF4;
-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-border-radius: 12px;
-
-
 }
-
 .card-body{
-
   padding-bottom: 5px;
-
 }
-
-
+.description-apt{
+  margin: 16px 16px 16px 16px;
+}
 
 
 .btn-d-cancel {
@@ -677,6 +643,7 @@ border-radius: 12px;
 position: relative;
 width: 160px;
 height: 52px;
+margin-left: 10px;
 
 top: 24px;
 
@@ -686,25 +653,38 @@ color: var(--color-fondo);
 
 border: 0.5px solid #323F4B;
 border-radius: 10px;
-
 }
-
 .btn-d-aceptar{
-  box-sizing: border-box;
+box-sizing: border-box;
 
 position: relative;
 width: 160px;
 height: 52px;
-
 top: 24px;
-
+margin-right: 10px;
 background: var(--color-fondo);
 color: #323F4B;
 /* Neutral / Grey 800 */
-
 border: 0.5px solid #323F4B;
 border-radius: 10px;
 }
+.space-btn-property{
+margin-top: 34px;
+margin-bottom: 24px;
+
+}
+
+
+
+/*Sección de oferta*/
+.container-offer{
+  
+  height:700px
+
+}
+
+
+
 
 /*Responsive*/
 
