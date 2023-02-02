@@ -377,7 +377,7 @@ bottom: 22px;
 
 }
 .btn-state-home{
-  margin-top: 64px;
+  margin-top: 70px;
   margin-left: 5px;
 }
 .card-top {
@@ -694,31 +694,26 @@ margin-bottom: 24px;
   margin: 0px 0px 0px 0px;
 }
 
-.dropdown-menu{
+.dropdown-menu-cambio{
 
-  display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 8px 151px 8px 16px;
-gap: 10px;
-
-
-width: 280px;
-height: 230px;
-margin-bottom: 10px;
-left: 34px;
-top: 725px;
-
-background: #F9F9F9;
-border-radius: 10px;
-}
-
-.list-group-item{
-width: 260px;
-height: 30px;
-background: #F9F9F9;
-border: #F9F9F9;
-}
+  
+  
+  width: 280px;
+  height: 230px;
+  margin-bottom: 10px;
+  
+  
+  
+  background: #F9F9F9;
+  border-radius: 10px;
+  }
+  
+  .list-group-item{
+  width: 260px;
+  height: 30px;
+  background: #F9F9F9;
+  border: #F9F9F9;
+  }
 
 
 

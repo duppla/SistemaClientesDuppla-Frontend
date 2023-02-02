@@ -116,10 +116,10 @@ function Property() {
                             <p className=""><b>{datosIn.Barrio}</b></p>
                         </div>
                         <div className="dropdown ">
-                            <button type="button" class="btn  dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <button type="button" class="btn dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                 Ver más
                             </button>
-                            <div className="dropdown-menu   " >
+                            <div className="dropdown-menu dropdown-menu-cambio  " >
                                 <ol className=" list-group  ">{/*list-group-numbered*/}                               
 
                                     <li className=" list-group-item d-flex justify-content-start align-items-start">
