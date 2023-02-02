@@ -6,6 +6,7 @@ import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
 import Duppla_logotipo from "../../img/Duppla_Logotipo_V2.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 import numeral from 'numeral';
+import Istateg from "../../img/Istateg.png"
 
 
 
@@ -118,8 +119,8 @@ function Property() {
                             <button type="button" class="btn  dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                 Ver más
                             </button>
-                            <div className="dropdown-menu b-color-gris " >
-                                <ol className="list-group  ">{/*list-group-numbered*/}
+                            <div className="dropdown-menu   " >
+                                <ol className=" list-group  ">{/*list-group-numbered*/}                               
 
                                     <li className=" list-group-item d-flex justify-content-start align-items-start">
                                         <div className="row" >
@@ -173,7 +174,7 @@ function Property() {
                     </div>
                 </div>
             </div>
-
+           {/*Tarjetas estado del inmeble */}
             <div className="card-inmueble container-sm ">
                 <div className="row ">
                     <div className="col-2">
@@ -194,21 +195,43 @@ function Property() {
                     <div className="col-2">
                         <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
                     </div>
-                    <div className="col-8">
-                        <div className="col-2">
-
-                        </div>
-                        <div className="card-body  col 6">
+                    <div className="col-8 ">
+                        <div className="card-body">
                             <h5 className="">Evaluación técnica</h5><br />
-                            <p className=""><b>*Pendiente </b></p>
-                            <p className=""><b>*Programada</b></p>
-                            <p className=""><b>* Realizada </b></p>
+                            <div className="col-4">
+                                <div className="card-state-properties ">
+                                    <div className="card-body col-1 ">
+                                        <img src={Istateg} className="" alt="" height='12px' width='12px' />
+                                    </div>
+                                    <div className="col-10 outline">
+                                        <b>Pendiente </b>
+                                    </div>
+                                </div>
+                                <div className="card-state-properties ">
+                                    <div className="card-body col-1  img-state-propety">
+                                        <img src={Istateg} className="" alt="" height='12px' width='12px' />
+                                    </div>
+                                    <div className="col-10 outline">
+                                        <b>Programada </b>
+                                    </div>
+                                </div>
+                                <div className="card-state-properties ">
+                                    <div className="card-body col-1 ">
+                                        <img src={Istateg} className="" alt="" height='12px' width='12px' />
+                                    </div>
+                                    <div className="col-10 outline">
+                                        <b>Realizada </b>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
                     </div>
                 </div>
             </div>
 
+            {/*Menú documentos*/}
             <div className="centrado space-btn-property ">
                 <div>
                     <Link to='/home'>
