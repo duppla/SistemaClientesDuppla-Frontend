@@ -80,7 +80,7 @@ function Home() {
 
       {/*Contenedor de oferta */}
       <div className="Container-cards-seccion centrado" id="cardComponet">
-        <div className="card-seccion"   >
+        <div className="card-seccion"  >
           <div className="row ">
             <div className="col-1">
            <img src={Idocumento} className="img-icono-card " alt="" />
