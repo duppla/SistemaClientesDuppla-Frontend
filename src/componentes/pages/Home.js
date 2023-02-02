@@ -82,8 +82,8 @@ function Home() {
       <div className="Container-cards-seccion centrado" id="cardComponet">
         <div className="card-seccion"   >
           <div className="row ">
-            <div className="col-2">
-              <img src={Idocumento} className="img-icono-card " alt="" />
+            <div className="col-1">
+           <img src={Idocumento} className="img-icono-card " alt="" />
             </div>
             <div className="col-4 card-home-offer">
               <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
@@ -102,10 +102,10 @@ function Home() {
         </div>
       </div>
       {/*Contenedor de inmueble */}
-      <div className="Container-cards-seccion d-grid" id="cardComponet">
+      <div className="Container-cards-seccion  centrado container-fluid d-grid" id="cardComponet">
         <div className="card-seccion"  >
           <div className="row ">
-            <div className="col-2">
+            <div className="col-1">
               <img src={Iinmueble} className="img-icono-card  " alt="" />
             </div>
             <div className="col-4 card-home-offer">
@@ -125,11 +125,9 @@ function Home() {
         </div>
       </div>
 
-
-
       {/*Menú documentos*/}
       <div className="card-docs  ">
-        <div className="card-body col-8 text-center">
+        <div className="card-body col-8 text-docs">
           <b>Menú documentos</b>
         </div>
         <div className="col-2 outline">

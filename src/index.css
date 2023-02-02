@@ -363,11 +363,11 @@ transform: rotate(90deg);
 
 .img-icono-card{
 
-width: 58px;
-height: 72px;
-left: 27.01px;
+width: 36px;
+height: 48px;
+left: 27px;
 margin-top: 25px;
-margin-right: 10px;
+margin-right: 16px;
 bottom: 22px;
 
 }
@@ -385,6 +385,7 @@ bottom: 22px;
 .card-home-offer{
   margin-left: 30px;
   margin-right: 0px;
+  padding: 0px 0px 0px 8px;
 
 }
 
@@ -407,7 +408,7 @@ bottom: 22px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 1opx;
 }
  
  .Container-cards-seccion{
@@ -421,10 +422,10 @@ bottom: 22px;
   padding: 16px 24px;
   gap: 16px;
   
-   width: 390px;
-  height: 120px;
-  margin-left: 15px;
-  margin-right: 15px;
+  width: 360px;
+  height: 116px;
+  margin-left: 16px;
+  margin-right: 16px;
 
   border-radius: 5px;
   top: 210px;
@@ -457,6 +458,7 @@ bottom: 22px;
   border-radius: 12px;
 }
 
+
 .link-style{
 
   color: #0A3323;
@@ -476,19 +478,22 @@ bottom: 22px;
   padding: 16px 24px;
   gap: 16px;
   
-  width: 390px;
+  width: 360px;
   height: 80px;
   left: 25px;
   top: 210px;
   bottom: 100px;
-  
-  
+   margin-left: 16px;
+  margin-right: 16px;
+
 background-color: var(--color-fondo);
 border: 1px solid #E1EBF4;
 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 border-radius: 12px;
 
 }
+
+
 
 .card-docs-agenda{
 
@@ -506,9 +511,6 @@ border-radius: 12px;
   left: 25px;
   top: 210px;
   bottom: 100px;
-  
-  
-
 background: #FFFFFF;
 border: 1.4px solid #D0D0D0;
 border-radius: 10px;
@@ -519,8 +521,6 @@ border-radius: 10px;
   width: 24px;
   height: 24px;
 }
-
-
 .img-estados{
 
   width: 380px;
@@ -529,12 +529,6 @@ border-radius: 10px;
 a{
   text-decoration: none;
 }
-
-.text-reu{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-}
-
 
 .btn-prueba{
 
@@ -608,6 +602,19 @@ margin-bottom: 18px ;
   font-size: 18px;
 }
 
+.text-docs{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-align: start;
+}
+
+.text-reu{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: start;
+  margin-top: 1px;
+}
+
 .text-blue {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -617,8 +624,9 @@ margin-bottom: 18px ;
 .danger-text{
   color: red;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  margin: 2px;
+  font-size: 14px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 .text-btnloggout{
