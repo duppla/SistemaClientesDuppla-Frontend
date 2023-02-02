@@ -346,8 +346,7 @@ transform: rotate(90deg);
   justify-content:space-between;
   align-items: center;
    
-  width: 390px;
-  height: 160px;
+
   left: 0px;
   top: 0px;
   bottom: 100px;
@@ -418,12 +417,16 @@ bottom: 22px;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 5px;
+
   padding: 16px 24px;
   gap: 16px;
   
    width: 390px;
-  height: 140px;
-  left: 25px;
+  height: 120px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  border-radius: 5px;
   top: 210px;
   bottom: 100px;
   

@@ -60,7 +60,7 @@ function Home() {
      <div className="container-sm">
 
       {/*Contenedor de perfil */}
-      <div className="profile ">
+      <div className="profile container-fluid">
         <div className="row contenedor-img-duppla">
           <img src={Idupplaverdeblanco} className=" img-duppla" alt="" />
         </div>
@@ -79,13 +79,12 @@ function Home() {
       </div>
 
       {/*Contenedor de oferta */}
-      <div className="Container-cards-seccion d-grid" id="cardComponet">
+      <div className="Container-cards-seccion centrado" id="cardComponet">
         <div className="card-seccion"   >
           <div className="row ">
             <div className="col-2">
-              <img src={Idocumento} className="img-icono-card  " alt="" />
+              <img src={Idocumento} className="img-icono-card " alt="" />
             </div>
-
             <div className="col-4 card-home-offer">
               <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
               <Link to='/offer' className="link-style">Abrir</Link>
