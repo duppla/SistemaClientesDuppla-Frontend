@@ -94,7 +94,7 @@ function Home() {
               </div>
             <div className="col-4">             
               <div className="card-body">
-                <p className="card-text"> Hoy 13/01/2022</p>              
+                <p className="card-text">Hoy 13/01/2022</p>              
                 <p className="card-text-aprov">{data.estado_oferta}</p>
               </div>
             </div>
@@ -102,11 +102,11 @@ function Home() {
         </div>
       </div>
       {/*Contenedor de inmueble */}
-      <div className="Container-cards-seccion  centrado container-fluid d-grid" id="cardComponet">
+      <div className="Container-cards-seccion centrado container-fluid " id="cardComponet">
         <div className="card-seccion"  >
           <div className="row ">
             <div className="col-1">
-              <img src={Iinmueble} className="img-icono-card  " alt="" />
+              <img src={Iinmueble} className="img-icono-card " alt="" />
             </div>
             <div className="col-4 card-home-offer">
               <h4 className="card-title card-top"><b>Inmueble</b></h4>           
@@ -117,8 +117,8 @@ function Home() {
               </div>
             <div className="col-4">             
               <div className="card-body">
-                <p className="card-text"> Hoy 13/01/2022</p>              
-                <p className="card-text-aprov">{data.estado_inm}.</p>
+                <p className="card-text">Hoy 13/01/2022</p>              
+                <p className="card-text-aprov">{data.estado_inm}</p>
               </div>
             </div>
           </div>
