@@ -38,15 +38,15 @@ function Home() {
     };
 
     fetch('https://sistemas-clientes-duppla.herokuapp.com/users/home', options)
-    .then(response => response.json())
-    .then(response => setData(response))
-    .catch(err => console.error(err));
-  
+      .then(response => response.json())
+      .then(response => setData(response))
+      .catch(err => console.error(err));
+
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
-{/*
+  {/*
   fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
       .then(response => response.json())
       .then(response => setData(response))
@@ -57,124 +57,124 @@ function Home() {
 
   return (
     <div className=" container-fluid ">
-     <div className="container-sm">
+      <div className="container-sm">
 
-      {/*Contenedor de perfil */}
-      <div className="profile container-fluid">
-        <div className="row contenedor-img-duppla">
-          <img src={Idupplaverdeblanco} className=" img-duppla" alt="" />
-        </div>
-        <div className="col-4 ">
-          <Link to='/profile' className="link-styles"> <img src={Iperfil}
-            className="img-fluid  img-user"
-            alt="perfil" />
-          </Link>
-        </div><hr />
-        <div className="col-8">
-          <div className="card-body">
-            <h5 className="card-title card-home text-white" >{data.nombre}</h5>
-            <p className="text-orange">{fecha}</p>
+        {/*Contenedor de perfil */}
+        <div className="profile container-fluid">
+          <div className="row contenedor-img-duppla">
+            <img src={Idupplaverdeblanco} className=" img-duppla" alt="" />
           </div>
-        </div>
-      </div>
-
-      {/*Contenedor de oferta */}
-      <div className="Container-cards-seccion centrado" id="cardComponet">
-        <div className="card-seccion"  >
-          <div className="row ">
-            <div className="col-1">
-           <img src={Idocumento} className="img-icono-card " alt="" />
-            </div>
-            <div className="col-4 card-home-offer">
-              <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
-              <Link to='/offer' className="link-style">Abrir</Link>
-            </div>
-            <div className="col-1">
-              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
-              </div>
-            <div className="col-4">             
-              <div className="card-body">
-                <p className="card-text">Hoy 13/01/2022</p>              
-                <p className="card-text-aprov">{data.estado_oferta}</p>
-              </div>
+          <div className="col-4 ">
+            <Link to='/profile' className="link-styles"> <img src={Iperfil}
+              className="img-fluid  img-user"
+              alt="perfil" />
+            </Link>
+          </div><hr />
+          <div className="col-8">
+            <div className="card-body">
+              <h5 className="card-title card-home text-white" >{data.nombre}</h5>
+              <p className="text-orange">{fecha}</p>
             </div>
           </div>
         </div>
-      </div>
-      {/*Contenedor de inmueble */}
-      <div className="Container-cards-seccion centrado container-fluid " id="cardComponet">
-        <div className="card-seccion"  >
-          <div className="row ">
-            <div className="col-1">
-              <img src={Iinmueble} className="img-icono-card " alt="" />
-            </div>
-            <div className="col-4 card-home-offer">
-              <h4 className="card-title card-top"><b>Inmueble</b></h4>           
-              <Link to='/property' className="link-style">Abrir</Link>
-            </div>
-            <div className="col-1">
-              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+
+        {/*Contenedor de oferta */}
+        <div className="Container-cards-seccion centrado" id="cardComponet">
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Idocumento} className="img-icono-card" alt="" />
               </div>
-            <div className="col-4">             
-              <div className="card-body">
-                <p className="card-text">Hoy 13/01/2022</p>              
-                <p className="card-text-aprov">{data.estado_inm}</p>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
+                <Link to='/offer' className="link-style">Abrir</Link>
+              </div>
+              <div className="col-1">
+                <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text">Hoy 13/01/2022</p>
+                  <p className="card-text-aprov">{data.estado_oferta}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/*Menú documentos*/}
-      <div className="card-docs  ">
-        <div className="card-body col-8 text-docs">
-          <b>Menú documentos</b>
+        {/*Contenedor de inmueble */}
+        <div className="Container-cards-seccion centrado container-fluid " id="cardComponet">
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Iinmueble} className="img-icono-card " alt="" />
+              </div>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title card-top "><b>Inmueble</b></h4>
+                <Link to='/property' className="link-style">Abrir</Link>
+              </div>
+              <div className="col-1">
+                <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text more">Hoy 13/01/2022</p>
+                  <p className="card-text-aprov">{data.estado_inm}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="col-2 outline">
-          <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-            className="arrow-menu" />
-          </Link>
+
+        {/*Menú documentos*/}
+        <div className="card-docs  ">
+          <div className="card-body col-8 text-docs">
+            <b>Menú documentos</b>
+          </div>
+          <div className="col-2 outline">
+            <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+              className="arrow-menu" />
+            </Link>
+          </div>
         </div>
-      </div>
 
-      {/*componente de estados*/}
+        {/*componente de estados*/}
 
-      <div className="card-estados">
-        <div className="card-body col-12">
-          <img src={BarraProgreso} className="img-estados" alt="" />
+        <div className="card-estados">
+          <div className="card-body col-12">
+            <img src={BarraProgreso} className="img-estados" alt="" />
+          </div>
         </div>
-      </div>
 
-      {/*Próxima reunión*/}
-      <div className="card-docs ">
-        <div className="card-body col-6  text-reu">
-          <b>Proxima reunión</b>
+        {/*Próxima reunión*/}
+        <div className="card-docs ">
+          <div className="card-body col-6  text-reu">
+            <b>Proxima reunión</b>
+          </div>
+          <div className="col-6">
+            <p className="danger-text"> 27-01-2023 4:30 p.m.</p>
+          </div>
         </div>
-        <div className="col-6">
-          <p className="danger-text"> 27-01-2023 4:30 p.m.</p>
+
+        {/*componente calendario*/}
+        <div className=" container-sm btn-center-home " id="btnIniciarSesion">
+          <a className="links text-white"
+            href="https://calendly.com/agendadaniel">
+            <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
+              Agendar una cita
+            </button>
+          </a>
         </div>
-      </div>
+        {/*componente  soporte*/}
+        <div className=" container-sm btn-center-home  " id="">
+          <a className="links"
+            href="https://api.whatsapp.com/send?phone=573152559261">
 
-      {/*componente calendario*/}
-      <div className=" container-sm btn-center-home " id="btnIniciarSesion">
-        <a className="links text-white"
-          href="https://calendly.com/agendadaniel">
-          <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
-            Agendar una cita
-          </button>
-        </a>
-      </div>
-      {/*componente  soporte*/}
-      <div className=" container-sm btn-center-home  " id="">
-        <a className="links"
-          href="https://api.whatsapp.com/send?phone=573152559261">
+            <button type="button" className="btn btn-prueba-blanco text-blue links " width="400px" height="46px" >
+              Tengo algún problema
+            </button>
+          </a>
 
-          <button type="button" className="btn btn-prueba-blanco text-blue links " width="400px" height="46px" >
-            Tengo algún problema
-          </button>
-        </a>
-
-      </div>
+        </div>
       </div>
 
     </div>

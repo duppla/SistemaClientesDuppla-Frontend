@@ -1,18 +1,18 @@
-import {useContext, useCallback} from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState } from 'react';
 
+const ProgressBar = () => {
+  const [progress, setProgress] = useState();
 
+  const increaseProgress = () => {
+    setProgress(prevProgress => prevProgress + 10);
+  };
 
+  return (
+    <div>
+      <div style={{ width: `${progress}%`, height: '20px', backgroundColor: 'red' }} />
+      <button onClick={increaseProgress}>Increase Progress</button>
+    </div>
+  );
+};
 
-function Logout() {
- 
- localStorage.removeItem('tokenUser');
-
-
-return Navigate('/login');
-
-    
-}
-
-
-export default Logout;
+export default ProgressBar;

@@ -256,9 +256,9 @@ height: 1200px;
   }
 
 .img-user-img {
-  margin-top: 13px;
+  margin-top: 30px;
   margin-left: 16px;
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   
 }
 
@@ -328,6 +328,10 @@ bottom: 34px;
 border: 2px solid #FFFFFF;
 transform: rotate(90deg);
 
+}
+
+.more{
+  width: 110px;
 }
 
 .link-styles{

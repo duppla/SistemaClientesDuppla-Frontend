@@ -16,6 +16,7 @@ import Profile from './componentes/homecomponents/Profile';
 import Documents from './componentes/homecomponents/Documents';
 import Property from './componentes/homecomponents/Property';
 import Offer from './componentes/homecomponents/Offer';
+import Logout from './componentes/pages/Logout';
 import { AuthContext } from './context/Contextauth';
 import { AuthProvider } from './context/Contextauth';
 
@@ -65,6 +66,7 @@ function App() {
         <Route path='/login' element={<Login />} ></Route>
         <Route path='/register' element={<Register />} ></Route>
         <Route path='/password' element={<Password />} ></Route>
+        <Route path='/logout' element={<Logout />} ></Route>
 
         <Route exact path='/home' element={<Private><Home /></Private>} ></Route>
         <Route exact path='/profile' element={<Private>< Profile /></Private>} ></Route>
