@@ -79,8 +79,8 @@ function Home() {
         </div>
 
         {/*Contenedor de oferta */}
-        <div className="Container-cards-seccion centrado" id="cardComponet">
-          <div className="card-seccion"  >
+        <div className="Container-cards-seccion center container-sm" id="cardComponet">
+          <div className="card-seccion ">
             <div className="row ">
               <div className="col-1">
                 <img src={Idocumento} className="img-icono-card" alt="" />
@@ -94,7 +94,7 @@ function Home() {
               </div>
               <div className="col-4">
                 <div className="card-body">
-                  <p className="card-text">Hoy 13/01/2022</p>
+                  <p className="card-text">03/02/2023</p>
                   <p className="card-text-aprov">{data.estado_oferta}</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ function Home() {
           </div>
         </div>
         {/*Contenedor de inmueble */}
-        <div className="Container-cards-seccion centrado container-fluid " id="cardComponet">
+        <div className="Container-cards-seccion centrado container-sm" id="cardComponet">
           <div className="card-seccion"  >
             <div className="row ">
               <div className="col-1">
@@ -117,14 +117,13 @@ function Home() {
               </div>
               <div className="col-4">
                 <div className="card-body">
-                  <p className="card-text more">Hoy 13/01/2022</p>
+                  <p className="card-text more">03/02/2023</p>
                   <p className="card-text-aprov">{data.estado_inm}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         {/*Menú documentos*/}
         <div className="card-docs  ">
           <div className="card-body col-8 text-docs">
@@ -136,15 +135,12 @@ function Home() {
             </Link>
           </div>
         </div>
-
         {/*componente de estados*/}
-
-        <div className="card-estados">
-          <div className="card-body col-12">
+        <div className="centrado  container-fluid">
+          <div className=" row">
             <img src={BarraProgreso} className="img-estados" alt="" />
           </div>
         </div>
-
         {/*Próxima reunión*/}
         <div className="card-docs ">
           <div className="card-body col-6  text-reu">
@@ -156,7 +152,7 @@ function Home() {
         </div>
 
         {/*componente calendario*/}
-        <div className=" container-sm btn-center-home " id="btnIniciarSesion">
+        <div className=" container-sm centrado " id="btnIniciarSesion">
           <a className="links text-white"
             href="https://calendly.com/agendadaniel">
             <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
@@ -165,7 +161,7 @@ function Home() {
           </a>
         </div>
         {/*componente  soporte*/}
-        <div className=" container-sm btn-center-home  " id="">
+        <div className=" container-sm btn-center-home" id="">
           <a className="links"
             href="https://api.whatsapp.com/send?phone=573152559261">
 

@@ -30,7 +30,7 @@ function Password() {
                             <input type="password" className="form-control input-register" placeholder="Confirmar contraseña" id="confirmarInputPassword" height="46px" />
                         </div>
 
-                        <button type="submit" className="btn btn-prueba text-center links text-white btn-mover">ACCEDER</button>
+                        <button type="submit" className="btn btn-prueba-ingreso text-center links text-white btn-mover">ACCEDER</button>
                     </form>
 
 
