@@ -79,7 +79,8 @@ function Home() {
         </div>
 
         {/*Contenedor de oferta */}
-        <div className="Container-cards-seccion center container-sm" id="cardComponet">
+        <div className="Container-cards-seccion-m centrado container-fluid" id="cardComponet">
+        <Link to='/offer' className="link-style">
           <div className="card-seccion ">
             <div className="row ">
               <div className="col-1">
@@ -87,7 +88,7 @@ function Home() {
               </div>
               <div className="col-4 card-home-offer">
                 <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
-                <Link to='/offer' className="link-style">Abrir</Link>
+                < p className="link-style">Abrir</p>
               </div>
               <div className="col-1">
                 <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
@@ -100,9 +101,12 @@ function Home() {
               </div>
             </div>
           </div>
+          </Link>
+
         </div>
         {/*Contenedor de inmueble */}
         <div className="Container-cards-seccion centrado container-sm" id="cardComponet">
+        <Link to='/property' className="link-style">
           <div className="card-seccion"  >
             <div className="row ">
               <div className="col-1">
@@ -110,7 +114,7 @@ function Home() {
               </div>
               <div className="col-4 card-home-offer">
                 <h4 className="card-title card-top "><b>Inmueble</b></h4>
-                <Link to='/property' className="link-style">Abrir</Link>
+                <p className="link-style">Abrir</p>
               </div>
               <div className="col-1">
                 <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
@@ -123,18 +127,22 @@ function Home() {
               </div>
             </div>
           </div>
+          </Link>
         </div>
         {/*Menú documentos*/}
+        <Link to='/documents' className="links text-black">
         <div className="card-docs  ">
           <div className="card-body col-8 text-docs">
             <b>Menú documentos</b>
           </div>
           <div className="col-2 outline">
-            <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
               className="arrow-menu" />
-            </Link>
+           
           </div>
         </div>
+        </Link>
+        
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
           <div className=" row">
@@ -147,7 +155,7 @@ function Home() {
             <b>Proxima reunión</b>
           </div>
           <div className="col-6">
-            <p className="danger-text"> 27-01-2023 4:30 p.m.</p>
+            <p className="danger-text"><b> 27-01-2023 4:30 p.m.</b></p>
           </div>
         </div>
 

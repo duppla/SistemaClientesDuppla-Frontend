@@ -238,7 +238,7 @@ height: 1200px;
   justify-content:space-between;
   align-items: center;
   
-  width: 400px;
+ 
   height: 110px;
   left: 14px;
   top: 70px;
@@ -293,13 +293,15 @@ margin-right: 24px;
 
 
 .user-data-card{
+  
   background-color: var(--color-fondo);
-  width: 390px;
+
   height: 650px;
  
 padding: 18px 138px 18px 16px;
 gap: 10px;
-left: 16px;
+/*margin-left: 16px;
+margin-bottom: 16px;*/
 top: 204px;
 margin-bottom: 30px;
 
@@ -408,11 +410,18 @@ bottom: 22px;
   margin-right: 15px;
   margin-bottom: 10px;
 }
+.text.amp{
+  width: 300px;
+  height: 15px;
+}
+
+
 .btn-cerrar{
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 5px;
-  margin-bottom: 1opx;
+  margin-bottom: 10px;
+  margin-right: -16px;
 } 
  .Container-cards-seccion{
   display: flex;
@@ -439,6 +448,41 @@ bottom: 22px;
   border-radius: 12px;
 
  }
+
+ .Container-cards-seccion-m{
+  display: flex;
+   justify-content: center; 
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 5px;
+
+  padding: 16px 24px;
+  gap: 16px;
+  
+
+  height: 120px;
+  margin-left: 16px;
+  margin-right: 16px;
+
+  border-radius: 5px;
+  top: 210px;
+  bottom: 100px;
+  
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+ }
+
+ .text-black{
+color: #000000;
+ }
+
+
+
+
+
 .tarjetasdatos-usuario {
   display: grid;
   grid-template-columns: 1fr ;
@@ -620,7 +664,7 @@ margin-bottom: 18px ;
 }
 
 .danger-text{
-  color: red;
+  color: var(--color-naranja-duppla);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   margin: 0px 0px 0px 0px;
@@ -655,13 +699,21 @@ top: -50px ;
 
 .card-body{
   padding-bottom: 5px;
+  width: 280px;
 }
  
+
 .card-body-center{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.card-body-docs{
+  padding-bottom: 5px;
+
+}
+
 
 .description-apt{
   margin: 16px 16px 16px 16px;
@@ -755,7 +807,13 @@ margin-bottom: 24px;
 
 
 /*Responsive*/
+@media (min-width: 300px) { 
 
+  
+
+
+
+}
 
 
 

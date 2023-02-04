@@ -63,7 +63,7 @@ function profile() {
                 </h1>
             </div>
             {/*Sesión de perfil */}
-            <div className="profile-data container sm">
+            <div className="profile-data container-fluid">
                 <div className="">
                     <div className="row ">
                         <div className="col-4">
@@ -71,8 +71,8 @@ function profile() {
                         </div>
                         <div className="col-8 ">
                             <div className="card-body"><br />
-                                <h5 className="text-white "> {data.nombre}</h5>
-                                <p className=" text-white"><small className="text-muted">{data.email}</small></p>
+                                <h5 className="text-white text.amp "> {data.nombre}</h5>
+                                <p className=" text-white ">{data.email}</p>
                             </div>
                         </div>
                     </div>
@@ -80,8 +80,8 @@ function profile() {
             </div>
 
             {/*Sección de datos- hay que traerlos de salesforce*/}
-            <div className="user-data-card container-sm">
-                <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
+            <div className="user-data-card container-fluid">
+                <div className="tarjetas-datos-usuario " id="cardComponet">
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
@@ -204,7 +204,7 @@ function profile() {
                 <div className="col-2 btn input-group btn-prueba-blanco centrado-btn " width="400px" height="68px" >
                         <img src={Icerrarsesion} className="img-cerrar" alt="" />
                     <button type="button" id="" className="btn  btn-cerrar " >
-                        <b>Cerrar sesión</b>
+                        <b>CERRAR SESIÓN</b>
                     </button>
 
 

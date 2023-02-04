@@ -23,7 +23,7 @@ function Docs() {
             <div className="content-docs  container-sm ">
 
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istatev} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -38,7 +38,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istatev} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -52,7 +52,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istatev} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -67,7 +67,7 @@ function Docs() {
                 </div>
                 {/*docs en estado de validación */}
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -81,7 +81,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateb} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -95,7 +95,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateb} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -110,7 +110,7 @@ function Docs() {
                 </div>
                 {/*Docs sin estado */}
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -124,7 +124,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -138,7 +138,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
@@ -152,7 +152,7 @@ function Docs() {
                     </div>
                 </div>
                 <div className="card-docs  ">
-                    <div className="card-body col-2">
+                    <div className="card-body-docs col-2">
                         <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
