@@ -239,8 +239,8 @@ function Home() {
         </div>
         {/*Menú documentos*/}
         <Link to='/documents' className="links text-black">
-          <div className="card-docs  ">
-            <div className="card-body col-8 text-docs">
+          <div className="card-docs-m  ">
+            <div className="card-body  col-8 text-docs">
               <b>Menú documentos</b>
             </div>
             <div className="col-2 outline">
@@ -258,7 +258,7 @@ function Home() {
           </div>
         </div>
         {/*Próxima reunión*/}
-        <div className="card-docs ">
+        <div className="card-docs-m ">
           <div className="card-body col-6  text-reu">
             <b>Proxima reunión</b>
           </div>
@@ -268,7 +268,7 @@ function Home() {
         </div>
 
         {/*componente calendario*/}
-        <div className=" container-sm centrado " id="btnIniciarSesion">
+        <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"
             href="https://calendly.com/agendadaniel">
             <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
@@ -277,7 +277,7 @@ function Home() {
           </a>
         </div>
         {/*componente  soporte*/}
-        <div className=" container-sm btn-center-home" id="">
+        <div className=" btn-m " id="">
           <a className="links"
             href="https://api.whatsapp.com/send?phone=573152559261">
 
