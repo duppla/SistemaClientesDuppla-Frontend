@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
+import Iprogresive1 from "../../img/Iprogresive1.png"
+import Iprogresive2 from "../../img/Iprogresive2.png"
+import Iprogresive3 from "../../img/Iprogresive3.png"
+import Iprogresive4 from "../../img/Iprogresive4.png"
 import Istateg from "../../img/Istateg.png"
+import Istatev from "../../img/Istatev.png"
 import Idupplaverdeblanco from "../../img/Idupplaverdeblanco.png"
 import Vperfil from "../../img/vperfil.svg"
 import Voferta from "../../img/voferta.svg"
@@ -11,7 +16,8 @@ import Vinmueble from "../../img/vinmueble.svg"
 import Vdocs from "../../img/vdocs.svg"
 import Vlogout from "../../img/vlogout.svg"
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../context/Contextauth";
+import Offer from "../homecomponents/Offer";
 
 
 
@@ -26,11 +32,7 @@ function Home() {
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
   let yyyy = today.getFullYear();
-
   let fecha = `${dd}/${mm}/${yyyy}`;
-
-
-
 
   //Datos del usuario
   const [data, setData] = useState({});
@@ -52,13 +54,42 @@ function Home() {
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
-  {/*
-  fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
-      .then(response => response.json())
-      .then(response => setData(response))
-      .catch(err => console.error(err));
-*/}
+  // trae la función  salida, que se declaro en el contexto para implementar aquí
+
+  const { logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout();
+  };
+
+// 
+
+const stateAccept= data.estado;
+const stateOffer = data.estado_oferta;
+
+const stateChange = (stateOffer) => {
+
+  switch (stateOffer) { 
+    case "Pendiente":
+      return <img src={BarraProgreso} className="img-fluid" alt="" />;
+      case "Aceptado":
+      return <img src={Iprogresive1} className="img-fluid" alt="" />;
+      case "AceptadoInm":
+      return <img src={Iprogresive2} className="img-fluid" alt="" />;
+      case "AceptadoDocs":
+      return <img src={Iprogresive3} className="img-fluid" alt="" />;
+      case "Mudarse":
+      return <img src={Iprogresive4} className="img-fluid" alt="" />;
+
+      default:  return <img src={BarraProgreso} className="img-fluid" alt="" />;
+  }
+
+}
+
+
+
+
   return (
+
     <div className=" container-fluid ">
       <div className="container-sm">
         {/*Contenedor de perfil */}
@@ -68,8 +99,8 @@ function Home() {
           </div>
           <div className="col-4 ">
             <Link to='/profile' className="link-styles"> <img src={Iperfil}
-              className="img-fluid  img-user"
-              alt="perfil"/>
+              className="  img-user"
+              alt="perfil" />
             </Link>
           </div><hr />
           <div className="col-6">
@@ -78,13 +109,13 @@ function Home() {
               <p className="text-orange">{fecha}</p>
             </div>
           </div>
-          <nav className=" col-2 navbar  ">
+          <nav className=" col-2 navbar ">
             <div className="container-fluid ">
-              <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+              <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
-              <div className="offcanvas offcanvas-bottom " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div className="offcanvas-body navbar-container">
+              <div className=" offcanvas offcanvas-bottom navbar-container " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className="offcanvas-body ">
                   <ul className="navbar-nav " >
                     <li className="nav-item">
                       <Link to="/profile">
@@ -108,12 +139,12 @@ function Home() {
                         </div>
                       </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item  nav-section">
                       <Link to="/offer">
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties nav-link active">
+                              <div className="card-state-properties nav-section nav-link active">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Voferta} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -171,7 +202,7 @@ function Home() {
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vlogout} className="" alt="" height='24px' width='24px' />
                                 </div>
-                                <div className="col-10 outline">
+                                <div className="col-10 outline" onClick={handleLogout}>
                                   <p className=" text-docs"><b >Cerrar sesión</b></p>
                                 </div>
                               </div>
@@ -199,12 +230,12 @@ function Home() {
                   < p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-                  <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+                  {stateOffer ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
                 </div>
                 <div className="col-4">
                   <div className="card-body">
                     <p className="card-text">03/02/2023</p>
-                    <p className="card-text-aprov">{data.estado_oferta}</p>
+                    <p className="card-text-aprov">{ stateOffer ? "Aceptado" : "Pendiente"}</p>
                   </div>
                 </div>
               </div>
@@ -253,8 +284,12 @@ function Home() {
 
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
-          <div className=" row">
-            <img src={BarraProgreso} className="img-estados" alt="" />
+          <div className="row ">
+           {stateChange()}
+             
+
+            {/*} <img src={BarraProgreso} className="img-estados" alt="" />
+            <img src={BarraProgreso} className="img-estados" alt="" />*/}
           </div>
         </div>
         {/*Próxima reunión*/}
@@ -287,6 +322,8 @@ function Home() {
           </a>
 
         </div>
+
+        
       </div>
 
     </div>
