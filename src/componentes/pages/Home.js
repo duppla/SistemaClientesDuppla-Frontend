@@ -63,7 +63,7 @@ function Home() {
 
 // 
 
-const stateAccept= data.estado;
+const stateInm= data.estado_inm;
 const stateOffer = data.estado_oferta;
 
 const stateChange = (stateOffer) => {
@@ -261,7 +261,7 @@ const stateChange = (stateOffer) => {
                 <div className="col-4">
                   <div className="card-body">
                     <p className="card-text more">03/02/2023</p>
-                    <p className="card-text-aprov">{data.estado_inm}</p>
+                    <p className="card-text-aprov">{stateInm ? "Pendiente" : "Aceptado"}</p>
                   </div>
                 </div>
               </div>
