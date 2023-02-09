@@ -15,6 +15,7 @@ import Voferta from "../../img/voferta.svg"
 import Vinmueble from "../../img/vinmueble.svg"
 import Vdocs from "../../img/vdocs.svg"
 import Vlogout from "../../img/vlogout.svg"
+import Vrectangulo from "../../img/vrectanguler.svg"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Offer from "../homecomponents/Offer";
@@ -63,12 +64,13 @@ function Home() {
 
 // 
 
+const stateUser = data.estado;
 const stateInm= data.estado_inm;
 const stateOffer = data.estado_oferta;
 
-const stateChange = (stateOffer) => {
+const stateChange = (stateUser) => {
 
-  switch (stateOffer) { 
+  switch (stateUser) { 
     case "Pendiente":
       return <img src={BarraProgreso} className="img-fluid" alt="" />;
       case "Aceptado":
@@ -79,8 +81,9 @@ const stateChange = (stateOffer) => {
       return <img src={Iprogresive3} className="img-fluid" alt="" />;
       case "Mudarse":
       return <img src={Iprogresive4} className="img-fluid" alt="" />;
-
-      default:  return <img src={BarraProgreso} className="img-fluid" alt="" />;
+    
+      default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
+      
   }
 
 }
@@ -114,15 +117,17 @@ const stateChange = (stateOffer) => {
               <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
+              <div className="">
               <div className=" offcanvas offcanvas-bottom navbar-container " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div className="offcanvas-body ">
+                <img src={Vrectangulo} className=" img-navbar centrado" alt="" />
                   <ul className="navbar-nav " >
-                    <li className="nav-item">
+                    <li className="nav-item ">
                       <Link to="/profile">
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties nav-link active">
+                              <div className="card-state-properties-home nav-link active">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vperfil} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -130,11 +135,7 @@ const stateChange = (stateOffer) => {
                                   <p className=" text-docs"><b >Perfil </b></p>
                                 </div>
                               </div>
-
-
                             </div>
-
-
                           </div>
                         </div>
                       </Link>
@@ -144,7 +145,7 @@ const stateChange = (stateOffer) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties nav-section nav-link active">
+                              <div className="card-state-properties-home nav-section nav-link active">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Voferta} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -162,7 +163,7 @@ const stateChange = (stateOffer) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties nav-link active">
+                              <div className="card-state-properties-home nav-link active">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -180,7 +181,7 @@ const stateChange = (stateOffer) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties nav-link active">
+                              <div className="card-state-properties-home nav-link active">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vdocs} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -198,7 +199,7 @@ const stateChange = (stateOffer) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties nav-link active">
+                              <div className="card-state-properties-home nav-link active">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vlogout} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -213,6 +214,7 @@ const stateChange = (stateOffer) => {
                     </li>
                   </ul>
                 </div>
+              </div> 
               </div>
             </div>
           </nav>
@@ -285,9 +287,8 @@ const stateChange = (stateOffer) => {
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
           <div className="row ">
-           {stateChange()}
+           {stateChange(stateUser) ? <img src={Iprogresive1} className="img-fluid" alt="" /> : "Pendiente" }
              
-
             {/*} <img src={BarraProgreso} className="img-estados" alt="" />
             <img src={BarraProgreso} className="img-estados" alt="" />*/}
           </div>

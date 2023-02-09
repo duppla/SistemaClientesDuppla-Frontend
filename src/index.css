@@ -491,11 +491,13 @@ hr {
 
 }
 
-
+.navbar-container{
+  height: 30rem;
+}
 
 .navbar-nav {
-  height: 300px;
-   margin: 50px 20px 10px 20px;
+  border: 1px solid #F3F4F6;
+   margin: 50px 30px 10px 20px;
    color:#0A3323;
 }
 
@@ -503,6 +505,7 @@ hr {
   height: 60px;
 
 }
+
 
 .tarjetasdatos-usuario {
   display: grid;
@@ -850,20 +853,42 @@ a {
 }
 
 .container-property {
-
   height: 1200px;
 }
 
 .card-state-properties {
   display: flex;
   justify-content: flex-start;
-
   align-items: start;
   gap: 16px;
   width: 360px;
-
   margin-bottom: 6px;
+ 
 }
+
+.card-state-properties-home {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 16px;
+  width: 380px;
+  margin-bottom: 6px;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+
+.nav-item {
+  border: 1px solid #F3F4F6;
+}
+
+.img-navbar{
+  width: 50px;
+  height: 5px;
+
+  margin-left: 155px;
+}
+
 
 .img-state-propety {
   padding: 0px 0px 0px 0px;
