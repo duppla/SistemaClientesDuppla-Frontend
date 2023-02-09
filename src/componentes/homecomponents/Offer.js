@@ -2,22 +2,15 @@ import { loadGapiInsideDOM } from 'gapi-script';
 import React, { useState, useEffect } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import Ioferta from "../../img/Ioferta.png";
+import swal from 'sweetalert';
 
 
 
 
 function Offer() {
 
-  {/*} const [progress, setProgress] = useState(false);
-
-  const handleProgress= () => {
-    console.log('lse deberian mostar los datos');
-   setProgress(true);
-};*/}
-
 
   const [progress, setProgress] = useState(false);
-
 
   // GET request using fetch inside useEffect React hook
   const options = {
@@ -37,13 +30,14 @@ function Offer() {
   const handleProgress = () => {
 
     setProgress(true);
-    alert('Su oferta fue aceptada');
-
-    //console.log(setProgress);
-  }
-
-
-
+    swal({
+      title: "Se acepto correctamente la oferta",     
+      icon: "success",
+      button: "Cerrar",
+      timer: 5000,
+    });
+    
+     }
 
 
 
@@ -107,6 +101,7 @@ function Offer() {
         <div className="d-flex justify-content-center align-items-center container-sm">
           <div>
 
+
             <Link to='/home'>
               <button type="button" class="btn btn-outline-primary btn-d-aceptar" >CANCELAR</button>
             </Link>
@@ -115,10 +110,11 @@ function Offer() {
             <button type="button" class="btn btn-outline-primary btn-d-cancel" onClick={handleProgress} >ACEPTAR</button>
           </div>
         </div>
+
       </div>
     </div>
   );
 
-}
+  }
 
 export default Offer;

@@ -120,19 +120,19 @@ const stateChange = (stateUser) => {
               <div className="">
               <div className=" offcanvas offcanvas-bottom navbar-container " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div className="offcanvas-body ">
-                <img src={Vrectangulo} className=" img-navbar centrado" alt="" />
+                <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas"  alt="" />
                   <ul className="navbar-nav " >
                     <li className="nav-item ">
                       <Link to="/profile">
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties-home nav-link active">
+                              <div className="card-state-properties-home nav-link active text-navbar-options">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vperfil} className="" alt="" height='24px' width='24px' />
                                 </div>
                                 <div className="col-10 outline">
-                                  <p className=" text-docs"><b >Perfil </b></p>
+                                  <p className=" text-docs "><b >Perfil </b></p>
                                 </div>
                               </div>
                             </div>
@@ -145,7 +145,7 @@ const stateChange = (stateUser) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties-home nav-section nav-link active">
+                              <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Voferta} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -163,7 +163,7 @@ const stateChange = (stateUser) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties-home nav-link active">
+                              <div className="card-state-properties-home nav-link active text-navbar-options">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -176,12 +176,12 @@ const stateChange = (stateUser) => {
                         </div>
                       </Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="">
                       <Link to="/documents">
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties-home nav-link active">
+                              <div className="card-state-properties-home nav-link active text-navbar-options">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vdocs} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -199,7 +199,7 @@ const stateChange = (stateUser) => {
                         <div className="row ">
                           <div className="col-8 outline ">
                             <div className="row">
-                              <div className="card-state-properties-home nav-link active">
+                              <div className="card-state-properties-home nav-link active text-navbar-options">
                                 <div className="card-body col-1  img-state-propety">
                                   <img src={Vlogout} className="" alt="" height='24px' width='24px' />
                                 </div>
@@ -283,7 +283,6 @@ const stateChange = (stateUser) => {
             </div>
           </div>
         </Link>
-
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
           <div className="row ">
@@ -303,7 +302,6 @@ const stateChange = (stateUser) => {
             <p className="danger-text"><b> 27-01-2023 4:30 p.m.</b></p>
           </div>
         </div>
-
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"

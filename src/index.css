@@ -496,8 +496,7 @@ hr {
 }
 
 .navbar-nav {
-  border: 1px solid #F3F4F6;
-   margin: 50px 30px 10px 20px;
+  margin: 50px 30px 10px 20px;
    color:#0A3323;
 }
 
@@ -599,21 +598,6 @@ hr {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .card-docs-agenda {
 
@@ -879,7 +863,11 @@ a {
 
 
 .nav-item {
-  border: 1px solid #F3F4F6;
+  border-top: 1px solid #f3f4f6;
+  border-bottom:1px solid #f3f4f6; 
+  border-left:1px solid #ffffff; 
+  border-right:1px solid #ffffff;
+   
 }
 
 .img-navbar{
@@ -889,7 +877,9 @@ a {
   margin-left: 155px;
 }
 
-
+.text-navbar-options{
+ margin: 12px 10px -10px 30px;
+}
 .img-state-propety {
   padding: 0px 0px 0px 0px;
   margin: 0px 0px 0px 0px;
