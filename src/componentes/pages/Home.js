@@ -43,7 +43,7 @@ function Home() {
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: '{"email":"sharyth.navarro@gmail.com"}'
+      body: '{"email":"pgutierrez@duppla.co"}'
     };
 
     fetch('https://sistemas-clientes-duppla.herokuapp.com/users/home', options)
@@ -258,7 +258,7 @@ const stateChange = (stateUser) => {
                   <p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-                  <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+                {stateOffer ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
                 </div>
                 <div className="col-4">
                   <div className="card-body">

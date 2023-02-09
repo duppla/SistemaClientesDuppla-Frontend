@@ -7,6 +7,7 @@ import Duppla_logotipo from "../../img/Duppla_Logotipo_V2.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 import numeral from 'numeral';
 import Istateg from "../../img/Istateg.png"
+import swal from 'sweetalert';
 
 
 
@@ -45,6 +46,23 @@ function Property() {
         maximumFractionDigits: 2
     });
     const formattedNumber = formatter.format(number);
+
+    // Función para acpetar inmueble
+    
+    const handleInm = () => {
+
+      
+        swal({
+          title: "Felicitaciones",     
+          text: "Se acepto correctamente el inmueble",   
+          icon: "success",
+          button: "Cerrar",
+          timer: 5000,
+        });
+        
+         }
+
+
 
 
 
@@ -239,7 +257,7 @@ function Property() {
                     </Link>
                 </div><br />
                 <div className="">
-                    <button type="button" class="btn btn-outline-primary btn-d-cancel ">ACEPTAR</button>
+                    <button type="button" class="btn btn-outline-primary btn-d-cancel " onClick={handleInm}>ACEPTAR</button>
 
                 </div>
             </div>
