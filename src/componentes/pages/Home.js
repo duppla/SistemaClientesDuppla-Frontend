@@ -287,9 +287,10 @@ const stateChange = (stateUser) => {
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
           <div className="row ">
-           {stateChange(stateUser) ? <img src={Iprogresive1} className="img-fluid" alt="" /> : "Pendiente" }
+            
+           {stateChange(stateUser) }
              
-            {/*} <img src={BarraProgreso} className="img-estados" alt="" />
+            {/*}  ? <img src={Iprogresive1} className="img-fluid" alt="" /> : "Pendiente" <img src={BarraProgreso} className="img-estados" alt="" />
             <img src={BarraProgreso} className="img-estados" alt="" />*/}
           </div>
         </div>
