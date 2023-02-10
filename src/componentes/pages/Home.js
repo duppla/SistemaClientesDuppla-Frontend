@@ -297,7 +297,7 @@ const stateChange = (stateUser) => {
             <b>Proxima reunión</b>
           </div>
           <div className="col-6">
-            <p className="danger-text"><b> 27-01-2023 4:30 p.m.</b></p>
+            <p className="danger-text"><b> 10-02-2023 4:30 p.m.</b></p>
           </div>
         </div>
         {/*componente calendario*/}
@@ -317,12 +317,8 @@ const stateChange = (stateUser) => {
               Tengo algún problema
             </button>
           </a>
-
-        </div>
-
-        
+        </div>        
       </div>
-
     </div>
 
   );
