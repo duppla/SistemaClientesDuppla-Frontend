@@ -29,7 +29,7 @@ function profile() {
             headers: { 'Content-Type': 'application/json' },
             body: '{ "email": '+email+'}'
         };
-        fetch('https://sistemas-clientes-duppla.herokuapp.com/users/getUser', options)
+        fetch('https://sistema-duppla-backend.herokuapp.com/users/getUser', options)
             .then(response => response.json())
             .then(response => setData(response))
             .catch(err => console.error(err));

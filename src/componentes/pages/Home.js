@@ -47,7 +47,7 @@ function Home() {
       body: '{ "email": '+email+'}'
     };
 
-    fetch('https://sistemas-clientes-duppla.herokuapp.com/users/home', options)
+    fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
       .then(response => response.json())
       .then(response => setData(response))
       .catch(err => console.error(err));

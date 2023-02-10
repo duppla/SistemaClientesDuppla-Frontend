@@ -20,10 +20,8 @@ export const AuthProvider = ({ children }) => {
         const recovereToken = localStorage.getItem("token");
         if (recovereToken) {
             setToken(JSON.parse(recovereToken));
-
         }
         setLoanding(false);
-
 
     }, []);
 
@@ -31,8 +29,7 @@ export const AuthProvider = ({ children }) => {
     const login = (tokenUser, email) => {
 
         localStorage.setItem('token', JSON.stringify(tokenUser));
-        localStorage.setItem('email', JSON.stringify(email));
-        
+        localStorage.setItem('email', JSON.stringify(email));      
 
         if (tokenUser) {
            // console.log('ver si entra el', tokenUser);
@@ -41,11 +38,10 @@ export const AuthProvider = ({ children }) => {
                 method: 'POST',
                 headers: {
                   Authorization: 'Bearer ' + tokenUser,
-                  
                 }
               };
               
-              fetch('https://sistemas-clientes-duppla.herokuapp.com/users/check', options)
+              fetch('https://sistema-duppla-backend.herokuapp.com/users/check', options)
                 .then(response => response.json())
                 .then(response => {
                     setToken({ token: tokenUser });

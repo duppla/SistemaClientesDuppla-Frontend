@@ -21,7 +21,7 @@ function Offer() {
       body: '{"id":"1","email": "pgutierrez@duppla.co"}'
     };
   
-    fetch('https://sistemas-clientes-duppla.herokuapp.com/ofertas/accept', options)
+    fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options)
       .then(response => response)
       .then(response => setProgress(response))
       .catch(err => console.error(err));

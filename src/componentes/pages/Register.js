@@ -49,25 +49,26 @@ function Register() {
             alert('El correo  o contraseña no puede estar vacio');
         } else {
             //console.log(datos.email);
-               const options = {
+            const options = {
                 method: 'POST',
-                url: 'https://sistemas-clientes-duppla.herokuapp.com/users/login',
-                headers: { 'Content-Type': 'application/json' },
-                data: { email: datos.email, password: datos.password }
-            };
+                headers: {'Content-Type': 'application/json'},
+                body: '{"email":"pgutierrez@duppla.co","password":"1234"}'
+              };
             
-            axios.request(options).then(function (response) {
+              fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options).then(response => response.json())
+              .then(function (response) {
                 //console.log(response.data);
                 //console.log(response.status);
-                if (!response.data.status === 200) {
+                if (!response.status === 200) {
                     console.log('error de login');
                 } else {
                     if (!datos.email === response.status && datos.password === response.status) {
                         // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
                         alert('error');
                     } else {
-                        //localStorage.setItem('tokenUser', response.data.token);                        
-                        login(response.data.token, datos.email);                       
+                        //localStorage.setItem('tokenUser', response.data.token);                         
+                       // console.log(response.token);                  
+                       login(response.token, datos.email);                       
                         setDatos('');
                     }
                 }

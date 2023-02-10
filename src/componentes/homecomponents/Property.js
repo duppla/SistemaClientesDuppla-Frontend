@@ -26,7 +26,7 @@ function Property() {
             headers: { 'Content-Type': 'application/json' },
             body: '{ "email": '+email+'}'
         };
-        fetch('https://sistemas-clientes-duppla.herokuapp.com/inm/getInm', options)
+        fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
             .then(response => response.json())
             .then(response => {
                 setDatosIn(response);
@@ -57,7 +57,7 @@ function Property() {
             body: '{"email":"pgutierrez@duppla.co"}'
           };
           
-          fetch('https://sistemas-clientes-duppla.herokuapp.com/inm/accept', options)
+          fetch('https://sistema-duppla-backend.herokuapp.com/inm/accept', options)
             .then(response => response.json())
             .then(response => console.log(response))
             .catch(err => console.error(err));
