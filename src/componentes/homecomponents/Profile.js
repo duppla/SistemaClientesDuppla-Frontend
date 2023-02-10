@@ -82,7 +82,7 @@ function profile() {
 
             {/*Sección de datos- hay que traerlos de salesforce*/}
             <div className="user-data-card container-fluid">
-                <div className="tarjetas-datos-usuario " id="cardComponet">
+                <div className="tarjetas-datos-usuario d-grid " id="cardComponet">
                     <div className="card-seccion">
                         <div className="row ">
                             <div className="col-4">
