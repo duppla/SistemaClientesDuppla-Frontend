@@ -54,10 +54,6 @@ code {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.text-blue {
-  color: var(--color-primario-btn);
-}
-
 .b-color-gris {
   color: var(--color-fondo-gris)
 }
@@ -592,7 +588,7 @@ hr {
   margin-left: 16px;
   margin-right: 16px;
 
-  border-radius: 5px;
+
   top: 210px;
   bottom: 100px;
 

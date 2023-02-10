@@ -40,10 +40,11 @@ function Home() {
 
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
+    const email = localStorage.getItem('email');
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: '{"email":"pgutierrez@duppla.co"}'
+      body: '{ "email": '+email+'}'
     };
 
     fetch('https://sistemas-clientes-duppla.herokuapp.com/users/home', options)
@@ -87,9 +88,6 @@ const stateChange = (stateUser) => {
   }
 
 }
-
-
-
 
   return (
 
@@ -258,12 +256,12 @@ const stateChange = (stateUser) => {
                   <p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-                {stateOffer ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
+                {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
                 </div>
                 <div className="col-4">
                   <div className="card-body">
                     <p className="card-text more">03/02/2023</p>
-                    <p className="card-text-aprov">{stateInm ? "Pendiente" : "Aceptado"}</p>
+                    <p className="card-text-aprov">{stateInm ? "Aceptado" : "Pendiente"}</p>
                   </div>
                 </div>
               </div>
@@ -313,10 +311,9 @@ const stateChange = (stateUser) => {
         </div>
         {/*componente  soporte*/}
         <div className=" btn-m " id="">
-          <a className="links"
+          <a className="links  btn-m  "
             href="https://api.whatsapp.com/send?phone=573152559261">
-
-            <button type="button" className="btn btn-prueba-blanco text-blue links " width="400px" height="46px" >
+            <button type="button" className="btn btn-prueba-blanco text-blue btn-m"  >
               Tengo algún problema
             </button>
           </a>

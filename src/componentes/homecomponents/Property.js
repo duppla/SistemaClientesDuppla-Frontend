@@ -20,17 +20,17 @@ function Property() {
 
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
+        const email = localStorage.getItem('email');
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: '{"email":"sharyth.navarro@gmail.com"}'
+            body: '{ "email": '+email+'}'
         };
         fetch('https://sistemas-clientes-duppla.herokuapp.com/inm/getInm', options)
             .then(response => response.json())
             .then(response => {
                 setDatosIn(response);
                 setFormattedData(numeral(datosIn).format('0,0.00'));
-
             })
 
             .catch(err => console.error(err));
@@ -51,6 +51,16 @@ function Property() {
     
     const handleInm = () => {
 
+        const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: '{"email":"pgutierrez@duppla.co"}'
+          };
+          
+          fetch('https://sistemas-clientes-duppla.herokuapp.com/inm/accept', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
       
         swal({
           title: "Felicitaciones",     
@@ -61,10 +71,6 @@ function Property() {
         });
         
          }
-
-
-
-
 
 
     return (

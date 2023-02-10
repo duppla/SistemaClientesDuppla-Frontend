@@ -67,7 +67,7 @@ function Register() {
                         alert('error');
                     } else {
                         //localStorage.setItem('tokenUser', response.data.token);                        
-                        login(response.data.token);                       
+                        login(response.data.token, datos.email);                       
                         setDatos('');
                     }
                 }

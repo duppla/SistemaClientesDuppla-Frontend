@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const recovereToken = localStorage.getItem("token");
-
         if (recovereToken) {
             setToken(JSON.parse(recovereToken));
 
@@ -29,9 +28,11 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
 //ejemplo de operador ternario condicion ? true : false
-    const login = (tokenUser) => {
+    const login = (tokenUser, email) => {
 
         localStorage.setItem('token', JSON.stringify(tokenUser));
+        localStorage.setItem('email', JSON.stringify(email));
+        
 
         if (tokenUser) {
            // console.log('ver si entra el', tokenUser);
@@ -50,9 +51,8 @@ export const AuthProvider = ({ children }) => {
                     setToken({ token: tokenUser });
                     //console.log(response);        
                     navigate('/home')
-
                 })
-                .catch(err => {                  
+                .catch(err => {                
                     
                     console.error(err)                
                     navigate('/register')
@@ -61,6 +61,9 @@ export const AuthProvider = ({ children }) => {
             navigate('/register')
         }
     };
+
+
+
     const logout = () => {
         //console.log('logout');
         localStorage.removeItem('token');
