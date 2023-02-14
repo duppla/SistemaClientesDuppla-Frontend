@@ -379,6 +379,16 @@ hr {
 
 }
 
+.img-icono-card-inm{
+  width: 50px;
+  height: 56px;
+  margin-left: -5px;
+  margin-top: 18px;
+  margin-right: 30px;
+  bottom: 22px;
+
+}
+
 .btn-state-home {
   margin-top: 65px;
   margin-left: 4px;

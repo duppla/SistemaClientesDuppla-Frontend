@@ -18,8 +18,7 @@ import Vlogout from "../../img/vlogout.svg"
 import Vrectangulo from "../../img/vrectanguler.svg"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
-import Offer from "../homecomponents/Offer";
-
+import Iconinm from "../../img/Iconinm.png"
 
 
 
@@ -249,7 +248,7 @@ const stateChange = (stateUser) => {
             <div className="card-seccion"  >
               <div className="row ">
                 <div className="col-1">
-                  <img src={Iinmueble} className="img-icono-card " alt="" />
+                  <img src={Iconinm } className="img-icono-card-inm" alt="" />
                 </div>
                 <div className="col-4 card-home-offer">
                   <h4 className="card-title card-top "><b>Inmueble</b></h4>

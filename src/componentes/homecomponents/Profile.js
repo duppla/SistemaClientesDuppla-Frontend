@@ -4,6 +4,7 @@ import Idata from "../../img/imgdata.png";
 import Icerrarsesion from "../../img/imgcerrarsesion.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
+import swal from 'sweetalert';
 
 
 
@@ -50,6 +51,19 @@ function profile() {
     const formattedNumber = formatter.format(number);
     const formattedNumberr = formatter.format(numberr);
 
+
+    const handleNotification  = () => {
+
+        swal({
+           
+            text: "Se envió correctamente la solicitd de cambio en la información.",
+            icon: "info",
+            button: "Cerrar",
+            timer: 5000,
+        });
+
+
+    };
     return (
         <div className="container-profile container-fluid">
             <div className="arrow-return container sm">
@@ -194,7 +208,7 @@ function profile() {
             {/*componente calendario*/}
             <div className="centrado  container-sm" id="btnIniciarSesion">
                 <Link to='' className="links">
-                    <button type="button" id="" className="btn btn-prueba text-white" width="400px" height="46px" >
+                    <button type="button" id="" className="btn btn-prueba text-white" onClick={handleNotification} width="400px" height="46px" >
                         QUIERO EDITAR MIS DATOS
                     </button>
                 </Link>
