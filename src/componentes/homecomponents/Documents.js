@@ -24,11 +24,11 @@ function Docs() {
 
                 <div className="card-docs-m   ">
                     <div className="card-body-docs col-2">
-                        <img src={Istatev} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
                         <b className="">Oferta vinculante</b>
-                        <p class="card-text-docs"><small class="text-muted">Firmado | Feb 21, 2022 12:45PM</small></p>
+                        <p class="card-text-docs"><small class="text-muted">{}</small></p>
                              
                     </div>
                     <div className="col-2 outline">
@@ -39,11 +39,11 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                        <img src={Istatev} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Contrato de adhesión</b>
-                        <p class="card-text-docs"><small class="text-muted">Firmado | Feb 21, 2022 12:45PM</small></p>
+                        <p class="card-text-docs"><small class="text-muted">{}</small></p>
                     </div>
                     <div className="col-2 outline">
                         <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
@@ -53,11 +53,11 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                        <img src={Istatev} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Contrato de arrendamiento</b>
-                        <p class="card-text-docs"><small class="text-muted">Firmado | Feb 21, 2022 12:45PM</small></p>
+                        <p class="card-text-docs"><small class="text-muted">{}</small></p>
                     </div>
                     <div className="col-2 outline">
                         <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
@@ -68,11 +68,11 @@ function Docs() {
                 {/*docs en estado de validación */}
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                        <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Cesión de derecho</b>
-                        <p class="card-text-docs"><small class="text-muted">En proceso de validación</small></p>
+                        <p class="card-text-docs"><small class="text-muted">{}</small></p>
                     </div>
                     <div className="col-2 outline">
                         <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
@@ -82,11 +82,11 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                        <img src={Istateb} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Garantía mobiliaria</b>
-                        <p class="card-text-docs"><small class="text-muted">En proceso de validación</small></p>
+                        <p class="card-text-docs"><small class="text-muted">{}</small></p>
                     </div>
                     <div className="col-2 outline">
                         <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
@@ -96,11 +96,11 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                        <img src={Istateb} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Carta de instrucciones</b>
-                        <p class="card-text-docs"><small class="text-muted">En proceso de validación</small></p>
+                        <p class="card-text-docs"><small class="text-muted">{}</small></p>
                     </div>
                     <div className="col-2 outline">
                         <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="

@@ -258,7 +258,7 @@ code {
   width: 64px;
   height: 63px;
   margin-left: 32px;
-  margin-top: 38px;
+  margin-top: 25px;
 }
 .img-user-img {
   width: 64px;
@@ -323,7 +323,7 @@ hr {
   width: 59px;
   height: 0px;
   left: 90px;
-  top: 80px;
+  top: 65px;
   bottom: 34px;
 
   border: 2px solid #FFFFFF;
@@ -788,6 +788,11 @@ a {
 
 }
 
+.card-perfil-datos{
+  margin-top: -10px;
+  margin-bottom: 15px;
+
+}
 
 .description-apt {
   margin: 16px 16px 16px 16px;

@@ -52,7 +52,7 @@ function Register() {
             const options = {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: '{"email":"pgutierrez@duppla.co","password":"1234"}'
+                body: '{"email":"'+datos.email+'","password":"'+datos.password+'"}'
               };
             
               fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options).then(response => response.json())

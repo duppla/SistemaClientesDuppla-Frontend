@@ -24,7 +24,7 @@ function Property() {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: '{ "email": '+email+'}'
+            body: '{ "email": ' + email + '}'
         };
         fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
             .then(response => response.json())
@@ -48,29 +48,29 @@ function Property() {
     const formattedNumber = formatter.format(number);
 
     // Función para acpetar inmueble
-    
+
     const handleInm = () => {
 
-        const options = {
+       {/*} const options = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: '{"email":"pgutierrez@duppla.co"}'
-          };
-          
-          fetch('https://sistema-duppla-backend.herokuapp.com/inm/accept', options)
+        };
+
+        fetch('https://sistema-duppla-backend.herokuapp.com/inm/accept', options)
             .then(response => response.json())
             .then(response => console.log(response))
-            .catch(err => console.error(err));
-      
+    .catch(err => console.error(err)); */}
+
         swal({
-          title: "Felicitaciones",     
-          text: "Se acepto correctamente el inmueble",   
-          icon: "success",
-          button: "Cerrar",
-          timer: 5000,
+           
+            text: "Se envió correctamente la solicitd de cambio en la información.",
+            icon: "info",
+            button: "Cerrar",
+            timer: 5000,
         });
-        
-         }
+
+    }
 
 
     return (
@@ -120,7 +120,7 @@ function Property() {
             {/*información inmueble */}
             <div className="text-title-property container-sm">
                 <div className="description-apt">
-                    <h1 className="text-title-property-title"><b>Apartamento{datosIn.Tipo_de_inmueble}</b></h1>
+                    <h1 className="text-title-property-title"><b>{datosIn.Tipo_de_inmueble}</b></h1>
                     {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
                     <p><b> {formattedNumber}</b></p><br />
                     <p>
@@ -144,11 +144,11 @@ function Property() {
                                 Ver más
                             </button>
                             <div className="dropdown-menu dropdown-menu-cambio  " >
-                                <ol className=" list-group  ">{/*list-group-numbered*/}                               
+                                <ol className=" list-group  ">{/*list-group-numbered*/}
 
                                     <li className=" list-group-item d-flex justify-content-start align-items-start">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">m2:{datosIn.Area}</div>
+                                            <div className="fw-bold col-6">m²:{datosIn.Area}</div>
 
                                         </div>
                                     </li>
@@ -198,7 +198,7 @@ function Property() {
                     </div>
                 </div>
             </div>
-           {/*Tarjetas estado del inmeble */}
+            {/*Tarjetas estado del inmeble */}
             <div className="card-inmueble container-sm ">
                 <div className="row ">
                     <div className="col-2">
@@ -256,8 +256,18 @@ function Property() {
             </div>
 
             {/*Menú documentos*/}
-            <div className="centrado space-btn-property ">
-                <div>
+
+                <div className="centrado  container-sm" id="btnIniciarSesion">
+                    <Link to='' className="links">
+                        <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
+                            Los datos del inmueble son incorrectos
+                        </button>
+                    </Link>
+                </div>
+
+            <div className="centrado  ">
+
+               {/*} <div>
                     <Link to='/home'>
                         <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
                     </Link>
@@ -265,7 +275,7 @@ function Property() {
                 <div className="">
                     <button type="button" class="btn btn-outline-primary btn-d-cancel " onClick={handleInm}>ACEPTAR</button>
 
-                </div>
+                </div>*/}
             </div>
 
 

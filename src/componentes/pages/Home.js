@@ -9,7 +9,7 @@ import Iprogresive3 from "../../img/Iprogresive3.png"
 import Iprogresive4 from "../../img/Iprogresive4.png"
 import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
-import Idupplaverdeblanco from "../../img/Idupplaverdeblanco.png"
+import Idupplanaranja from "../../img/Idupplanaranja.png"
 import Vperfil from "../../img/vperfil.svg"
 import Voferta from "../../img/voferta.svg"
 import Vinmueble from "../../img/vinmueble.svg"
@@ -96,15 +96,15 @@ const stateChange = (stateUser) => {
         {/*Contenedor de perfil */}
         <div className="profile container-fluid">
           <div className="row contenedor-img-duppla">
-            <img src={Idupplaverdeblanco} className=" img-duppla" alt="" />
+            <img src={Idupplanaranja} className=" img-duppla" alt="" />
           </div>
           <div className="col-4 ">
             <Link to='/profile' className="link-styles"> <img src={Iperfil}
               className="  img-user"
               alt="perfil" />
             </Link>
-          </div><hr />
-          <div className="col-6">
+          </div><hr/>
+          <div className="col-6  card-perfil-datos">
             <div className="card-body">
               <h5 className="card-title card-home text-white" >{data.nombre}</h5>
               <p className="text-orange">{fecha}</p>
