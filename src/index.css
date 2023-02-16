@@ -290,6 +290,20 @@ code {
   margin-top: 75px;
 }
 
+.img-state-progress {
+  width: 32px;
+  height: 32px;
+  margin-top: 18px;
+  margin-left: 16px;
+  margin-bottom: 18px;
+
+}
+
+.text-state-progress{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px ;
+}
+
 
 .user-data-card {
 

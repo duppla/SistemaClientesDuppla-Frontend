@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import './../custumer/inicio.css'
 import { Link } from 'react-router-dom';
@@ -14,6 +14,11 @@ import Iayuda from "../../src/img/Iayuda.svg";
 import Ihistorialpago from "../../src/img/Ihistorialpago.svg";
 import Imantenimiento from "../../src/img/Imantenimiento.svg";
 
+
+import ProgressBar from './../componentes/pages/Logout';
+
+
+import SemiCircularProgressBar from './../custumer/Progressbar';
 
 
 
@@ -32,6 +37,13 @@ function Inicio() {
 
 
 
+    const value = 50;
+    const maxValue = 100;
+    const color = '#3e98c7';
+
+
+
+    const [progress, setProgress] = useState(15);
 
     return (
         <div className=" container-fluid continer-inicio">
@@ -62,12 +74,20 @@ function Inicio() {
 
                     {/*componente de estados*/}
                     <div className="centrado  container-fluid">
-                        <div className="row ">
+                        {/*<div className="row ">
 
                             <img src={Iprogresbar} className="progres-img" alt="  " />
 
 
-                        </div>
+    </div>*/}
+
+                       {/*} <div>
+                            <ProgressBar value={value} maxValue={maxValue} color={color} />
+                        </div>*/}
+                    <div className='centrado'>
+                        <SemiCircularProgressBar progress={progress} />
+
+                    </div>
                     </div>
                     {/*Pago mínimo */}
                     <div className="card-docs-init ">
@@ -143,7 +163,7 @@ function Inicio() {
                 <div className="card-docs-init   ">
                     <div className=" col-3">
                         <img src={Ihistorialpago} className="  warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
-                        <p>Historial 
+                        <p>Historial
                             de pago</p>
                     </div>
                     <div className=" col-3 ">

@@ -4,7 +4,7 @@ import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
 import Iprogresive1 from "../../img/Iprogresive1.png"
-import Iprogresive2 from "../../img/Iprogresive2.png"
+import Iprogresive2 from "../../img/Istateprogressbar2.png"
 import Iprogresive3 from "../../img/Iprogresive3.png"
 import Iprogresive4 from "../../img/Iprogresive4.png"
 import Istateg from "../../img/Istateg.png"
@@ -19,7 +19,7 @@ import Vrectangulo from "../../img/vrectanguler.svg"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Iconinm from "../../img/Iconinm.png"
-
+import Iconx from "../../img/Iconx.svg"
 
 
 
@@ -85,7 +85,25 @@ const stateChange = (stateUser) => {
       default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
       
   }
-
+}
+  const stateChangeProgress = (stateUser) => {
+    
+  switch (stateUser) { 
+    case "Pendiente":
+      return <p>Por aprobar la oferta vinculante</p>;
+      case "Aceptado":
+      return <p>Realizando el estudio de titulos</p>;
+      case "AceptadoInm":
+      return <p>Falta la firma de promesa de compraventa</p>;
+      case "AceptadoDocs":
+      return <p>Falta firma de documentos</p>;
+      case "Escritura":
+      return <p>Falta firma de escritura</p>;
+      case "Mudarse":
+      return <p>Estas listo para mudarse</p>;
+    
+      default: return <p>Por aprobar la oferta vinculante</p>;
+  }
 }
 
   return (
@@ -290,15 +308,24 @@ const stateChange = (stateUser) => {
             <img src={BarraProgreso} className="img-estados" alt="" />*/}
           </div>
         </div>
-        {/*Próxima reunión*/}
-        <div className="card-docs-m ">
-          <div className="card-body col-6  text-reu">
-            <b>Proxima reunión</b>
-          </div>
-          <div className="col-6">
-            <p className="danger-text"><b> 10-02-2023 4:30 p.m.</b></p>
-          </div>
-        </div>
+        {/*Cambio de estado*/}
+        <div className="d-grid" id="cardComponet">
+                    <div className="card-seccion">
+                        <div className="row ">
+                            <div className="col-2">
+                                <img src={Iconx} className="img-state-progress" alt="" />
+                            </div>
+                            <div className="col-4">
+                                <div className="card-body">
+                                    <p className=""> <small className="text-muted">Estado</small></p>
+                                    <p className="text-state-progress"><b>{stateChangeProgress()}</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"
