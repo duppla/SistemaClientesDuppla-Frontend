@@ -180,7 +180,7 @@ function Property() {
                                         </div>
                                     </li>
 
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                    <li className=" list-group-item d-flex justify-content-start align-items-start"> 
                                         <div className="row" >
                                             <div className="fw-bold col-6">Parqueadero:{datosIn.Parqueadero}</div>
 

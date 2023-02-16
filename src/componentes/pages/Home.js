@@ -102,7 +102,7 @@ const stateChange = (stateUser) => {
               className="  img-user"
               alt="perfil" />
             </Link>
-          </div><hr/>
+          </div><hr className="hr-position"/>
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
               <h5 className="card-title card-home text-white" >{data.nombre}</h5>

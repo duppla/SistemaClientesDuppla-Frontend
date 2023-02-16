@@ -1,0 +1,168 @@
+code {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* variables de colores duppla*/
+:root {
+    --color-primario-btn: #6C9FFF;
+    --color-fondo: #FFFFFF;
+    --color-naranja-duppla: #FF864B;
+    --color-verde-duppla: #C5F5CA;
+    --color-cimiento-duppla: #0A3323;
+    --color-sombra-duppla: #EEEFF3;
+    --color-fondo-gris: #F9F9F9;
+}
+
+
+.text-blue-init {
+
+    color: var(--color-primario-btn)
+}
+
+.text-green-init {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: var(--color-cimiento-duppla);
+}
+
+.continer-inicio {
+    height: 1200px;
+}
+
+/*Sección Perfil inicio custumer*/
+.profile-inicio {
+    display: flex;
+    flex-direction: initial;
+    justify-content: space-between;
+    align-items: center;
+
+    left: 0px;
+    top: 0px;
+    bottom: 100px;
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 31px;
+
+    background: var(--color-fondo);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-bottom-right-radius: 16%;
+    border-bottom-left-radius: 16%;
+
+}
+
+hr-init {
+    position: absolute;
+    width: 59px;
+    height: 30px;
+    left: 90px;
+    top: 65px;
+    bottom: 34px;
+    border: 2px solid #c91a1a;
+    transform: rotate(90deg);
+
+}
+
+.img-user-init {
+    width: 64px;
+    height: 63px;
+    margin-top: 30px;
+    margin-left: 16px;
+    margin-bottom: 10px;
+
+}
+
+.container-progress {
+
+    align-items: center;
+
+    height: 390px;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    background: rgba(129, 161, 248, 0.08);
+    border-radius: 20px;
+}
+
+.title-init {
+    padding-top: 6px;
+}
+
+.title-init-progressbar {
+    margin-top: 24px;
+    margin-left: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+
+}
+
+.progres-img {
+    margin-top: 20px;
+    width: 340px;
+    height: 160px;
+}
+
+.card-docs-init {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    padding: 16px 24px;
+    gap: 16px;
+    height: 20px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    border-radius: 5px;
+    top: 210px;
+    bottom: 100px;
+
+}
+
+.btn-init-pago {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    padding: 16px 24px;
+    gap: 16px;
+    height: 80px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    height: 58px;
+    left: 24px;
+    background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
+    /* M3/Elevation Light/1 */
+
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+}
+
+
+
+
+
+.dropdown-menu-init {
+
+    padding: 0px 0px 0px 0px;
+    box-sizing: border-box;
+    width: 380px;
+    height: 280px;
+    margin-right: 6px;
+    margin-left: -50px;
+    background: #ffffff;
+    border: 1px solid #E1EBF4;
+    border-radius: 8px;
+
+}
+
+.container-btns{
+    margin-top: 100px;
+}
