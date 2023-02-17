@@ -18,7 +18,7 @@ import Imantenimiento from "../../src/img/Imantenimiento.svg";
 import ProgressBar from './../componentes/pages/Logout';
 
 
-import SemiCircularProgressBar from './../custumer/Progressbar';
+
 
 
 
@@ -84,10 +84,7 @@ function Inicio() {
                        {/*} <div>
                             <ProgressBar value={value} maxValue={maxValue} color={color} />
                         </div>*/}
-                    <div className='centrado'>
-                        <SemiCircularProgressBar progress={progress} />
-
-                    </div>
+                   
                     </div>
                     {/*Pago mínimo */}
                     <div className="card-docs-init ">

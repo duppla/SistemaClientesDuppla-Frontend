@@ -1,4 +1,4 @@
-import React from 'react';
+{/*import React from 'react';
 import { Circle } from 'react-circle';
 
 function SemiCircularProgressBar({ progress }) {
@@ -22,4 +22,4 @@ function SemiCircularProgressBar({ progress }) {
   );
 }
 
-export default SemiCircularProgressBar;
+export default SemiCircularProgressBar;*/}
