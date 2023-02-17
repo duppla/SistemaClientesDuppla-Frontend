@@ -81,9 +81,9 @@ function Inicio() {
 
     </div>*/}
 
-                       {/*} <div>
+                        <div>
                             <ProgressBar value={value} maxValue={maxValue} color={color} />
-                        </div>*/}
+                        </div>
                    
                     </div>
                     {/*Pago mínimo */}

@@ -2,11 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
-import BarraProgreso from "../../img/barraprogreso.png"
-import Iprogresive1 from "../../img/Iprogresive1.png"
+import BarraProgreso from "../../img/Istateprogressbar.png"
+import Iprogresive1 from "../../img/Istateprogressbar1.png"
 import Iprogresive2 from "../../img/Istateprogressbar2.png"
-import Iprogresive3 from "../../img/Iprogresive3.png"
-import Iprogresive4 from "../../img/Iprogresive4.png"
+import Iprogresive3 from "../../img/Istateprogressbar3.png"
+import Iprogresive4 from "../../img/Istateprogressbar4.png"
+import Iprogresive5 from "../../img/Istateprogressbar5.png"
+import Iprogresive6 from "../../img/Istateprogressbar6.png"
+import Iprogresive7 from "../../img/Istateprogressbar7.png"
+import Iprogresive8 from "../../img/Istateprogressbar8.png"
 import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
 import Idupplanaranja from "../../img/Idupplanaranja.png"
@@ -43,7 +47,7 @@ function Home() {
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: '{ "email": '+email+'}'
+      body: '{ "email": ' + email + '}'
     };
 
     fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
@@ -62,49 +66,55 @@ function Home() {
     logout();
   };
 
-// 
+  // 
 
-const stateUser = data.estado;
-const stateInm= data.estado_inm;
-const stateOffer = data.estado_oferta;
+  const stateUser = data.estado;
+  const stateInm = data.estado_inm;
+  const stateOffer = data.estado_oferta;
 
-const stateChange = (stateUser) => {
+  const stateChange = (stateUser) => {
 
-  switch (stateUser) { 
-    case "Pendiente":
-      return <img src={BarraProgreso} className="img-fluid" alt="" />;
+    switch (stateUser) {
+      case "Pendiente":
+        return <img src={BarraProgreso} className="img-fluid" alt="" />;
       case "Aceptado":
-      return <img src={Iprogresive1} className="img-fluid" alt="" />;
+        return <img src={Iprogresive1} className="img-fluid" alt="" />;
       case "AceptadoInm":
-      return <img src={Iprogresive2} className="img-fluid" alt="" />;
+        return <img src={Iprogresive2} className="img-fluid" alt="" />;
+      case "Titulos":
+        return <img src={Iprogresive3} className="img-fluid" alt="" />;
+      case "Compraventa":
+        return <img src={Iprogresive4} className="img-fluid" alt="" />;
       case "AceptadoDocs":
-      return <img src={Iprogresive3} className="img-fluid" alt="" />;
-      case "Mudarse":
-      return <img src={Iprogresive4} className="img-fluid" alt="" />;
-    
-      default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
-      
-  }
-}
-  const stateChangeProgress = (stateUser) => {
-    
-  switch (stateUser) { 
-    case "Pendiente":
-      return <p>Por aprobar la oferta vinculante</p>;
-      case "Aceptado":
-      return <p>Realizando el estudio de titulos</p>;
-      case "AceptadoInm":
-      return <p>Falta la firma de promesa de compraventa</p>;
-      case "AceptadoDocs":
-      return <p>Falta firma de documentos</p>;
+        return <img src={Iprogresive5} className="img-fluid" alt="" />;
       case "Escritura":
-      return <p>Falta firma de escritura</p>;
+        return <img src={Iprogresive6} className="img-fluid" alt="" />;
       case "Mudarse":
-      return <p>Estas listo para mudarse</p>;
-    
-      default: return <p>Por aprobar la oferta vinculante</p>;
+        return <img src={Iprogresive7} className="img-fluid" alt="" />;
+
+      default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
+
+    }
   }
-}
+  const stateChangeProgress = (stateUser) => {
+
+    switch (stateUser) {
+      case "Pendiente":
+        return <p>Por aprobar la oferta vinculante</p>;
+      case "Aceptado":
+        return <p>Realizando el estudio de titulos</p>;
+      case "AceptadoInm":
+        return <p>Falta la firma de promesa de compraventa</p>;
+      case "AceptadoDocs":
+        return <p>Falta firma de documentos</p>;
+      case "Escritura":
+        return <p>Falta firma de escritura</p>;
+      case "Mudarse":
+        return <p>Estas listo para mudarse</p>;
+
+      default: return <p>Por aprobar la oferta vinculante</p>;
+    }
+  }
 
   return (
 
@@ -120,7 +130,7 @@ const stateChange = (stateUser) => {
               className="  img-user"
               alt="perfil" />
             </Link>
-          </div><hr className="hr-position"/>
+          </div><hr className="hr-position" />
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
               <h5 className="card-title card-home text-white" >{data.nombre}</h5>
@@ -133,103 +143,103 @@ const stateChange = (stateUser) => {
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
               <div className="">
-              <div className=" offcanvas offcanvas-bottom navbar-container " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div className="offcanvas-body ">
-                <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas"  alt="" />
-                  <ul className="navbar-nav " >
-                    <li className="nav-item ">
-                      <Link to="/profile">
-                        <div className="row ">
-                          <div className="col-8 outline ">
-                            <div className="row">
-                              <div className="card-state-properties-home nav-link active text-navbar-options">
-                                <div className="card-body col-1  img-state-propety">
-                                  <img src={Vperfil} className="" alt="" height='24px' width='24px' />
-                                </div>
-                                <div className="col-10 outline">
-                                  <p className=" text-docs "><b >Perfil </b></p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li className="nav-item  nav-section">
-                      <Link to="/offer">
-                        <div className="row ">
-                          <div className="col-8 outline ">
-                            <div className="row">
-                              <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
-                                <div className="card-body col-1  img-state-propety">
-                                  <img src={Voferta} className="" alt="" height='24px' width='24px' />
-                                </div>
-                                <div className="col-10 outline">
-                                  <p className=" text-docs"><b >Ultima oferta</b></p>
+                <div className=" offcanvas offcanvas-bottom navbar-container " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                  <div className="offcanvas-body ">
+                    <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
+                    <ul className="navbar-nav " >
+                      <li className="nav-item ">
+                        <Link to="/profile">
+                          <div className="row ">
+                            <div className="col-8 outline ">
+                              <div className="row">
+                                <div className="card-state-properties-home nav-link active text-navbar-options">
+                                  <div className="card-body col-1  img-state-propety">
+                                    <img src={Vperfil} className="" alt="" height='24px' width='24px' />
+                                  </div>
+                                  <div className="col-10 outline">
+                                    <p className=" text-docs "><b >Perfil </b></p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to="/property">
-                        <div className="row ">
-                          <div className="col-8 outline ">
-                            <div className="row">
-                              <div className="card-state-properties-home nav-link active text-navbar-options">
-                                <div className="card-body col-1  img-state-propety">
-                                  <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
-                                </div>
-                                <div className="col-10 outline">
-                                  <p className=" text-docs"><b >Inmueble</b></p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li className="">
-                      <Link to="/documents">
-                        <div className="row ">
-                          <div className="col-8 outline ">
-                            <div className="row">
-                              <div className="card-state-properties-home nav-link active text-navbar-options">
-                                <div className="card-body col-1  img-state-propety">
-                                  <img src={Vdocs} className="" alt="" height='24px' width='24px' />
-                                </div>
-                                <div className="col-10 outline">
-                                  <p className=" text-docs"><b>Documentos</b></p>
+                        </Link>
+                      </li>
+                      <li className="nav-item  nav-section">
+                        <Link to="/offer">
+                          <div className="row ">
+                            <div className="col-8 outline ">
+                              <div className="row">
+                                <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                  <div className="card-body col-1  img-state-propety">
+                                    <img src={Voferta} className="" alt="" height='24px' width='24px' />
+                                  </div>
+                                  <div className="col-10 outline">
+                                    <p className=" text-docs"><b >Ultima oferta</b></p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link to="">
-                        <div className="row ">
-                          <div className="col-8 outline ">
-                            <div className="row">
-                              <div className="card-state-properties-home nav-link active text-navbar-options">
-                                <div className="card-body col-1  img-state-propety">
-                                  <img src={Vlogout} className="" alt="" height='24px' width='24px' />
-                                </div>
-                                <div className="col-10 outline" onClick={handleLogout}>
-                                  <p className=" text-docs"><b >Cerrar sesión</b></p>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/property">
+                          <div className="row ">
+                            <div className="col-8 outline ">
+                              <div className="row">
+                                <div className="card-state-properties-home nav-link active text-navbar-options">
+                                  <div className="card-body col-1  img-state-propety">
+                                    <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
+                                  </div>
+                                  <div className="col-10 outline">
+                                    <p className=" text-docs"><b >Inmueble</b></p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    </li>
-                  </ul>
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to="/documents">
+                          <div className="row ">
+                            <div className="col-8 outline ">
+                              <div className="row">
+                                <div className="card-state-properties-home nav-link active text-navbar-options">
+                                  <div className="card-body col-1  img-state-propety">
+                                    <img src={Vdocs} className="" alt="" height='24px' width='24px' />
+                                  </div>
+                                  <div className="col-10 outline">
+                                    <p className=" text-docs"><b>Documentos</b></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="">
+                          <div className="row ">
+                            <div className="col-8 outline ">
+                              <div className="row">
+                                <div className="card-state-properties-home nav-link active text-navbar-options">
+                                  <div className="card-body col-1  img-state-propety">
+                                    <img src={Vlogout} className="" alt="" height='24px' width='24px' />
+                                  </div>
+                                  <div className="col-10 outline" onClick={handleLogout}>
+                                    <p className=" text-docs"><b >Cerrar sesión</b></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div> 
               </div>
             </div>
           </nav>
@@ -252,7 +262,7 @@ const stateChange = (stateUser) => {
                 <div className="col-4">
                   <div className="card-body">
                     <p className="card-text">03/02/2023</p>
-                    <p className="card-text-aprov">{ stateOffer ? "Aceptado" : "Pendiente"}</p>
+                    <p className="card-text-aprov">{stateOffer ? "Aceptado" : "Pendiente"}</p>
                   </div>
                 </div>
               </div>
@@ -266,14 +276,14 @@ const stateChange = (stateUser) => {
             <div className="card-seccion"  >
               <div className="row ">
                 <div className="col-1">
-                  <img src={Iconinm } className="img-icono-card-inm" alt="" />
+                  <img src={Iconinm} className="img-icono-card-inm" alt="" />
                 </div>
                 <div className="col-4 card-home-offer">
                   <h4 className="card-title card-top "><b>Inmueble</b></h4>
                   <p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-                {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
+                  {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
                 </div>
                 <div className="col-4">
                   <div className="card-body">
@@ -301,29 +311,29 @@ const stateChange = (stateUser) => {
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
           <div className="row ">
-            
-           {stateChange(stateUser) }
-             
+
+            {stateChange(stateUser)}
+
             {/*}  ? <img src={Iprogresive1} className="img-fluid" alt="" /> : "Pendiente" <img src={BarraProgreso} className="img-estados" alt="" />
             <img src={BarraProgreso} className="img-estados" alt="" />*/}
           </div>
         </div>
         {/*Cambio de estado*/}
         <div className="d-grid" id="cardComponet">
-                    <div className="card-seccion">
-                        <div className="row ">
-                            <div className="col-2">
-                                <img src={Iconx} className="img-state-progress" alt="" />
-                            </div>
-                            <div className="col-4">
-                                <div className="card-body">
-                                    <p className=""> <small className="text-muted">Estado</small></p>
-                                    <p className="text-state-progress"><b>{stateChangeProgress()}</b></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          <div className="card-seccion">
+            <div className="row ">
+              <div className="col-2">
+                <img src={Iconx} className="img-state-progress" alt="" />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className=""> <small className="text-muted">Estado</small></p>
+                  <p className="text-state-progress"><b>{stateChangeProgress()}</b></p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
         {/*componente calendario*/}
@@ -343,7 +353,7 @@ const stateChange = (stateUser) => {
               Tengo algún problema
             </button>
           </a>
-        </div>        
+        </div>
       </div>
     </div>
 
