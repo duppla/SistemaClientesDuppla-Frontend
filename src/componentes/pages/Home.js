@@ -10,7 +10,7 @@ import Iprogresive4 from "../../img/Istateprogressbar4.png"
 import Iprogresive5 from "../../img/Istateprogressbar5.png"
 import Iprogresive6 from "../../img/Istateprogressbar6.png"
 import Iprogresive7 from "../../img/Istateprogressbar7.png"
-import Iprogresive8 from "../../img/Istateprogressbar8.png"
+
 import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
 import Idupplanaranja from "../../img/Idupplanaranja.png"
