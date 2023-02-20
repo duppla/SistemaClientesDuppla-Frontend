@@ -94,17 +94,24 @@ function Property() {
                     <button type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={Duppla_logotipo} className="d-block w-100" alt="..." />
+                        <img src={datosIn.Foto_exterior} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={Duppla_logotipo} className="d-block w-100" alt="..." />
+                        <img src={datosIn.Foto_sala} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={Duppla_logotipo} className="d-block w-100" alt="..." />
+                        <img src={datosIn.Foto_cocina} className="d-block w-100" alt="..." />
                     </div>
+                    <div className="carousel-item">
+                        <img src={datosIn.Foto_bano} className="d-block w-100" alt="..." />
+                    </div>
+                    
                 </div>
                 <button className="carousel-control-prev" type="button"
                     data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -254,9 +261,7 @@ function Property() {
                     </div>
                 </div>
             </div>
-
             {/*Menú documentos*/}
-
                 <div className="centrado  container-sm" id="btnIniciarSesion">
                     <a className="links"   href="https://api.whatsapp.com/send?phone=573152559261">
                         <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
@@ -264,8 +269,7 @@ function Property() {
                         </button>
                     </a>
                 </div>
-
-            <div className="centrado  ">
+            <div className="centrado">
 
                {/*} <div>
                     <Link to='/home'>
