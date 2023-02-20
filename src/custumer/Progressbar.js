@@ -1,25 +1,26 @@
-{/*import React from 'react';
-import { Circle } from 'react-circle';
+import React from 'react'
+import './../custumer/progressbar.css'
 
-function SemiCircularProgressBar({ progress }) {
+function Progressbar() {
   return (
-    <Circle
-      progress={progress}
-      strokeWidth={10}
-     
-      bgColor="#C5F5CA"
-      textColor="#999"
-      percentSpacing={10}
-      roundedStroke={true}
-      showPercentage={true}
-      size={200}
-      lineWidth={58}
-      progressColor="#FF864B"
-     
-      animationDuration="1s"
-      animate={true}
-    />
-  );
+
+  <div className='ProgressGradient'>
+    <ul class="chart-skills">
+  <li>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+  </li>
+  <li>
+    <span></span>
+   </li>
+</ul>
+</div> 
+  )
 }
 
-export default SemiCircularProgressBar;*/}
+export default Progressbar;

@@ -64,8 +64,8 @@ function Property() {
 
         swal({
            
-            text: "Se envió correctamente la solicitd de cambio en la información.",
-            icon: "info",
+            text: "Se redireccionará a WhatsApp.",
+            icon: "success",
             button: "Cerrar",
             timer: 5000,
         });
@@ -258,11 +258,11 @@ function Property() {
             {/*Menú documentos*/}
 
                 <div className="centrado  container-sm" id="btnIniciarSesion">
-                    <Link to='' className="links">
+                    <a className="links"   href="https://api.whatsapp.com/send?phone=573152559261">
                         <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
                             Los datos del inmueble son incorrectos
                         </button>
-                    </Link>
+                    </a>
                 </div>
 
             <div className="centrado  ">

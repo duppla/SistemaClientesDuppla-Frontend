@@ -56,7 +56,7 @@ function profile() {
 
         swal({
            
-            text: "Se envió correctamente la solicitd de cambio en la información.",
+            text: "Se redireccionará a WhatsApp",
             icon: "info",
             button: "Cerrar",
             timer: 5000,
@@ -207,11 +207,11 @@ function profile() {
 
             {/*componente calendario*/}
             <div className="centrado  container-sm" id="btnIniciarSesion">
-                <Link to='' className="links">
+                <a className="links"   href="https://api.whatsapp.com/send?phone=573152559261">
                     <button type="button" id="" className="btn btn-prueba text-white" onClick={handleNotification} width="400px" height="46px" >
                         QUIERO EDITAR MIS DATOS
                     </button>
-                </Link>
+                </a>
             </div>
 
             {/*componente cerrar sesión*/}

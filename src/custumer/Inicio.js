@@ -17,6 +17,9 @@ import Imantenimiento from "../../src/img/Imantenimiento.svg";
 
 import ProgressBar from './../componentes/pages/Logout';
 
+import Progressbar from './../custumer/Progressbar';
+
+
 
 
 
@@ -81,8 +84,13 @@ function Inicio() {
 
     </div>*/}
 
-                        <div>
+                        {/*<div>
                             <ProgressBar value={value} maxValue={maxValue} color={color} />
+                        </div>*/}
+
+                        
+                        <div>
+                            <Progressbar  />
                         </div>
                    
                     </div>

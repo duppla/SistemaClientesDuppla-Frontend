@@ -2,14 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
 import Iperfil from "../../img/iconoperfil.png"
-import BarraProgreso from "../../img/Istateprogressbar.png"
-import Iprogresive1 from "../../img/Istateprogressbar1.png"
-import Iprogresive2 from "../../img/Istateprogressbar2.png"
-import Iprogresive3 from "../../img/Istateprogressbar3.png"
-import Iprogresive4 from "../../img/Istateprogressbar4.png"
-import Iprogresive5 from "../../img/Istateprogressbar5.png"
-import Iprogresive6 from "../../img/Istateprogressbar6.png"
-import Iprogresive7 from "../../img/Istateprogressbar7.png"
+import BarraProgreso from "../../img/barraprogreso.png"
+import Iprogresive1 from "../../img/Iprogresive1.png"
+import Iprogresive2 from "../../img/Iprogresive2.png"
+import Iprogresive3 from "../../img/Iprogresive3.png"
+import Iprogresive4 from "../../img/Iprogresive4.png"
+
 
 import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
@@ -81,16 +79,11 @@ function Home() {
         return <img src={Iprogresive1} className="img-fluid" alt="" />;
       case "AceptadoInm":
         return <img src={Iprogresive2} className="img-fluid" alt="" />;
-      case "Titulos":
-        return <img src={Iprogresive3} className="img-fluid" alt="" />;
-      case "Compraventa":
-        return <img src={Iprogresive4} className="img-fluid" alt="" />;
       case "AceptadoDocs":
-        return <img src={Iprogresive5} className="img-fluid" alt="" />;
-      case "Escritura":
-        return <img src={Iprogresive6} className="img-fluid" alt="" />;
+        return <img src={Iprogresive3} className="img-fluid" alt="" />;
+
       case "Mudarse":
-        return <img src={Iprogresive7} className="img-fluid" alt="" />;
+        return <img src={Iprogresive4} className="img-fluid" alt="" />;
 
       default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
 
@@ -311,15 +304,11 @@ function Home() {
         {/*componente de estados*/}
         <div className="centrado  container-fluid">
           <div className="row ">
-
             {stateChange(stateUser)}
-
-            {/*}  ? <img src={Iprogresive1} className="img-fluid" alt="" /> : "Pendiente" <img src={BarraProgreso} className="img-estados" alt="" />
-            <img src={BarraProgreso} className="img-estados" alt="" />*/}
           </div>
         </div>
         {/*Cambio de estado*/}
-        <div className="d-grid" id="cardComponet">
+        {/*<div className="d-grid" id="cardComponet">
           <div className="card-seccion">
             <div className="row ">
               <div className="col-2">
@@ -333,7 +322,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
         {/*componente calendario*/}

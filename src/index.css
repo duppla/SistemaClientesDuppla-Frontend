@@ -250,7 +250,7 @@ code {
 /*Manejo img de perfil y home*/
 .img-fluid {
   width: 358px;
-  height: 257px;
+  height: 200px;
   margin-left: 16px;
   margin-right: 16px;
 }
