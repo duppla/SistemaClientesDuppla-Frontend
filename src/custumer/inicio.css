@@ -166,3 +166,24 @@ hr-init {
 .container-btns{
     margin-top: 100px;
 }
+
+
+.navbar-custumer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    
+    position: absolute;
+    width: 32px;
+    height: 42px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+
+
+    border-color: #6C9FFF;
+    
+    
+}
