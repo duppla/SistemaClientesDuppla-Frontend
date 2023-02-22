@@ -26,7 +26,7 @@ code {
 }
 
 .continer-inicio {
-    height: 1200px;
+    height: 1100px;
 }
 
 /*Sección Perfil inicio custumer*/
@@ -50,17 +50,6 @@ code {
 
 }
 
-hr-init {
-    position: absolute;
-    width: 59px;
-    height: 30px;
-    left: 90px;
-    top: 65px;
-    bottom: 34px;
-    border: 2px solid #c91a1a;
-    transform: rotate(90deg);
-
-}
 
 .img-user-init {
     width: 64px;
@@ -100,6 +89,12 @@ hr-init {
     width: 340px;
     height: 160px;
 }
+.text-align-custumer{
+    margin-top: 10px;
+}
+
+
+
 
 .card-docs-init {
     display: flex;
@@ -120,40 +115,45 @@ hr-init {
 
 }
 
-.btn-init-pago {
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    margin-top: 20px;
-    margin-bottom: 5px;
+.btn-pago-custumer {
 
-    padding: 16px 24px;
-    gap: 16px;
-    height: 80px;
-    margin-left: 16px;
-    margin-right: 16px;
-
+    width: 365px;
     height: 58px;
-    left: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
+    border: 1px solid #6C9FFF;
     /* M3/Elevation Light/1 */
-
+  
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
 
+    
+  
 }
 
 
 
-
+.ul{
+    text-decoration: none;
+    list-style: none;
+    border: #F9F9F9;
+}
+.btn{
+    border-style: none;
+}
+.icon-drop{
+   
+    margin-left: 200px;
+}
 
 .dropdown-menu-init {
 
     padding: 0px 0px 0px 0px;
     box-sizing: border-box;
-    width: 380px;
+    width: 310px;
     height: 280px;
     margin-right: 6px;
     margin-left: -50px;
@@ -163,10 +163,44 @@ hr-init {
 
 }
 
+
+.card-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 5px;
+  
+    padding: 16px 24px;
+    gap: 16px;
+    height: 46px;
+    margin-left: 16px;
+    margin-right: 16px;
+  
+    top: 210px;
+    bottom: 100px;
+  
+    background-color: var(--color-fondo);
+    border: 1px solid #E1EBF4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+  }
+  
+  .line-custumer{
+    height: 2px;
+    width: 380px;
+  }
+
+
 .container-btns{
     margin-top: 100px;
 }
 
+.text-btn-custuner-menu{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
 
 .navbar-custumer{
     display: flex;

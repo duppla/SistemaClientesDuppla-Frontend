@@ -40,12 +40,16 @@ function Property() {
 
     //formateo de los datos de valor inmueble duppla
     const number = datosIn.Valor_inmueble_compra_duppla;
+    const costm = datosIn.Evaluacion_m2;
+    const compraDuppla = datosIn.valor_opcion_compra;
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
     });
     const formattedNumber = formatter.format(number);
+    const formattedcostm = formatter.format(costm);
+    const formattedCompraDuppla = formatter.format(compraDuppla);
 
     // Función para acpetar inmueble
 
@@ -129,9 +133,8 @@ function Property() {
                 <div className="description-apt">
                     <h1 className="text-title-property-title"><b>{datosIn.Tipo_de_inmueble}</b></h1>
                     {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
-                    <p><b> {formattedNumber}</b></p><br />
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi sed consequat purus nulla faucibus morbi amet. Leo, aliquam amet at senectus et.
+                    <p><b> {formattedNumber}</b></p>
+                    <p><b>Observaciones:</b>{datosIn.observaciones}
                     </p>
                 </div>
             </div><br />
@@ -214,8 +217,8 @@ function Property() {
                     <div className="col-8">
                         <div className="card-body">
                             <h5 className="">Evaluación de precio</h5><br />
-                            <p className=""><b>Precio oferta M2:{datosIn.Evaluacion_m2} </b></p>
-                            <p className=""><b>Precio oferta: $ 3.900.000</b></p>
+                            <p className=""><b>Precio oferta m²: ${formattedcostm} </b></p>
+                            <p className=""><b>Precio oferta: $ {formattedCompraDuppla}</b></p>
                         </div>
 
                     </div>
@@ -235,7 +238,7 @@ function Property() {
                                         <img src={Istateg} className="" alt="" height='12px' width='12px' />
                                     </div>
                                     <div className="col-10 outline">
-                                        <b>Pendiente </b>
+                                        No evaluado 
                                     </div>
                                 </div>
                                 <div className="card-state-properties ">
@@ -243,7 +246,7 @@ function Property() {
                                         <img src={Istateg} className="" alt="" height='12px' width='12px' />
                                     </div>
                                     <div className="col-10 outline">
-                                        <b>Programada </b>
+                                        Aprobado
                                     </div>
                                 </div>
                                 <div className="card-state-properties ">
@@ -251,7 +254,7 @@ function Property() {
                                         <img src={Istateg} className="" alt="" height='12px' width='12px' />
                                     </div>
                                     <div className="col-10 outline">
-                                        <b>Realizada </b>
+                                        Rechazado 
                                     </div>
                                 </div>
 
@@ -261,7 +264,7 @@ function Property() {
                     </div>
                 </div>
             </div>
-            {/*Menú documentos*/}
+            {/*Botón*/}
                 <div className="centrado  container-sm" id="btnIniciarSesion">
                     <a className="links"   href="https://api.whatsapp.com/send?phone=573152559261">
                         <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
