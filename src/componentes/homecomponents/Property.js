@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Iubicacion from "../../img/Iubicacion.png";
 import Ivalidacioninmueble from "../../img/Ivalidacioninmueble.png";
-import Duppla_logotipo from "../../img/Duppla_Logotipo_V2.png";
 import Ievaluacionprecio from "../../img/Ievaluacionprecio.png";
 import numeral from 'numeral';
 import Istateg from "../../img/Istateg.png"
+import Istatev from "../../img/Istatev.png"
 import swal from 'sweetalert';
 
 
@@ -38,6 +38,26 @@ function Property() {
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
 
+    //Cambio de estado Ficha técnica
+
+    const statefichaTecnica = datosIn.estado;
+
+
+    const stateFtecnica = (statefichaTecnica) => {
+
+        switch (statefichaTecnica) {
+          case "Noevaluado":
+            return <img src={Istatev} className="" alt="" height="12px"  width="12px"/>;
+          case "Aprobado":
+            return <img src={Istatev} className="" alt="" height="12px"  width="12px" />;
+          case "Rechazado":
+            return <img src={Istatev} className="" alt="" height="12px"  width="12px" />;
+             
+          default: return <img src={Istatev} className="" alt="" height="12px"  width="12px" />;
+    
+        }
+      }
+
     //formateo de los datos de valor inmueble duppla
     const number = datosIn.Valor_inmueble_compra_duppla;
     const costm = datosIn.Evaluacion_m2;
@@ -51,7 +71,7 @@ function Property() {
     const formattedcostm = formatter.format(costm);
     const formattedCompraDuppla = formatter.format(compraDuppla);
 
-    // Función para acpetar inmueble
+    // Función para aceptar inmueble
 
     const handleInm = () => {
 
@@ -235,7 +255,7 @@ function Property() {
                             <div className="col-4">
                                 <div className="card-state-properties ">
                                     <div className="card-body col-1 ">
-                                        <img src={Istateg} className="" alt="" height='12px' width='12px' />
+                                   { stateFtecnica(statefichaTecnica)}
                                     </div>
                                     <div className="col-10 outline">
                                         No evaluado 

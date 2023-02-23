@@ -874,11 +874,12 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: start;
-  gap: 16px;
+  height: 20px;
+  
   width: 360px;
-  margin-bottom: 6px;
- 
+  margin-bottom: 6px; 
 }
+
 
 .card-state-properties-home {
   display: flex;
