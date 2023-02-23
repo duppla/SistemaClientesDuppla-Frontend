@@ -1,0 +1,41 @@
+/* variables de colores duppla*/
+:root {
+    --color-primario-btn: #6C9FFF;
+    --color-fondo: #FFFFFF;
+    --color-naranja-duppla: #FF864B;
+    --color-verde-duppla: #C5F5CA;
+    --color-cimiento-duppla: #0A3323;
+    --color-sombra-duppla: #EEEFF3;
+    --color-fondo-gris: #F9F9F9;
+  }
+
+
+
+  .text-blue-pagos {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: var(--color-primario-btn);
+    margin-top: 7px;
+  }
+
+.btn-imp-factura{
+    box-sizing: border-box;
+  
+    position: relative;
+    width: 170px;
+    height: 52px;
+    top: 24px;
+    margin-right: 10px;
+    background: var(--color-fondo);
+    color: #323F4B;
+    /* Neutral / Grey 800 */
+    border: 1px solid var(--color-primario-btn);
+    border-radius: 10px;
+  }
+
+  .btn-imp-factura :hover{
+    background: var(--color-primario-btn);
+    color: #FFFFFF;
+    
+
+  }

@@ -18,6 +18,7 @@ import Property from './componentes/homecomponents/Property';
 import Offer from './componentes/homecomponents/Offer';
 import Logout from './componentes/pages/Logout';
 import Inicio from './custumer/Inicio';
+import Payment from './custumer/Payment';
 import { AuthContext } from './context/Contextauth';
 import { AuthProvider } from './context/Contextauth';
 
@@ -75,6 +76,7 @@ function App() {
         <Route exact path='/property' element={<Private><Property /></Private>} ></Route>
         <Route exact path='/offer' element={<Private><Offer /></Private>} ></Route>
         <Route exact path='/inicio' element={<Private><Inicio /></Private>} ></Route>
+        <Route exact path='/pagos' element={<Private><Payment /></Private>} ></Route>
 
 
         <Route path='/error404' element={<Error404 />} ></Route>

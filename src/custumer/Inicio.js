@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './../custumer/inicio.css'
 import { Link } from 'react-router-dom';
-import Duppla_logotipo from "../../src/img/Duppla_Logotipo_V2.png";
+
 import Idupplanaranja from "../../src/img/Idupplanaranja.png";
 import Iperfil from "../../src/img/iconoperfil.png"
 import Istatec from "../../src/img/Istatec.png";
@@ -14,21 +14,14 @@ import Igendacita from "../../src/img/Iagendacita.svg";
 import Iayuda from "../../src/img/Iayuda.svg";
 import Ihistorialpago from "../../src/img/Ihistorialpago.svg";
 import Imantenimiento from "../../src/img/Imantenimiento.svg";
-import Iperfilnavbar from "../../src/img/Iperfilnavbar.svg";
-import Ipagarnavbar from "../../src/img/Ipagarnavbar.svg";
-import Ihousenavbar from "../../src/img/Ihousenavbar.svg";
-import Ihistorialnavbar from "../../src/img/Ihistorialnavbar.svg";
-import Iayudanavbar from "../../src/img/Iayudanavbar.svg";
 import Vline from "../../src/img/Vline.svg";
+import Ipagofac from "../../src/img/Iconmodalpago.svg";
+import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
-
-
-
-
-
-import ProgressBar from './../componentes/pages/Logout';
 
 import Progressbar from './../custumer/Progressbar';
+import Navbarcustumer from './Navbarcustumer';
+
 
 
 
@@ -90,6 +83,15 @@ function Inicio() {
                             <Progressbar />
                         </div>
                     </div>
+                    <div className="card-docs-init  ">
+                        <div className="col-6">
+                            <p></p>
+                        </div>
+                        <div className="col-6 ">
+                            <p></p>
+                        </div>
+                    </div>
+
                     {/*Pago mínimo */}
                     <div className="card-docs-init ">
                         <div className="card-body-docs col-1">
@@ -196,21 +198,61 @@ function Inicio() {
             {/*componente pago*/}
             <div className="row centrado" >
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
-                    <img src={Iconpago} className="img-ingreso" alt="" width="32px" height="32px" />
-                    <button type="button" id="" className="btn btn-cerrar text-white " >
-                        <h6>Pagar factura</h6>
+                    <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
+                    <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <h5>Pagar factura</h5>
                     </button>
                 </div>
+                {/*Modal */}
+                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div className="modal-content">
+                            <div className="btn-modal-cerrar">
+                                <button type="button" className="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body centrado">
+                                <div className='btn-modal-pago'>
+                                    <Link to='/pagos'>
+                                        <button type="button" className="btn " data-bs-dismiss="modal" aria-label="Close">
+                                            <div>
+                                                <img src={Ipagofac} className="" alt="" width="32px" height="32px" />
+                                            </div>
+                                            <div>
+                                                <p className=' text-blue-modal'><b>Pago factura</b></p>
+                                            </div>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="modal-body centrado">
+                                <div className='btn-modal-pago'>
+                                    <Link to='/pagos'>
+                                        <button type="button" className="btn " data-bs-dismiss="modal" aria-label="Close">
+                                            <div>
+                                                <img src={Ipagoadm} className="" alt="" width="32px" height="32px" />
+                                            </div>
+                                            <div>
+                                                <p className=' text-blue-modal'><b>Pago administración</b></p>
+                                            </div>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br/>
-           <div className='centrado'>
-           <img src={Vline} className="line-custumer centrado" alt=""  />
-           </div>
+            <br />
+            <div className='centrado'>
+                <img src={Vline} className="line-custumer centrado" alt="" />
+            </div>
             {/*componentes de menú*/}
-            <div className='container-fluid container-btns'>
-                <div className="card-docs-init   ">
+            <div className='container-fluid container-btns centrado'>
+                <div className="card-docs-init centrado ">
                     <div className=" col-3">
-                        <img src={Ihistorialpago} className="  warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
+                        <Link to='/pagos'><img src={Ihistorialpago} className="  warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
+                        </Link>
                         <p className='text-btn-custuner-menu'>Historial
                             de pago</p>
                     </div>
@@ -231,41 +273,13 @@ function Inicio() {
 
             </div>
             {/*componente navbar fijo*/}
-            <nav className="navbar bg-body-tertiary fixed-bottom">
-                <div className="container-fluid">
-                    <button className=" btn icon-navbar-custumer" type="button" data-bs-toggle="" data-bs-target="" >
-                        <Link to="/profile">
-                            <img src={Iperfilnavbar} className="navbar-toggler " alt="" />
-                        </Link>
-                    </button>
-                    <button className=" btn icon-navbar-custumer" type="button" data-bs-toggle="" data-bs-target="" >
-                        <Link to="/profile">
-                            <img src={Ipagarnavbar} className="navbar-toggler " alt="" />
-                        </Link>
-                    </button>
-                    <button className=" btn icon-navbar-custumer" type="button" data-bs-toggle="" data-bs-target="" >
-                        <Link to="/profile">
-                            <img src={Ihousenavbar} className="navbar-toggler " alt="" />
-                        </Link>
-                    </button>
-                    <button className=" btn icon-navbar-custumer" type="button" data-bs-toggle="" data-bs-target="" >
-                        <Link to="/profile">
-                            <img src={Ihistorialnavbar} className="navbar-toggler " alt="" />
-                        </Link>
-                    </button>
-                    <button className=" btn icon-navbar-custumer" type="button" data-bs-toggle="" data-bs-target="" >
-                        <Link to="/profile">
-                            <img src={Iayudanavbar} className="navbar-toggler " alt="" />
-                        </Link>
-                    </button>
+            <div>
+                <Navbarcustumer />
+            </div>
 
 
 
 
-
-
-                </div>
-            </nav>
 
         </div>
     )

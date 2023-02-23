@@ -656,6 +656,10 @@ a {
   text-decoration: none;
 }
 
+
+
+
+
 .btn-prueba {
   display: flex;
   flex-direction: column;
@@ -852,7 +856,7 @@ a {
   background: var(--color-fondo);
   color: #323F4B;
   /* Neutral / Grey 800 */
-  border: 0.5px solid #323F4B;
+  border: 1px solid #323F4B;
   border-radius: 10px;
 }
 
