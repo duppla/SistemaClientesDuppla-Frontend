@@ -21,14 +21,6 @@ import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
 import Progressbar from './../custumer/Progressbar';
 import Navbarcustumer from './Navbarcustumer';
-import Logout from '../../src/componentes/pages/Logout'
-
-
-
-
-
-
-
 
 
 
@@ -42,15 +34,6 @@ function Inicio() {
     let yyyy = today.getFullYear();
     let fecha = `${dd}/${mm}/${yyyy}`;
 
-
-
-    const value = 50;
-    const maxValue = 100;
-    const color = '#3e98c7';
-
-
-
-    const [progress, setProgress] = useState(15);
 
     return (
         <div className=" container-fluid continer-inicio">
@@ -81,7 +64,7 @@ function Inicio() {
                     {/*componente de estados*/}
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
-                           {/* <Logout/>*/}
+                         
                             
                             <Progressbar />
                         </div>

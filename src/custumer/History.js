@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './../custumer/History.css'
-import Logout from '../../src/componentes/pages/Logout'
-
-
 
 
 function History() {
@@ -39,7 +36,7 @@ function History() {
                         <h3>Actividad anual</h3>
                     </div>
                     <br/>
-                    
+
                     <div className=' centrado modal-body'>                    
                         <div className='ProgressGradient'>
                             <ul class="chart-skills">
