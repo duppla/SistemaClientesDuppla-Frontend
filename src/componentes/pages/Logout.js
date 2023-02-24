@@ -1,23 +1,76 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 
-const ProgressBar = ({ value, maxValue, color }) => {
-  const percentage = (value / maxValue) * 100;
+
+import Chart from "react-apexcharts";
+import ApexCharts from 'apexcharts';
+import ReactApexChart from "react-apexcharts";
+
+
+
+
+
+
+
+function Graf() {
+
+  const [stateGrafic, setStateGrafic] = useState({
+
+    series: [44, 55, 41],
+    options: {
+      chart: {
+        type: 'donut',
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 260
+            
+          },
+          legend: {
+            position: 'center'
+          }
+        }
+      }]
+    },
+
+  })
+
 
   return (
-    <div style={{ width: '200px' }}>
-      <CircularProgressbar value={percentage} text={`${percentage}%`} styles={{ path: { stroke: color } }} />
+    <div className="">
+      <div className="row">
+        <div className="mixed-chart">
+         {/*} <Chart
+            options={stateGrafic.options}
+            series={stateGrafic.series}
+            type="bar"
+            width="500"
+          />*/}
+          <div id="chart">
+            <ReactApexChart 
+            options={stateGrafic.options} 
+            series={stateGrafic.series} 
+            type="donut" />
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
 
-ProgressBar.propTypes = {
-  value: PropTypes.number.isRequired,
-  maxValue: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired,
-};
-
-export default ProgressBar;
+}
+export default Graf;

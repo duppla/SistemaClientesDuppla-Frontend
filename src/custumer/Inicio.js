@@ -21,7 +21,7 @@ import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
 import Progressbar from './../custumer/Progressbar';
 import Navbarcustumer from './Navbarcustumer';
-
+import Logout from '../../src/componentes/pages/Logout'
 
 
 
@@ -75,11 +75,14 @@ function Inicio() {
             <div className='container-progress '>
                 <div className='progress-section'>
                     <div className='title-init'>
-                        <b><h2 className='title-init-progressbar'>Actividad mensual</h2></b>
+                        <b><h3 className='title-init-progressbar'>Actividad mensual</h3></b>
                     </div>
+                    <br />
                     {/*componente de estados*/}
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
+                           {/* <Logout/>*/}
+                            
                             <Progressbar />
                         </div>
                     </div>
