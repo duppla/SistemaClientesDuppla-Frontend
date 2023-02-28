@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+{/*import React, { useState } from 'react'
 
 import './../custumer/Navbarcustumer.css'
 import { Link } from 'react-router-dom';
 import Iperfilnavbar from "../../src/img/Iperfilnavbar.svg";
 import Ipagarnavbar from "../../src/img/Ipagarnavbar.svg";
-import Ihousenavbar from "../../src/img/Ihousenavbar.svg";
+
 import Ihistorialnavbar from "../../src/img/Ihistorialnavbar.svg";
 import Iayudanavbar from "../../src/img/Iayudanavbar.svg";
-
-
 
 
 
@@ -52,20 +50,26 @@ function Navbarcustumer() {
                 </div>
     </nav>*/}
 
-            <ul className="nav justify-content-center fixed-bottom " >
-                <li clasNames="nav-item nav-space-icon">
-                    <img src={Iperfilnavbar} className=" nav-space-icon" alt="" />
-
+           {/*} <ul className="nav justify-content-center fixed-bottom " >
+                <li className="nav-item nav-space-icon">
+                    <Link to="/profile">
+                        <img src={Iperfilnavbar} className=" nav-space-icon" alt="" />
+                    </Link>
                 </li>
                 <li className="nav-item">
-                    <img src={Ipagarnavbar} className="nav-space-icon" alt="" />
-
+                    <Link to="/pagos">
+                        <img src={Ipagarnavbar} className="nav-space-icon" alt="" />
+                    </Link>
                 </li>
                 <li className="">
-                    <img src={Ihousenavbar} className="nav-house " alt="" />
+                    <Link to="/inicio">
+                        <img src={Ihousenavbar} className="nav-house " alt="" />
+                    </Link>
                 </li>
                 <li className="nav-item">
+                <Link to="/historial">
                     <img src={Ihistorialnavbar} className="nav-space-icon" alt="" />
+               </Link>
                 </li>
                 <li className="nav-item">
                     <img src={Iayudanavbar} className="nav-space-icon" alt="" />
@@ -76,4 +80,4 @@ function Navbarcustumer() {
     )
 }
 
-export default Navbarcustumer;
+export default Navbarcustumer;*/}

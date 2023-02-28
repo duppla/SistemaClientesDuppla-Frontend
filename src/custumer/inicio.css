@@ -26,7 +26,7 @@ code {
 }
 
 .continer-inicio {
-    height: 1100px;
+    height: 1000px;
 }
 
 /*Sección Perfil inicio custumer*/
@@ -89,12 +89,24 @@ code {
     width: 340px;
     height: 160px;
 }
-.text-align-custumer{
+
+.text-align-custumer {
     margin-top: 10px;
+}
+
+.text-number-custumer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 
 
+.text-space-month {
+    margin-top: 5px;
+    margin-left: 20px;
+
+
+}
 
 .card-docs-init {
     display: flex;
@@ -126,34 +138,34 @@ code {
     background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
     border: 1px solid #6C9FFF;
     /* M3/Elevation Light/1 */
-  
+
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
 
-    
-  
+
+
 }
 
-
-
-.ul{
+.ul {
     text-decoration: none;
     list-style: none;
     border: #F9F9F9;
 }
 
+.text-space-dropdown {
+    margin-right: 50px;
+}
 
-.icon-drop{
-   
-    margin-left: 200px;
+.icon-drop {
+    margin-left: 250px;
 }
 
 .dropdown-menu-init {
 
     padding: 0px 0px 0px 0px;
     box-sizing: border-box;
-    width: 310px;
-    height: 280px;
+    width: 336px;
+    height: 290px;
     margin-right: 6px;
     margin-left: -50px;
     background: #ffffff;
@@ -169,52 +181,51 @@ code {
     align-items: center;
     margin-top: 24px;
     margin-bottom: 5px;
-  
+
     padding: 16px 24px;
     gap: 16px;
     height: 46px;
     margin-left: 16px;
     margin-right: 16px;
-  
+
     top: 210px;
     bottom: 100px;
-  
+
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
-  }
-  
-  .line-custumer{
-    height: 2px;
-    width: 380px;
-  }
-
-
-  .img-btn-pagos-custumer {
-    height: 32px ;
-    width: 32px ;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-
-.container-btns{
-    margin-top: 100px;
 }
 
-.text-btn-custuner-menu{
+.line-custumer {
+    height: 2px;
+    width: 380px;
+}
 
+
+.img-btn-pagos-custumer {
+    height: 32px;
+    width: 32px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.container-btns {
+    margin-top: 60px;
+}
+
+.text-btn-custumer-menu {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
 
-.navbar-custumer{
+.navbar-custumer {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
     gap: 4px;
-    
+
     position: absolute;
     width: 32px;
     height: 42px;
@@ -224,29 +235,30 @@ code {
 
 
     border-color: #6C9FFF;
-    
-    
+
+
 }
 
-.btn-modal-cerrar{
+.btn-modal-cerrar {
 
     margin: 30px 10px 10px 25px;
 }
-.btn-modal-pago{
-   
+
+.btn-modal-pago {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 32px 16px;
     gap: 10px;
-    
-  
+
+
     width: 220px;
     height: 120px;
     left: 97px;
     top: 380px;
-    
+
     background: #FFFFFF;
     border: 1px solid #6C9FFF;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
@@ -257,4 +269,60 @@ code {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: var(--color-primario-btn);
-  }
+}
+
+/*  nuevo */
+
+
+.container-btn-wrapper {
+    max-width: 600px;
+    border: 1px solid var(--color-fondo);
+    display: flex;
+    overflow-x: auto;
+   
+
+}
+
+.container-btn-wrapper::-webkit-scrollbar {
+    width: 0px;
+
+}
+
+.btn-wrapper {
+
+    width: 66px;
+    height: 66px;
+    left: 16px;
+    top: 0px;
+   
+
+    background: #EFEFEF;
+    border-radius: 36px;
+}
+
+.img-btn-wrapper {
+    margin-left: 15px;
+    margin-right: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+
+
+
+}
+
+.text-btn-wrapper{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-align: center;
+}
+
+.space-btn-wrapper {
+    margin-left: 15px;
+    margin-right: 12px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+
+
+}

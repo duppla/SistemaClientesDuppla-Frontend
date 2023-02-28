@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 
 import './../custumer/inicio.css'
 import { Link } from 'react-router-dom';
+import { AuthContext } from "../../src/context/Contextauth";
 
 import Idupplanaranja from "../../src/img/Idupplanaranja.png";
 import Iperfil from "../../src/img/iconoperfil.png"
@@ -10,17 +11,18 @@ import Istatem from "../../src/img/Istatem.png";
 import Istaten from "../../src/img/Istaten.png";
 import Iconpago from "../../src/img/Iconpago.png";
 
-import Igendacita from "../../src/img/Iagendacita.svg";
-import Iayuda from "../../src/img/Iayuda.svg";
-import Ihistorialpago from "../../src/img/Ihistorialpago.svg";
-import Imantenimiento from "../../src/img/Imantenimiento.svg";
+import Igendacita from "../../src/img/Vagendar.svg";
+import Iayuda from "../../src/img/Vtengoproblemas.svg";
+import Ihistorialpago from "../../src/img/Vhistoriall.png";
+import Imantenimiento from "../../src/img/Vmantenimiento.svg";
+import Iajustemeta from "../../src/img/Vajustarmeta.svg";
 import Vline from "../../src/img/Vline.svg";
 import Ipagofac from "../../src/img/Iconmodalpago.svg";
 import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
-
 import Progressbar from './../custumer/Progressbar';
 import Navbarcustumer from './Navbarcustumer';
+{/*import { GrafictLine } from './GrafictLine.tsx';*/ }
 
 
 
@@ -33,6 +35,13 @@ function Inicio() {
     let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
     let fecha = `${dd}/${mm}/${yyyy}`;
+
+   // trae la función  salida, que se declaro en el contexto para implementar aquí
+
+   const { logout } = useContext(AuthContext);
+   const handleLogout = () => {
+     logout();
+   };
 
 
     return (
@@ -47,12 +56,117 @@ function Inicio() {
                         alt="perfil" />
                     </Link>
                 </div><hr className="hr-position" />
-                <div className="col-8  card-perfil-datos">
+                <div className="col-6  card-perfil-datos">
                     <div className="card-body">
                         <h5 className="card-title card-home text-white" > María Fernanda Caicedo{ }</h5>
                         <p className="text-orange">{fecha}</p>
                     </div>
                 </div>
+                <nav className=" col-2 navbar ">
+                    <div className="container-fluid ">
+                        <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <span className="navbar-toggler-icon navbar-dark"></span>
+                        </button>
+                        <div className="">
+                            <div className=" offcanvas offcanvas-end navbar-container "  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <div className="offcanvas-body ">
+                                    <ul className="navbar-nav " >
+                                        <li className="nav-item ">
+                                            <Link to="/profile">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+
+                                                                </div>
+                                                                <div className="col-10 outline">
+                                                                    <p className=" text-docs "><b >Perfil </b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item  nav-section">
+                                            <Link to="/pagos">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+
+                                                                </div>
+                                                                <div className="col-10 outline">
+                                                                    <p className=" text-docs"><b >Pagar factura</b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link to="/historial">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+
+                                                                </div>
+                                                                <div className="col-10 outline">
+                                                                    <p className=" text-docs"><b >Historial</b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="">
+                                            <Link to="/inicio">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+
+                                                                </div>
+                                                                <div className="col-10 outline">
+                                                                    <p className=" text-docs"><b>Ayuda</b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item">
+                                            <Link to="">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+
+                                                                </div>
+                                                                <div className="col-10 outline" onClick={handleLogout}>
+                                                                    <p className=" text-docs"><b >Cerrar sesión</b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
             {/*Sección grafica- semi-donut*/}
             <div className='container-progress '>
@@ -64,17 +178,16 @@ function Inicio() {
                     {/*componente de estados*/}
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
-                         
-                            
                             <Progressbar />
                         </div>
                     </div>
-                    <div className="card-docs-init  ">
-                        <div className="col-6">
-                            <p></p>
-                        </div>
-                        <div className="col-6 ">
-                            <p></p>
+                    <div className="card-docs-init centrado  ">
+                        <div className="col-5">
+                            <p>$1,6914,150</p>
+                        </div >
+                        <div className='col-2'></div>
+                        <div className="col-5  centrado">
+                            <p>$1,900,000</p>
                         </div>
                     </div>
 
@@ -83,10 +196,10 @@ function Inicio() {
                         <div className="card-body-docs col-1">
                             <img src={Istatec} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                         </div>
-                        <div className="card-body col-8 ">
+                        <div className="card-body col-8 text-number-custumer  ">
                             Pago mínimo
                         </div>
-                        <div className="col-4  ">
+                        <div className="col-4  text-number-custumer ">
                             $1,694,150
                         </div>
                     </div>
@@ -95,10 +208,10 @@ function Inicio() {
                         <div className="card-body-docs col-1">
                             <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                         </div>
-                        <div className="card-body col-8">
+                        <div className="card-body col-8 text-number-custumer">
                             Abono inmueble
                         </div>
-                        <div className="col-4 outline">
+                        <div className="col-4 outline text-number-custumer">
                             $1,865,250
                         </div>
                     </div>
@@ -107,21 +220,20 @@ function Inicio() {
                         <div className="card-body-docs col-1">
                             <img src={Istaten} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                         </div>
-                        <div className="card-body col-8 ">
+                        <div className="card-body col-8 text-number-custumer">
                             Meta mensual
                         </div>
-                        <div className="col-4 outline">
+                        <div className="col-4 outline text-number-custumer">
                             <p>$1,900,000</p>
                         </div>
                     </div>
                 </div>
-
             </div>
             {/*Sección dropdown Mes*/}
             <div className='dropdown'>
                 <div className="card-dropdown ">
                     <div className='col-2'>
-                        <h6>Febrero</h6>
+                        <p className='text-space-month' ><b>Febrero</b></p    >
                     </div>
                     <div className=" col-2 icon-drop ">
                         <div className="btn-group ">
@@ -133,8 +245,8 @@ function Inicio() {
                                     <div className="card-body-docs col-6">
                                         <p>Factura</p>
                                     </div>
-                                    <div className="col-6 outline">
-                                        <p>#02</p>
+                                    <div className="col-6 outline text-dropdown-right">
+                                        <p className='text-end text-space-dropdown '>#02</p>
                                     </div>
                                 </div>
                                 <div className="card-docs-init  ">
@@ -142,7 +254,7 @@ function Inicio() {
                                         <p>Costo financiero</p>
                                     </div>
                                     <div className="col-6 outline">
-                                        <p>$1,900,000</p>
+                                        <p className='text-end text-space-dropdown '>$1,900,000</p>
                                     </div>
                                 </div>
                                 <div className="card-docs-init  ">
@@ -150,7 +262,7 @@ function Inicio() {
                                         <p>Gastos</p>
                                     </div>
                                     <div className="col-6 outline">
-                                        <p>$22,165</p>
+                                        <p className='text-end text-space-dropdown '>$22,165</p>
                                     </div>
                                 </div>
                                 <div className="card-docs-init  ">
@@ -158,7 +270,7 @@ function Inicio() {
                                         <p>Abono sugerido</p>
                                     </div>
                                     <div className="col-6 outline">
-                                        <p>$277,408</p>
+                                        < p className='text-end text-space-dropdown'>$277,408</p>
                                     </div>
                                 </div>
                                 <div className="card-docs-init  ">
@@ -166,13 +278,14 @@ function Inicio() {
                                         <p>Meta mes a mes</p>
                                     </div>
                                     <div className="col-6   outline">
-                                        <p>$1,900,000</p>
+                                        <p className='text-end text-space-dropdown'>$1,900,000</p>
                                     </div>
                                 </div>
                                 <br />
-                                <li>
-                                    <button className=" btn btn-primary " type="button">Pagar</button>
-
+                                <li className=' d-grid gap-2 d-md-flex justify-content-end'>
+                                    <Link to='/pagos'>
+                                        <button className=" btn btn-primary " type="button">Pagar</button>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -190,7 +303,7 @@ function Inicio() {
                     </button>
                 </div>
                 {/*Modal */}
-                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"  aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div className="modal-content">
                             <div className="btn-modal-cerrar">
@@ -229,45 +342,73 @@ function Inicio() {
                     </div>
                 </div>
             </div>
-            <br />
+
             <div className='centrado'>
                 <img src={Vline} className="line-custumer centrado" alt="" />
             </div>
             {/*componentes de menú*/}
-            <div className='container-fluid container-btns centrado'>
-                <div className="card-docs-init centrado ">
-                    <div className=" col-3">
-                        <Link to='/pagos'><img src={Ihistorialpago} className="  warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
+            <div className='container-fluid  centrado'>
+                <div className='container-btn-wrapper'>
+                    <div className='space-btn-wrapper'>
+                        <div className='btn-wrapper'>
+                            <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                            <br />
+                        </div>
+                        <div>
+                            <p className='text-btn-wrapper'>Mantenimiento </p>
+                        </div>
+                    </div>
+                    <div className='space-btn-wrapper'>
+                        <a className="links text-white"
+                            href="https://calendly.com/agendadaniel">
+                            <div className='btn-wrapper'>
+
+                                <img src={Igendacita} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                <br />
+                            </div>
+                        </a>
+                        <div>
+                            <p className='text-btn-wrapper'>Agendar una cita </p>
+                        </div>
+                    </div>
+                    <div className='space-btn-wrapper' >
+                        <a className="links"
+                            href="https://api.whatsapp.com/send?phone=573152559261">
+                            <div className='btn-wrapper'>
+                                <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                <br />
+                            </div>
+                        </a>
+                        <div>
+                            <p className='text-btn-wrapper'>Tengo un problema </p>
+                        </div>
+                    </div>
+                    <div className='space-btn-wrapper'>
+
+                        <div className='btn-wrapper'>
+                            <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                            <br />
+                        </div>
+
+                        <div>
+                            <p className='text-btn-wrapper'>Ajustar meta </p>
+                        </div>
+                    </div>
+                    <div className='space-btn-wrapper'>
+                        <Link to='/pagos' className='links'> <div className='btn-wrapper'>
+                            <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
+                            <br />
+                        </div>
                         </Link>
-                        <p className='text-btn-custuner-menu'>Historial
-                            de pago</p>
+                        <div>
+                            <p className='text-btn-wrapper links'>Historial de pago </p>
+                        </div>
                     </div>
-                    <div className=" col-3 ">
-                        <img src={Iayuda} className="  warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
-                        <p className='text-btn-custuner-menu'>Tengo un problema</p>
-                    </div>
-                    <div className="col-3 outline">
-                        <img src={Igendacita} className="  warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
-                        <p className='text-btn-custuner-menu'>Agendar una cita</p>
-                    </div>
-                    <div className="col-3 ">
-                        <img src={Imantenimiento} className=" warning font-medium-2 mr-2" alt="" height='60px' width='60px' />
-                        <p className='text-btn-custuner-menu'>Mantenimiento </p>
 
-                    </div>
                 </div>
-
-            </div>
-            {/*componente navbar fijo*/}
-            <div>
-                <Navbarcustumer />
             </div>
 
-
-
-
-
-        </div>
+        </div >
     )
 }
 

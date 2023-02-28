@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './../custumer/History.css'
+import Navbarcustumer from './Navbarcustumer';
+
 
 
 function History() {
@@ -18,8 +20,7 @@ function History() {
                     </div>
                 </div>
                 <div className="title-register">
-                    <h3> <b>Historial</b>
-                    </h3>
+                    <h3><b>Historial</b></h3>
                 </div>
             </div>
 
@@ -28,16 +29,12 @@ function History() {
             <div className='container-actividad'>
 
                 <div className=' modal-content '>
-                <br/>
-                    
+                    <br />
                     <div className='modal-header'>
-
-
                         <h3>Actividad anual</h3>
                     </div>
-                    <br/>
-
-                    <div className=' centrado modal-body'>                    
+                    <br />
+                    <div className=' centrado modal-body'>
                         <div className='ProgressGradient'>
                             <ul class="chart-skills">
                                 <li>
@@ -50,7 +47,7 @@ function History() {
                                     <span></span>
                                 </li>
                                 <li>
-                                    
+
                                 </li>
                             </ul>
                         </div>
@@ -67,7 +64,10 @@ function History() {
 
 
             </div>
+            <div>
 
+
+            </div>
 
 
 

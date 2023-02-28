@@ -136,7 +136,7 @@ function Home() {
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
               <div className="">
-                <div className=" offcanvas offcanvas-bottom navbar-container " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className=" offcanvas offcanvas-bottom navbar-container "  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                   <div className="offcanvas-body ">
                     <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
                     <ul className="navbar-nav " >
@@ -307,24 +307,6 @@ function Home() {
             {stateChange(stateUser)}
           </div>
         </div>
-        {/*Cambio de estado*/}
-        {/*<div className="d-grid" id="cardComponet">
-          <div className="card-seccion">
-            <div className="row ">
-              <div className="col-2">
-                <img src={Iconx} className="img-state-progress" alt="" />
-              </div>
-              <div className="col-4">
-                <div className="card-body">
-                  <p className=""> <small className="text-muted">Estado</small></p>
-                  <p className="text-state-progress"><b>{stateChangeProgress()}</b></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"

@@ -12,7 +12,7 @@ function Progressbar() {
 
 
   <div className='ProgressGradient'>
-    <ul class="chart-skills">
+    <ul className="chart-skills">
   <li>
     <span></span>
   </li>

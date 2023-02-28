@@ -25,11 +25,11 @@ function Payment() {
 
                     <div className="d-flex justify-content-center align-items-center container-sm">
                         <div>
-                            <Link to='/'>
+                           
                                 <button type="button" class=" btn btn-imp-factura " >
                                     <p className='text-blue-pagos'>Imprimir factura</p>
                                     </button>
-                            </Link>
+                          
                         </div><br />
                         <div className="">
                             <button type="button" class="btn btn-imp-factura text-blue"  >
