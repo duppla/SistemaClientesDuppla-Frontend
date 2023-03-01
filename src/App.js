@@ -20,6 +20,7 @@ import Logout from './componentes/pages/Logout';
 import Inicio from './custumer/Inicio';
 import Payment from './custumer/Payment';
 import History from './custumer/History';
+import LineChart from './custumer/LineChart';
 import { AuthContext } from './context/Contextauth';
 import { AuthProvider } from './context/Contextauth';
 
@@ -82,6 +83,7 @@ function App() {
 
 
         <Route path='/error404' element={<Error404 />} ></Route>
+        <Route path='/test' element={<LineChart/>} ></Route>
       </Routes>
 
 
