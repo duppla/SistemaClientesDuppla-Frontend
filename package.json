@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "apexcharts": "^3.37.0",
     "axios": "^1.2.2",
-    "chart.js": "^4.2.1",
+    "chart.js": "^3.7.1",
     "cookie": "^0.5.0",
     "faker": "^6.6.6",
     "gapi-script": "^1.2.0",

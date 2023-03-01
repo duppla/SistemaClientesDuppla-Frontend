@@ -22,7 +22,7 @@ import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
 import Progressbar from './../custumer/Progressbar';
 import Navbarcustumer from './Navbarcustumer';
-{/*import { GrafictLine } from './GrafictLine.tsx';*/ }
+
 
 
 
@@ -36,12 +36,12 @@ function Inicio() {
     let yyyy = today.getFullYear();
     let fecha = `${dd}/${mm}/${yyyy}`;
 
-   // trae la función  salida, que se declaro en el contexto para implementar aquí
+    // trae la función  salida, que se declaro en el contexto para implementar aquí
 
-   const { logout } = useContext(AuthContext);
+    {/*} const { logout } = useContext(AuthContext);
    const handleLogout = () => {
      logout();
-   };
+   };*/}
 
 
     return (
@@ -62,13 +62,14 @@ function Inicio() {
                         <p className="text-orange">{fecha}</p>
                     </div>
                 </div>
+                {/*Navbar custumer */}
                 <nav className=" col-2 navbar ">
                     <div className="container-fluid ">
                         <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                             <span className="navbar-toggler-icon navbar-dark"></span>
                         </button>
                         <div className="">
-                            <div className=" offcanvas offcanvas-end navbar-container "  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div className=" offcanvas offcanvas-end navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div className="offcanvas-body ">
                                     <ul className="navbar-nav " >
                                         <li className="nav-item ">
@@ -152,7 +153,7 @@ function Inicio() {
                                                                 <div className="card-body col-1  img-state-propety">
 
                                                                 </div>
-                                                                <div className="col-10 outline" onClick={handleLogout}>
+                                                                <div className="col-10 outline" >
                                                                     <p className=" text-docs"><b >Cerrar sesión</b></p>
                                                                 </div>
                                                             </div>
@@ -303,7 +304,7 @@ function Inicio() {
                     </button>
                 </div>
                 {/*Modal */}
-                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div className="modal-content">
                             <div className="btn-modal-cerrar">
@@ -384,12 +385,12 @@ function Inicio() {
                         </div>
                     </div>
                     <div className='space-btn-wrapper'>
-
-                        <div className='btn-wrapper'>
-                            <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
-                            <br />
-                        </div>
-
+                        <Link to='/Ajustemeta' className='links'>
+                            <div className='btn-wrapper'>
+                                <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                <br />
+                            </div>
+                        </Link>
                         <div>
                             <p className='text-btn-wrapper'>Ajustar meta </p>
                         </div>

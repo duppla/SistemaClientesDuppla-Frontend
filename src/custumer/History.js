@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './../custumer/History.css'
 import Navbarcustumer from './Navbarcustumer';
+import LineGraph from './GrafictLine';
 
 
 
@@ -36,7 +37,7 @@ function History() {
                     <br />
                     <div className=' centrado modal-body'>
                         <div className='ProgressGradient'>
-                            <ul class="chart-skills">
+                            <ul className="chart-skills">
                                 <li>
                                     <span></span>
                                 </li>
@@ -56,9 +57,10 @@ function History() {
                     </div>
                     <div className=''>
 
-
-
                     </div>
+
+                    <LineGraph />
+
                 </div>
 
 

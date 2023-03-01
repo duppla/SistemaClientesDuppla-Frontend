@@ -1,0 +1,75 @@
+code {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* variables de colores duppla*/
+:root {
+    --color-primario-btn: #6C9FFF;
+    --color-fondo: #FFFFFF;
+    --color-naranja-duppla: #FF864B;
+    --color-verde-duppla: #C5F5CA;
+    --color-cimiento-duppla: #0A3323;
+    --color-sombra-duppla: #EEEFF3;
+    --color-fondo-gris: #F9F9F9;
+}
+
+
+.percentage-goal{
+
+    margin-top: 100px;
+}
+.text-bar-goal {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+}
+
+.line-bar-goal {
+    height: 2px;
+    width: 280px;
+}
+
+.progress-goal{
+
+margin-top: 100px;
+margin-left: 10px;
+margin-right: 10px;
+
+}
+
+.bar-one {
+
+    background-color: rgba(10, 51, 35, 0.6);
+    width: 50%;
+}
+
+.bar-two {
+
+    width: 45%;
+    background-color: #C5F5CA;
+    border-radius: 5px;
+}
+
+
+.bar-three {
+width: 15%;
+    background-color:#737682;
+}
+
+
+.data-goal{
+    margin-top: 60px;
+    margin-left: 24px;
+
+}
+
+.text-space-goal-data{
+    margin-right: 10px;
+
+}
+
+.line-data-goal{
+    height: 2px;
+    width: 320px;
+}
