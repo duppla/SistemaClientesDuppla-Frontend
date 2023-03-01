@@ -8,10 +8,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "apexcharts": "^3.37.0",
     "axios": "^1.2.2",
+    "chart.js": "^3.7.1",
     "cookie": "^0.5.0",
-    "faker": "^6.6.6",
     "gapi-script": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "numeral": "^2.0.6",
@@ -49,8 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^7.6.0"
   }
 }
