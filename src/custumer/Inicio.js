@@ -396,7 +396,7 @@ function Inicio() {
                         </div>
                     </div>
                     <div className='space-btn-wrapper'>
-                        <Link to='/pagos' className='links'> <div className='btn-wrapper'>
+                        <Link to='/historial' className='links'> <div className='btn-wrapper'>
                             <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
                             <br />
                         </div>
