@@ -69,7 +69,7 @@ function Register() {
                        // console.log(response.token);
                                   
                        login(response.token, datos.email, response.estado);  
-                       console.log(response.estado)                     
+                       //console.log(response.estado)                     
                         setDatos('');
                     }
                 }

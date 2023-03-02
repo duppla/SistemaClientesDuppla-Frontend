@@ -34,11 +34,14 @@ function Inicio() {
 
     useEffect(() => {
         // This will run only once when the component loads
-        let estado = localStorage.getItem('estado');
-        if( estado != "Ganada cerrada"){
+        const estado = localStorage.getItem('estado');
+        if( estado !== '"Cerrada ganada"'){
+            console.log(estado);
             navigate('/')
+        }else{
+            console.log('Component loaded');
         }
-        console.log('Component loaded');
+       
       }, []);
 
     // Función fecha del día actual
