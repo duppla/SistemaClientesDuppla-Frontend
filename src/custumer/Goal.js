@@ -1,9 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import './../custumer/Goal.css'
 import Vline from "../../src/img/Vline.svg";
 
-const Goal = () => {
+function Goal() {
+
+  const [data, setData] = useState([]);
+
+  const [value, setValue] = useState(30);
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const updateMeta = (meta,id) =>{
+    console.log(meta);
+    console.log(id);
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: '{"id":"'+id+'","meta":"'+meta+'"}'
+    };
+    
+    fetch('https://sistema-duppla-backend.herokuapp.com/users/editMeta', options)
+      .then(response => window.location.reload())
+      .catch(err => console.error(err));
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: '{"email":"pgutierrez@duppla.co"}'
+      };
+      
+      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/meta', options)
+      const jsonData = await response.json();
+      console.log(JSON.stringify(jsonData[0].Meta__c));
+      setData(jsonData[0]);
+    }
+
+    fetchData();
+  }, []);
+
+ 
+
   return (
     <div className='container-fluid'>
       <div>
@@ -25,7 +67,7 @@ const Goal = () => {
       <div className="percentage-goal">
 
         <div className="centrado">
-          <h1 className=''><b>30%</b></h1>
+          <h1 className=''><b>{data.Meta__c}%</b></h1>
         </div>
         <br />
         <div className="">
@@ -39,10 +81,15 @@ const Goal = () => {
         </div>
       </div>
       {/*Barra de progreso */}
-      <div className="progress progress-goal ">
-        <div className="progress-bar bar-one" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-        <div className="progress-bar bar-two " role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-        <div className="progress-bar bar-three" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+      <div>
+        <input 
+          type="range" 
+          min="0" 
+          max="100" 
+          value={value} 
+          onChange={handleChange} 
+        />
+        <p>{value}</p>
       </div>
 
       {/*Sección datos */}
@@ -87,21 +134,12 @@ const Goal = () => {
         <br />
         {/*componente  soporte*/}
         <div className="  btn-m" id="btnIniciarSesion">
-          <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
+          <button onClick={() => updateMeta(value,data.Id)} type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
             Ajustar meta
           </button>
 
         </div>
-
-
-
-
-
-
       </div>
-
-
-
     </div>
   )
 }
