@@ -73,3 +73,42 @@ width: 15%;
     height: 2px;
     width: 320px;
 }
+
+.graph-range{
+    width: 280px;
+    
+    background-color: #C5F5CA;
+
+}
+.number-range{
+ position: relative;    
+ margin-left: 80px;
+}
+
+
+
+
+
+/* Style the custom slider */
+.custom-slider {
+    width: 300px;
+    height: 16px;
+    appearance: none;
+    background-color: #737682;
+    outline: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+  
+.custom-slider::-webkit-slider-thumb{
+
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primario-btn);
+    border-radius: 50%;
+    border: 2px solid var(--color-verde-duppla);
+    box-shadow: -407px 0px 0px 400px var(--color-verde-duppla);
+    cursor: pointer;
+}
+ 
