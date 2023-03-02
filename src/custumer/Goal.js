@@ -80,20 +80,23 @@ function Goal() {
           <p className='text-bar-goal '>Haz clic para indicar el % que quieres lograr</p>
         </div>
       </div>
-      {/*Barra de progreso */}
-      <div className='centrado'>
+      {/*Barra de progreso en rango */}
+      <div className=' container-range centrado d-grid'>
 
-        <div className='centrado'>
+        <div className='text-range'>
 
-        <p>{value}</p>
+        <p className='number-range'>{value}%</p>
         </div>
       <div className=''>
         <input 
+         className='custom-slider'
           type="range" 
+          color="rgb(255, 134, 75)"
           min="0" 
-          max="100" 
+          max="100"          
           value={value} 
-          onChange={handleChange} 
+          onChange={handleChange}          
+          
         />
 
       </div>
