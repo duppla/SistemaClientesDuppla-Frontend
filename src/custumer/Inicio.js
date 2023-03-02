@@ -298,12 +298,14 @@ function Inicio() {
             {/*componente pago*/}
             <div className="row centrado" >
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
-                    <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
-                    <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <h5>Pagar factura</h5>
-                    </button>
+                    <Link to='/pagos'>
+                        <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
+                        <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <h5>Pagar factura</h5>
+                        </button>
+                    </Link>
                 </div>
-                {/*Modal */}
+                {/*Modal 
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div className="modal-content">
@@ -341,7 +343,7 @@ function Inicio() {
                             <br />
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
 
             <div className='centrado'>

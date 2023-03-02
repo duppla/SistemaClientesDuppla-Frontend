@@ -48,3 +48,32 @@ code {
 }
 
 
+.grafict-container-two{
+
+
+
+    width: 360px;
+    height: 400px;
+
+    margin-right: 18px;
+    margin-left: 18px;
+    margin-top: 100px;
+
+    background: #FFFFFF;
+    /* Stroke Color */
+
+    border: 1px solid #EFF0F6;
+    /* Tile Dropshadow */
+
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+}
+
+.text-graph-two{
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-bottom: -33px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}

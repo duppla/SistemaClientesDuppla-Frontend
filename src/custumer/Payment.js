@@ -22,22 +22,103 @@ function Payment() {
                         <h1> <b>Pago factura</b>
                         </h1>
                     </div>
+                    <div className=' payment-instructions centrado'>
+                        <p className='text-payment-methods '>
+                            Para realizar el pago correspondiente al mes, te ofrecemos dos opciones. Por favor, elige la que mejor se adapte a tus necesidades.
+                        </p>
 
-                    <div className="d-flex justify-content-center align-items-center container-sm">
+
+                    </div>
+
+
+                    <div className="description-payment-methods container fluid "><br />
+                        <div className='payment-methods centrado'>
+                            <p className='text-payment-methods '>
+                                1. Puedes dirigirte al banco y efectuar el pago directamente a través del número de cuenta correspondiente a la fiduciaria.
+                            </p>
+                        </div>
+                        <div className='card-payment-methods '>
+                            <div className='title-card-payment'        >
+                                <p>Acción fiduciaria</p>
+                            </div>
+                            <div className="card-docs-init  ">
+                                <div className="card-body-docs col-6 ">
+                                    <p className='description-payment'>Referencia:</p>
+                                </div>
+                                <div className="col-6 outline text-dropdown-right">
+                                    <p className='text-end  text-blue-payment'>00017000224519</p>
+                                </div>
+                            </div>
+                            <div className="card-docs-init  ">
+                                <div className="card-body-docs col-6 ">
+                                    <p className='description-payment'>Bancolombia</p>
+                                </div>
+                                <div className="col-6 outline text-dropdown-right">
+                                    <p className='text-end  text-blue-payment'>Convenio 26096</p>
+                                </div>
+                            </div>
+                            <div className="card-docs-init  ">
+                                <div className="card-body-docs col-6 ">
+                                    <p className='description-payment'>Banco de occidente</p>
+                                </div>
+                                <div className="col-6 outline text-dropdown-right">
+                                    <p className='text-end  text-blue-payment'>Nit: 800.193.824-8</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div className='payment-methods'>
+                            <p className='text-payment-methods '>
+                                2. También puedes realizar la transacción directamente a nuestra cuenta.
+                            </p>
+                        </div>
+
+                        <div className='card-payment-methods '>
+                            <div className='title-card-payment'        >
+                                <p>COMPRA MIENTRASALQUILAS S.A.S</p>
+                            </div>
+                            <div className="card-docs-init  ">
+                                <div className="card-body-docs col-6 ">
+                                    <p className='description-payment'>NIT 901.573.094-9</p>
+                                </div>
+                                <div className="col-6 outline text-dropdown-right">
+                                    <p className='text-end  text-blue-payment'></p>
+                                </div>
+                            </div>
+                            <div className="card-docs-init  ">
+                                <div className="card-body-docs col-6 ">
+                                    <p className='description-payment'>Davivienda ahorros</p>
+                                </div>
+                                <div className="col-6 outline text-dropdown-right">
+                                    <p className='text-end  text-blue-payment'>#000000000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+                    {/*<div className="d-flex justify-content-center align-items-center container-sm">
                         <div>
-                           
-                                <button type="button" class=" btn btn-imp-factura " >
-                                    <p className='text-blue-pagos'>Imprimir factura</p>
-                                    </button>
-                          
+
+                            <button type="button" class=" btn btn-imp-factura " >
+                                <p className='text-blue-pagos'>Imprimir factura</p>
+                            </button>
+
                         </div><br />
                         <div className="">
                             <button type="button" class="btn btn-imp-factura text-blue"  >
-                            <p className='text-blue-pagos'>PSE</p>
-                                
-                                </button>
+                                <p className='text-blue-pagos'>PSE</p>
+
+                            </button>
                         </div>
-                    </div>
+                    </div>*/}
 
                 </div>
             </div>

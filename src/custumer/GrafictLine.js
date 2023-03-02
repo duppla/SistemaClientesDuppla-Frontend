@@ -9,14 +9,14 @@ const LineGraph = () => {
       const chart = new Chart(chartRef.current, {
         type: 'line',
         data: {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          labels: ['01', '02', '03', '04', '05', '06', '07', '08' , '09' , '10', '11', '12'],
           datasets: [
             {
-              label: 'My First Dataset',
-              data: [65, 59, 80, 81, 56, 55, 40],
+              label: 'Valorización inmueble',
+              data: [10, 12, 47, 96, 186, 298, 320, 400],
               fill: false,
-              borderColor: 'rgb(75, 192, 192)',
-              tension: 0.1
+              borderColor: 'rgb(255, 134, 75)',
+              tension: 0.2
             }
           ]
         },
