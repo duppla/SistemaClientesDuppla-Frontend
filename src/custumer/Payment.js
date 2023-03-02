@@ -6,9 +6,7 @@ import './../custumer/Payment.css'
 
 function Payment() {
     return (
-        <div>
-            <div className="container-fluid">
-                <div className="container-offer">
+        <div className='payment'>
                     <div className="">
                         <div className="arrow-return">
                             <Link to='/inicio'>
@@ -26,11 +24,7 @@ function Payment() {
                         <p className='text-payment-methods '>
                             Para realizar el pago correspondiente al mes, te ofrecemos dos opciones. Por favor, elige la que mejor se adapte a tus necesidades.
                         </p>
-
-
                     </div>
-
-
                     <div className="description-payment-methods container fluid "><br />
                         <div className='payment-methods centrado'>
                             <p className='text-payment-methods '>
@@ -107,29 +101,29 @@ function Payment() {
                     {/*<div className="d-flex justify-content-center align-items-center container-sm">
                         <div>
 
-                            <button type="button" class=" btn btn-imp-factura " >
+                            <button type="button" className=" btn btn-imp-factura " >
                                 <p className='text-blue-pagos'>Imprimir factura</p>
                             </button>
 
                         </div><br />
                         <div className="">
-                            <button type="button" class="btn btn-imp-factura text-blue"  >
+                            <button type="button" className="btn btn-imp-factura text-blue"  >
                                 <p className='text-blue-pagos'>PSE</p>
 
                             </button>
                         </div>
                     </div>*/}
 
-                </div>
-            </div>
-
-
-
-
-
-
-
         </div>
+          
+
+
+
+
+
+
+
+      
     )
 }
 

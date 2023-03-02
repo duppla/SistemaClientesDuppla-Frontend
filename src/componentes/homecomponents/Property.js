@@ -170,7 +170,7 @@ function Property() {
                             <p className=""><b>{datosIn.Barrio}</b></p>
                         </div>
                         <div className="dropdown ">
-                            <button type="button" class="btn dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <button type="button" className="btn dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                 Ver más
                             </button>
                             <div className="dropdown-menu dropdown-menu-cambio  " >
@@ -296,11 +296,11 @@ function Property() {
 
                {/*} <div>
                     <Link to='/home'>
-                        <button type="button" class="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
+                        <button type="button" className="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
                     </Link>
                 </div><br />
                 <div className="">
-                    <button type="button" class="btn btn-outline-primary btn-d-cancel " onClick={handleInm}>ACEPTAR</button>
+                    <button type="button" className="btn btn-outline-primary btn-d-cancel " onClick={handleInm}>ACEPTAR</button>
 
                 </div>*/}
             </div>

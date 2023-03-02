@@ -10,7 +10,6 @@ import Vline from "../../src/img/Vline.svg";
 function History() {
     return (
         <div className='container-fluid'>
-
             <div>
                 <div className="">
                     <div className="arrow-return">
@@ -59,14 +58,14 @@ function History() {
 
             {/**GRafica de linea */}
             <div className='grafict-container-two container-fluid '>
-                <div class=" row">
+                <div className=" row">
                     <div className='centrado'>
-                        <div class="dropdown">
+                        <div className="dropdown">
                             <div className='col-6'>
                                 <h6 className='text-graph-two'><b>Valorización inmueble</b></h6>
                             </div>
                             <div className='col-6 icon-drop'>
-                                <button class="btn  dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn  dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                                     <b>2023</b>
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
@@ -78,7 +77,7 @@ function History() {
                     </div>
                 </div>
                 <br />
-                <div class="">
+                <div className="">
                     <div className='centrado'>
                         <img src={Vline} className="line-data-goal centrado" alt="" />
                     </div>

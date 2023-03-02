@@ -100,11 +100,11 @@ function Offer() {
 
 
             <Link to='/home'>
-              <button type="button" class="btn btn-outline-primary btn-d-aceptar" >CANCELAR</button>
+              <button type="button" className="btn btn-outline-primary btn-d-aceptar" >CANCELAR</button>
             </Link>
           </div><br />
           <div className="">
-            <button type="button" class="btn btn-outline-primary btn-d-cancel" onClick={handleProgress} >ACEPTAR</button>
+            <button type="button" className="btn btn-outline-primary btn-d-cancel" onClick={handleProgress} >ACEPTAR</button>
           </div>
         </div>
 

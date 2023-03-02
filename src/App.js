@@ -64,29 +64,48 @@ function App() {
 
   return (
     <AuthProvider>
+
+
+     
       <Routes>
         <Route path='/' element={<Login />} ></Route>
         <Route path='/singIn' element={<SingIn />} ></Route>
         <Route path='/login' element={<Login />} ></Route>
         <Route path='/register' element={<Register />} ></Route>
         <Route path='/password' element={<Password />} ></Route>
-       
+
 
         <Route exact path='/home' element={<Private><Home /></Private>} ></Route>
         <Route exact path='/profile' element={<Private>< Profile /></Private>} ></Route>
         <Route exact path='/documents' element={<Private><Documents /></Private>} ></Route>
         <Route exact path='/property' element={<Private><Property /></Private>} ></Route>
         <Route exact path='/offer' element={<Private><Offer /></Private>} ></Route>
-        <Route exact path='/inicio' element={<Private><Inicio /></Private>} ></Route>
-        <Route exact path='/pagos' element={<Private><Payment /></Private>} ></Route>
-        <Route exact path='/historial' element={<Private><History/></Private>} ></Route>
-        <Route exact path='/Ajustemeta' element={<Private><Goal/></Private>} ></Route>
+
+          <Route exact path='/inicio' element={<Private><Inicio /></Private>} ></Route>
+          <Route exact path='/pagos' element={<Private><Payment /></Private>} ></Route>
+          <Route exact path='/historial' element={<Private><History /></Private>} ></Route>
+          <Route exact path='/Ajustemeta' element={<Private><Goal /></Private>} ></Route>
 
         <Route path='/error404' element={<Error404 />} ></Route>
       </Routes>
 
+       
+ 
 
     </AuthProvider>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   );

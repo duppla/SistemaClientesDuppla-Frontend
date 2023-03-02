@@ -7,16 +7,17 @@ import { AuthContext } from '../../context/Contextauth';
 
 
 
+
 function Register() {
 
     const {login}=useContext(AuthContext);
+    //const {loginCustumer}=useContext(CustumerContext);
   
     /*Datos enviados a través del servicio*/
     const [datos, setDatos] = useState({
         email: '',
         password: ''
-    });
-    
+    });    
 
     /*Función manejo de cambios en los inputs, maneja un evento e*/
 
@@ -25,7 +26,6 @@ function Register() {
             ...datos,
             [e.target.name]: e.target.value
         })
-
     }
 
         /*Función para enviar los datos al servidor cooki*/
@@ -37,7 +37,6 @@ function Register() {
                 console.log(res.data);
 
            })*/
-
 
     /*Función que maneja el envio de la información del formulario */
 
@@ -67,8 +66,10 @@ function Register() {
                         alert('error');
                     } else {
                         //localStorage.setItem('tokenUser', response.data.token);                         
-                       // console.log(response.token);                  
-                       login(response.token, datos.email);                       
+                       // console.log(response.token);
+                                  
+                       login(response.token, datos.email, response.estado);  
+                       console.log(response.estado)                     
                         setDatos('');
                     }
                 }

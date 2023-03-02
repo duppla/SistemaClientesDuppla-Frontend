@@ -81,7 +81,13 @@ function Goal() {
         </div>
       </div>
       {/*Barra de progreso */}
-      <div>
+      <div className='centrado'>
+
+        <div className='centrado'>
+
+        <p>{value}</p>
+        </div>
+      <div className=''>
         <input 
           type="range" 
           min="0" 
@@ -89,7 +95,8 @@ function Goal() {
           value={value} 
           onChange={handleChange} 
         />
-        <p>{value}</p>
+
+      </div>
       </div>
 
       {/*Sección datos */}
