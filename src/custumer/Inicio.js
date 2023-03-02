@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, createContext, useEffect } from "react";
 
 import './../custumer/inicio.css'
 import { Link } from 'react-router-dom';
@@ -22,11 +22,24 @@ import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
 import Progressbar from './../custumer/Progressbar';
 import Navbarcustumer from './Navbarcustumer';
+import { useNavigate } from "react-router-dom";
 
 
 
 
 function Inicio() {
+
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        // This will run only once when the component loads
+        let estado = localStorage.getItem('estado');
+        if( estado != "Ganada cerrada"){
+            navigate('/')
+        }
+        console.log('Component loaded');
+      }, []);
 
     // Función fecha del día actual
 

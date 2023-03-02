@@ -27,11 +27,13 @@ import { AuthProvider } from './context/Contextauth';
 
 
 
+
 function App() {
   //  el children viene de context
   const Private = ({ children }) => {
 
     const { authenticated, loanding } = useContext(AuthContext);
+
     // valida que este en localsotore- si no esta logueado se redirecciona a login
 
     if (loanding) {
@@ -64,9 +66,6 @@ function App() {
 
   return (
     <AuthProvider>
-
-
-     
       <Routes>
         <Route path='/' element={<Login />} ></Route>
         <Route path='/singIn' element={<SingIn />} ></Route>
@@ -88,26 +87,7 @@ function App() {
 
         <Route path='/error404' element={<Error404 />} ></Route>
       </Routes>
-
-       
- 
-
-    </AuthProvider>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</AuthProvider>
   );
 }
 

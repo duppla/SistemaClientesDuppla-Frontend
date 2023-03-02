@@ -26,10 +26,11 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
 //ejemplo de operador ternario condicion ? true : false
-    const login = (tokenUser, email) => {
+    const login = (tokenUser, email,estado) => {
 
         localStorage.setItem('token', JSON.stringify(tokenUser));
-        localStorage.setItem('email', JSON.stringify(email));      
+        localStorage.setItem('email', JSON.stringify(email)); 
+        localStorage.setItem('estado', JSON.stringify(estado));      
 
         if (tokenUser) {
            // console.log('ver si entra el', tokenUser);
@@ -45,8 +46,13 @@ export const AuthProvider = ({ children }) => {
                 .then(response => response.json())
                 .then(response => {
                     setToken({ token: tokenUser });
-                    //console.log(response);        
-                    navigate('/home')
+                    //console.log(response);
+                    if(estado == "Cerrada ganada"){
+                        navigate('/inicio')
+                    }
+                    else{
+                        navigate('/home')
+                    }        
                 })
                 .catch(err => {                
                     
