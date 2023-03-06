@@ -121,7 +121,7 @@ function Register() {
 
                         </div>
                         <button type="submit"
-                            className="btn btn-prueba-ingreso text-center links text-white btn-mover ">SIGUIENTE</button>
+                            className="btn btn-prueba-ingreso text-center links text-white btn-mover ">Siguiente</button>
                     </form>
 
 

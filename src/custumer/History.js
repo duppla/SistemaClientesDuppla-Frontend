@@ -27,9 +27,9 @@ function History() {
 
             {/*Sección de gráfica */}
 
-            <div className='container-actividad'>
+           {/* <div className='container-actividad'>
 
-                <div className=' modal-content '>
+               <div className=' modal-content '>
                     <br />
                     <div className='modal-header'>
                         <h3>Actividad anual</h3>
@@ -54,7 +54,8 @@ function History() {
                     </div>
                     <br />
                 </div>
-            </div>
+                
+            </div>*/} 
 
             {/**GRafica de linea */}
             <div className='grafict-container-two container-fluid '>

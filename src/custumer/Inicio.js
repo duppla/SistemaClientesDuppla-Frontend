@@ -22,6 +22,7 @@ import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
 import Progressbar from './../custumer/Progressbar';
 import Navbarcustumer from './Navbarcustumer';
+import Speedometer from './Speedometer';
 import { useNavigate } from "react-router-dom";
 
 
@@ -195,7 +196,9 @@ function Inicio() {
                     {/*componente de estados*/}
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
-                            <Progressbar />
+                          
+<Speedometer/>
+
                         </div>
                     </div>
                     <div className="card-docs-init centrado  ">
@@ -220,22 +223,10 @@ function Inicio() {
                             $1,694,150
                         </div>
                     </div>
-                    {/*Abono inmueble */}
-                    <div className="card-docs-init  ">
-                        <div className="card-body-docs col-1">
-                            <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                        </div>
-                        <div className="card-body col-8 text-number-custumer">
-                            Abono inmueble
-                        </div>
-                        <div className="col-4 outline text-number-custumer">
-                            $1,865,250
-                        </div>
-                    </div>
                     {/*Meta mensual */}
                     <div className="card-docs-init  ">
                         <div className="card-body-docs col-1">
-                            <img src={Istaten} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                            <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                         </div>
                         <div className="card-body col-8 text-number-custumer">
                             Meta mensual
@@ -394,7 +385,7 @@ function Inicio() {
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
                             <div className='btn-wrapper'>
-                                <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                <img src={Iayuda} className=" img-btn-wrapper-problem warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                                 <br />
                             </div>
                         </a>
@@ -415,7 +406,7 @@ function Inicio() {
                     </div>
                     <div className='space-btn-wrapper'>
                         <Link to='/historial' className='links'> <div className='btn-wrapper'>
-                            <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
+                            <img src={Ihistorialpago} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
                             <br />
                         </div>
                         </Link>

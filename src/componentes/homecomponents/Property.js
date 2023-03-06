@@ -46,17 +46,17 @@ function Property() {
     const stateFtecnica = (statefichaTecnica) => {
 
         switch (statefichaTecnica) {
-          case "Noevaluado":
-            return <img src={Istatev} className="" alt="" height="12px"  width="12px"/>;
-          case "Aprobado":
-            return <img src={Istatev} className="" alt="" height="12px"  width="12px" />;
-          case "Rechazado":
-            return <img src={Istatev} className="" alt="" height="12px"  width="12px" />;
-             
-          default: return <img src={Istatev} className="" alt="" height="12px"  width="12px" />;
-    
+            case "Noevaluado":
+                return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
+            case "Aprobado":
+                return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
+            case "Rechazado":
+                return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
+
+            default: return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
+
         }
-      }
+    }
 
     //formateo de los datos de valor inmueble duppla
     const number = datosIn.Valor_inmueble_compra_duppla;
@@ -75,7 +75,7 @@ function Property() {
 
     const handleInm = () => {
 
-       {/*} const options = {
+        {/*} const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: '{"email":"pgutierrez@duppla.co"}'
@@ -87,7 +87,7 @@ function Property() {
     .catch(err => console.error(err)); */}
 
         swal({
-           
+
             text: "Se redireccionará a WhatsApp.",
             icon: "success",
             button: "Cerrar",
@@ -118,7 +118,7 @@ function Property() {
                     <button type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button"
+                    <button type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
@@ -135,7 +135,7 @@ function Property() {
                     <div className="carousel-item">
                         <img src={datosIn.Foto_bano} className="d-block w-100" alt="..." />
                     </div>
-                    
+
                 </div>
                 <button className="carousel-control-prev" type="button"
                     data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -153,7 +153,7 @@ function Property() {
                 <div className="description-apt">
                     <h1 className="text-title-property-title"><b>{datosIn.Tipo_de_inmueble}</b></h1>
                     {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
-                    <p><b> {formattedNumber}</b></p>
+                    <p><b>${formattedNumber}</b></p>
                     <p><b>Observaciones:</b>{datosIn.observaciones}
                     </p>
                 </div>
@@ -174,55 +174,55 @@ function Property() {
                                 Ver más
                             </button>
                             <div className="dropdown-menu dropdown-menu-cambio  " >
-                                <ol className=" list-group  ">{/*list-group-numbered*/}
+                                <ul className=" list-group  ">{/*list-group-numbered*/}
 
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
-                                        <div className="row" >
-                                            <div className="fw-bold col-6">m²:{datosIn.Area}</div>
-
-                                        </div>
-                                    </li>
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
-                                        <div className="row" >
-                                            <div className="fw-bold col-6">Antigüedad:{datosIn.Antiguedad}</div>
+                                    <li className=" list-group-item ">
+                                        <div className="" >
+                                            <div className="fw-bold col-8">Área: {datosIn.Area}m²</div>
 
                                         </div>
                                     </li>
-
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                    <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Estrato:{datosIn.Estrato}</div>
+                                            <div className="fw-bold col-12">Antigüedad: {datosIn.Antiguedad} años</div>
 
                                         </div>
                                     </li>
 
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                    <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Habitaciones:{datosIn.Habitaciones}</div>
+                                            <div className="fw-bold col-6">Estrato: {datosIn.Estrato}</div>
 
                                         </div>
                                     </li>
 
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+                                    <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Baños:{datosIn.Banos}</div>
+                                            <div className="fw-bold col-8">Habitaciones: {datosIn.Habitaciones}</div>
 
                                         </div>
                                     </li>
 
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start"> 
+                                    <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Parqueadero:{datosIn.Parqueadero}</div>
+                                            <div className="fw-bold col-6">Baños: {datosIn.Banos}</div>
 
                                         </div>
                                     </li>
-                                    <li className=" list-group-item d-flex justify-content-start align-items-start">
+
+                                    <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Piso:{datosIn.Piso}</div>
+                                            <div className="fw-bold col-8">Parqueadero: {datosIn.Parqueadero}</div>
 
                                         </div>
                                     </li>
-                                </ol>
+                                    <li className=" list-group-item ">
+                                        <div className="row" >
+                                            <div className="fw-bold col-6">Piso: {datosIn.Piso}</div>
+
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -244,7 +244,7 @@ function Property() {
                     </div>
                 </div>
             </div>
-            <div className="card-inmueble container-sm">
+            <div className="card-inmueble container-sm space-property-evaluation">
                 <div className="row ">
                     <div className="col-2">
                         <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
@@ -255,10 +255,10 @@ function Property() {
                             <div className="col-4">
                                 <div className="card-state-properties ">
                                     <div className="card-body col-1 ">
-                                   { stateFtecnica(statefichaTecnica)}
+                                        {stateFtecnica(statefichaTecnica)}
                                     </div>
                                     <div className="col-10 outline">
-                                        No evaluado 
+                                        No evaluado
                                     </div>
                                 </div>
                                 <div className="card-state-properties ">
@@ -274,7 +274,7 @@ function Property() {
                                         <img src={Istateg} className="" alt="" height='12px' width='12px' />
                                     </div>
                                     <div className="col-10 outline">
-                                        Rechazado 
+                                        Rechazado
                                     </div>
                                 </div>
 
@@ -284,27 +284,22 @@ function Property() {
                     </div>
                 </div>
             </div>
+           
+            <br />
+            <br />
+
             {/*Botón*/}
-                <div className="centrado  container-sm" id="btnIniciarSesion">
-                    <a className="links"   href="https://api.whatsapp.com/send?phone=573152559261">
-                        <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
-                            Los datos del inmueble son incorrectos
-                        </button>
-                    </a>
-                </div>
             <div className="centrado">
-
-               {/*} <div>
-                    <Link to='/home'>
-                        <button type="button" className="btn btn-outline-primary btn-d-aceptar">CANCELAR</button>
-                    </Link>
-                </div><br />
-                <div className="">
-                    <button type="button" className="btn btn-outline-primary btn-d-cancel " onClick={handleInm}>ACEPTAR</button>
-
-                </div>*/}
+                <span className="space-text-span">¿Los datos no son los que corresponden?</span>
             </div>
-
+            <div className="centrado  container-sm" id="btnIniciarSesion">
+                <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
+                    <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
+                    Reporta aquí los datos incorrectos
+                    </button>
+                </a>
+            </div>
+            <br />
 
 
 

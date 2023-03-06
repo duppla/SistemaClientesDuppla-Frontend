@@ -19,7 +19,7 @@ function SingIn() {
                         <button  litype="button" 
                         className="btn btn-prueba text-center links text-white btn-mover"
                          width="400px" height="52px">
-                          <Link to='/password' className="links text-white">REGISTRO DE CONTRASEÑA</Link>  
+                          <Link to='/password' className="links text-white">Registro de contraseña</Link>  
                         </button>
                     </div>
                 </div>

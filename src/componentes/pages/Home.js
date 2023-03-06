@@ -289,7 +289,8 @@ function Home() {
           </Link>
         </div>
         {/*Menú documentos*/}
-        <Link to='/documents' className="links text-black">
+       
+        <Link to='/documents' className="links text-black ">
           <div className="card-docs-m  ">
             <div className="card-body  col-8 text-docs">
               <b>Menú documentos</b>
@@ -301,8 +302,9 @@ function Home() {
             </div>
           </div>
         </Link>
+        <br/>
         {/*componente de estados*/}
-        <div className="centrado  container-fluid">
+        <div className="centrado space-docs-home container-fluid">
           <div className="row ">
             {stateChange(stateUser)}
           </div>

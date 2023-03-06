@@ -250,7 +250,7 @@ code {
 /*Manejo img de perfil y home*/
 .img-fluid {
   width: 358px;
-  height: 200px;
+  height: 170px;
   margin-left: 16px;
   margin-right: 16px;
   
@@ -435,6 +435,10 @@ hr {
   margin-top: 5px;
   margin-right: 15px;
   margin-bottom: 10px;
+}
+
+.space-docs-home{
+  margin-top: 20px;
 }
 
 .text.amp {
@@ -931,7 +935,13 @@ a {
   background: #F9F9F9;
   border: #F9F9F9;
 }
+.space-text-span{
+  margin-bottom: -20px;
+}
 
+.space-property-evaluation{
+  margin-bottom: 20px;
+}
 
 
 
