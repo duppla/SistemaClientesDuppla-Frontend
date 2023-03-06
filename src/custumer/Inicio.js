@@ -17,11 +17,7 @@ import Ihistorialpago from "../../src/img/Vhistoriall.png";
 import Imantenimiento from "../../src/img/Vmantenimiento.svg";
 import Iajustemeta from "../../src/img/Vajustarmeta.svg";
 import Vline from "../../src/img/Vline.svg";
-import Ipagofac from "../../src/img/Iconmodalpago.svg";
-import Ipagoadm from "../../src/img/Iconmodalpagoadm.svg";
 
-import Progressbar from './../custumer/Progressbar';
-import Navbarcustumer from './Navbarcustumer';
 import Speedometer from './Speedometer';
 import { useNavigate } from "react-router-dom";
 
@@ -32,18 +28,17 @@ function Inicio() {
 
     const navigate = useNavigate();
 
-
     useEffect(() => {
         // This will run only once when the component loads
         const estado = localStorage.getItem('estado');
-        if( estado !== '"Cerrada ganada"'){
+        if (estado !== '"Cerrada ganada"') {
             console.log(estado);
             navigate('/')
-        }else{
+        } else {
             console.log('Component loaded');
         }
-       
-      }, []);
+
+    }, []);
 
     // Función fecha del día actual
 
@@ -56,7 +51,7 @@ function Inicio() {
     // trae la función  salida, que se declaro en el contexto para implementar aquí
 
     {/*} const { logout } = useContext(AuthContext);
-   const handleLogout = () => {
+       const handleLogout = () => {
      logout();
    };*/}
 
@@ -196,8 +191,8 @@ function Inicio() {
                     {/*componente de estados*/}
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
-                          
-<Speedometer/>
+
+                            <Speedometer />
 
                         </div>
                     </div>

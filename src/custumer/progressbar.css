@@ -38,7 +38,7 @@ code {
 }
 
 .chart-skills::before {
-    content: '$1,865,250';
+    content:'2023';
     width: inherit;
     height: inherit;
     border: 90px solid rgba(255, 255, 255, 0.3);

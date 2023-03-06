@@ -9,8 +9,6 @@ function Progressbar() {
 
 <div className=' contenedor-progress-donut'>
 
-
-
   <div className='ProgressGradient'>
     <ul className="chart-skills">
   <li>
