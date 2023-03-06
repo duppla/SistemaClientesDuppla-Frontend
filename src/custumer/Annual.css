@@ -1,0 +1,39 @@
+
+
+code {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* variables de colores duppla*/
+:root {
+    --color-primario-btn: #6C9FFF;
+    --color-fondo: #FFFFFF;
+    --color-naranja-duppla: #FF864B;
+    --color-verde-duppla: #C5F5CA;
+    --color-cimiento-duppla: #0A3323;
+    --color-sombra-duppla: #EEEFF3;
+    --color-fondo-gris: #F9F9F9;
+}
+
+.container-consolidated-annual{
+    background: rgb(255, 255, 255);
+}
+
+
+.card-month{
+
+box-sizing: border-box;
+
+/* Auto layout */
+width: 320px;
+height: 58px;
+margin-left: 15px;
+margin-top: 10px;
+margin-right: 15px;
+margin-bottom: 10px;
+
+background: #FFFFFF;
+border: 1px solid #EFEFEF;
+box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+border-radius: 8px;
+}

@@ -164,7 +164,7 @@ function History() {
                     </div>
                 </div>
                 <div className='space-btn-wrapper'>
-                    <Link to='/historial' className='links'> <div className='btn-wrapper'>
+                    <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
                         <img src={Vexcerpts} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
                         <br />
                     </div>
@@ -180,7 +180,7 @@ function History() {
             {/*Componente btn anual */}
             <div className='centrado'>
                 <div className="col-2 btn input-group btn-annual-history centrado-btn " width="400px" height="68px" >
-                    <Link to='/pagos'>
+                    <Link to='/consolidado'>
                         <img src={Vannual} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn btn-cerrar text-blue " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>2023</h5>
@@ -191,7 +191,7 @@ function History() {
            
             <div className='centrado'>
                 <div className="col-2 btn input-group btn-annual-history centrado-btn " width="400px" height="68px" >
-                    <Link to='/pagos'>
+                    <Link to='/consolidado'>
                         <img src={Vannual} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn btn-cerrar text-blue " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>2022</h5>

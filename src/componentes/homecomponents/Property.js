@@ -8,6 +8,7 @@ import numeral from 'numeral';
 import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
 import swal from 'sweetalert';
+import Imgdefault from "../../img/Imgdefault.png"
 
 
 
@@ -31,6 +32,7 @@ function Property() {
             .then(response => {
                 setDatosIn(response);
                 setFormattedData(numeral(datosIn).format('0,0.00'));
+
             })
 
             .catch(err => console.error(err));
@@ -39,6 +41,7 @@ function Property() {
     }, []);
 
     //Cambio de estado Ficha técnica
+    const statePhoto = datosIn.Foto_exterior;
 
     const statefichaTecnica = datosIn.estado;
 
@@ -96,16 +99,34 @@ function Property() {
 
     }
 
+    //Ayuda con la visualización de datos al usuario
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        setTimeout(() => setLoading(false), 1000)
+      }, []);
+
 
     return (
-        <div className="container-property container-fluid">
+        !loading && <div className="container-property container-fluid">
             <div className="arrow-return">
                 <Link to='/home'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
                 </Link>
-            </div><br />
+            </div>
+
+
+            {/*Loading... 
+            
+            <div className="spinner-border text-success" role="status">
+                <span className="visually-hidden">Loading...</span>
+    </div>
+            */}
+
+
+
             {/*Carrusel de imagenes */}
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
@@ -124,16 +145,15 @@ function Property() {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={datosIn.Foto_exterior} className="d-block w-100" alt="..." />
+                        {statePhoto ? <img src={datosIn.Foto_exterior} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}                     </div>
+                    <div className="carousel-item">
+                        {statePhoto ? <img src={datosIn.Foto_sala} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
                     </div>
                     <div className="carousel-item">
-                        <img src={datosIn.Foto_sala} className="d-block w-100" alt="..." />
+                        {statePhoto ? <img src={datosIn.Foto_cocina} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
                     </div>
                     <div className="carousel-item">
-                        <img src={datosIn.Foto_cocina} className="d-block w-100" alt="..." />
-                    </div>
-                    <div className="carousel-item">
-                        <img src={datosIn.Foto_bano} className="d-block w-100" alt="..." />
+                        {statePhoto ? <img src={datosIn.Foto_bano} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
                     </div>
 
                 </div>
@@ -148,6 +168,7 @@ function Property() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div><br />
+
             {/*información inmueble */}
             <div className="text-title-property container-sm">
                 <div className="description-apt">
@@ -284,7 +305,7 @@ function Property() {
                     </div>
                 </div>
             </div>
-           
+
             <br />
             <br />
 
@@ -295,7 +316,7 @@ function Property() {
             <div className="centrado  container-sm" id="btnIniciarSesion">
                 <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
                     <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
-                    Reporta aquí los datos incorrectos
+                        Reporta aquí los datos incorrectos
                     </button>
                 </a>
             </div>

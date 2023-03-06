@@ -23,6 +23,7 @@ import History from './custumer/History';
 import Goal from './custumer/Goal';
 import { AuthContext } from './context/Contextauth';
 import { AuthProvider } from './context/Contextauth';
+import Annual from './custumer/Annual';
 
 
 
@@ -84,6 +85,7 @@ function App() {
           <Route exact path='/pagos' element={<Private><Payment /></Private>} ></Route>
           <Route exact path='/historial' element={<Private><History /></Private>} ></Route>
           <Route exact path='/Ajustemeta' element={<Private><Goal /></Private>} ></Route>
+          <Route exact path='/Consolidado' element={<Private><Annual /></Private>} ></Route>
 
         <Route path='/error404' element={<Error404 />} ></Route>
       </Routes>
