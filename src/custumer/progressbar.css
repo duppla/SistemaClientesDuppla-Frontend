@@ -117,7 +117,7 @@ ul {
 
 .chart-skills li:nth-child(4) {
     z-index: 1;
-    border-color:var(--color-naranja-duppla);
+    border-color:var(--color-verde-duppla);
     animation-name: rotate-four;
     animation-delay: 1.2s;
 }
@@ -127,32 +127,19 @@ ul {
 
 @keyframes rotate-one {
     100% {
-        transform: rotate(41.6deg);
+        transform: rotate(60.6deg);
         /** 
   * 12% => 21.6deg 
   */
     }
 }
 
-@keyframes rotate-two {
-    0% {
-        transform: rotate(59.2deg);
 
-    }
-
-    100% {
-        transform: rotate(125.4deg);
-        /** 
-  * 32% => 57.6deg 
-  * 57.6 + 21.6 => 79.2deg 
-  */
-    }
-}
 
 
 @keyframes rotate-four {
     0% {
-        transform: rotate(140.4deg);
+        transform: rotate(70.4deg);
     }
 
     100% {

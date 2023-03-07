@@ -31,7 +31,7 @@ function History() {
             </div>
 
             {/*Sección de gráfica */}
-            <div class=" container-history-graph ">
+            <div class=" container-history-graph container-fluid ">
                 <div className='grafict-container-one container-fluid '>
                     <div className=" row">
                         <h5 className='text-graph-one'><b>Actividad anual</b></h5>
@@ -113,7 +113,7 @@ function History() {
                                     </button>
                                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
                                         <li><button className="dropdown-item" type="button">2023</button></li>
-                                        <li><button className="dropdown-item" type="button">2022</button></li>
+                                        {/*<li><button className="dropdown-item" type="button">2022</button></li>*/}
                                     </ul>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@ function History() {
                 </div>
             </div>
            
-            <div className='centrado'>
+           {/* <div className='centrado'>
                 <div className="col-2 btn input-group btn-annual-history centrado-btn " width="400px" height="68px" >
                     <Link to='/consolidado'>
                         <img src={Vannual} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
@@ -199,10 +199,8 @@ function History() {
                     </Link>
                 </div>
                 <br />
-
-
             </div>
-
+        */}
 
             <div>
                 <br />

@@ -25,7 +25,7 @@ function Payment() {
                     Para realizar el pago correspondiente al mes, te ofrecemos dos opciones. Por favor, elige la que mejor se adapte a tus necesidades.
                 </p>
             </div>
-            <div className="description-payment-methods container fluid "><br />
+            <div className="description-payment-methods container-fluid  "><br />
                 <div className='payment-methods centrado'>
                     <p className='text-payment-methods '>
                         1. Puedes dirigirte al banco y efectuar el pago directamente a través del número de cuenta correspondiente a la fiduciaria.

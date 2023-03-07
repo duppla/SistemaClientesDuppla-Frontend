@@ -28,8 +28,8 @@ code {
     width: 374px;
     height: 480px;
 
-    margin-right: 18px;
-    margin-left: 18px;
+    margin-right: 10px;
+    margin-left: 10px;
    
 
     background: #FFFFFF;
@@ -75,6 +75,12 @@ code {
     font-size: 14px;
 }
 
+
+.icon-drop{
+    margin-top: 6px;
+
+}
+
 /*Sección de prueba gráficos*/
 
 .container-graph-linear{
@@ -95,11 +101,6 @@ code {
     background: #ffffff;
     /* Stroke Color */
 
-    border: 1px solid #EFF0F6;
-    /* Tile Dropshadow */
-
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
 
 
 

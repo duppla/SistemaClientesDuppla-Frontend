@@ -20,6 +20,7 @@ import Vline from "../../src/img/Vline.svg";
 
 import Speedometer from './Speedometer';
 import { useNavigate } from "react-router-dom";
+import numeral from "numeral";
 
 
 
@@ -55,6 +56,41 @@ function Inicio() {
      logout();
    };*/}
 
+   const [dataCustumer, setDataCustumer] = useState({});
+   const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
+
+useEffect(() => {
+    const email = localStorage.getItem('email');
+    const options = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: '{ "email": ' + email + '}'
+      };
+      
+      fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
+        .then(response => response.json())
+        .then(response => {
+            setDataCustumer(response)
+            setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
+        })
+             
+        .catch(err => console.error(err));
+
+
+}, []);
+ //formateo de los datos de valor inmueble duppla
+const formatted = dataCustumer.pagoMinimo;
+ const formatter = new Intl.NumberFormat('es-ES', {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+});
+
+const formatterPagoMinimo = formatter.format(formatted);
+
+
+
+
 
     return (
         <div className=" container-fluid continer-inicio">
@@ -70,7 +106,7 @@ function Inicio() {
                 </div><hr className="hr-position" />
                 <div className="col-6  card-perfil-datos">
                     <div className="card-body">
-                        <h5 className="card-title card-home text-white" > María Fernanda Caicedo{ }</h5>
+                        <h5 className="card-title card-home text-white" >{dataCustumer.nombre}</h5>
                         <p className="text-orange">{fecha}</p>
                     </div>
                 </div>
@@ -198,7 +234,7 @@ function Inicio() {
                     </div>
                     <div className="card-docs-init centrado  ">
                         <div className="col-5">
-                            <p>$1,6914,150</p>
+                            <p>${formatterPagoMinimo}</p>
                         </div >
                         <div className='col-2'></div>
                         <div className="col-5  centrado">
@@ -215,7 +251,7 @@ function Inicio() {
                             Pago mínimo
                         </div>
                         <div className="col-4  text-number-custumer ">
-                            $1,694,150
+                        ${formatterPagoMinimo}
                         </div>
                     </div>
                     {/*Meta mensual */}
