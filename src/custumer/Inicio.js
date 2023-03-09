@@ -35,8 +35,6 @@ function Inicio() {
         if (estado !== '"Cerrada ganada"') {
             console.log(estado);
             navigate('/')
-        } else {
-            console.log('');
         }
 
     }, []);
@@ -56,36 +54,35 @@ function Inicio() {
      logout();
    };*/}
 
-   const [dataCustumer, setDataCustumer] = useState({});
-   const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
+    const [dataCustumer, setDataCustumer] = useState({});
+    const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
 
-useEffect(() => {
-    const email = localStorage.getItem('email');
-    const options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: '{ "email": ' + email + '}'
-      };
-      
-      fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
-        .then(response => response.json())
-        .then(response => {
-            setDataCustumer(response)
-            setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
-        })
-             
-        .catch(err => console.error(err));
-}, []);
- //formateo de los datos de valor inmueble duppla
-const formatted = dataCustumer.pagoMinimo;
- const formatter = new Intl.NumberFormat('es-ES', {
-    style: 'decimal',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-});
+    useEffect(() => {
+        const email = localStorage.getItem('email');
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: '{ "email": ' + email + '}'
+        };
 
-const formatterPagoMinimo = formatter.format(formatted);
+        fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
+            .then(response => response.json())
+            .then(response => {
+                setDataCustumer(response)
+                setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
+            })
 
+            .catch(err => console.error(err));
+    }, []);
+    //formateo de los datos de valor inmueble duppla
+    const formatted = dataCustumer.pagoMinimo;
+    const formatter = new Intl.NumberFormat('es-ES', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+    const formatterPagoMinimo = formatter.format(formatted);
 
 
 
@@ -249,7 +246,7 @@ const formatterPagoMinimo = formatter.format(formatted);
                             Pago mínimo
                         </div>
                         <div className="col-4  text-number-custumer ">
-                        ${formatterPagoMinimo}
+                            ${formatterPagoMinimo}
                         </div>
                     </div>
                     {/*Meta mensual */}

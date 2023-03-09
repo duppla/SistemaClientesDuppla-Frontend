@@ -13,60 +13,57 @@ function Offer() {
   // Estado consumo de la api con oferta
   const [oferta, setOferta] = useState({});
 
-  useEffect(() =>{
+  useEffect(() => {
     const email = localStorage.getItem('email');
 
     const options = {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: '{ "email": ' + email + '}'
     };
-    
+
     fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options)
-      .then(response => response.json() )
-      
+      .then(response => response.json())
+
       .then(response => {
         //console.log( 'prueba' + JSON.stringify(response.Oferta_URL__c));
-        setOferta(response)        
+        setOferta(response)
       })
       .catch(err => console.error(err));
-      
-    }, []);
-  
-    
- const ofertaPrueba = oferta.Oferta_URL__c;
+
+  }, []);
+
+  const offerUrl = oferta.Oferta_URL__c;
 
 
 
 
-
-
-// Estado de la función aceptar
+  // Estado de la función aceptar
   const [progress, setProgress] = useState(false);
 
   // Función en botón aceptar
   const handleProgress = () => {
-    
+
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: '{"id":"1","email": "pgutierrez@duppla.co"}'
     };
-  
+
     fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options)
       .then(response => response)
       .then(response => setProgress(response))
       .catch(err => console.error(err));
-  
-     
+
+
     swal({
-      title: "Se acepto correctamente la oferta",     
+      title: "Se acepto correctamente la oferta",
       icon: "success",
       button: "Cerrar",
       timer: 5000,
     });
-    
-     }
+
+  }
 
 
 
@@ -87,42 +84,36 @@ function Offer() {
           <h1> <b>Oferta</b>
           </h1>
         </div>
-        <div className='visualizacion-pdf'>
-          {/*Carrusel de imagenes prueba para el movil*/}
-          <div className="carousel-item active">
-           
-           
-          </div>
-          <div id="carouselExampleIndicators" className="carousel slide">
-            <div className="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0" className="active" aria-current="true"
-                aria-label="Slide 1"></button>
-              <button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-              {ofertaPrueba ? <img src={oferta.Oferta_URL__c} className="d-block w-100" alt="..." /> : <img src={Idefaultoffer} className="container fluid" alt="..." />}
+
+
+        <div className='container-fluid '>
+
+          {offerUrl ?
+            <div className="  offer-container-link  " id="btnIniciarSesion">
+              <div>
+                <p className='text-offer-link'><b>Da clic en botón para ver la oferta</b></p>
               </div>
-              
-            </div>
-            <button className="carousel-control-prev" type="button"
-              data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button"
-              data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div><br />
+              <div className='centrado'>
+                <a className="links text-white"
+                  href={offerUrl}>
+                  <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
+                    Oferta
+                  </button>
+                </a>
+              </div>
+
+            </div> : <div className='img-offer-conatiner '>
+              <img src={Idefaultoffer} className="container fluid" alt="..." />
+            </div>}
+
         </div>
+
+
+
+      
+        <br />
+        <br />
+        {/*Sección botones oferta */}
         <div className="d-flex justify-content-center align-items-center container-sm">
           <div>
             <Link to='/home'>
@@ -138,6 +129,6 @@ function Offer() {
     </div>
   );
 
-  }
+}
 
 export default Offer;

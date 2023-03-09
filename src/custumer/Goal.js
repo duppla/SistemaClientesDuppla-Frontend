@@ -14,8 +14,7 @@ function Goal() {
   }
 
   const updateMeta = (meta,id) =>{
-    console.log(meta);
-    console.log(id);
+
     const options = {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},

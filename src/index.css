@@ -60,7 +60,7 @@ code {
 
 .card-title {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .card-text {
@@ -360,7 +360,6 @@ hr {
 }
 
 
-
 /*Estilos inicio o home aplicación*/
 
 
@@ -514,7 +513,6 @@ hr {
   border-radius: 0px;
   border:#0A3323;
  
-
 }
 
 .navbar-container{
@@ -530,7 +528,6 @@ hr {
   height: 60px;
 
 }
-
 
 .tarjetasdatos-usuario {
   display: grid;
@@ -617,10 +614,8 @@ hr {
   margin-left: 16px;
   margin-right: 16px;
 
-
   top: 210px;
   bottom: 100px;
-
 
 }
 
@@ -655,14 +650,9 @@ hr {
   margin-right: 16px;
 }
 
-
 a {
   text-decoration: none;
 }
-
-
-
-
 
 .btn-prueba {
   display: flex;
@@ -715,13 +705,6 @@ a {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
 }
-
-
-
-
-
-
-
 
 .centrado {
   display: flex;
@@ -944,16 +927,44 @@ a {
 }
 
 
-
-
 /*Sección de oferta*/
 .container-offer {
 
   height: 700px
 }
 
+.img-offer-conatiner{
+
+align-items: center;
+  width: 360px;
+  height: 280px;
+
+margin-top: 20px;
+margin-left: 10px;
+margin-right: 10px;
+margin-bottom: 50px;
 
 
+
+
+}
+
+.offer-container-link {
+
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 60px;
+  
+
+}
+
+.text-offer-link{
+ text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: var(--color-cimiento-duppla);
+}
 
 /*Responsive*/
 @media (min-width: 300px) {}

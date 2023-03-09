@@ -82,7 +82,7 @@ function Home() {
       case "AceptadoDocs":
         return <img src={Iprogresive3} className="img-fluid" alt="" />;
 
-      case "Mudarse":
+      case "Verificación Final":
         return <img src={Iprogresive4} className="img-fluid" alt="" />;
 
       default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
