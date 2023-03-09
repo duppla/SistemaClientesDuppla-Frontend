@@ -22,7 +22,7 @@ function Annual() {
             <div className='container-fluid'>
             <div className='centrado'>
                     <div className=" btn input-group card-month centrado-btn " width="400px" height="68px" >
-                        <Link to='/pagos'>
+                        <Link to='/Facturacion'>
                             <button type="button" id="" className="btn btn-cerrar text-blue " >
                                 <h5>Enero</h5>
                             </button>

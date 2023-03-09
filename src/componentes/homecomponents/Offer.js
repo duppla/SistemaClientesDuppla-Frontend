@@ -2,6 +2,7 @@ import { loadGapiInsideDOM } from 'gapi-script';
 import React, { useState, useEffect } from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import Ioferta from "../../img/Ioferta.png";
+import Idefaultoffer from "../../img/Idefaultoffer.png";
 import swal from 'sweetalert';
 
 
@@ -9,10 +10,41 @@ import swal from 'sweetalert';
 
 function Offer() {
 
+  // Estado consumo de la api con oferta
+  const [oferta, setOferta] = useState({});
 
+  useEffect(() =>{
+    const email = localStorage.getItem('email');
+
+    const options = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: '{ "email": ' + email + '}'
+    };
+    
+    fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options)
+      .then(response => response.json() )
+      
+      .then(response => {
+        //console.log( 'prueba' + JSON.stringify(response.Oferta_URL__c));
+        setOferta(response)        
+      })
+      .catch(err => console.error(err));
+      
+    }, []);
+  
+    
+ const ofertaPrueba = oferta.Oferta_URL__c;
+
+
+
+
+
+
+// Estado de la función aceptar
   const [progress, setProgress] = useState(false);
 
- 
+  // Función en botón aceptar
   const handleProgress = () => {
     
     const options = {
@@ -56,9 +88,10 @@ function Offer() {
           </h1>
         </div>
         <div className='visualizacion-pdf'>
-          {/*Carrusel de imagenes preuba para el movil*/}
+          {/*Carrusel de imagenes prueba para el movil*/}
           <div className="carousel-item active">
-            <img src={Ioferta} className="d-block w-100" alt="..." />
+           
+           
           </div>
           <div id="carouselExampleIndicators" className="carousel slide">
             <div className="carousel-indicators">
@@ -74,14 +107,9 @@ function Offer() {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={Ioferta} className="d-block w-100" alt="..." />
+              {ofertaPrueba ? <img src={oferta.Oferta_URL__c} className="d-block w-100" alt="..." /> : <img src={Idefaultoffer} className="container fluid" alt="..." />}
               </div>
-              <div className="carousel-item">
-                <img src={Ioferta} className="d-block w-100" alt="..." />
-              </div>
-              <div className="carousel-item">
-                <img src={Ioferta} className="d-block w-100" alt="..." />
-              </div>
+              
             </div>
             <button className="carousel-control-prev" type="button"
               data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -97,8 +125,6 @@ function Offer() {
         </div>
         <div className="d-flex justify-content-center align-items-center container-sm">
           <div>
-
-
             <Link to='/home'>
               <button type="button" className="btn btn-outline-primary btn-d-aceptar" >CANCELAR</button>
             </Link>

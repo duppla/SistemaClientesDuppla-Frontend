@@ -1,11 +1,47 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import Istateg from "../../img/Istateg.png";
 import Istatev from "../../img/Istatev.png";
 import Istateb from "../../img/Istateb.png";
 
 
+
+
+
+
+
 function Docs() {
+
+    const [docsBuyer, setDocsBuyer] = useState({});
+    
+ 
+ useEffect(() => {
+     const email = localStorage.getItem('email');
+
+         const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: '{ "email": ' + email + '}'
+          };
+          
+          fetch('https://sistema-duppla-backend.herokuapp.com/docs/getDocument', options)
+            .then(response => response.json())
+            .then(response => {
+                setDocsBuyer(response)
+
+            })
+            .catch(err => console.error(err));
+ }, []);
+
+
+
+
+
+
+
+
+
+
     return (
         <div className="Documents container-fluid">
             <div className="arrow-return">
@@ -28,7 +64,7 @@ function Docs() {
                     </div>
                     <div className="card-body col-8 text-space">
                         <b className="">Oferta vinculante</b>
-                        <p className="card-text-docs"><small className="text-muted">{}</small></p>
+                        <p className="card-text-docs"><small className="text-muted">{docsBuyer.Documento_Oferta_Vinculante__c}</small></p>
                              
                     </div>
                     <div className="col-2 outline">
@@ -43,7 +79,7 @@ function Docs() {
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Contrato de adhesión</b>
-                        <p className="card-text-docs"><small className="text-muted">{}</small></p>
+                        <p className="card-text-docs"><small className="text-muted">{docsBuyer.Contrato_de_Adhesion_Doc__c}</small></p>
                     </div>
                     <div className="col-2 outline">
                         <Link to='/documents'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="

@@ -1,0 +1,39 @@
+code {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* variables de colores duppla*/
+:root {
+    --color-primario-btn: #6C9FFF;
+    --color-fondo: #FFFFFF;
+    --color-naranja-duppla: #FF864B;
+    --color-verde-duppla: #C5F5CA;
+    --color-cimiento-duppla: #0A3323;
+    --color-sombra-duppla: #EEEFF3;
+    --color-fondo-gris: #F9F9F9;
+}
+
+.container-notice-date{
+    padding: 14px 0px 0px 0px;
+    background: var(--color-verde-duppla);
+    height: 240px;
+}
+
+.text-notice-date {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.text-notice{
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    
+}
+
+.text-notice-two{
+    margin-top: -8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}

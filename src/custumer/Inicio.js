@@ -36,7 +36,7 @@ function Inicio() {
             console.log(estado);
             navigate('/')
         } else {
-            console.log('Component loaded');
+            console.log('');
         }
 
     }, []);
@@ -75,8 +75,6 @@ useEffect(() => {
         })
              
         .catch(err => console.error(err));
-
-
 }, []);
  //formateo de los datos de valor inmueble duppla
 const formatted = dataCustumer.pagoMinimo;
