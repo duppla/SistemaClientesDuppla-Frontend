@@ -122,14 +122,14 @@ function Notification() {
                     <div className='text-notice-date-two centrado'>
                         <h5><b>Pago mínimo : $0.000.000 { }</b></h5>
                     </div>
-                    <div className='text-notice centrado '>
-                        <p>Abono a capital: $0.000.000 { }</p>
+                    <div className='text-notice-second centrado '>
+                        <p>Abono a capital: $0.080.000 { }</p>
                     </div>
 
-                    <div className='text-notice centrado '>
+                    <div className='text-notice-second centrado '>
                         <p>Pagaste: 08 de Febrero { }</p>
                     </div>
-                    <div className='text-notice-two centrado '>
+                    <div className='text-notice-second-s centrado '>
                         <p>Periodo de facturado 25 DIC - 25 ENE { }</p>
                     </div>
 
@@ -177,19 +177,19 @@ function Notification() {
 
             {/*pago pendiente */}
 
-            <div className='container-notice-date'>
+            <div className='container-notice-date-three'>
                 <div className='notice-up-to-date '>
-                    <div className='text-notice-date centrado'>
+                    <div className='text-notice-date-two  centrado'>
                         <h5><b>Pago mínimo : $0.000.000 { }</b></h5>
                     </div>
-                    <div className='text-notice centrado '>
+                    <div className='text-notice-second centrado '>
                         <p>Abono a capital: $0.000.000 { }</p>
                     </div>
 
-                    <div className='text-notice centrado '>
+                    <div className='text-notice-second centrado '>
                         <p>Pagaste: 08 de Febrero { }</p>
                     </div>
-                    <div className='text-notice-two centrado '>
+                    <div className='text-notice-second-s centrado '>
                         <p>Periodo de facturado 25 DIC - 25 ENE { }</p>
                     </div>
 

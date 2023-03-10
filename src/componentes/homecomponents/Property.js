@@ -65,12 +65,16 @@ function Property() {
     const number = datosIn.Valor_inmueble_compra_duppla;
     const costm = datosIn.Evaluacion_m2;
     const compraDuppla = datosIn.valor_opcion_compra;
+    
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
     });
     const formattedNumber = formatter.format(number);
+
+
+    
     const formattedcostm = formatter.format(costm);
     const formattedCompraDuppla = formatter.format(compraDuppla);
 

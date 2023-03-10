@@ -82,7 +82,6 @@ function Home() {
         return <img src={Iprogresive2} className="img-fluid" alt="" />;
       case "Proceso documental":
         return <img src={Iprogresive3} className="img-fluid" alt="" />;
-
       case "Cerrada ganada":
         return <img src={Iprogresive4} className="img-fluid" alt="" />;
 
@@ -270,7 +269,7 @@ function Home() {
                   <img src={Idocumento} className="img-icono-card" alt="" />
                 </div>
                 <div className="col-4 card-home-offer">
-                  <h4 className="card-title card-top"><b>Ultima oferta</b></h4>
+                  <h4 className="card-title-home card-top"><b>Propuesta Comercial</b></h4>
                   < p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
@@ -278,7 +277,7 @@ function Home() {
                 </div>
                 <div className="col-4">
                   <div className="card-body">
-                    <p className="card-text">03/02/2023</p>
+                    <p className="card-text">03/03/2023</p>
                     <p className="card-text-aprov">{stateOffer ? "Aceptado" : "Pendiente"}</p>
                   </div>
                 </div>
@@ -296,7 +295,7 @@ function Home() {
                   <img src={Iconinm} className="img-icono-card-inm" alt="" />
                 </div>
                 <div className="col-4 card-home-offer">
-                  <h4 className="card-title card-top "><b>Inmueble</b></h4>
+                  <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
                   <p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
