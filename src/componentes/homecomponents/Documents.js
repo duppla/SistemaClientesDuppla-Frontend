@@ -33,10 +33,33 @@ function Docs() {
             .catch(err => console.error(err));
     }, []);
 
+const stateVinculante = docsBuyer.Oferta_Vinculante_Doc__c;
+const stateAhdecion = docsBuyer.Contrato_de_Adhesion_Doc__c;
 
     
-  
+    function stateDocs() {
 
+        const state = stateVinculante;
+        
+        if (state === null) {
+          return <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+        }
+        else {
+          return <img src={Istatev} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+        }
+      }
+
+      function stateDocsAhde() {
+
+        const stateAhde = stateAhdecion;
+        
+        if (stateAhde === null) {
+          return <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+        }
+        else {
+          return <img src={Istatev} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+        }
+      }
 
 
 
@@ -62,7 +85,7 @@ function Docs() {
                 <div className="card-docs-m   ">
 
                     <div className="card-body-docs col-2">
-                        <img src={Istateg} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                       {stateDocs()}
                     </div>
 
                     <div className="card-body col-8 text-space">
@@ -81,7 +104,7 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                        <img src={Istateg} className=" warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                    {stateDocsAhde()}  
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Contrato de adhesión</b>
