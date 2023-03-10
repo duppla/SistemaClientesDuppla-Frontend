@@ -31,7 +31,7 @@ function History() {
             </div>
 
             {/*Sección de gráfica */}
-            <div class=" container-history-graph container-fluid ">
+            <div className=" container-history-graph container-fluid ">
                 <div className='grafict-container-one container-fluid '>
                     <div className=" row">
                         <h5 className='text-graph-one'><b>Actividad anual</b></h5>
@@ -71,7 +71,7 @@ function History() {
                     {/*Meta mensual */}
                     <div className="card-docs-init  ">
                         <div className="card-body-docs col-1">
-                            <img src={Istatem} classNa me="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                            <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                         </div>
                         <div className="card-body col-8 text-number-custumer">
                             Año 2028

@@ -46,7 +46,7 @@ function Notification() {
                         <p>Saldo anterior</p>
                     </div>
                     <div className="col-6 outline text-dropdown-right">
-                        <p className='text-end text-space-dropdown '>$0.000.000{}</p>
+                        <p className='text-end text-space-dropdown '>$0.000.000{ }</p>
                     </div>
                 </div>
                 <div className="card-docs-init  ">
@@ -75,29 +75,165 @@ function Notification() {
                 </div>
             </div>
             <div className='centrado'>
-                        <img src={Vline} className="line-data-goal centrado" alt="" />
-                    </div>
+                <img src={Vline} className="line-data-goal centrado" alt="" />
+            </div>
+            <br />
             <div className=''>
                 <div>
-                    
+                    <div className='date-history'>
+                        <h5>24 DIC</h5>
+                    </div>
+                    <br />
+                    <div className="card-docs-init  ">
+                        <div className="card-body-docs col-10">
+                            <p>Mantenimiento de las duchas</p>
+                        </div>
+                        <div className="col-2 outline">
+                            < p className='text-end text-space-dropdown'></p>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div className="card-docs-init  ">
+                        <div className="card-body-docs col-10">
+                            <p>Duñas dañadas, se quebraron y no salia agua caliente</p>
+                        </div>
+                        <div className="col-2 outline">
+                            < p className='text-end text-space-dropdown'></p>
+                        </div>
+                    </div>
+                    <div className="card-docs-init  ">
+                        <div className="card-body-docs col-6">
+                            <p></p>
+                        </div>
+                        <div className="col-6 outline">
+                            < p className='text-end text-space-dropdown'>$600,000</p>
+                        </div>
+                    </div>
                 </div>
 
 
             </div>
 
-
-
-
-
-
-
-
             {/*pago con demora */}
 
+            <div className='container-notice-date-two'>
+                <div className='notice-up-to-date '>
+                    <div className='text-notice-date-two centrado'>
+                        <h5><b>Pago mínimo : $0.000.000 { }</b></h5>
+                    </div>
+                    <div className='text-notice centrado '>
+                        <p>Abono a capital: $0.000.000 { }</p>
+                    </div>
+
+                    <div className='text-notice centrado '>
+                        <p>Pagaste: 08 de Febrero { }</p>
+                    </div>
+                    <div className='text-notice-two centrado '>
+                        <p>Periodo de facturado 25 DIC - 25 ENE { }</p>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div className='invoice-details container-fluid'>
+                <div className="card-docs-init centrado  ">
+                    <div className="card-body-docs col-6">
+                        <p>Saldo anterior</p>
+                    </div>
+                    <div className="col-6 outline text-dropdown-right">
+                        <p className='text-end text-space-dropdown '>$0.000.000{ }</p>
+                    </div>
+                </div>
+                <div className="card-docs-init  ">
+                    <div className="card-body-docs col-6">
+                        <p>Abono a capital</p>
+                    </div>
+                    <div className="col-6 outline">
+                        <p className='text-end text-space-dropdown '>$0.000.000</p>
+                    </div>
+                </div>
+                <div className="card-docs-init  ">
+                    <div className="card-body-docs col-6">
+                        <p>Costos de intereses</p>
+                    </div>
+                    <div className="col-6 outline">
+                        <p className='text-end text-space-dropdown '>$0.000.000</p>
+                    </div>
+                </div>
+                <div className="card-docs-init  ">
+                    <div className="card-body-docs col-6">
+                        <p>Mantenimiento</p>
+                    </div>
+                    <div className="col-6 outline">
+                        < p className='text-end text-space-dropdown'>$0.000.000</p>
+                    </div>
+                </div>
+            </div>
+            <div className='centrado'>
+                <img src={Vline} className="line-data-goal centrado" alt="" />
+            </div>
+            <br />
 
             {/*pago pendiente */}
 
+            <div className='container-notice-date'>
+                <div className='notice-up-to-date '>
+                    <div className='text-notice-date centrado'>
+                        <h5><b>Pago mínimo : $0.000.000 { }</b></h5>
+                    </div>
+                    <div className='text-notice centrado '>
+                        <p>Abono a capital: $0.000.000 { }</p>
+                    </div>
 
+                    <div className='text-notice centrado '>
+                        <p>Pagaste: 08 de Febrero { }</p>
+                    </div>
+                    <div className='text-notice-two centrado '>
+                        <p>Periodo de facturado 25 DIC - 25 ENE { }</p>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div className='invoice-details container-fluid'>
+                <div className="card-docs-init centrado  ">
+                    <div className="card-body-docs col-6">
+                        <p>Saldo anterior</p>
+                    </div>
+                    <div className="col-6 outline text-dropdown-right">
+                        <p className='text-end text-space-dropdown '>$0.000.000{ }</p>
+                    </div>
+                </div>
+                <div className="card-docs-init  ">
+                    <div className="card-body-docs col-6">
+                        <p>Abono a capital</p>
+                    </div>
+                    <div className="col-6 outline">
+                        <p className='text-end text-space-dropdown '>$0.000.000</p>
+                    </div>
+                </div>
+                <div className="card-docs-init  ">
+                    <div className="card-body-docs col-6">
+                        <p>Costos de intereses</p>
+                    </div>
+                    <div className="col-6 outline">
+                        <p className='text-end text-space-dropdown '>$0.000.000</p>
+                    </div>
+                </div>
+                <div className="card-docs-init  ">
+                    <div className="card-body-docs col-6">
+                        <p>Mantenimiento</p>
+                    </div>
+                    <div className="col-6 outline">
+                        < p className='text-end text-space-dropdown'>$0.000.000</p>
+                    </div>
+                </div>
+            </div>
+            <div className='centrado'>
+                <img src={Vline} className="line-data-goal centrado" alt="" />
+            </div>
+            <br />
 
 
 

@@ -36,8 +36,6 @@ function Offer() {
   const offerUrl = oferta.Oferta_URL__c;
 
 
-
-
   // Estado de la función aceptar
   const [progress, setProgress] = useState(false);
 
@@ -95,7 +93,9 @@ function Offer() {
               </div>
               <div className='centrado'>
                 <a className="links text-white"
-                  href={offerUrl}>
+                  href={offerUrl} 
+                  >
+                   
                   <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
                     Oferta
                   </button>

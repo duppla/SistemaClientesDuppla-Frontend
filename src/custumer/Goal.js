@@ -103,11 +103,11 @@ function Goal() {
 
       {/*Sección datos */}
 
-      <div class="">
-        <div class="data-goal">
+      <div className="">
+        <div className="data-goal">
           <h5 className=''><b>Recálculo</b></h5>
         </div>
-        <div class="">
+        <div className="">
           <div className='centrado'>
             <img src={Vline} className="line-data-goal centrado" alt="" />
           </div>

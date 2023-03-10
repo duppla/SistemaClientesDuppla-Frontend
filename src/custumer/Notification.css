@@ -4,7 +4,7 @@ code {
 
 /* variables de colores duppla*/
 :root {
-    --color-primario-btn: #6C9FFF;
+    --color-primario-btn: #81A1F8;
     --color-fondo: #FFFFFF;
     --color-naranja-duppla: #FF864B;
     --color-verde-duppla: #C5F5CA;
@@ -33,6 +33,40 @@ code {
 }
 
 .text-notice-two{
+    margin-top: -8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.date-history{
+   
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/*Sección pago con demora */
+.container-notice-date-two{
+    padding: 14px 0px 0px 0px;
+    background: var(--color-primario-btn);
+    height: 240px;
+}
+
+.text-notice-date-two {
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.text-notice-second {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    
+}
+
+.text-notice-second-s{
     margin-top: -8px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;

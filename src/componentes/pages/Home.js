@@ -70,19 +70,20 @@ function Home() {
   const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
 
+
   const stateChange = (stateUser) => {
 
     switch (stateUser) {
       case "Pendiente":
         return <img src={BarraProgreso} className="img-fluid" alt="" />;
-      case "Aceptado":
+      case "Propuesta inicial / Visita virtual":
         return <img src={Iprogresive1} className="img-fluid" alt="" />;
-      case "AceptadoInm":
+      case "Aprobación Inmueble":
         return <img src={Iprogresive2} className="img-fluid" alt="" />;
-      case "AceptadoDocs":
+      case "Proceso documental":
         return <img src={Iprogresive3} className="img-fluid" alt="" />;
 
-      case "Verificación Final":
+      case "Cerrada ganada":
         return <img src={Iprogresive4} className="img-fluid" alt="" />;
 
       default: return <img src={BarraProgreso} className="img-fluid" alt="" />;
@@ -107,6 +108,29 @@ function Home() {
 
       default: return <p>Por aprobar la oferta vinculante</p>;
     }
+  }
+
+
+  function testOffer() {
+
+    const testOne = stateOffer;
+    if (testOne === null) {
+      return <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+    }
+    else {
+      return <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' />
+    }
+  }
+
+  function testInm() {
+    const testTwo = stateInm;
+    if (testTwo === null) {
+      return <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+    }
+    else {
+      return <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' />
+    }
+
   }
 
   return (
@@ -136,7 +160,7 @@ function Home() {
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
               <div className="">
-                <div className=" offcanvas offcanvas-bottom navbar-container "  id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className=" offcanvas offcanvas-bottom navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                   <div className="offcanvas-body ">
                     <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
                     <ul className="navbar-nav " >
@@ -250,7 +274,7 @@ function Home() {
                   < p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-                  {stateOffer ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
+                  {testOffer(stateOffer)}
                 </div>
                 <div className="col-4">
                   <div className="card-body">
@@ -276,7 +300,11 @@ function Home() {
                   <p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-                  {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
+
+                  {testInm(stateInm)}
+
+                  {/** {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
+                */}
                 </div>
                 <div className="col-4">
                   <div className="card-body">
@@ -289,7 +317,7 @@ function Home() {
           </Link>
         </div>
         {/*Menú documentos*/}
-       
+
         <Link to='/documents' className="links text-black ">
           <div className="card-docs-m  ">
             <div className="card-body  col-8 text-docs">
@@ -302,7 +330,7 @@ function Home() {
             </div>
           </div>
         </Link>
-        <br/>
+        <br />
         {/*componente de estados*/}
         <div className="centrado space-docs-home container-fluid">
           <div className="row ">
