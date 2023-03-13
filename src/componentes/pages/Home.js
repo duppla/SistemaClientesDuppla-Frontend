@@ -161,7 +161,10 @@ function Home() {
               <div className="">
                 <div className=" offcanvas offcanvas-bottom navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                   <div className="offcanvas-body ">
+                    <div className="img-navbar-home">
+
                     <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
+                    </div>
                     <ul className="navbar-nav " >
                       <li className="nav-item ">
                         <Link to="/profile">

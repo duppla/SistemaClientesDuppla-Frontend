@@ -19,14 +19,14 @@ function Password() {
                     <h2> <b>Registro de contraseña</b>
                     </h2>
                 </div>
-                <div className="form-register centrado container-sm">
+
+                
+                <div className="  container-sm">
                     <form>
                         <div className="mb-3">
-
                             <input type="password" value="" className="form-control input-register" placeholder="Contraseña" id="InputPassword" height="46px" />
                         </div>
                         <div className="mb-3">
-
                             <input type="password" className="form-control input-register" placeholder="Confirmar contraseña" id="confirmarInputPassword" height="46px" />
                         </div>
 

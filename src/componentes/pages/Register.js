@@ -124,21 +124,10 @@ function Register() {
                             className="btn btn-prueba-ingreso text-center links text-white btn-mover ">Siguiente</button>
                     </form>
 
-
                 </div>
-
-
-
             </div>
-
         </div>
-
-
     );
-
 };
-
-
-
 
 export default Register;
