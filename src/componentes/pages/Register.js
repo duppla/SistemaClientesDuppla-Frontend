@@ -11,7 +11,7 @@ import { AuthContext } from '../../context/Contextauth';
 function Register() {
 
     const {login}=useContext(AuthContext);
-    //const {loginCustumer}=useContext(CustumerContext);
+   
   
     /*Datos enviados a través del servicio*/
     const [datos, setDatos] = useState({
