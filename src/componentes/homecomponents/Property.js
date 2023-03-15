@@ -254,7 +254,7 @@ function Property() {
                 </div>
             </div>
             {/*Tarjetas estado del inmeble */}
-            <div className="card-inmueble container-sm ">
+            <div className="card-inm-value container-sm ">
                 <div className="row ">
                     <div className="col-2">
                         <img src={Ievaluacionprecio} className="" alt="..." width='24px' height='24px' />
