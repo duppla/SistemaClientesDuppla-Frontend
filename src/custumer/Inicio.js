@@ -277,7 +277,7 @@ function Inicio() {
                                 <br />
                                 <div className="card-docs-init  ">
                                     <div className="card-body-docs col-6">
-                                        <p>Factura</p>
+                                        <p>Referencia de pago</p>
                                     </div>
                                     <div className="col-6 outline text-dropdown-right">
                                         <p className='text-end text-space-dropdown '>#02</p>
