@@ -50,7 +50,13 @@ function Home() {
 
     fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
       .then(response => response.json())
-      .then(response => setData(response))
+      .then(response => {
+        setData(response)
+        console.log(data.mensaje);
+      }
+      )
+
+
       .catch(err => console.error(err));
 
 
@@ -65,6 +71,8 @@ function Home() {
   };
 
   // 
+
+  console.log(data.mensaje);
 
   const stateUser = data.estado;
   const stateInm = data.estado_inm;
@@ -163,7 +171,7 @@ function Home() {
                   <div className="offcanvas-body ">
                     <div className="img-navbar-home">
 
-                    <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
+                      <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
                     </div>
                     <ul className="navbar-nav " >
                       <li className="nav-item ">
@@ -339,6 +347,16 @@ function Home() {
             {stateChange(stateUser)}
           </div>
         </div>
+
+        {/*componente de estados*/}
+        <div className=" centrado-mensaje  container-fluid">
+          <div className="row  ">
+            <h6>Estado:</h6>            
+              <b> {data.mensaje}  </b>            
+          </div>
+        </div>
+       
+
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"

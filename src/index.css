@@ -722,6 +722,11 @@ a {
   align-items: center;
 }
 
+.centrado-mensaje{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 .rounded-start {
   width: 58px;
   height: 58px;
