@@ -350,7 +350,7 @@ function Home() {
         </div>
 
         {/*componente de estados*/}
-        <div className=" centrado-mensaje  container-fluid" style="Width= 80%">
+        <div className=" centrado-mensaje  container-fluid">
           <div className="row  ">
             <h6>Estado:</h6>            
               <b> {data.mensaje}  </b>            
