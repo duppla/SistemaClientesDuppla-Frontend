@@ -74,7 +74,8 @@ function Home() {
 
   console.log(data.mensaje);
 
-  const stateUser = data.estado;
+  //const stateUser = data.estado;
+  const stateUser = "Proceso documental";
   const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
 
