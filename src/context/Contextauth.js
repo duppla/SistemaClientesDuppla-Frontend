@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
                 .then(response => {
                     setToken({ token: tokenUser });
                     //console.log(response);
-                    if(estado == "Cerrada ganada"){
+                    if(estado == true){
                         navigate('/inicio')
                     }
                     else{

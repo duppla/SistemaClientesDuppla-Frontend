@@ -64,8 +64,6 @@ function Offer() {
   }
 
 
-
-
   return (
     <div className="container-fluid">
       <div className="container-offer">
@@ -79,13 +77,11 @@ function Offer() {
           </div>
         </div>
         <div className="title-register">
-          <h1> <b>Oferta</b>
+          <h1> <b>Propuesta comercial</b>
           </h1>
         </div>
-
-
+        {/* */}
         <div className='container-fluid '>
-
           {offerUrl ?
             <div className="  offer-container-link  " id="btnIniciarSesion">
               <div>

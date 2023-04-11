@@ -32,7 +32,7 @@ function Inicio() {
     useEffect(() => {
         // This will run only once when the component loads
         const estado = localStorage.getItem('estado');
-        if (estado !== '"Cerrada ganada"') {
+        if (estado != "true") {
             console.log(estado);
             navigate('/')
         }

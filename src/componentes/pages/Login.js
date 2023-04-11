@@ -10,14 +10,13 @@ import Btnfacebook from "../../img/facebook.png"
 
 function login() {
 
-// pruebas ingreso Facebbok
+// pruebas ingreso Facebook
     /*const responseFacebook = (response) => {
         console.log(response);
     }
     const componentClicked = () => {
         alert("evento de clik")
     };*/
-
 
     return (
         <div className="container-fluid">

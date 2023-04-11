@@ -44,57 +44,133 @@ function Property() {
     const statePhoto = datosIn.Foto_exterior;
 
     const statefichaTecnica = datosIn.estado;
+   
+
 
 
     const stateFtecnica = (statefichaTecnica) => {
 
         switch (statefichaTecnica) {
-            case "Noevaluado":
-                return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
-            case "Aprobado":
-                return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
-            case "Rechazado":
-                return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
+            case "No evaluado":
+                return <div className="col-4">
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            No evaluado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1  ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Aprobado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Rechazado
+                        </div>
+                    </div></div>
 
-            default: return <img src={Istatev} className="" alt="" height="12px" width="12px" />;
+            case "Aprobado":
+                return <div className="col-4">
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            No evaluado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1  ">
+                            <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Aprobado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Rechazado
+                        </div>
+                    </div></div>
+            case "Rechazado":
+                return <div className="col-4">
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            No evaluado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1  ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Aprobado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Rechazado
+                        </div>
+                    </div></div>
+
+            default: return <div className="col-4">
+            <div className="card-state-properties ">
+                <div className="card-body col-1 ">
+                    <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                </div>
+                <div className="col-10 outline">
+                    No evaluado
+                </div>
+            </div><div className="card-state-properties ">
+                <div className="card-body col-1  ">
+                    <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                </div>
+                <div className="col-10 outline">
+                    Aprobado
+                </div>
+            </div><div className="card-state-properties ">
+                <div className="card-body col-1 ">
+                    <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                </div>
+                <div className="col-10 outline">
+                    Rechazado
+                </div>
+            </div></div>
 
         }
     }
+
 
     //formateo de los datos de valor inmueble duppla
     const number = datosIn.Valor_inmueble_compra_duppla;
     const costm = datosIn.Evaluacion_m2;
     const compraDuppla = datosIn.valor_opcion_compra;
-    
+
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
     });
     const formattedNumber = formatter.format(number);
-
-
-    
     const formattedcostm = formatter.format(costm);
     const formattedCompraDuppla = formatter.format(compraDuppla);
 
     // Función para aceptar inmueble
-
     const handleInm = () => {
 
-        {/*} const options = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: '{"email":"pgutierrez@duppla.co"}'
-        };
-
-        fetch('https://sistema-duppla-backend.herokuapp.com/inm/accept', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-    .catch(err => console.error(err)); */}
-
         swal({
-
             text: "Se redireccionará a WhatsApp.",
             icon: "success",
             button: "Cerrar",
@@ -105,10 +181,10 @@ function Property() {
 
     //Ayuda con la visualización de datos al usuario
     const [loading, setLoading] = useState(true);
-    
+
     useEffect(() => {
         setTimeout(() => setLoading(false), 1000)
-      }, []);
+    }, []);
 
 
     return (
@@ -277,39 +353,12 @@ function Property() {
                     <div className="col-8 ">
                         <div className="card-body">
                             <h5 className="">Evaluación técnica</h5><br />
-                            <div className="col-4">
-                                <div className="card-state-properties ">
-                                    <div className="card-body col-1 ">
-                                        {stateFtecnica(statefichaTecnica)}
-                                    </div>
-                                    <div className="col-10 outline">
-                                        No evaluado
-                                    </div>
-                                </div>
-                                <div className="card-state-properties ">
-                                    <div className="card-body col-1  img-state-propety">
-                                        <img src={Istateg} className="" alt="" height='12px' width='12px' />
-                                    </div>
-                                    <div className="col-10 outline">
-                                        Aprobado
-                                    </div>
-                                </div>
-                                <div className="card-state-properties ">
-                                    <div className="card-body col-1 ">
-                                        <img src={Istateg} className="" alt="" height='12px' width='12px' />
-                                    </div>
-                                    <div className="col-10 outline">
-                                        Rechazado
-                                    </div>
-                                </div>
 
-                            </div>
+                            {stateFtecnica(statefichaTecnica)}
                         </div>
-
                     </div>
                 </div>
             </div>
-
             <br />
             <br />
 

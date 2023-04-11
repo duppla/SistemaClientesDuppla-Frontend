@@ -52,7 +52,7 @@ function Home() {
       .then(response => response.json())
       .then(response => {
         setData(response)
-        console.log(data.mensaje);
+        
       }
       )
 
@@ -71,8 +71,6 @@ function Home() {
   };
 
   // 
-
-  console.log(data.mensaje);
 
   const stateUser = data.estado;
   const stateInm = data.estado_inm;
@@ -161,6 +159,7 @@ function Home() {
               <p className="text-orange">{fecha}</p>
             </div>
           </div>
+          {/*Navbar  */}
           <nav className=" col-2 navbar ">
             <div className="container-fluid ">
               <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -271,7 +270,7 @@ function Home() {
             </div>
           </nav>
         </div>
-        {/*Contenedor de oferta */}
+        {/*Contenedor de Propuesta Comercial */}
         <div className="Container-cards-seccion-m centrado " id="cardComponet">
           <Link to='/offer' className="link-style">
             <div className="card-seccion ">
@@ -310,9 +309,7 @@ function Home() {
                   <p className="link-style">Abrir</p>
                 </div>
                 <div className="col-1">
-
                   {testInm(stateInm)}
-
                   {/** {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
                 */}
                 </div>
@@ -327,7 +324,6 @@ function Home() {
           </Link>
         </div>
         {/*Menú documentos*/}
-
         <Link to='/documents' className="links text-black ">
           <div className="card-docs-m  ">
             <div className="card-body  col-8 text-docs">
@@ -336,7 +332,6 @@ function Home() {
             <div className="col-2 outline">
               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
                 className="arrow-menu" />
-
             </div>
           </div>
         </Link>
@@ -349,14 +344,13 @@ function Home() {
         </div>
 
         {/*componente de estados*/}
-        <div className=" centrado-mensaje  container-fluid">
+        <div className=" centrado-mensaje ">
           <div className="row  ">
             <h6>Estado:</h6>            
               <b> {data.mensaje}  </b>            
           </div>
         </div>
        
-
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"
