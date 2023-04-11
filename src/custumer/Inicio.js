@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext, useEffect, useContext } from "react";
 
 import './../custumer/inicio.css'
 import { Link } from 'react-router-dom';
@@ -49,10 +49,10 @@ function Inicio() {
 
     // trae la función  salida, que se declaro en el contexto para implementar aquí
 
-    {/*} const { logout } = useContext(AuthContext);
-       const handleLogout = () => {
-     logout();
-   };*/}
+    const { logout } = useContext(AuthContext);
+    const handleLogoutCustumer = () => {
+        logout();
+    };
 
     const [dataCustumer, setDataCustumer] = useState({});
     const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
@@ -170,40 +170,39 @@ function Inicio() {
                                             </Link>
                                         </li>
                                         <li className="">
-                                            <Link to="/inicio">
-                                                <div className="row ">
-                                                    <div className="col-8 outline ">
+                                            <div className="row ">
+                                                <div className="col-8 outline ">
+                                                    <a className="links  "
+                                                        href="https://api.whatsapp.com/send?phone=573152559261">
                                                         <div className="row">
                                                             <div className="card-state-properties-home nav-link active text-navbar-options">
                                                                 <div className="card-body col-1  img-state-propety">
-
                                                                 </div>
                                                                 <div className="col-10 outline">
                                                                     <p className=" text-docs"><b>Ayuda</b></p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
-                                            </Link>
+                                            </div>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="">
-                                                <div className="row ">
-                                                    <div className="col-8 outline ">
-                                                        <div className="row">
-                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
-                                                                <div className="card-body col-1  img-state-propety">
 
-                                                                </div>
-                                                                <div className="col-10 outline" >
-                                                                    <p className=" text-docs"><b >Cerrar sesión</b></p>
-                                                                </div>
+                                            <div className="row ">
+                                                <div className="col-8 outline ">
+                                                    <div className="row">
+                                                        <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                            <div className="card-body col-1  img-state-propety">
+
+                                                            </div>
+                                                            <div className="col-10 outline" onClick={handleLogoutCustumer}>
+                                                                <p className=" text-docs"><b >Cerrar sesión</b></p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </Link>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>

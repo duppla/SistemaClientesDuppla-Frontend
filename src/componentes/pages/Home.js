@@ -72,7 +72,6 @@ function Home() {
 
   // 
 
-  console.log(data.mensaje);
 
   const stateUser = data.estado;
   //const stateUser = "Proceso documental";
