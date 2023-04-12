@@ -222,17 +222,17 @@ function Inicio() {
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
 
-                            <Speedometer />
+                            <Speedometer pagoMinimo="${formatterPagoMinimo}"/>
 
                         </div>
                     </div>
                     <div className="card-docs-init centrado  ">
                         <div className="col-5">
-                            <p>${formatterPagoMinimo}</p>
+                            <p>0</p>
                         </div >
                         <div className='col-2'></div>
                         <div className="col-5  centrado">
-                            <p>$1,900,000</p>
+                            <p>${formatterPagoMinimo}</p>
                         </div>
                     </div>
 
