@@ -403,15 +403,18 @@ function Inicio() {
             {/*componentes de menú*/}
             <div className='container-fluid  centrado'>
                 <div className='container-btn-wrapper'>
-                    {/*<div className='space-btn-wrapper'>
+                    <div className='space-btn-wrapper'>
+                     <a className="links"
+                            href="https://api.whatsapp.com/send?phone=573152559261">
                         <div className='btn-wrapper'>
                             <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                             <br />
                         </div>
+                        </a>
                         <div>
                             <p className='text-btn-wrapper'>Mantenimiento </p>
                         </div>
-                    </div>*/}
+                    </div>
 
                     {/*<div className='space-btn-wrapper'>
                         <a className="links text-white"
@@ -425,7 +428,7 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Agendar una cita </p>
                         </div>
                     </div>*/}
-                  {/**  <div className='space-btn-wrapper' >
+                   <div className='space-btn-wrapper' >
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
                             <div className='btn-wrapper'>
@@ -437,7 +440,7 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Tengo un problema </p>
                         </div>
                     </div>
-*/} 
+
 
                     {/* <div className='space-btn-wrapper'>
                         <Link to='/Ajustemeta' className='links'>
@@ -464,36 +467,7 @@ function Inicio() {
                 </div>
             </div>
 
-            {/*Sección de btn */}
-            <div className='container-btn-wrapper'>
 
-                <div className='space-btn-wrapper'>
-                <a className="links"
-                            href="https://api.whatsapp.com/send?phone=573152559261">
-                        <div className='btn-wrapper'>
-                            <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
-                            <br />
-                        </div>
-                    </a>
-                    <div>
-                        <p className='text-btn-wrapper'>Mantenimiento</p>
-                    </div>
-                </div>
-                <div className='space-btn-wrapper'>
-                <a className="links"
-                            href="https://api.whatsapp.com/send?phone=573152559261">
-                         <div className='btn-wrapper'>
-                        <img src={Iayuda} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
-                        <br />
-                    </div>
-                    </a>
-                    <div>
-                        <p className='text-btn-wrapper  centrado links'>Tengo un problema</p>
-                    </div>
-                </div>
-
-
-            </div>
 
         </div >
     )
