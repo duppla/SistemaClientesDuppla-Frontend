@@ -44,7 +44,7 @@ function Property() {
     const statePhoto = datosIn.Foto_exterior;
 
     const statefichaTecnica = datosIn.estado;
-   
+
 
 
 
@@ -60,7 +60,25 @@ function Property() {
                         <div className="col-10 outline">
                             No evaluado
                         </div>
-                    </div><div className="card-state-properties ">
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Pendiente por aprobar
+                        </div>
+                    </div>
+                    
+                    <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istateg} className="" height="12px" width="12px" alt="..." />
                         </div>
@@ -75,7 +93,88 @@ function Property() {
                             Rechazado
                         </div>
                     </div></div>
-
+            case "Evaluado":
+                return <div className="col-4">
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            No evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Pendiente por aprobar
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1  ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Aprobado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Rechazado
+                        </div>
+                    </div></div>
+            case "Pendiente por aprobar":
+                return <div className="col-4">
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            No evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Pendiente por aprobar
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1  ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Aprobado
+                        </div>
+                    </div><div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Rechazado
+                        </div>
+                    </div></div>
             case "Aprobado":
                 return <div className="col-4">
                     <div className="card-state-properties ">
@@ -85,7 +184,24 @@ function Property() {
                         <div className="col-10 outline">
                             No evaluado
                         </div>
-                    </div><div className="card-state-properties ">
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Pendiente por aprobar
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istatev} className="" height="12px" width="12px" alt="..." />
                         </div>
@@ -109,7 +225,24 @@ function Property() {
                         <div className="col-10 outline">
                             No evaluado
                         </div>
-                    </div><div className="card-state-properties ">
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Pendiente por aprobar
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istateg} className="" height="12px" width="12px" alt="..." />
                         </div>
@@ -126,29 +259,45 @@ function Property() {
                     </div></div>
 
             default: return <div className="col-4">
-            <div className="card-state-properties ">
-                <div className="card-body col-1 ">
-                    <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                <div className="card-state-properties ">
+                    <div className="card-body col-1 ">
+                        <img src={Istatev} className="" height="12px" width="12px" alt="..." />
+                    </div>
+                    <div className="col-10 outline">
+                        No evaluado
+                    </div>
                 </div>
-                <div className="col-10 outline">
-                    No evaluado
-                </div>
-            </div><div className="card-state-properties ">
-                <div className="card-body col-1  ">
-                    <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                </div>
-                <div className="col-10 outline">
-                    Aprobado
-                </div>
-            </div><div className="card-state-properties ">
-                <div className="card-body col-1 ">
-                    <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                </div>
-                <div className="col-10 outline">
-                    Rechazado
-                </div>
-            </div></div>
-
+                <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Evaluado
+                        </div>
+                    </div>
+                    <div className="card-state-properties ">
+                        <div className="card-body col-1 ">
+                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                        </div>
+                        <div className="col-10 outline">
+                            Pendiente por aprobar
+                        </div>
+                    </div>
+                <div className="card-state-properties ">
+                    <div className="card-body col-1  ">
+                        <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                    </div>
+                    <div className="col-10 outline">
+                        Aprobado
+                    </div>
+                </div><div className="card-state-properties ">
+                    <div className="card-body col-1 ">
+                        <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                    </div>
+                    <div className="col-10 outline">
+                        Rechazado
+                    </div>
+                </div></div>
         }
     }
 

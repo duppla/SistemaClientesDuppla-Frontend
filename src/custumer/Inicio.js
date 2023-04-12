@@ -17,6 +17,11 @@ import Ihistorialpago from "../../src/img/Vhistoriall.png";
 import Imantenimiento from "../../src/img/Vmantenimiento.svg";
 import Iajustemeta from "../../src/img/Vajustarmeta.svg";
 import Vline from "../../src/img/Vline.svg";
+import Vperfil from "../../src/img/vperfil.svg";
+import Vlogout from "../../src/img/vlogout.svg";
+import Vrectangulo from "../../src/img/vrectanguler.svg";
+import Vayuda from "../../src/img/Vayudacus.svg";
+
 
 import Speedometer from './Speedometer';
 import { useNavigate } from "react-router-dom";
@@ -76,6 +81,7 @@ function Inicio() {
     }, []);
     //formateo de los datos de valor inmueble duppla
     const formatted = dataCustumer.pagoMinimo;
+
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
         minimumFractionDigits: 2,
@@ -112,8 +118,12 @@ function Inicio() {
                             <span className="navbar-toggler-icon navbar-dark"></span>
                         </button>
                         <div className="">
-                            <div className=" offcanvas offcanvas-end navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div className=" offcanvas offcanvas-bottom navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div className="offcanvas-body ">
+                                    <div className="img-navbar-home">
+
+                                        <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
+                                    </div>
                                     <ul className="navbar-nav " >
                                         <li className="nav-item ">
                                             <Link to="/profile">
@@ -122,7 +132,7 @@ function Inicio() {
                                                         <div className="row">
                                                             <div className="card-state-properties-home nav-link active text-navbar-options">
                                                                 <div className="card-body col-1  img-state-propety">
-
+                                                                    <img src={Vperfil} className="" alt="" height='24px' width='24px' />
                                                                 </div>
                                                                 <div className="col-10 outline">
                                                                     <p className=" text-docs "><b >Perfil </b></p>
@@ -151,15 +161,16 @@ function Inicio() {
                                                 </div>
                                             </Link>
                                         </li>
-                                        <li className="nav-item">
+                                        {/**  <li className="nav-item">
                                             <Link to="/historial">
                                                 <div className="row ">
                                                     <div className="col-8 outline ">
                                                         <div className="row">
                                                             <div className="card-state-properties-home nav-link active text-navbar-options">
                                                                 <div className="card-body col-1  img-state-propety">
-
+                                                                <img src={Ihistorialpago} className="" alt="" height='18px' width='18px' />
                                                                 </div>
+                                                             
                                                                 <div className="col-10 outline">
                                                                     <p className=" text-docs"><b >Historial</b></p>
                                                                 </div>
@@ -168,7 +179,7 @@ function Inicio() {
                                                     </div>
                                                 </div>
                                             </Link>
-                                        </li>
+                                        </li>*/}
                                         <li className="">
                                             <div className="row ">
                                                 <div className="col-8 outline ">
@@ -177,6 +188,7 @@ function Inicio() {
                                                         <div className="row">
                                                             <div className="card-state-properties-home nav-link active text-navbar-options">
                                                                 <div className="card-body col-1  img-state-propety">
+                                                                    <img src={Vayuda} className="" alt="" height='24px' width='24px' />
                                                                 </div>
                                                                 <div className="col-10 outline">
                                                                     <p className=" text-docs"><b>Ayuda</b></p>
@@ -194,7 +206,7 @@ function Inicio() {
                                                     <div className="row">
                                                         <div className="card-state-properties-home nav-link active text-navbar-options">
                                                             <div className="card-body col-1  img-state-propety">
-
+                                                                <img src={Vlogout} className="" alt="" height='24px' width='24px' />
                                                             </div>
                                                             <div className="col-10 outline" onClick={handleLogoutCustumer}>
                                                                 <p className=" text-docs"><b >Cerrar sesión</b></p>
@@ -228,14 +240,15 @@ function Inicio() {
                     </div>
                     <div className="card-docs-init centrado  ">
                         <div className="col-5">
-                            <p>${formatterPagoMinimo}</p>
+                            <p>$0,0</p>
                         </div >
                         <div className='col-2'></div>
                         <div className="col-5  centrado">
-                            <p>$1,900,000</p>
+                            
+                            <p>${formatterPagoMinimo}</p>
                         </div>
                     </div>
-
+                    <br />
                     {/*Pago mínimo */}
                     <div className="card-docs-init ">
                         <div className="card-body-docs col-1">
@@ -248,7 +261,7 @@ function Inicio() {
                             ${formatterPagoMinimo}
                         </div>
                     </div>
-                    {/*Meta mensual */}
+                    {/*Meta mensual 
                     <div className="card-docs-init  ">
                         <div className="card-body-docs col-1">
                             <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
@@ -259,11 +272,11 @@ function Inicio() {
                         <div className="col-4 outline text-number-custumer">
                             <p>$1,900,000</p>
                         </div>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
             {/*Sección dropdown Mes*/}
-            <div className='dropdown'>
+            {/**  <div className='dropdown'>
                 <div className="card-dropdown ">
                     <div className='col-2'>
                         <p className='text-space-month' ><b>Febrero</b></p    >
@@ -326,16 +339,16 @@ function Inicio() {
                 </div>
             </div>
             <div>
-            </div>
+            </div>*/}
             {/*componente pago*/}
             <div className="row centrado" >
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
-                    <Link to='/pagos'>
+                    {/*<Link to='/pagos'>
+                    </Link>*/}
                         <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>Pagar factura</h5>
                         </button>
-                    </Link>
                 </div>
                 {/*Modal 
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -393,11 +406,11 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Mantenimiento </p>
                         </div>
                     </div>
-                    <div className='space-btn-wrapper'>
+                    
+                    {/*<div className='space-btn-wrapper'>
                         <a className="links text-white"
                             href="https://calendly.com/agendadaniel">
                             <div className='btn-wrapper'>
-
                                 <img src={Igendacita} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                                 <br />
                             </div>
@@ -405,7 +418,7 @@ function Inicio() {
                         <div>
                             <p className='text-btn-wrapper'>Agendar una cita </p>
                         </div>
-                    </div>
+                    </div>*/}
                     <div className='space-btn-wrapper' >
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
@@ -418,7 +431,9 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Tengo un problema </p>
                         </div>
                     </div>
-                    <div className='space-btn-wrapper'>
+
+
+                   {/* <div className='space-btn-wrapper'>
                         <Link to='/Ajustemeta' className='links'>
                             <div className='btn-wrapper'>
                                 <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
@@ -428,8 +443,8 @@ function Inicio() {
                         <div>
                             <p className='text-btn-wrapper'>Ajustar meta </p>
                         </div>
-                    </div>
-                    <div className='space-btn-wrapper'>
+                    </div>*/}
+                    {/* <div className='space-btn-wrapper'>
                         <Link to='/historial' className='links'> <div className='btn-wrapper'>
                             <img src={Ihistorialpago} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
                             <br />
@@ -438,7 +453,7 @@ function Inicio() {
                         <div>
                             <p className='text-btn-wrapper links'>Historial de pago </p>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
