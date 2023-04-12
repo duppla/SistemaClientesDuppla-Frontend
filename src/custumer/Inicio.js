@@ -21,6 +21,7 @@ import Vperfil from "../../src/img/vperfil.svg";
 import Vlogout from "../../src/img/vlogout.svg";
 import Vrectangulo from "../../src/img/vrectanguler.svg";
 import Vayuda from "../../src/img/Vayudacus.svg";
+import Vmoney from "../../src/img/money.png";
 
 
 import Speedometer from './Speedometer';
@@ -79,6 +80,8 @@ function Inicio() {
 
             .catch(err => console.error(err));
     }, []);
+    //url boton de pago
+    const btnpago = dataCustumer.linkPago;
     //formateo de los datos de valor inmueble duppla
     const formatted = dataCustumer.pagoMinimo;
 
@@ -144,13 +147,14 @@ function Inicio() {
                                             </Link>
                                         </li>
                                         <li className="nav-item  nav-section">
-                                            <Link to="/pagos">
+                                            <a className="links text-white"
+                                                href={btnpago} >
                                                 <div className="row ">
                                                     <div className="col-8 outline ">
                                                         <div className="row">
                                                             <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
                                                                 <div className="card-body col-1  img-state-propety">
-
+                                                                    <img src={Vmoney} className="" alt="" height='24px' width='24px' />
                                                                 </div>
                                                                 <div className="col-10 outline">
                                                                     <p className=" text-docs"><b >Pagar factura</b></p>
@@ -159,7 +163,7 @@ function Inicio() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </Link>
+                                            </a>
                                         </li>
                                         {/**  <li className="nav-item">
                                             <Link to="/historial">
@@ -234,7 +238,7 @@ function Inicio() {
                     <div className="centrado  container-fluid">
                         <div className='prueba-dunut'>
 
-                            <Speedometer pagoMinimo="${formatterPagoMinimo}"/>
+                            <Speedometer pagoMinimo="${formatterPagoMinimo}" />
 
                         </div>
                     </div>
@@ -342,12 +346,15 @@ function Inicio() {
             {/*componente pago*/}
             <div className="row centrado" >
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
-                    {/*<Link to='/pagos'>
+                    <a className="links text-white"
+                        href={btnpago} >
+                        {/*<Link to='/pagos'>
                     </Link>*/}
                         <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>Pagar factura</h5>
                         </button>
+                    </a>
                 </div>
                 {/*Modal 
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -396,7 +403,7 @@ function Inicio() {
             {/*componentes de menú*/}
             <div className='container-fluid  centrado'>
                 <div className='container-btn-wrapper'>
-                    <div className='space-btn-wrapper'>
+                    {/*<div className='space-btn-wrapper'>
                         <div className='btn-wrapper'>
                             <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                             <br />
@@ -404,8 +411,8 @@ function Inicio() {
                         <div>
                             <p className='text-btn-wrapper'>Mantenimiento </p>
                         </div>
-                    </div>
-                    
+                    </div>*/}
+
                     {/*<div className='space-btn-wrapper'>
                         <a className="links text-white"
                             href="https://calendly.com/agendadaniel">
@@ -418,7 +425,7 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Agendar una cita </p>
                         </div>
                     </div>*/}
-                    <div className='space-btn-wrapper' >
+                  {/**  <div className='space-btn-wrapper' >
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
                             <div className='btn-wrapper'>
@@ -430,9 +437,9 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Tengo un problema </p>
                         </div>
                     </div>
+*/} 
 
-
-                   {/* <div className='space-btn-wrapper'>
+                    {/* <div className='space-btn-wrapper'>
                         <Link to='/Ajustemeta' className='links'>
                             <div className='btn-wrapper'>
                                 <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
@@ -455,6 +462,37 @@ function Inicio() {
                     </div> */}
 
                 </div>
+            </div>
+
+            {/*Sección de btn */}
+            <div className='container-btn-wrapper'>
+
+                <div className='space-btn-wrapper'>
+                <a className="links"
+                            href="https://api.whatsapp.com/send?phone=573152559261">
+                        <div className='btn-wrapper'>
+                            <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                            <br />
+                        </div>
+                    </a>
+                    <div>
+                        <p className='text-btn-wrapper'>Mantenimiento</p>
+                    </div>
+                </div>
+                <div className='space-btn-wrapper'>
+                <a className="links"
+                            href="https://api.whatsapp.com/send?phone=573152559261">
+                         <div className='btn-wrapper'>
+                        <img src={Iayuda} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
+                        <br />
+                    </div>
+                    </a>
+                    <div>
+                        <p className='text-btn-wrapper  centrado links'>Tengo un problema</p>
+                    </div>
+                </div>
+
+
             </div>
 
         </div >

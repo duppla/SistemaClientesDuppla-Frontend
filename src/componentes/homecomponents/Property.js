@@ -77,7 +77,7 @@ function Property() {
                             Pendiente por aprobar
                         </div>
                     </div>
-                    
+
                     <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istateg} className="" height="12px" width="12px" alt="..." />
@@ -268,21 +268,21 @@ function Property() {
                     </div>
                 </div>
                 <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Evaluado
-                        </div>
+                    <div className="card-body col-1 ">
+                        <img src={Istateg} className="" height="12px" width="12px" alt="..." />
                     </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Pendiente por aprobar
-                        </div>
+                    <div className="col-10 outline">
+                        Evaluado
                     </div>
+                </div>
+                <div className="card-state-properties ">
+                    <div className="card-body col-1 ">
+                        <img src={Istateg} className="" height="12px" width="12px" alt="..." />
+                    </div>
+                    <div className="col-10 outline">
+                        Pendiente por aprobar
+                    </div>
+                </div>
                 <div className="card-state-properties ">
                     <div className="card-body col-1  ">
                         <img src={Istateg} className="" height="12px" width="12px" alt="..." />
@@ -474,6 +474,67 @@ function Property() {
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                       {/* <div className='dropdown'>
+                            <div className="card-dropdown-inm ">
+                                <div className='col-4'>
+                                    <p className='text-space-inm-dropdown text-blue' >
+                                        <b>Ver más</b></p>
+                                </div>
+                                <div className=" col-4 icon-drop ">
+                                    <div className="btn-group ">
+                                        <button type="button" className="btn  dropdown-toggle  " data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        </button>
+                                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-xxl-end row dropdown-menu-init">
+                                            <br />
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Referencia de pago</p>
+                                                </div>
+                                                <div className="col-6 outline text-dropdown-right">
+                                                    <p className='text-end text-space-dropdown '>#02</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Costo financiero</p>
+                                                </div>
+                                                <div className="col-6 outline">
+                                                    <p className='text-end text-space-dropdown '>$1,900,000</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Gastos</p>
+                                                </div>
+                                                <div className="col-6 outline">
+                                                    <p className='text-end text-space-dropdown '>$22,165</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Abono sugerido</p>
+                                                </div>
+                                                <div className="col-6 outline">
+                                                    < p className='text-end text-space-dropdown'>$277,408</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Meta mes a mes</p>
+                                                </div>
+                                                <div className="col-6   outline">
+                                                    <p className='text-end text-space-dropdown'>$1,900,000</p>
+                                                </div>
+                                            </div>
+                                            <br />
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*/}
+                        <div>
                         </div>
                     </div>
                 </div>
