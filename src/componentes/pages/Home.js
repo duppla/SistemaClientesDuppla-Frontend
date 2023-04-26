@@ -36,6 +36,8 @@ function Home() {
   let yyyy = today.getFullYear();
   let fecha = `${dd}/${mm}/${yyyy}`;
 
+
+
   //Datos del usuario
   const [data, setData] = useState({});
 
@@ -77,6 +79,21 @@ function Home() {
   //const stateUser = "Proceso documental";
   const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
+  const stateName = data.nombre;
+
+
+
+  
+
+    //How to create a function to change from uppercase to lowercase
+   
+    
+  
+
+  
+    //const toUpperCase = str => str.toUpperCase();
+  
+  
 
 
   const stateChange = (stateUser) => {
@@ -157,7 +174,7 @@ function Home() {
           </div><hr className="hr-position" />
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
-              <h5 className="card-title card-home text-white" >{data.nombre}</h5>
+              <h5 className="card-title card-home text-white" >{stateName}</h5>
               <p className="text-orange">{fecha}</p>
             </div>
           </div>

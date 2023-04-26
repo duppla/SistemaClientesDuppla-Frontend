@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('token', JSON.stringify(tokenUser));
         localStorage.setItem('email', JSON.stringify(email)); 
         localStorage.setItem('estado', JSON.stringify(estado));      
+        
 
         if (tokenUser) {
            // console.log('ver si entra el', tokenUser);
@@ -45,9 +46,16 @@ export const AuthProvider = ({ children }) => {
               fetch('https://sistema-duppla-backend.herokuapp.com/users/check', options)
                 .then(response => response.json())
                 .then(response => {
-                    setToken({ token: tokenUser });
+                    setToken({ token: tokenUser }
+                        
+                        );
+                    
                     //console.log(response);
-                    if(estado == true){
+                    if(tokenUser == "undefined"){
+                        navigate('/register');
+                        localStorage.removeItem('token');
+                    }
+                    else if(estado == true){
                         navigate('/inicio')
                     }
                     else{
@@ -63,7 +71,6 @@ export const AuthProvider = ({ children }) => {
             navigate('/register')
         }
     };
-
 
 
     const logout = () => {

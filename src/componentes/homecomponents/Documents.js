@@ -27,15 +27,15 @@ function Docs() {
             .catch(err => console.error(err));
     }, []);
 
-    {/*Estados */}
+    {/*Estados */ }
     const stateVinculante = docsBuyer.Oferta_Vinculante_Doc__c;
     const stateCvendedor = docsBuyer.Compraventa_vendedor_Doc__c;
     const stateCcliente = docsBuyer.Compraventa_cliente_Doc__c;
     const stateArrendamiento = docsBuyer.Contrato_de_Arrendamiento_Doc__c;
     const stateActaE = docsBuyer.Acta_de_Entrega_Doc__c;
-    const stateAutoAdm = docsBuyer.Autorizacion_administracion_Doc__c;
-    const stateAutoImg = docsBuyer.Autorizacion_Uso_de_Imagen_Doc__c;
-  
+    const stateAutoAdm = docsBuyer.Autorizaci_n_administraci_n_Doc__c;
+    const stateAutoImg = docsBuyer.Autorizaci_n_Uso_de_Imagen_Doc__c;
+
 
 
     function stateDocs(estado) {
@@ -63,7 +63,6 @@ function Docs() {
                 </h1>
             </div>
             {/* Div de docs*/}
-
             <div className="content-docs  container-sm ">
                 <div className="card-docs-m   ">
                     <div className="card-body-docs col-2">
@@ -83,14 +82,14 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                    {stateDocs(stateCvendedor)}
+                        {stateDocs(stateCvendedor)}
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Compraventa vendedor</b>
                         <p className="card-text-docs"><small className="text-muted">{ }</small></p>
                     </div>
                     <a className="links text-black"
-                     href={docsBuyer.Compraventa_vendedor_Doc__c} target="_blank">
+                        href={docsBuyer.Compraventa_vendedor_Doc__c} target="_blank">
                         <div className="col-2 outline">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
                                 className="arrow-menu" />
@@ -99,14 +98,14 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                    {stateDocs(stateCcliente)}
+                        {stateDocs(stateCcliente)}
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Compraventa cliente</b>
                         <p className="card-text-docs"><small className="text-muted">{ }</small></p>
                     </div>
                     <a className="links text-black"
-                     href={docsBuyer.Compraventa_cliente_Doc__c} target="_blank">
+                        href={docsBuyer.Compraventa_cliente_Doc__c} target="_blank">
                         <div className="col-2 outline">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
                                 className="arrow-menu" />
@@ -115,7 +114,7 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                    {stateDocs(stateArrendamiento)}
+                        {stateDocs(stateArrendamiento)}
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Contrato de arrendamiento</b>
@@ -132,7 +131,7 @@ function Docs() {
 
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                    {stateDocs(stateActaE)}
+                        {stateDocs(stateActaE)}
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Acta de entrega</b>
@@ -148,14 +147,14 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                    {stateDocs(stateAutoAdm)}
+                        {stateDocs(stateAutoAdm)}
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Autorización administración</b>
                         <p className="card-text-docs"><small className="text-muted">{ }</small></p>
                     </div>
                     <a className="links text-black"
-                        href={docsBuyer.Autorizacion_administracion_Doc__c} target="_blank">
+                        href={docsBuyer.Autorizaci_n_administraci_n_Doc__c} target="_blank">
                         <div className="col-2 outline">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
                                 className="arrow-menu" />
@@ -164,14 +163,14 @@ function Docs() {
                 </div>
                 <div className="card-docs-m  ">
                     <div className="card-body-docs col-2">
-                    {stateDocs(stateAutoImg)}
+                        {stateDocs(stateAutoImg)}
                     </div>
                     <div className="card-body col-8 text-space">
                         <b>Autorización uso de imagen</b>
                         <p className="card-text-docs"><small className="text-muted">{ }</small></p>
                     </div>
                     <a className="links text-black"
-                        href={docsBuyer.Autorizacion_Uso_de_Imagen_Doc__c} target="_blank">
+                        href={docsBuyer.Autorizaci_n_Uso_de_Imagen_Doc__c} target="_blank">
                         <div className="col-2 outline">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
                                 className="arrow-menu" />

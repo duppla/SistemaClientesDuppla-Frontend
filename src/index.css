@@ -331,12 +331,10 @@ code {
 .card-perfil {
   margin-top: 27px;
   margin-bottom: 30px;
-
 }
 
 .links {
   text-decoration: none;
-
 }
 
 /* linea en perfil |*/
@@ -379,6 +377,7 @@ hr {
   justify-content: space-between;
   align-items: center;
 
+  height: 157px;
   left: 0px;
   top: 0px;
   bottom: 100px;
@@ -388,8 +387,9 @@ hr {
   background: linear-gradient(60.01deg, #0A3323 19.88%, #C5F5CA 217.71%);
   background-size: 100%;
   background-repeat: no-repeat;
-  border-bottom-right-radius: 16%;
-  border-bottom-left-radius: 16%;
+  border-bottom-right-radius: 23%;
+  border-bottom-left-radius: 23%;
+ 
 
 }
 
