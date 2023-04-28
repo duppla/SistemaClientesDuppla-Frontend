@@ -61,9 +61,15 @@ function profile() {
             button: "Cerrar",
             timer: 5000,
         });
-
-
     };
+
+    function convertirAMinusculas(texto) {
+        return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
+    
+      }
+      
+
+
     return (
         <div className="container-profile container-fluid">
             <div className="arrow-return container sm">
@@ -86,8 +92,9 @@ function profile() {
                         </div>
                         <div className="col-8 ">
                             <div className="card-body"><br />
-                                <h5 className="text-white text.amp "> {data.nombre}</h5>
-                                <p className=" text-white ">{data.email}</p>
+                               
+                                <p className="card-title card-home text-white-profile" >{data.nombre &&<p className="text-name-profile">{convertirAMinusculas(data.nombre)}</p> }</p>
+                                <p className=" text-white-email ">{data.email}</p>
                             </div>
                         </div>
                     </div>

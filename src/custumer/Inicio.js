@@ -93,6 +93,13 @@ function Inicio() {
 
     const formatterPagoMinimo = formatter.format(formatted);
 
+    {/*Función que cambia el nobre de usurio a minuscula */ }
+
+    function convertirAMinusculas(texto) {
+        return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
+
+    }
+
 
 
 
@@ -110,13 +117,14 @@ function Inicio() {
                 </div><hr className="hr-position" />
                 <div className="col-6  card-perfil-datos">
                     <div className="card-body">
-                        <h5 className="card-title card-home text-white" >{dataCustumer.nombre}</h5>
+                        <p className="card-title card-home text-white-home" >{dataCustumer.nombre && <p className="text-name-home">{convertirAMinusculas(dataCustumer.nombre)}</p>}</p>
+
                         <p className="text-orange">{fecha}</p>
                     </div>
                 </div>
                 {/*Navbar custumer */}
                 <nav className=" col-2 navbar ">
-                    <div className="container-fluid ">
+                    <div className="prueba-navbar">
                         <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                             <span className="navbar-toggler-icon navbar-dark"></span>
                         </button>
@@ -404,12 +412,12 @@ function Inicio() {
             <div className='container-fluid  centrado'>
                 <div className='container-btn-wrapper'>
                     <div className='space-btn-wrapper'>
-                     <a className="links"
+                        <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
-                        <div className='btn-wrapper'>
-                            <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
-                            <br />
-                        </div>
+                            <div className='btn-wrapper'>
+                                <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                <br />
+                            </div>
                         </a>
                         <div>
                             <p className='text-btn-wrapper'>Mantenimiento </p>
@@ -428,7 +436,7 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Agendar una cita </p>
                         </div>
                     </div>*/}
-                   <div className='space-btn-wrapper' >
+                    <div className='space-btn-wrapper' >
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
                             <div className='btn-wrapper'>

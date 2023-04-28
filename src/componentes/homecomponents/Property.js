@@ -43,7 +43,7 @@ function Property() {
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: '{"codigo":"'+datos.name+'"}'
+                body: '{"codigo":"' + datos.name + '"}'
             };
 
             const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/fotos', options)
@@ -53,7 +53,7 @@ function Property() {
             //console.log(fotos)
         }
         fetchData();
-        if(datos.name){
+        if (datos.name) {
             //console.log(datos.name)
             fetchFotos();
         }
@@ -349,29 +349,28 @@ function Property() {
 
     useEffect(() => {
         setTimeout(() => setLoading(false), 1000)
+     
     }, []);
 
 
     function carrusel() {
-        if (fotos  && fotos.length > 0) {
-            return fotos.map((foto, index) => (
-                <div className="carousel-item active" key={index}>
-                  <img src={foto.url} className="btn-state-home" alt="" height="340px" width="380px" />
-                </div>
-            ));
+        if (fotos && fotos.length > 0) {
+          return fotos.map((foto, index) => (
+            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
+              <img src={foto.url} className='btn-state-home' alt='' height='340px' width='380px' />
+            </div>
+          ));
         } else {
-            return (
-                <div className="carousel-item active" >
-                    <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />
-                </div>
-            );
-
-        };
-    }
+          return (
+            <div className='carousel-item active'>
+              <img src={Imgdefault} className='btn-state-home' alt='' height='340px' width='380px' />
+            </div>
+          );
+        }
+      }
 
 
     return (
-
         !loading && <div className="container-property container-fluid">
             <div className="arrow-return">
                 <Link to='/home'>
@@ -380,17 +379,6 @@ function Property() {
                     </svg>
                 </Link>
             </div>
-
-
-            {/*Loading... 
-            
-            <div className="spinner-border text-success" role="status">
-                <span className="visually-hidden">Loading...</span>
-    </div>
-            */}
-
-
-
             {/*Carrusel de imagenes */}
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
@@ -406,26 +394,21 @@ function Property() {
                     <button type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="6" aria-label="Slide 7"></button>
+                    <button type="button"
+                        data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="7" aria-label="Slide 8"></button>
                 </div>
-
-
                 <div className="carousel-inner">
-
-                   
                     {carrusel()}
-
-                    {/*<div className="carousel-item active">
-                        {statePhoto ? <img src={datosIn.Foto_exterior} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}                     </div>
-
-                    <div className="carousel-item">
-                        {statePhoto ? <img src={datosIn.Foto_sala} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
-                    </div>
-                    <div className="carousel-item">
-                        {statePhoto ? <img src={datosIn.Foto_cocina} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
-                    </div>
-                    <div className="carousel-item">
-                        {statePhoto ? <img src={datosIn.Foto_bano} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
-                    </div>*/}
 
                 </div>
                 <button className="carousel-control-prev" type="button"
@@ -439,6 +422,25 @@ function Property() {
                     <span className="visually-hidden">Next</span>
                 </button>
             </div><br />
+
+            {/*Carrusel dos Prueba 
+
+
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                    {carrusel()}
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
+*/}
+
 
             {/*información inmueble */}
             <div className="text-title-property container-sm">

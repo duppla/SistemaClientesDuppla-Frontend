@@ -57,7 +57,7 @@ function Home() {
       .then(response => response.json())
       .then(response => {
         setData(response) 
-        console.log(response);   
+        //console.log(response);   
        
       }
       )
@@ -77,8 +77,12 @@ function Home() {
    const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
 
- 
+  {/*Función que cambia el nobre de usurio a minuscula */}
 
+  function convertirAMinusculas(texto) {
+    return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
+
+  }
   
 
 
@@ -148,8 +152,8 @@ function Home() {
     <div className=" container-fluid ">
       <div className="container-sm">
         {/*Contenedor de perfil */}
-        <div className="profile container-fluid">
-          <div className="row contenedor-img-duppla">
+        <div className="profile ">
+          <div className="contenedor-img-duppla">
             <img src={Idupplanaranja} className=" img-duppla" alt="" />
           </div>
           <div className="col-4 ">
@@ -160,13 +164,13 @@ function Home() {
           </div><hr className="hr-position" />
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
-              <p className="card-title card-home text-white-home" >{data.nombre}</p>
+              <p className="card-title card-home text-white-home" >{data.nombre &&<p className="text-name-home">{convertirAMinusculas(data.nombre)}</p> }</p>
               <p className="text-orange">{fecha}</p>
             </div>
           </div>
           {/*Navbar  */}
           <nav className=" col-2 navbar ">
-            <div className="container-fluid ">
+            <div className=" prueba-navbar">
               <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
