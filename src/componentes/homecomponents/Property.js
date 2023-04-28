@@ -16,36 +16,51 @@ import Imgdefault from "../../img/Imgdefault.png"
 function Property() {
 
     // consumo del Api de inmueble
-    const [datosIn, setDatosIn] = useState({});
-    const [formattedData, setFormattedData] = useState(null);
+    const [datos, setDatos] = useState({});
+
+    const [fotos, setFotos] = useState([]);
+
+    // const [formattedData, setFormattedData] = useState();
+
 
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
         const email = localStorage.getItem('email');
-        const options = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: '{ "email": ' + email + '}'
-        };
-        fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
-            .then(response => response.json())
-            .then(response => {
-                setDatosIn(response);
-                setFormattedData(numeral(datosIn).format('0,0.00'));
 
-            })
+        async function fetchData() {
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: '{ "email": ' + email + '}'
+            };
+            const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
+            const datos = await response.json();
+            //console.log(datos);
+            setDatos(datos);
+        }
 
-            .catch(err => console.error(err));
+        async function fetchFotos() {
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: '{"codigo":"USAQUEN_C19_BOG_2212"}'
+            };
 
-        // empty dependency array means this effect will only run once (like componentDidMount in classes)
+            const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/fotos', options)
+            const fotos = await response.json();
+            console.log(fotos);
+            setFotos(fotos);
+
+        }
+        fetchData();
+        fetchFotos();
+
+
     }, []);
 
-    //Cambio de estado Ficha técnica
-    const statePhoto = datosIn.Foto_exterior;
+    //Cambio de estado Ficha técnica   
 
-    const statefichaTecnica = datosIn.estado;
-
-
+    const statefichaTecnica = datos.estado;
 
 
     const stateFtecnica = (statefichaTecnica) => {
@@ -303,9 +318,9 @@ function Property() {
 
 
     //formateo de los datos de valor inmueble duppla
-    const number = datosIn.Valor_inmueble_compra_duppla;
-    const costm = datosIn.Evaluacion_m2;
-    const compraDuppla = datosIn.valor_opcion_compra;
+    const number = datos.Valor_inmueble_compra_duppla;
+    const costm = datos.Evaluacion_m2;
+    const compraDuppla = datos.valor_opcion_compra;
 
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
@@ -336,7 +351,29 @@ function Property() {
     }, []);
 
 
+    function carrusel() {
+
+        if (!fotos == undefined && fotos.length > 0) {
+            fotos.map((foto, index) => {
+                return (
+                        console.log(foto)
+                    
+                )
+            })
+        } else {
+            return (
+                <div className="carousel-item active" >
+                    
+                    <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />
+                </div>
+            )
+
+        }
+    }
+
+
     return (
+
         !loading && <div className="container-property container-fluid">
             <div className="arrow-return">
                 <Link to='/home'>
@@ -372,9 +409,16 @@ function Property() {
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="3" aria-label="Slide 4"></button>
                 </div>
+
+
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
+
+                   
+                    {carrusel()}
+
+                    {/*<div className="carousel-item active">
                         {statePhoto ? <img src={datosIn.Foto_exterior} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}                     </div>
+
                     <div className="carousel-item">
                         {statePhoto ? <img src={datosIn.Foto_sala} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
                     </div>
@@ -383,7 +427,7 @@ function Property() {
                     </div>
                     <div className="carousel-item">
                         {statePhoto ? <img src={datosIn.Foto_bano} className="d-block w-100" alt="..." /> : <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />}
-                    </div>
+                    </div>*/}
 
                 </div>
                 <button className="carousel-control-prev" type="button"
@@ -401,10 +445,10 @@ function Property() {
             {/*información inmueble */}
             <div className="text-title-property container-sm">
                 <div className="description-apt">
-                    <h1 className="text-title-property-title"><b>{datosIn.Tipo_de_inmueble}</b></h1>
-                    {/*<p><b>{ formattedData(datosIn.Valor_inmueble_compra_duppla)}</b></p><br />*/}
+                    <h1 className="text-title-property-title"><b>{datos.Tipo_de_inmueble}</b></h1>
+                    {/*<p><b>{ formattedData(datos.Valor_inmueble_compra_duppla)}</b></p><br />*/}
                     <p><b>${formattedNumber}</b></p>
-                    <p><b>Observaciones:</b>{datosIn.observaciones}
+                    <p><b>Observaciones:</b>{datos.observaciones}
                     </p>
                 </div>
             </div><br />
@@ -415,9 +459,10 @@ function Property() {
                     </div>
                     <div className="col-8">
                         <div className="card-body">
+
                             <h5 className="">Ubicación</h5><br />
-                            <p className=""><b>{datosIn.Direccion}</b></p>
-                            <p className=""><b>{datosIn.Barrio}</b></p>
+                            <p className=""><b>{datos.Direccion}</b></p>
+                            <p className=""><b>{datos.Barrio}</b></p>
                         </div>
                         <div className="dropdown ">
                             <button type="button" className="btn dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -428,54 +473,54 @@ function Property() {
 
                                     <li className=" list-group-item ">
                                         <div className="" >
-                                            <div className="fw-bold col-8">Área: {datosIn.Area}m²</div>
+                                            <div className="fw-bold col-8">Área: {datos.Area}m²</div>
 
                                         </div>
                                     </li>
                                     <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-12">Antigüedad: {datosIn.Antiguedad} años</div>
-
-                                        </div>
-                                    </li>
-
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-6">Estrato: {datosIn.Estrato}</div>
+                                            <div className="fw-bold col-12">Antigüedad: {datos.Antiguedad} años</div>
 
                                         </div>
                                     </li>
 
                                     <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-8">Habitaciones: {datosIn.Habitaciones}</div>
+                                            <div className="fw-bold col-6">Estrato: {datos.Estrato}</div>
 
                                         </div>
                                     </li>
 
                                     <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Baños: {datosIn.Banos}</div>
+                                            <div className="fw-bold col-8">Habitaciones: {datos.Habitaciones}</div>
 
                                         </div>
                                     </li>
 
                                     <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-8">Parqueadero: {datosIn.Parqueadero}</div>
+                                            <div className="fw-bold col-6">Baños: {datos.Banos}</div>
+
+                                        </div>
+                                    </li>
+
+                                    <li className=" list-group-item ">
+                                        <div className="row" >
+                                            <div className="fw-bold col-8">Parqueadero: {datos.Parqueadero}</div>
 
                                         </div>
                                     </li>
                                     <li className=" list-group-item ">
                                         <div className="row" >
-                                            <div className="fw-bold col-6">Piso: {datosIn.Piso}</div>
+                                            <div className="fw-bold col-6">Piso: {datos.Piso}</div>
 
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                       {/* <div className='dropdown'>
+                        {/* <div className='dropdown'>
                             <div className="card-dropdown-inm ">
                                 <div className='col-4'>
                                     <p className='text-space-inm-dropdown text-blue' >

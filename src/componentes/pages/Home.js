@@ -23,6 +23,9 @@ import { AuthContext } from "../../context/Contextauth";
 import Iconinm from "../../img/Iconinm.png"
 import Iconx from "../../img/Iconx.svg"
 
+import { lowerCase, localeLowerCase, headerCase} from "lower-case";
+
+
 
 
 
@@ -53,15 +56,12 @@ function Home() {
     fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
       .then(response => response.json())
       .then(response => {
-        setData(response)
-        
+        setData(response) 
+        console.log(response);   
+       
       }
       )
-
-
       .catch(err => console.error(err));
-
-
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
@@ -73,26 +73,12 @@ function Home() {
   };
 
   // 
-
-
   const stateUser = data.estado;
-  //const stateUser = "Proceso documental";
-  const stateInm = data.estado_inm;
+   const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
-  const stateName = data.nombre;
 
+ 
 
-
-  
-
-    //How to create a function to change from uppercase to lowercase
-   
-    
-  
-
-  
-    //const toUpperCase = str => str.toUpperCase();
-  
   
 
 
@@ -174,7 +160,7 @@ function Home() {
           </div><hr className="hr-position" />
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
-              <h5 className="card-title card-home text-white" >{stateName}</h5>
+              <p className="card-title card-home text-white-home" >{lowerCase(" PRUEBA")}</p>
               <p className="text-orange">{fecha}</p>
             </div>
           </div>
