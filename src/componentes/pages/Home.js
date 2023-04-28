@@ -160,7 +160,7 @@ function Home() {
           </div><hr className="hr-position" />
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
-              <p className="card-title card-home text-white-home" >{lowerCase(" PRUEBA")}</p>
+              <p className="card-title card-home text-white-home" >{data.nombre}</p>
               <p className="text-orange">{fecha}</p>
             </div>
           </div>

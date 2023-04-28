@@ -43,20 +43,21 @@ function Property() {
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: '{"codigo":"USAQUEN_C19_BOG_2212"}'
+                body: '{"codigo":"'+datos.name+'"}'
             };
 
             const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/fotos', options)
-            const fotos = await response.json();
-            console.log(fotos);
-            setFotos(fotos);
-
+            const data = await response.json();
+            //console.log(data);
+            setFotos(data);
+            //console.log(fotos)
         }
         fetchData();
-        fetchFotos();
-
-
-    }, []);
+        if(datos.name){
+            //console.log(datos.name)
+            fetchFotos();
+        }
+    }, [datos.name]);
 
     //Cambio de estado Ficha técnica   
 
@@ -352,23 +353,20 @@ function Property() {
 
 
     function carrusel() {
-
-        if (!fotos == undefined && fotos.length > 0) {
-            fotos.map((foto, index) => {
-                return (
-                        console.log(foto)
-                    
-                )
-            })
+        if (fotos  && fotos.length > 0) {
+            return fotos.map((foto, index) => (
+                <div className="carousel-item active" key={index}>
+                  <img src={foto.url} className="btn-state-home" alt="" height="340px" width="380px" />
+                </div>
+            ));
         } else {
             return (
                 <div className="carousel-item active" >
-                    
                     <img src={Imgdefault} className="btn-state-home" alt="" height='340px' width='380px' />
                 </div>
-            )
+            );
 
-        }
+        };
     }
 
 
