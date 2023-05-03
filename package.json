@@ -12,7 +12,6 @@
     "chart.js": "^3.7.1",
     "cookie": "^0.5.0",
     "gapi-script": "^1.2.0",
-    "header-case": "^2.0.4",
     "jsonwebtoken": "^9.0.0",
     "lower-case": "^2.0.2",
     "numeral": "^2.0.6",

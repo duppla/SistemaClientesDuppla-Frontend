@@ -1,23 +1,31 @@
-import React, { useState,  useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 /*import { serialize } from 'cookie';*/
 import { AuthContext } from '../../context/Contextauth';
+import swal from 'sweetalert';
+import Iduppla from "../../img/Iduppla.png"
 
 
 
 
 
 function Register() {
+    // estados 
 
-    const {login}=useContext(AuthContext);
-   
+    const [showMessage, setShowMessage] = useState(false);
   
+
+
+
+    //Función de login traido desde el contexto
+    const { login } = useContext(AuthContext);
+
     /*Datos enviados a través del servicio*/
     const [datos, setDatos] = useState({
         email: '',
         password: ''
-    });    
+    });
 
     /*Función manejo de cambios en los inputs, maneja un evento e*/
 
@@ -28,72 +36,93 @@ function Register() {
         })
     }
 
-        /*Función para enviar los datos al servidor cooki*/
-        /*const handleToken= (e) => {
-        e.preventDefault();
-        console.log(datos);
-        axios.post('https://sistemas-clientes-duppla.herokuapp.com/users/login', datos)
-          .then(res => {
-                console.log(res.data);
+    /*Función para enviar los datos al servidor cooki*/
+    /*const handleToken= (e) => {
+    e.preventDefault();
+    console.log(datos);
+    axios.post('https://sistemas-clientes-duppla.herokuapp.com/users/login', datos)
+      .then(res => {
+            console.log(res.data);
 
-           })*/
+       })*/
 
     /*Función que maneja el envio de la información del formulario */
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-                
+
         // deberia validar que si el correo no es valido, no pase o de error
-        if (datos.email === "" || datos.email === null || datos.password === "" || datos.password === null) {
-            alert('El correo  o contraseña no puede estar vacio');
+        if (datos.email === "" || datos.email === undefined || datos.password === "" || datos.password === undefined) {
+            alert('Correo o contraseña incorrecta');
         } else {
             //console.log(datos.email);
             const options = {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: '{"email":"'+datos.email+'","password":"'+datos.password+'"}'
-              };
-            
-              fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options).then(response => response.json())
-              .then(function (response) {
-                //console.log(response.data);
-                //console.log(response.status);
-                if (!response.status === 200) {
-                    console.log('error de login');
-                } else {
-                    if (!datos.email === response.status && datos.password === response.status) {
-                        // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
-                        alert('error');
+                headers: { 'Content-Type': 'application/json' },
+                body: '{"email":"' + datos.email + '","password":"' + datos.password + '"}'
+            };
+
+            fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options).then(response => response.json())
+                .then(function (response) {
+                    //console.log(response.data);
+                    //console.log(response.status);
+                    if (!response.status === 200) {
+                        console.log('error de login');
+
                     } else {
-                        //localStorage.setItem('tokenUser', response.data.token);                         
-                       // console.log(response.token);
-                                  
-                       login(response.token, datos.email, response.estado);  
-                       //console.log(response.estado)                     
-                        setDatos('');
+                        if (!datos.email === response.status && datos.password === response.status) {
+                            // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
+                            alert('error');
+
+                        } else {
+                            //localStorage.setItem('tokenUser', response.data.token);                         
+                            // console.log(response.token);
+
+                            login(response.token, datos.email, response.estado);
+                            //console.log(response.estado)                     
+                            setDatos('');
+                        }
                     }
-                }
-            }).catch(function (error) {
-                console.error(error);
-            });
+                }).catch(function (error) {
+                    console.error(error);
+
+                });
         };
     };
+    const handleNotification = () => {
 
+        swal({
+
+            text: "Correo o  contraseña incorrecta",
+            icon: "info",
+            button: "Cerrar",
+            timer: 2000,
+        });
+    };
 
     return (
 
-        <div className="container-fluid" id="formAuthLogin">            
+        <div className="container-fluid" id="formAuthLogin">
             <div className="">
-                <div className="arrow-return">
+                {/* <div className="arrow-return">
                     <Link to='/login'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                         </svg>
                     </Link>
                 </div>
-                <div className="title-register">
-                    <h2> <b>Iniciar Sesión</b>
-                    </h2>
+                 */}
+
+                <div className="container-sing">
+                    <div className="img-logotipo centrado">
+                        <img src={Iduppla} className="rounded justify-content-center" alt="Simbolo duppla" />
+                    </div>
+
+
+                </div>
+                <div className="title-login">
+                    <p> <b>Iniciar sesión</b>
+                    </p>
                 </div>
                 <div className="form-register  centrado container-sm">
                     <form onSubmit={handleSubmit} >
@@ -117,9 +146,14 @@ function Register() {
                                 value={datos.password}
                                 className="form-control input-register"
                                 placeholder="Contraseña"
-                                id="exampleInputPassword1" />
+                                id="exampleInputPassword1"
+                                required />
 
                         </div>
+
+                        {showMessage && (handleNotification(true))
+
+                        }
                         <button type="submit"
                             className="btn btn-prueba-ingreso text-center links text-white btn-mover ">Siguiente</button>
                     </form>

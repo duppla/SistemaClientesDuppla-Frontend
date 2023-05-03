@@ -21,9 +21,9 @@ import Vrectangulo from "../../img/vrectanguler.svg"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Iconinm from "../../img/Iconinm.png"
-import Iconx from "../../img/Iconx.svg"
 
-import { lowerCase, localeLowerCase, headerCase} from "lower-case";
+import Igo from "../../img/go.png"
+
 
 
 
@@ -43,25 +43,48 @@ function Home() {
 
   //Datos del usuario
   const [data, setData] = useState({});
+  const [state, setState] = useState({});
+  const estado = localStorage.getItem('estado');
+  //console.log(estado);
 
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
     const email = localStorage.getItem('email');
-    const options = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: '{ "email": ' + email + '}'
-    };
+    const estado = localStorage.getItem('estado');
 
-    fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
-      .then(response => response.json())
-      .then(response => {
-        setData(response) 
-        //console.log(response);   
-       
-      }
-      )
-      .catch(err => console.error(err));
+    async function fetchDatos() {
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{ "email": ' + email + '}'
+      };
+
+      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
+      const data = await response.json();
+      setData(data)
+      setState(estado);
+      console.log(data);
+
+    }
+
+    {/*async function handleProgress() {
+
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{ "estado": ' + estado + '}'
+      };
+
+      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options)
+      const data = await response.json();
+
+      setEstado(data)
+      console.log(data);
+
+    }*/}
+    fetchDatos();
+    //handleProgress();
+
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
@@ -74,16 +97,19 @@ function Home() {
 
   // 
   const stateUser = data.estado;
-   const stateInm = data.estado_inm;
+  const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
 
-  {/*Función que cambia el nobre de usurio a minuscula */}
+  {/*Función que cambia el nobre de usurio a minuscula */ }
 
   function convertirAMinusculas(texto) {
     return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
-
   }
-  
+
+  const pruebaprogreso = state.estado;
+
+
+
 
 
   const stateChange = (stateUser) => {
@@ -147,6 +173,38 @@ function Home() {
 
   }
 
+  // muestra el boton de ir a custumer usando el estado del usuaruio
+  function testEstado() {
+    const estado = localStorage.getItem('estado');
+    if (estado === "true") {
+      return <li className="nav-item  nav-section">
+        <Link to="/inicio">
+          <div className="row ">
+            <div className="col-8 outline ">
+              <div className="row">
+                <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                  <div className="card-body col-1  img-state-propety">
+                    <img src={Igo} className="" alt="" height='24px' width='24px' />
+                  </div>
+                  <div className="col-10 outline">
+                    <p className=" text-docs"><b >Sección cliente</b></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </li>
+    }
+    else {
+      return null
+    }
+
+  }
+
+
+
+
   return (
 
     <div className=" container-fluid ">
@@ -164,18 +222,18 @@ function Home() {
           </div><hr className="hr-position" />
           <div className="col-6  card-perfil-datos">
             <div className="card-body">
-              <p className="card-title card-home text-white-home" >{data.nombre &&<p className="text-name-home">{convertirAMinusculas(data.nombre)}</p> }</p>
+              <p className="card-title card-home text-white-home" >{data.nombre && <p className="text-name-home">{convertirAMinusculas(data.nombre)}</p>}</p>
               <p className="text-orange">{fecha}</p>
             </div>
           </div>
           {/*Navbar  */}
           <nav className=" col-2 navbar ">
-            <div className=" prueba-navbar">
+            <div className=" icon-navbar-home">
               <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span className="navbar-toggler-icon navbar-dark"></span>
               </button>
               <div className="">
-                <div className=" offcanvas offcanvas-bottom navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className=" offcanvas offcanvas-bottom navbar-container navbar-move" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                   <div className="offcanvas-body ">
                     <div className="img-navbar-home">
 
@@ -218,6 +276,9 @@ function Home() {
                           </div>
                         </Link>
                       </li>
+
+                      {testEstado(estado)}
+                    
                       <li className="nav-item">
                         <Link to="/property">
                           <div className="row ">
@@ -355,11 +416,11 @@ function Home() {
         {/*componente de estados*/}
         <div className=" centrado-mensaje ">
           <div className="row  ">
-            <h6>Estado:</h6>            
-              <b> {data.mensaje}  </b>            
+            <h6>Estado:</h6>
+            <b> {data.mensaje}  </b>
           </div>
         </div>
-       
+
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"

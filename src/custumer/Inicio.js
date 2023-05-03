@@ -22,6 +22,10 @@ import Vlogout from "../../src/img/vlogout.svg";
 import Vrectangulo from "../../src/img/vrectanguler.svg";
 import Vayuda from "../../src/img/Vayudacus.svg";
 import Vmoney from "../../src/img/money.png";
+import Ireturn from "../../src/img/Ireturn.png"
+import Vinmueble from "../../src/img/vinmueble.svg"
+import Vdocs from "../../src/img/vdocs.svg"
+
 
 
 import Speedometer from './Speedometer';
@@ -39,7 +43,7 @@ function Inicio() {
         // This will run only once when the component loads
         const estado = localStorage.getItem('estado');
         if (estado != "true") {
-            console.log(estado);
+
             navigate('/')
         }
 
@@ -123,13 +127,13 @@ function Inicio() {
                     </div>
                 </div>
                 {/*Navbar custumer */}
-                <nav className=" col-2 navbar ">
-                    <div className="prueba-navbar">
+                <nav className=" col-2 navbar  ">
+                    <div className="icon-navbar-home">
                         <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                             <span className="navbar-toggler-icon navbar-dark"></span>
                         </button>
                         <div className="">
-                            <div className=" offcanvas offcanvas-bottom navbar-container " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div className=" offcanvas offcanvas-bottom navbar-container navbar-move " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div className="offcanvas-body ">
                                     <div className="img-navbar-home">
 
@@ -173,7 +177,7 @@ function Inicio() {
                                                 </div>
                                             </a>
                                         </li>
-                                        {/**  <li className="nav-item">
+                                        {/*  <li className="nav-item">
                                             <Link to="/historial">
                                                 <div className="row ">
                                                     <div className="col-8 outline ">
@@ -210,6 +214,42 @@ function Inicio() {
                                                     </a>
                                                 </div>
                                             </div>
+                                        </li>
+                                        <li className="nav-item  nav-section">
+                                            <Link to="/documents">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+                                                                    <img src={Vdocs} className="" alt="" height='24px' width='24px' />
+                                                                </div>
+                                                                <div className="col-10 outline">
+                                                                    <p className=" text-docs"><b >Documentos</b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        <li className="nav-item  nav-section">
+                                            <Link to="/property">
+                                                <div className="row ">
+                                                    <div className="col-8 outline ">
+                                                        <div className="row">
+                                                            <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                                                <div className="card-body col-1  img-state-propety">
+                                                                    <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
+                                                                </div>
+                                                                <div className="col-10 outline">
+                                                                    <p className=" text-docs"><b >Inmueble</b></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </Link>
                                         </li>
                                         <li className="nav-item">
 
