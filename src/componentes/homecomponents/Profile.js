@@ -11,6 +11,8 @@ import swal from 'sweetalert';
 
 function profile() {
 
+    const estado = localStorage.getItem('estado');
+
     // trae la función  salida, que se declaro en el contexto para implementar aquí
 
     const { logout } = useContext(AuthContext);
@@ -28,7 +30,7 @@ function profile() {
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: '{ "email": '+email+'}'
+            body: '{ "email": ' + email + '}'
         };
         fetch('https://sistema-duppla-backend.herokuapp.com/users/getUser', options)
             .then(response => response.json())
@@ -37,8 +39,6 @@ function profile() {
 
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);
-
-
 
     //formateo de los datos de valor inmueble duppla
     const number = data.ingresos;
@@ -51,11 +51,9 @@ function profile() {
     const formattedNumber = formatter.format(number);
     const formattedNumberr = formatter.format(numberr);
 
-
-    const handleNotification  = () => {
-
+    const handleNotification = () => {
         swal({
-           
+
             text: "Se redireccionará a WhatsApp",
             icon: "info",
             button: "Cerrar",
@@ -63,22 +61,37 @@ function profile() {
         });
     };
 
+    // convertidor de mayusculas a minusculas
     function convertirAMinusculas(texto) {
         return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
-    
-      }
-      
+    }
 
-
-    return (
-        <div className="container-profile container-fluid">
-            <div className="arrow-return container sm">
-                <Link to='/home' className="links ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className=" bi bi-arrow-left-short arrow-return" viewBox="0 0 16 16">
+    // función que redirecciona al usuario de buyer a custumer
+    function testRedireccion() {
+        const estado = localStorage.getItem('estado');
+        if (estado === "true") {
+            return <div className="arrow-return">
+                <Link to='/inicio'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                     </svg>
                 </Link>
             </div>
+        }
+        else {
+            return <div className="arrow-return">
+                <Link to='/home'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                    </svg>
+                </Link>
+            </div>
+        }
+    }
+
+    return (
+        <div className="container-profile container-fluid">
+            {testRedireccion(estado)}
             <div className="title-register container sm ">
                 <h1> <b>Perfil</b>
                 </h1>
@@ -92,8 +105,7 @@ function profile() {
                         </div>
                         <div className="col-8 ">
                             <div className="card-body"><br />
-                               
-                                <p className="card-title card-home text-white-profile" >{data.nombre &&<p className="text-name-profile">{convertirAMinusculas(data.nombre)}</p> }</p>
+                                <p className="card-title card-home text-white-profile" >{data.nombre && <p className="text-name-profile">{convertirAMinusculas(data.nombre)}</p>}</p>
                                 <p className=" text-white-email ">{data.email}</p>
                             </div>
                         </div>
@@ -214,7 +226,7 @@ function profile() {
 
             {/*componente calendario*/}
             <div className="centrado  container-sm" id="btnIniciarSesion">
-                <a className="links"   href="https://api.whatsapp.com/send?phone=573152559261">
+                <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
                     <button type="button" id="" className="btn btn-prueba text-white" onClick={handleNotification} width="400px" height="46px" >
                         QUIERO EDITAR MIS DATOS
                     </button>
@@ -224,7 +236,7 @@ function profile() {
             {/*componente cerrar sesión*/}
             <div className="row centrado" onClick={handleLogout}>
                 <div className="col-2 btn input-group btn-prueba-blanco centrado-btn " width="400px" height="68px" >
-                        <img src={Icerrarsesion} className="img-cerrar" alt="" />
+                    <img src={Icerrarsesion} className="img-cerrar" alt="" />
                     <button type="button" id="" className="btn  btn-cerrar " >
                         <b>CERRAR SESIÓN</b>
                     </button>

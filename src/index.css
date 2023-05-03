@@ -93,7 +93,7 @@ code {
   justify-content: center;
   align-items: center;
 
-  margin-top: 180px;
+  margin-top: 120px;
   padding: 10px;
   width: 380px;
   height: auto;
@@ -214,31 +214,29 @@ code {
 
 .title-login {
   padding: 0 0 5px 5px;
-  margin-top: 20px;
+  margin-top: 53px;
   text-align: start;
   margin-bottom:-20px;
   margin-left: 40px;
   
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 24px;
   line-height: 31px;
   display: flex;
  
-  letter-spacing: -0.015em;
+  letter-spacing: -0.015em;  
+  color: #0A3323
   
-  color: #000000;
-  
-
-
 }
 
 .form-register {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .btn-mover {
