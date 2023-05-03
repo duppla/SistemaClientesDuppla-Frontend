@@ -18,13 +18,11 @@ import Vinmueble from "../../img/vinmueble.svg"
 import Vdocs from "../../img/vdocs.svg"
 import Vlogout from "../../img/vlogout.svg"
 import Vrectangulo from "../../img/vrectanguler.svg"
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/Contextauth";
 import Iconinm from "../../img/Iconinm.png"
-
 import Igo from "../../img/go.png"
 
-
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/Contextauth";
 
 
 
@@ -108,9 +106,6 @@ function Home() {
   const pruebaprogreso = state.estado;
 
 
-
-
-
   const stateChange = (stateUser) => {
 
     switch (stateUser) {
@@ -149,7 +144,6 @@ function Home() {
     }
   }
 
-
   function testOffer() {
 
     const testOne = stateOffer;
@@ -171,7 +165,6 @@ function Home() {
     }
 
   }
-
   // muestra el boton de ir a custumer usando el estado del usuaruio
   function testEstado() {
     const estado = localStorage.getItem('estado');
@@ -203,7 +196,6 @@ function Home() {
 
 
   return (
-
     <div className=" container-fluid ">
       <div className="container-sm">
         {/*Contenedor de perfil */}
@@ -407,7 +399,6 @@ function Home() {
             {stateChange(stateUser)}
           </div>
         </div>
-
         {/*componente de estados*/}
         <div className=" centrado-mensaje ">
           <div className="row  ">
@@ -415,7 +406,6 @@ function Home() {
             <b> {data.mensaje}  </b>
           </div>
         </div>
-
         {/*componente calendario*/}
         <div className="  btn-m" id="btnIniciarSesion">
           <a className="links text-white"

@@ -115,7 +115,7 @@ function Register() {
                 login(responseData.token, datos.email, responseData.estado);
                 setDatos('');
             } else {
-                console.log('Error de login');
+                //console.log('Error de login');
                 handleNotification();
             }
         } catch (error) {
