@@ -62,8 +62,7 @@ function Home() {
       const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
       const data = await response.json();
       setData(data)
-      setState(estado);
-      console.log(data);
+      setState(estado);   
 
     }
 
@@ -203,8 +202,6 @@ function Home() {
   }
 
 
-
-
   return (
 
     <div className=" container-fluid ">
@@ -276,9 +273,7 @@ function Home() {
                           </div>
                         </Link>
                       </li>
-
-                      {testEstado(estado)}
-                    
+                      {testEstado(estado)}                    
                       <li className="nav-item">
                         <Link to="/property">
                           <div className="row ">

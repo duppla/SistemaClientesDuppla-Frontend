@@ -15,9 +15,6 @@ function Register() {
 
     const [showMessage, setShowMessage] = useState(false);
 
-
-
-
     //Función de login traido desde el contexto
     const { login } = useContext(AuthContext);
 
@@ -48,12 +45,13 @@ function Register() {
 
     /*Función que maneja el envio de la información del formulario */
 
-    const handleSubmit = async (e) => {
+    {/*const handleSubmit = async (e) => {
         e.preventDefault();
 
         // deberia validar que si el correo no es valido, no pase o de error
-        if (datos.email === "" || datos.email === undefined || datos.password === "" || datos.password === undefined) {
+        if (datos.email === "" || datos.email === null ||datos.email === undefined || datos.password === "" || datos.password === undefined || datos.password === null) {
             alert('Correo o contraseña incorrecta');
+            
         } else {
             //console.log(datos.email);
             const options = {
@@ -61,25 +59,20 @@ function Register() {
                 headers: { 'Content-Type': 'application/json' },
                 body: '{"email":"' + datos.email + '","password":"' + datos.password + '"}'
             };
-
             fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options).then(response => response.json())
                 .then(function (response) {
                     //console.log(response.data);
                     //console.log(response.status);
                     if (!response.status === 200) {
                         console.log('error de login');
-
                     } else {
                         if (!datos.email === response.status && datos.password === response.status) {
                             // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
                             alert('error');
 
-                        } else {
-                            //localStorage.setItem('tokenUser', response.data.token);                         
-                            // console.log(response.token);
-
-                            login(response.token, datos.email, response.estado);
-                            //console.log(response.estado)                     
+                        } else {                                                   
+                             login(response.token, datos.email, response.estado);
+                                             
                             setDatos('');
                         }
                     }
@@ -88,7 +81,51 @@ function Register() {
 
                 });
         };
+    };*/}
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    
+        // Validar si el correo es válido
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(datos.email)) {
+            alert('El correo no es válido');
+            return;
+        }
+    
+        // Validar que los campos no estén vacíos
+        if (!datos.email || !datos.password) {
+            alert('Por favor, ingrese su correo y contraseña');
+            return;
+        }
+    
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: datos.email,
+                password: datos.password,
+            }),
+        };
+    
+        try {
+            const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options);
+            const responseData = await response.json();
+    
+            if (response.status === 200) {
+                login(responseData.token, datos.email, responseData.estado);
+                setDatos('');
+            } else {
+                console.log('Error de login');
+                handleNotification();
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
+    
+
+
+
     const handleNotification = () => {
 
         swal({

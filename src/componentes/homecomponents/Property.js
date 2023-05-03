@@ -17,7 +17,7 @@ function Property() {
 
 
     const estado = localStorage.getItem('estado');
-    
+
     // consumo del Api de inmueble
     const [datos, setDatos] = useState({});
 
@@ -395,7 +395,6 @@ function testRedireccion() {
     }
 
   }
-
 
 
 

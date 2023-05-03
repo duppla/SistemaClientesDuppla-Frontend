@@ -86,6 +86,7 @@ function Inicio() {
     }, []);
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
+    console.log(btnpago);
     //formateo de los datos de valor inmueble duppla
     const formatted = dataCustumer.pagoMinimo;
 
@@ -396,8 +397,6 @@ function Inicio() {
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
                     <a className="links text-white"
                         href={btnpago} >
-                        {/*<Link to='/pagos'>
-                    </Link>*/}
                         <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>Pagar factura</h5>
