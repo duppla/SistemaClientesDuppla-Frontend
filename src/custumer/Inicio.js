@@ -86,7 +86,7 @@ function Inicio() {
     }, []);
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
-    console.log(btnpago);
+    //console.log(btnpago);
     //formateo de los datos de valor inmueble duppla
     const formatted = dataCustumer.pagoMinimo;
 
