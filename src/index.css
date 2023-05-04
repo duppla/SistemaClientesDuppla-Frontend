@@ -97,7 +97,6 @@ code {
   padding: 10px;
   width: 380px;
   height: auto;
-
 }
 
 .img-logotipo {
@@ -110,6 +109,7 @@ code {
 
 .btn {
   border-radius: 5px;
+  
 }
 
 .btn-registro {
@@ -273,6 +273,7 @@ code {
   background: linear-gradient(138.67deg, #0A3323 16.71%, #C5F5CA 162.89%);
   border-radius: 5px;
 }
+
 
 /*Manejo img de perfil y home*/
 .img-fluid {
@@ -456,7 +457,6 @@ hr {
 
 .text-white {
   color: var(--color-fondo);
-
 }
 
 
@@ -1214,16 +1214,18 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 24px;
+    margin-top: -8px;
     margin-bottom: 5px;
 
     padding: 16px 24px;
     gap: 16px;
-    width: 250px;
+    width: 260px;
     height: 58px;
-    margin-left: 16px;
-    margin-right: 20px;
+    margin-left: -8px;
+    margin-right: 10px;
     border-radius: 12px;
+
+    background:#ffffff;
   }
 
 

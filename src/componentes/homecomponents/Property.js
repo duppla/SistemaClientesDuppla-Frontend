@@ -352,56 +352,56 @@ function Property() {
 
     useEffect(() => {
         setTimeout(() => setLoading(false), 1000)
-     
+
     }, []);
 
-// función que muestra las imagenes del inmueble
+    // función que muestra las imagenes del inmueble
     function carrusel() {
         if (fotos && fotos.length > 0) {
-          return fotos.map((foto, index) => (
-            <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-              <img src={foto.url} className='btn-state-home' alt='' height='340px' width='380px' />
-            </div>
-          ));
+            return fotos.map((foto, index) => (
+                <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
+                    <img src={foto.url} className='btn-state-home' alt='' height='340px' width='380px' />
+                </div>
+            ));
         } else {
-          return (
-            <div className='carousel-item active'>
-              <img src={Imgdefault} className='btn-state-home' alt='' height='340px' width='380px' />
-            </div>
-          );
+            return (
+                <div className='carousel-item active'>
+                    <img src={Imgdefault} className='btn-state-home' alt='' height='340px' width='380px' />
+                </div>
+            );
         }
-      }
-// función que redirecciona al usuario de buyer a custumer
-
-function testRedireccion() {
-    const estado = localStorage.getItem('estado');
-    if (estado === "true") {
-      return <div className="arrow-return">
-      <Link to='/inicio'>
-          <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-          </svg>
-      </Link>
-  </div>
     }
-    else {
-      return <div className="arrow-return">
-      <Link to='/home'>
-          <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-          </svg>
-      </Link>
-  </div>
-    }
+    // función que redirecciona al usuario de buyer a custumer
 
-  }
+    function testRedireccion() {
+        const estado = localStorage.getItem('estado');
+        if (estado === "true") {
+            return <div className="arrow-return">
+                <Link to='/inicio'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                    </svg>
+                </Link>
+            </div>
+        }
+        else {
+            return <div className="arrow-return">
+                <Link to='/home'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                    </svg>
+                </Link>
+            </div>
+        }
+
+    }
 
 
 
 
     return (
         !loading && <div className="container-property container-fluid">
-           {testRedireccion(estado)}
+            {testRedireccion(estado)}
             {/*Carrusel de imagenes */}
             <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
@@ -446,25 +446,6 @@ function testRedireccion() {
                 </button>
             </div><br />
 
-            {/*Carrusel dos Prueba 
-
-
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div className="carousel-inner">
-                    {carrusel()}
-                </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
-*/}
-
-
             {/*información inmueble */}
             <div className="text-title-property container-sm">
                 <div className="description-apt">
@@ -482,66 +463,87 @@ function testRedireccion() {
                     </div>
                     <div className="col-8">
                         <div className="card-body">
-
                             <h5 className="">Ubicación</h5><br />
                             <p className=""><b>{datos.Direccion}</b></p>
                             <p className=""><b>{datos.Barrio}</b></p>
                         </div>
-                        <div className="dropdown ">
-                            <button type="button" className="btn dropdown-toggle text-blue" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                                Ver más
-                            </button>
-                            <div className="dropdown-menu dropdown-menu-cambio  " >
-                                <ul className=" list-group  ">{/*list-group-numbered*/}
-
-                                    <li className=" list-group-item ">
-                                        <div className="" >
-                                            <div className="fw-bold col-8">Área: {datos.Area}m²</div>
-
-                                        </div>
-                                    </li>
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-12">Antigüedad: {datos.Antiguedad} años</div>
-
-                                        </div>
-                                    </li>
-
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-6">Estrato: {datos.Estrato}</div>
-
-                                        </div>
-                                    </li>
-
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-8">Habitaciones: {datos.Habitaciones}</div>
-
-                                        </div>
-                                    </li>
-
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-6">Baños: {datos.Banos}</div>
-
-                                        </div>
-                                    </li>
-
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-8">Parqueadero: {datos.Parqueadero}</div>
-
-                                        </div>
-                                    </li>
-                                    <li className=" list-group-item ">
-                                        <div className="row" >
-                                            <div className="fw-bold col-6">Piso: {datos.Piso}</div>
-
-                                        </div>
-                                    </li>
-                                </ul>
+                        <div className='dropdown'>
+                            <div className="card-dropdown-inm ">
+                                <div className='col-4'>
+                                    <p className='text-space-property' >Ver más</p    >
+                                </div>
+                                <div className=" col-2 icon-drop-property ">
+                                    <div className="btn-group ">
+                                        <button type="button" className="btn  dropdown-toggle text-blue " data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                        
+                                        </button>
+                                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-xxl-end row dropdown-menu-init">
+                                            <br />
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Área: </p>
+                                                </div>
+                                                <div className="col-6 outline text-dropdown-right">
+                                                    <p className='text-end text-space-dropdown '>{datos.Area}m²</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Antigüedad: </p>
+                                                </div>
+                                                <div className="col-6 outline">
+                                                    <p className='text-end text-space-dropdown '>{datos.Antiguedad}años</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Estrato: </p>
+                                                </div>
+                                                <div className="col-6 outline">
+                                                    <p className='text-end text-space-dropdown '>{datos.Estrato}</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Habitaciones: </p>
+                                                </div>
+                                                <div className="col-6 outline">
+                                                    < p className='text-end text-space-dropdown'>{datos.Habitaciones}</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Baños: </p>
+                                                </div>
+                                                <div className="col-6   outline">
+                                                    <p className='text-end text-space-dropdown'>{datos.Banos}</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Parqueadero:</p>
+                                                </div>
+                                                <div className="col-6   outline">
+                                                    <p className='text-end text-space-dropdown'>{datos.Parqueadero}</p>
+                                                </div>
+                                            </div>
+                                            <div className="card-docs-init  ">
+                                                <div className="card-body-docs col-6">
+                                                    <p>Piso:</p>
+                                                </div>
+                                                <div className="col-6   outline">
+                                                    <p className='text-end text-space-dropdown'>{datos.Piso}</p>
+                                                </div>
+                                            </div>                                            
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        {/*prueba */}
+                        
+                        <div>
                         </div>
                         {/* <div className='dropdown'>
                             <div className="card-dropdown-inm ">

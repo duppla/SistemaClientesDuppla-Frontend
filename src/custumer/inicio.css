@@ -63,11 +63,9 @@ code {
 .container-progress {
 
     align-items: center;
-
     height: 410px;
     margin-left: 32px;
     margin-right: 32px;
-
     background: #FFFFFF;
     border-radius: 20px;
 }
@@ -99,12 +97,19 @@ code {
     font-size: 14px;
 }
 
-
-
 .text-space-month {
     margin-top: 13px;
     margin-left: 25px;
 }
+
+.text-space-property {
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #6C9FFF;
+    font-size: 16px;
+   }
+
 
 .card-docs-init {
     display: flex;
@@ -122,7 +127,7 @@ code {
     border-radius: 5px;
     top: 210px;
     bottom: 100px;
-
+    
 }
 
 
@@ -139,7 +144,6 @@ code {
 
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-
 }
 
 .ul {
@@ -149,24 +153,28 @@ code {
 }
 
 .text-space-dropdown {
-    margin-right: 50px;
+    margin-right: 60px;
 }
 
 .icon-drop {
     margin-left: 250px;
 }
 
-.dropdown-menu-init {
+.icon-drop-property {
+    margin-left: 124px;
+}
 
+.dropdown-menu-init {
     padding: 0px 0px 0px 0px;
     box-sizing: border-box;
-    width: 336px;
+    width: 262px;
     height: 290px;
-    margin-right: 6px;
-    margin-left: -50px;
+    margin-right: -7px;
+    margin-left: 150px;
     background: #ffffff;
     border: 1px solid #E1EBF4;
     border-radius: 8px;
+    
 
 }
 
@@ -225,12 +233,7 @@ code {
     height: 42px;
     margin-left: 10px;
     margin-right: 10px;
-
-
-
     border-color: #6C9FFF;
-
-
 }
 
 .btn-modal-cerrar {
@@ -274,7 +277,7 @@ code {
     display: flex;
     overflow-x: auto;
     margin-top: 20px;
-   
+
 
 }
 
@@ -289,7 +292,7 @@ code {
     height: 70px;
     left: 16px;
     top: 0px;
-   
+
 
     background: #EFEFEF;
     border-radius: 36px;
@@ -319,7 +322,7 @@ code {
 }
 
 
-.text-btn-wrapper{
+.text-btn-wrapper {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     text-align: center;
@@ -333,4 +336,14 @@ code {
 
 
 
+}
+
+
+.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-custumer-disabled{
+    border: none !important;
 }

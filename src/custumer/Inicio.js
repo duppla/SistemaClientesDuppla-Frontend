@@ -57,8 +57,7 @@ function Inicio() {
     let yyyy = today.getFullYear();
     let fecha = `${dd}/${mm}/${yyyy}`;
 
-    // trae la función  salida, que se declaro en el contexto para implementar aquí
-
+    // trae la función  salida, que se declaro en el contexto para implementar aquí,
     const { logout } = useContext(AuthContext);
     const handleLogoutCustumer = () => {
         logout();
@@ -86,7 +85,7 @@ function Inicio() {
     }, []);
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
-    //console.log(btnpago);
+    console.log(btnpago);
     //formateo de los datos de valor inmueble duppla
     const formatted = dataCustumer.pagoMinimo;
 
@@ -102,11 +101,32 @@ function Inicio() {
 
     function convertirAMinusculas(texto) {
         return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
-
     }
 
+    function btnLinkPago() {
 
+        if (btnpago == null || btnpago == "" || btnpago == undefined) {
+           return <div className="col-2 btn input-group btn-pago-custumer centrado-btn btn-disabled" width="400px" height="68px">
+                <img src={Iconpago} className="img-btn-pagos-custumer btn-disabled " alt="" width="32px" height="32px" />
+                <button className="btn btn-custumer-disabled btn-disabled text-white" type="button" disabled>
+                    <h5>Pagar factura</h5>
+                </button>
+            </div>
 
+        } else {
+           return <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
+                <a className="links text-white"
+                    href={btnpago} >
+                    <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
+                    <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <h5>Pagar factura</h5>
+                    </button>
+                </a>
+            </div>
+
+        }
+    }
+    
 
     return (
         <div className=" container-fluid continer-inicio">
@@ -393,16 +413,23 @@ function Inicio() {
             <div>
             </div>*/}
             {/*componente pago*/}
+
+
             <div className="row centrado" >
+                {btnLinkPago(btnpago)}
+               {/*                
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
                     <a className="links text-white"
                         href={btnpago} >
                         <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
-                        <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button type="button" id="" className="btn  text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>Pagar factura</h5>
                         </button>
                     </a>
                 </div>
+                */} 
+             
+
                 {/*Modal 
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
