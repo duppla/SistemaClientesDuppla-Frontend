@@ -467,143 +467,107 @@ function Property() {
                             <p className=""><b>{datos.Direccion}</b></p>
                             <p className=""><b>{datos.Barrio}</b></p>
                         </div>
-                        <div className='dropdown'>
-                            <div className="card-dropdown-inm ">
-                                <div className='col-4'>
-                                    <p className='text-space-property' >Ver más</p    >
-                                </div>
-                                <div className=" col-2 icon-drop-property ">
-                                    <div className="btn-group ">
-                                        <button type="button" className="btn  dropdown-toggle text-blue " data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                        
-                                        </button>
-                                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-xxl-end row dropdown-menu-init">
-                                            <br />
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Área: </p>
-                                                </div>
-                                                <div className="col-6 outline text-dropdown-right">
-                                                    <p className='text-end text-space-dropdown '>{datos.Area}m²</p>
-                                                </div>
+                        
+                        {/*card con dropdown */}
+
+                        <div class=" card " >
+                            <div className="card-header card-dropdown-property ">
+                                <div className="accordion accordion-flush" id="accordionFlushExample">
+                                    <div className="accordion-item ">
+                                        <h2 className="accordion-header" id="flush-headingOne">
+                                            <button className="accordion-button collapsed text-blue" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Ver más
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" className="accordion-collapse collapse card-col-none" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div className="accordion-body acordion-tamaño">
+                                                <ul className="row ">
+                                                    <li>  <div className="card-docs-property  ">
+                                                        <div className="card-body-property col-4">
+                                                            <p>Área: </p>
+                                                        </div>
+                                                        <div className="col-4 outline text-dropdown-property">
+                                                            <p className='text-end text-space-dropdown-property '>{datos.Area}m²</p>
+                                                        </div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                        <div className="card-docs-property  ">
+                                                            <div className="card-body-property col-4">
+                                                                <p> Antigüedad:</p>
+                                                            </div>
+                                                            <div className="col-4 outline text-dropdown-property">
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Antiguedad} años</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div className="card-docs-property  ">
+                                                            <div className="card-body-property col-4">
+                                                                <p>Estrato:</p>
+                                                            </div>
+                                                            <div className="col-4 outline text-dropdown-property">
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Estrato}</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div className="card-docs-property  ">
+                                                            <div className="card-body-property col-4">
+                                                                <p>Habitaciones:</p>
+                                                            </div>
+                                                            <div className="col-4 outline text-dropdown-property">
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Habitaciones}</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+
+                                                        <div className="card-docs-property  ">
+                                                            <div className="card-body-property col-4">
+                                                                <p>Baños:</p>
+                                                            </div>
+                                                            <div className="col-4 outline text-dropdown-property">
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Banos}</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+                                                        <div className="card-docs-property  ">
+                                                            <div className="card-body-property col-4">
+                                                                <p>Parqueadero:</p>
+                                                            </div>
+                                                            <div className="col-4 outline text-dropdown-property">
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Parqueadero}</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li> <div className="card-docs-property  ">
+                                                        <div className="card-body-property col-4">
+                                                            <p>Piso:</p>
+                                                        </div>
+                                                        <div className="col-4 outline text-dropdown-property">
+                                                            <p className='text-end text-space-dropdown-property '>{datos.Piso}</p>
+                                                        </div>
+                                                    </div></li>
+                                                </ul>
                                             </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Antigüedad: </p>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    <p className='text-end text-space-dropdown '>{datos.Antiguedad}años</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Estrato: </p>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    <p className='text-end text-space-dropdown '>{datos.Estrato}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Habitaciones: </p>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    < p className='text-end text-space-dropdown'>{datos.Habitaciones}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Baños: </p>
-                                                </div>
-                                                <div className="col-6   outline">
-                                                    <p className='text-end text-space-dropdown'>{datos.Banos}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Parqueadero:</p>
-                                                </div>
-                                                <div className="col-6   outline">
-                                                    <p className='text-end text-space-dropdown'>{datos.Parqueadero}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Piso:</p>
-                                                </div>
-                                                <div className="col-6   outline">
-                                                    <p className='text-end text-space-dropdown'>{datos.Piso}</p>
-                                                </div>
-                                            </div>                                            
-                                            
-                                        </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {/*prueba */}
-                        
+
+
+
+
+
+
                         <div>
                         </div>
-                        {/* <div className='dropdown'>
-                            <div className="card-dropdown-inm ">
-                                <div className='col-4'>
-                                    <p className='text-space-inm-dropdown text-blue' >
-                                        <b>Ver más</b></p>
-                                </div>
-                                <div className=" col-4 icon-drop ">
-                                    <div className="btn-group ">
-                                        <button type="button" className="btn  dropdown-toggle  " data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                        </button>
-                                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-xxl-end row dropdown-menu-init">
-                                            <br />
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Referencia de pago</p>
-                                                </div>
-                                                <div className="col-6 outline text-dropdown-right">
-                                                    <p className='text-end text-space-dropdown '>#02</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Costo financiero</p>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    <p className='text-end text-space-dropdown '>$1,900,000</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Gastos</p>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    <p className='text-end text-space-dropdown '>$22,165</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Abono sugerido</p>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    < p className='text-end text-space-dropdown'>$277,408</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs col-6">
-                                                    <p>Meta mes a mes</p>
-                                                </div>
-                                                <div className="col-6   outline">
-                                                    <p className='text-end text-space-dropdown'>$1,900,000</p>
-                                                </div>
-                                            </div>
-                                            <br />
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*/}
                         <div>
                         </div>
                     </div>

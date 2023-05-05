@@ -303,8 +303,6 @@ code {
 .contenedor-img-duppla {
   width: 80px;
   height: 30px;
-
-
 }
 
 .img-duppla {
@@ -920,6 +918,7 @@ a {
 
 }
 
+
 .card-perfil-datos {
   margin-top: -10px;
   margin-bottom: 15px;
@@ -1107,7 +1106,6 @@ a {
  
   margin-bottom: 29px;
   margin-left: -12px;
- 
 
 }
 
@@ -1116,6 +1114,9 @@ a {
   height: 500px !important;
   border-radius: 12px 12px 0px 0px;
 }
+
+
+
 
 
 

@@ -108,7 +108,7 @@ code {
     margin-left: 10px;
     color: #6C9FFF;
     font-size: 16px;
-   }
+}
 
 
 .card-docs-init {
@@ -127,10 +127,61 @@ code {
     border-radius: 5px;
     top: 210px;
     bottom: 100px;
-    
+
 }
 
+.card-docs-property {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    padding: 10px 10px;
+    width: 140px;
+    height: 20px;
+
+    border-radius: 5px;
+
+}
+
+.card-body-property {
+    width: 110px;
+
+    margin-left: -10px;
+
+}
+
+.text-dropdown-property {
+    width: 80px;
+    margin-left: -10px;
+    margin-right: 4px;
+}
+
+.card-header {
+    border: none !important;
+}
+
+.card {
+    border: none !important;
+    margin-left: -38px ;
+}
+
+.card-col-none {
+    border: none !important;
+    border-color: #ffffff;
+}
+
+.card-dropdown-property {
+    background-color: #ffffff;
+
+}
+
+.accordion-button ::backdrop{
+    background-color: #FF864B;
+
+}
 
 .btn-pago-custumer {
 
@@ -174,7 +225,7 @@ code {
     background: #ffffff;
     border: 1px solid #E1EBF4;
     border-radius: 8px;
-    
+
 
 }
 
@@ -199,6 +250,11 @@ code {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
 }
+
+.acordion-tamaño {
+    width: 360px;
+}
+
 
 .line-custumer {
     height: 2px;
@@ -344,6 +400,6 @@ code {
     cursor: not-allowed;
 }
 
-.btn-custumer-disabled{
+.btn-custumer-disabled {
     border: none !important;
 }
