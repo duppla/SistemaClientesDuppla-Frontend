@@ -63,7 +63,7 @@ code {
 .container-progress {
 
     align-items: center;
-    height: 410px;
+    height: 800px;
     margin-left: 32px;
     margin-right: 32px;
     background: #FFFFFF;
@@ -141,16 +141,12 @@ code {
     padding: 10px 10px;
     width: 140px;
     height: 20px;
-
     border-radius: 5px;
-
 }
 
 .card-body-property {
     width: 110px;
-
     margin-left: -10px;
-
 }
 
 .text-dropdown-property {
@@ -159,40 +155,44 @@ code {
     margin-right: 4px;
 }
 
+.container-movil {
+    position: relative;
+}
+
+.prueva-mo {
+    position: absolute;
+}
+
 .card-header {
     border: none !important;
+    position: relative;
+    width: 290px;
 }
 
 .card {
     border: none !important;
-    margin-left: -38px ;
+    margin-left: -38px;
 }
 
 .card-col-none {
     border: none !important;
     border-color: #ffffff;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .card-dropdown-property {
     background-color: #ffffff;
-
 }
 
-.accordion-button ::backdrop{
-    background-color: #FF864B;
-
-}
 
 .btn-pago-custumer {
-
     width: 365px;
     height: 58px;
     margin-top: 20px;
     margin-bottom: 20px;
     background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
-    border: 1px solid #6C9FFF;
-    /* M3/Elevation Light/1 */
-
+    border: 1px solid #81A1F8;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
 }
@@ -225,8 +225,6 @@ code {
     background: #ffffff;
     border: 1px solid #E1EBF4;
     border-radius: 8px;
-
-
 }
 
 .card-dropdown {
@@ -403,3 +401,246 @@ code {
 .btn-custumer-disabled {
     border: none !important;
 }
+
+.card-new {
+
+    width: 340px;
+
+
+}
+
+.card {
+    width: 340px;
+    margin-left: 4px;
+    margin-right: 10px;
+    background-color: #ffffff;
+
+}
+
+
+.text-space-card-c {
+    width: 120px;
+
+}
+
+.card-body-docs-c {
+    width: 186px;
+    margin-left: -10px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+.span-pago {
+    margin-left: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.text-space-custumer {
+    width: 180px;
+    margin-left: 70px;
+    margin-right: 10px !important;
+
+}
+
+.accordion-custumer {
+
+    width: 364px;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    border: 1px solid #E1EBF4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+}
+
+
+.container-inicio-graph {
+
+    max-width: 370px;
+    display: flex;
+    justify-content: center;
+
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-top: 50px;
+
+    background-color: rgb(255, 255, 255);
+    /* Stroke Color */
+    z-index: 1;
+
+}
+
+.grafict-container-inicio-one {
+
+    width: 360px;
+    height: 500px;
+
+    margin-right: 24px;
+    margin-left: 24px;
+    margin-bottom: 10px;
+
+    background: #ffffff;
+    /* Stroke Color */
+
+    border: 1px solid #EFF0F6;
+    /* Tile Dropshadow */
+
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    z-index: 1;
+
+}
+
+.text-inicio-gra {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-left: -2px;
+    width: 150px;
+}
+
+.prueba-inicio-espacio-uno {
+    background-color: #0A3323;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: #0A3323;
+    height: 58px;
+    width: 80px;
+}
+
+.prueba-inicio-espacio-dos {
+    background-color: #C5F5CA;
+    color: #C5F5CA;
+    height: 58px;
+    width: 160px
+}
+
+.prueba-inicio-espacio-tres {
+    background-color: #81A1F8;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 58px;
+    width: 80px;
+}
+
+.card-docs-grafic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 130px;
+    margin-bottom: 5px;
+
+    padding: 16px 24px;
+    gap: 16px;
+    height: 20px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    border-radius: 5px;
+    top: 210px;
+    bottom: 100px;
+
+
+}
+
+
+.sobrepuesto {
+    z-index: 2;
+    margin-top: -270px;
+    margin-left: 1px;
+    justify-content: center;
+    text-align: center;
+}
+
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    margin-top: -24px;
+    margin-left: 120px;
+    width: 200px;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #0A3323;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 1;
+    box-shadow: 0px 0px 10px rgba(115, 113, 113, 0.15);
+    text-align: justify;
+}
+
+.tooltip-customer {
+    width: 20px;
+    margin-left: 18px;
+}
+
+.space-title-dop {
+    width: 120px !important;
+    margin-left: -20px;
+}
+
+.bell {
+    fill: #FFFFFF;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.navbar-move-bell {
+    height: 250px !important;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.img-duppla-custumer {
+    position: absolute;
+    padding: 0px;
+    width: 80px;
+    height: 28px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container-first-elements {
+    width: auto;
+    height: 58px;
+   }
+
+.bell {
+ 
+    height: 24px;
+    width: 24px;
+    margin-left: 170px;
+    margin-right: 30px;
+    margin-top: -46px;
+    
+   
+}
+.container-second-elements {
+    width: auto;
+    height: 58px;
+   
+}
+
+.card-perfil-datos-customer {
+    margin-top: -90px;
+    margin-bottom: 15px;
+  
+  }
+
+  .icon-navbar-customer {
+    margin-bottom: 29px;
+    margin-left: -15px;
+    margin-top: -75px;
+
+ 
+ }

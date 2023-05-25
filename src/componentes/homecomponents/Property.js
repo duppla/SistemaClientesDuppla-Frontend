@@ -328,8 +328,8 @@ function Property() {
 
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
     });
     const formattedNumber = formatter.format(number);
     const formattedcostm = formatter.format(costm);
@@ -447,165 +447,158 @@ function Property() {
             </div><br />
 
             {/*información inmueble */}
-            <div className="text-title-property container-sm">
-                <div className="description-apt">
-                    <h1 className="text-title-property-title"><b>{datos.Tipo_de_inmueble}</b></h1>
-                    {/*<p><b>{ formattedData(datos.Valor_inmueble_compra_duppla)}</b></p><br />*/}
-                    <p><b>${formattedNumber}</b></p>
-                    <p><b>Observaciones:</b>{datos.observaciones}
-                    </p>
-                </div>
-            </div><br />
-            <div className="card-inmueble container-fluid">
-                <div className="row ">
-                    <div className="col-2">
-                        <img src={Iubicacion} className=" " alt="..." width='24px' height='24px' />
+            <div className="container-movil">
+                <div className="text-title-property container-sm">
+                    <div className="description-apt">
+                        <h1 className="text-title-property-title"><b>{datos.Tipo_de_inmueble}</b></h1>
+                        {/*<p><b>{ formattedData(datos.Valor_inmueble_compra_duppla)}</b></p><br />*/}
+                        <p><b>${formattedNumber}</b></p>
+                        <p><b>Observaciones:</b>{datos.observaciones}
+                        </p>
                     </div>
-                    <div className="col-8">
-                        <div className="card-body">
-                            <h5 className="">Ubicación</h5><br />
-                            <p className=""><b>{datos.Direccion}</b></p>
-                            <p className=""><b>{datos.Barrio}</b></p>
+                </div><br />
+                <div className="card-inmueble-first container-fluid ">
+                    <div className="row ">
+                        <div className="col-2">
+                            <img src={Iubicacion} className=" " alt="..." width='24px' height='24px' />
                         </div>
-                        
-                        {/*card con dropdown */}
+                        <div className="col-8">
+                            <div className="card-body">
+                                <h5 className="">Ubicación</h5><br />
+                                <p className=""><b>{datos.Direccion}</b></p>
+                                <p className=""><b>{datos.Barrio}</b></p>
+                            </div>
 
-                        <div class=" card " >
-                            <div className="card-header card-dropdown-property ">
-                                <div className="accordion accordion-flush" id="accordionFlushExample">
-                                    <div className="accordion-item ">
-                                        <h2 className="accordion-header" id="flush-headingOne">
-                                            <button className="accordion-button collapsed text-blue" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                                Ver más
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseOne" className="accordion-collapse collapse card-col-none" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                            <div className="accordion-body acordion-tamaño">
-                                                <ul className="row ">
-                                                    <li>  <div className="card-docs-property  ">
-                                                        <div className="card-body-property col-4">
-                                                            <p>Área: </p>
-                                                        </div>
-                                                        <div className="col-4 outline text-dropdown-property">
-                                                            <p className='text-end text-space-dropdown-property '>{datos.Area}m²</p>
-                                                        </div>
-                                                    </div>
-                                                    </li>
-                                                    <li>
-                                                        <div className="card-docs-property  ">
-                                                            <div className="card-body-property col-4">
-                                                                <p> Antigüedad:</p>
-                                                            </div>
-                                                            <div className="col-4 outline text-dropdown-property">
-                                                                <p className='text-end text-space-dropdown-property '>{datos.Antiguedad} años</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div className="card-docs-property  ">
-                                                            <div className="card-body-property col-4">
-                                                                <p>Estrato:</p>
-                                                            </div>
-                                                            <div className="col-4 outline text-dropdown-property">
-                                                                <p className='text-end text-space-dropdown-property '>{datos.Estrato}</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div className="card-docs-property  ">
-                                                            <div className="card-body-property col-4">
-                                                                <p>Habitaciones:</p>
-                                                            </div>
-                                                            <div className="col-4 outline text-dropdown-property">
-                                                                <p className='text-end text-space-dropdown-property '>{datos.Habitaciones}</p>
-                                                            </div>
-                                                        </div>
+                            {/*card con dropdown */}
 
-                                                    </li>
-                                                    <li>
-
-                                                        <div className="card-docs-property  ">
+                            <div className=" card  prueba-mo " >
+                                <div className="card-header card-dropdown-property ">
+                                    <div className="accordion accordion-flush" id="accordionFlushExample">
+                                        <div className="accordion-item ">
+                                            <h2 className="accordion-header" id="flush-headingOne">
+                                                <button className="accordion-button collapsed text-blue" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Ver más</button>
+                                            </h2>
+                                            <div id="flush-collapseOne" className="accordion-collapse collapse card-col-none" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                                <div className="accordion-body acordion-tamaño">
+                                                    <ul className="row  ">
+                                                        <li>  <div className="card-docs-property  ">
                                                             <div className="card-body-property col-4">
-                                                                <p>Baños:</p>
+                                                                <p>Área: </p>
                                                             </div>
                                                             <div className="col-4 outline text-dropdown-property">
-                                                                <p className='text-end text-space-dropdown-property '>{datos.Banos}</p>
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Area}m²</p>
                                                             </div>
                                                         </div>
+                                                        </li>
+                                                        <li>
+                                                            <div className="card-docs-property  ">
+                                                                <div className="card-body-property col-4">
+                                                                    <p> Antigüedad:</p>
+                                                                </div>
+                                                                <div className="col-4 outline text-dropdown-property">
+                                                                    <p className='text-end text-space-dropdown-property '>{datos.Antiguedad} años</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div className="card-docs-property  ">
+                                                                <div className="card-body-property col-4">
+                                                                    <p>Estrato:</p>
+                                                                </div>
+                                                                <div className="col-4 outline text-dropdown-property">
+                                                                    <p className='text-end text-space-dropdown-property '>{datos.Estrato}</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div className="card-docs-property  ">
+                                                                <div className="card-body-property col-4">
+                                                                    <p>Habitaciones:</p>
+                                                                </div>
+                                                                <div className="col-4 outline text-dropdown-property">
+                                                                    <p className='text-end text-space-dropdown-property '>{datos.Habitaciones}</p>
+                                                                </div>
+                                                            </div>
 
-                                                    </li>
-                                                    <li>
-                                                        <div className="card-docs-property  ">
+                                                        </li>
+                                                        <li>
+
+                                                            <div className="card-docs-property  ">
+                                                                <div className="card-body-property col-4">
+                                                                    <p>Baños:</p>
+                                                                </div>
+                                                                <div className="col-4 outline text-dropdown-property">
+                                                                    <p className='text-end text-space-dropdown-property '>{datos.Banos}</p>
+                                                                </div>
+                                                            </div>
+
+                                                        </li>
+                                                        <li>
+                                                            <div className="card-docs-property  ">
+                                                                <div className="card-body-property col-4">
+                                                                    <p>Parqueadero:</p>
+                                                                </div>
+                                                                <div className="col-4 outline text-dropdown-property">
+                                                                    <p className='text-end text-space-dropdown-property '>{datos.Parqueadero}</p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li> <div className="card-docs-property  ">
                                                             <div className="card-body-property col-4">
-                                                                <p>Parqueadero:</p>
+                                                                <p>Piso:</p>
                                                             </div>
                                                             <div className="col-4 outline text-dropdown-property">
-                                                                <p className='text-end text-space-dropdown-property '>{datos.Parqueadero}</p>
+                                                                <p className='text-end text-space-dropdown-property '>{datos.Piso}</p>
                                                             </div>
-                                                        </div>
-                                                    </li>
-                                                    <li> <div className="card-docs-property  ">
-                                                        <div className="card-body-property col-4">
-                                                            <p>Piso:</p>
-                                                        </div>
-                                                        <div className="col-4 outline text-dropdown-property">
-                                                            <p className='text-end text-space-dropdown-property '>{datos.Piso}</p>
-                                                        </div>
-                                                    </div></li>
-                                                </ul>
+                                                        </div></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-
-
-
-
-
-                        <div>
-                        </div>
-
-                        <div>
+                            
+                            
+                                                       
+                            
+                          
                         </div>
                     </div>
                 </div>
-            </div>
-            {/*Tarjetas estado del inmeble */}
-            <div className="card-inm-value container-sm ">
-                <div className="row ">
-                    <div className="col-2">
-                        <img src={Ievaluacionprecio} className="" alt="..." width='24px' height='24px' />
-                    </div>
-                    <div className="col-8">
-                        <div className="card-body">
-                            <h5 className="">Evaluación de precio</h5><br />
-                            <p className=""><b>Precio oferta m²: ${formattedcostm} </b></p>
-                            <p className=""><b>Precio oferta: $ {formattedCompraDuppla}</b></p>
+                {/*Tarjetas estado del inmeble */}
+                <div className="card-inm-value container-sm  ">
+                    <div className="row ">
+                        <div className="col-2">
+                            <img src={Ievaluacionprecio} className="" alt="..." width='24px' height='24px' />
                         </div>
+                        <div className="col-8">
+                            <div className="card-body">
+                                <h5 className="">Evaluación de precio</h5><br />
+                                <p className=""><b>Precio oferta m²: ${formattedcostm} </b></p>
+                                <p className=""><b>Precio oferta: $ {formattedCompraDuppla}</b></p>
+                            </div>
 
-                    </div>
-                </div>
-            </div>
-            <div className="card-inmueble container-sm space-property-evaluation">
-                <div className="row ">
-                    <div className="col-2">
-                        <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
-                    </div>
-                    <div className="col-8 ">
-                        <div className="card-body">
-                            <h5 className="">Evaluación técnica</h5><br />
-
-                            {stateFtecnica(statefichaTecnica)}
                         </div>
                     </div>
                 </div>
+                <div className="card-inmueble container-sm space-property-evaluation">
+                    <div className="row ">
+                        <div className="col-2">
+                            <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
+                        </div>
+                        <div className="col-8 ">
+                            <div className="card-body">
+                                <h5 className="">Evaluación técnica</h5><br />
+                                {stateFtecnica(statefichaTecnica)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
             </div>
-            <br />
-            <br />
-
             {/*Botón*/}
             <div className="centrado">
                 <span className="space-text-span">¿Los datos no son los que corresponden?</span>
@@ -621,7 +614,7 @@ function Property() {
 
 
 
-        </div>/*div de cierre*/
+        </div >/*div de cierre*/
     );
 }
 

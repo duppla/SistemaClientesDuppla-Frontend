@@ -27,6 +27,6 @@ root.render(
 /*    <GoogleOAuthProvider clientId="<459885345096-6i3s9tbafo45gb41nscs6gm490dnht8n.apps.googleusercontent.com>"><App/></GoogleOAuthProvider>;
 */
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
+// to log results ( example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 

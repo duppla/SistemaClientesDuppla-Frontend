@@ -45,8 +45,8 @@ function profile() {
     const numberr = data.cuota_inicial;
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
     });
     const formattedNumber = formatter.format(number);
     const formattedNumberr = formatter.format(numberr);

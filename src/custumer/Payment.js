@@ -1,96 +1,355 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react'
+import { Link, useParams } from 'react-router-dom';
 import './../custumer/Payment.css'
+import numeral, { options } from 'numeral';
+import IconUbicacion from '../../src/img/Iconubicacion.svg'
+
+
 
 
 
 function Payment() {
+
+
+    // Uso de estados para el endpoint de la API
+    const [dataCustumer, setDataCustumer] = useState({});
+    const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
+
+    useEffect(() => {
+        const email = localStorage.getItem('email');
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: '{ "email": ' + email + '}'
+        };
+
+        fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
+            .then(response => response.json())
+            .then(response => {
+                setDataCustumer(response)
+                setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
+            })
+
+            .catch(err => console.error(err));
+    }, []);
+
+    // Uso de estados para el endpoint de la API de manera global en el componente
+    const pagoMinimo = dataCustumer.pagoMinimo;
+    const formatoSugerido = pagoMinimo + (pagoMinimo * 0.17);
+    const gastos = dataCustumer.gastos;
+    const administracion = dataCustumer.administracion;
+
+
+    //función que formatea el número
+    const formatNumber = (number) => {
+        const formatter = new Intl.NumberFormat('es-ES', {
+            style: 'decimal',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
+        return formatter.format(number);
+    };
+
+    const formatter = new Intl.NumberFormat('es-ES', {
+        style: 'decimal',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
+    const formatterPagoMinimo = formatter.format(pagoMinimo);
+    const formatoSug = formatter.format(formatoSugerido);
+
+
+
+    {/* Función que crea el link de ago que redirecciona a Paloma*/ }
+
+    const [valoresApi, setValoresApi] = useState({
+        comercio: "duppla",
+        precio: dataCustumer.inmuebleValor,
+        descripcion: dataCustumer.inmuebleName,
+    });
+
+    const generarEnlace = () => {
+        const enlaceBase = "https://www.pay.palomma.com/?";
+        const { comercio } = valoresApi;
+
+        let precio, descripcion;
+
+        if (selectedOption === "option1") {
+            precio = pagoMinimo;
+            descripcion = dataCustumer.inmuebleName;
+        } else if (selectedOption === "option2") {
+            precio = pagoMinimo + (pagoMinimo * 0.17);
+            descripcion = dataCustumer.inmuebleName;
+        } else {
+            // borrar los punto y comas cuando se ingresa el monto
+            precio = paymentValue.replace(/[.,]/g, "");
+            descripcion = dataCustumer.inmuebleName;
+        }
+
+        const enlaceModificado = `${enlaceBase}comercio=${comercio}&precio=${precio}&descripcion=${descripcion}`;
+        setValoresApi({ comercio, precio, descripcion });
+        setPaymentURL(enlaceModificado);
+
+        return enlaceModificado;
+    };
+
+    // estados para el formulario
+
+    const [selectedOption, setSelectedOption] = useState();
+    const [paymentURL, setPaymentURL] = useState();
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);//estado para el botón
+    const [paymentValue, setPaymentValue] = useState("");//para el input number
+
+    // se usa para crear el enlace de pago
+    useEffect(() => {
+        if (paymentURL) {
+            window.location.href = paymentURL;
+        }
+    }, [paymentURL]);
+
+    // cambio del estado en los input del formulario
+    function handleOptionChange(event) {
+        event.preventDefault();
+        setSelectedOption(event.target.value);
+        setIsButtonDisabled(false);
+    }
+
+    const sumaValores = gastos + administracion;
+    const precio = paymentValue;
+    console.log(sumaValores);
+    console.log(precio);
+
+    {/** function handlePayment() {
+
+        let enlace;
+        //console.log(selectedOption);
+        if (selectedOption === "option1") {
+            enlace = generarEnlace();
+            window.location.href = paymentURL;
+        } else if (selectedOption === "option2") {
+            enlace = generarEnlace();
+        } else if (selectedOption === selectedOption) {
+            const precio = paymentValue;
+            const sumaValores = gastos + administracion;           
+        if (precio === sumaValores || precio < sumaValores) {
+              console.log('precio', precio);
+              alert("El valor ingresado es menor al monto mínimo requerido.");
+              
+              return;
+            }
+            enlace = generarEnlace(precio);
+        }
+        else {
+            console.log("No option selected");
+            return;
+        }
+        console.log(enlace);
+
+    }
+*/}
+
+    // función que acciona  al botón de pago
+    function handlePayment() {
+        let enlace;
+
+        if (selectedOption === "option1") {
+            enlace = generarEnlace();
+            window.location.href = paymentURL;
+        } else if (selectedOption === "option2") {
+            enlace = generarEnlace();
+        } else {
+            const precio = paymentValue;
+            const sumaValores = gastos + administracion;
+
+            if (precio <= sumaValores) {
+                console.log('precio', precio);
+                alert("El valor ingresado es menor o igual al monto mínimo requerido.");
+                return;
+            }
+            enlace = generarEnlace(precio);
+        }
+        //console.log(enlace);
+    }
+
+    // cambio de icono de ubicación en la barra de pago
+    const stateChangeU = () => {
+        switch (selectedOption) {
+            case "option1":
+                return <div className=''>
+                    <img src={IconUbicacion} className="leftIcon" alt="" height="24px" width="24px" />
+                </div>
+            case "option2":
+                return <div className=''>
+                    <img src={IconUbicacion} className="centrado-icon-u" alt="" height="24px" width="24px" />
+                </div>
+            case "option3":
+                return <div className='rigthIcon'>
+                    <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+                </div>
+
+            default: return <img src={IconUbicacion} className="leftIcon" alt="" height="24px" width="24px" />;
+        }
+    }
+
     return (
         <div className='payment'>
             <div className="">
                 <div className="arrow-return">
                     <Link to='/inicio'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="56px" height="56px" fill="currentColor" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
+                            <path fillrule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                         </svg>
                     </Link>
                 </div>
             </div>
-            <div className="title-register">
-                <h1> <b>Pago factura</b>
-                </h1>
+            <div className="title-register-payment ">
+                <h6> <b>Seleccione o ingrese el monto a pagar</b>
+                </h6>
             </div>
-            <div className=' payment-instructions centrado'>
-                <p className='text-payment-methods '>
-                    Para realizar el pago correspondiente al mes, te ofrecemos dos opciones. Por favor, elige la que mejor se adapte a tus necesidades.
-                </p>
+            {/*Sección de btn-radio */}
+
+            <form onSubmit={handleOptionChange}>
+                <div className={`Container-cards-payment-customer ${selectedOption === 'option1' ? 'selected' : ''}`}>
+
+                    <div className="card-seccion input-group"  >
+                        <div className="row ">
+                            <div className="col-6">
+                                <div className="form-check">
+                                    <input className="form-check-input"
+                                        type="radio"
+                                        value="option1"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault1"
+                                        checked={selectedOption === "option1"}
+                                        onChange={handleOptionChange} />
+                                    <label className="form-check-label" for="flexRadioDefault1">
+                                        Pago mínimo
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="col-6 ">
+                                <div className="card-body space-value">
+                                    <p className="card-text text-end more space-value">${formatterPagoMinimo}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={`Container-cards-payment-customer ${selectedOption === 'option2' ? 'selected' : ''}`} id="cardComponet">
+                    <div className="card-seccion"  >
+                        <div className="row ">
+                            <div className="col-6">
+                                <div className="form-check">
+                                    <input className="form-check-input"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault2"
+                                        value="option2"
+                                        checked={selectedOption === "option2"}
+                                        onChange={handleOptionChange} />
+                                    <label className="form-check-label" for="flexRadioDefault2">
+                                        Pago sugerido
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="card-body">
+                                    <p className="card-text text-end more space-value">{formatoSug}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id='inputData' className={`Container-cards-payment-c ${selectedOption === 'option3' ? 'selected' : ''}`}>
+                    <div className="card-seccion "  >
+                        <div className="row ">
+                            <div className="col-6">
+                                <div className="form-check">
+                                    <input className="form-check-input"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault2"
+                                        value="option3"
+                                        checked={selectedOption === "option3"}
+                                        onChange={handleOptionChange} />
+                                    <label className="form-check-label space-value-input" htmlFor="flexRadioDefault3">
+                                        Otro valor
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <input type="text"
+                                    id='paymentBtn'
+                                    name="otrovalornumero"
+                                    value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
+                                    onChange={(event) => setPaymentValue(event.target.value)}
+
+                                    //value={numeral(selectedOption).format('0,0')}
+                                    //value={selectedOption}
+                                    //checked={selectedOption === "option3"}
+                                    // onChange={handleOptionChange}
+                                    className="form-control-custumer  input-pago"
+                                    placeholder="$"
+                                />
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+
+                            <div className="msj-payment">
+                                <p className='text-payment-methods '>
+                                    <small> Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonara a tu participación.</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row centrado" >
+                    <button type="submit"
+                        onClick={handlePayment}
+                        disabled={isButtonDisabled}
+                        className={` btn btn-payment-custumer centrado-btn  ${isButtonDisabled ? "disabled" : "enabled"} `}
+                        width="360px" height="68px" >Continuar</button>
+                </div>
+            </form>
+
+            <div className='d-grid  Container-cards-payment-bar '>
+                {/*Sección viñeta de ubicación en la barra */}
+                {stateChangeU()}
+
+                {/*Sección de colores de la barra */}
+                <div className="card-docs-grafic-payment ">
+                    <div className="col-3 row prueba-inicio-espacio-uno cimiento">
+                        <div className="col-3 ">
+                            <p className="cimiento"></p>
+                        </div>
+                    </div >
+                    <div className="col-6 row prueba-inicio-espacio-dos verde">
+                        <div className="col-3">
+                        </div>
+                    </div >
+                    <div className="col-3 row prueba-inicio-espacio-tres azul">
+                        <div className="col-3">
+                        </div>
+                    </div >
+                </div>
+                <div className="col-12 row">
+                    <div className=' col-3 row text-range-one'>
+                        <p className='number-range-payment-grafic'>15%</p>
+                    </div>
+                    <div className=' col-3 row text-range-two'>
+                        <p className='number-range-payment-grafic'>30%</p>
+                    </div>
+                    <div className=' col-3 row text-range-tree'>
+                        <p className='number-range-payment-grafic'>+30%</p>
+                    </div>
+                </div>
+                <div className=''>
+                    <p className='text-payment-method'><small>Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.</small></p>
+                </div>
             </div>
-            <div className="description-payment-methods container-fluid  "><br />
-                <div className='payment-methods centrado'>
-                    <p className='text-payment-methods '>
-                        1. Puedes dirigirte al banco y efectuar el pago directamente a través del número de cuenta correspondiente a la fiduciaria.
-                    </p>
-                </div>
-                <div className='card-payment-methods '>
-                    <div className='title-card-payment'        >
-                        <p>Acción fiduciaria</p>
-                    </div>
-                    <div className="card-docs-init  ">
-                        <div className="card-body-docs col-6 ">
-                            <p className='description-payment'>Referencia:</p>
-                        </div>
-                        <div className="col-6 outline text-dropdown-right">
-                            <p className='text-end  text-blue-payment'>00017000224519</p>
-                        </div>
-                    </div>
-                    <div className="card-docs-init  ">
-                        <div className="card-body-docs col-6 ">
-                            <p className='description-payment'>Bancolombia</p>
-                        </div>
-                        <div className="col-6 outline text-dropdown-right">
-                            <p className='text-end  text-blue-payment'>Convenio 26096</p>
-                        </div>
-                    </div>
-                    <div className="card-docs-init  ">
-                        <div className="card-body-docs col-6 ">
-                            <p className='description-payment'>Banco de occidente</p>
-                        </div>
-                        <div className="col-6 outline text-dropdown-right">
-                            <p className='text-end  text-blue-payment'>Nit: 800.193.824-8</p>
-                        </div>
 
-                    </div>
-
-                </div>
-                <div className='payment-methods'>
-                    <p className='text-payment-methods '>
-                        2. También puedes realizar la transacción directamente a nuestra cuenta.
-                    </p>
-                </div>
-
-                <div className='card-payment-methods '>
-                    <div className='title-card-payment'        >
-                        <p>COMPRA MIENTRASALQUILAS S.A.S</p>
-                    </div>
-                    <div className="card-docs-init  ">
-                        <div className="card-body-docs col-6 ">
-                            <p className='description-payment'>NIT 901.573.094-9</p>
-                        </div>
-                        <div className="col-6 outline text-dropdown-right">
-                            <p className='text-end  text-blue-payment'></p>
-                        </div>
-                    </div>
-                    <div className="card-docs-init  ">
-                        <div className="card-body-docs col-6 ">
-                            <p className='description-payment'>Davivienda ahorros</p>
-                        </div>
-                        <div className="col-6 outline text-dropdown-right">
-                            <p className='text-end  text-blue-payment'>#000000000</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
         </div>
 

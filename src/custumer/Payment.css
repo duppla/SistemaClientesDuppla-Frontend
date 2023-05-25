@@ -10,9 +10,9 @@
 }
 
 
-.payment{
+.payment {
 
-height: 1000px;
+  height: 1000px;
 
 }
 
@@ -24,7 +24,7 @@ height: 1000px;
 }
 
 .text-blue-pagos :hover {
-   color: var(--color-fondo);
+  color: var(--color-fondo);
   margin-top: 10px;
 }
 
@@ -46,7 +46,7 @@ height: 1000px;
 .btn-imp-factura :hover {
   width: 170px;
   height: 52px;
- 
+
   background: var(--color-primario-btn);
   color: #FFFFFF;
   border: 1px solid var(--color-primario-btn);
@@ -54,19 +54,19 @@ height: 1000px;
 
 }
 
-.description-payment-methods{
+.description-payment-methods {
   box-sizing: border-box;
 
-width: 340px;
-height: 540px;
+  width: 340px;
+  height: 540px;
 
-margin-top: 30px;
-margin-left: 25px;
-margin-right: 25px;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-right: 25px;
 
-background: #FFFFFF;
-box-shadow: 0px 0px 10px 1px rgba(115, 113, 113, 0.15);
-border-radius: 8px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px 1px rgba(115, 113, 113, 0.15);
+  border-radius: 8px;
 }
 
 .payment-methods {
@@ -79,9 +79,9 @@ border-radius: 8px;
   margin-right: 20px;
 }
 
-.payment-instructions{
+.payment-instructions {
   width: 300px;
-  height: 48px ;
+  height: 48px;
 
   margin-top: 40px;
   margin-left: 40px;
@@ -94,16 +94,16 @@ border-radius: 8px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  
+
 
 }
 
-.card-payment-methods{
+.card-payment-methods {
 
-   width: 300px;
-   height: 140px;
+  width: 300px;
+  height: 140px;
   margin-left: 20px;
-   margin-top: 26px;
+  margin-top: 26px;
   margin-right: 20px;
   /* Grey/0
   
@@ -111,27 +111,251 @@ border-radius: 8px;
   */
   background: #FFFFFF;
   /* Shadow/Card Shadow */
-  
+
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
 
 }
 
-.text-blue-payment{
+.text-blue-payment {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: var(--color-primario-btn);
 }
 
-.title-card-payment{
+.title-card-payment {
   margin-top: 10px;
   margin-left: 10px;
 }
 
-.description-payment{
+.description-payment {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  
+
+}
 
 
+.Container-cards-payment-customer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 5px;
+
+  padding: 16px 24px;
+  gap: 16px;
+  height: 90px;
+  margin-left: 16px;
+  margin-right: 16px;
+
+  border-radius: 5px;
+  top: 210px;
+  bottom: 100px;
+
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+}
+
+.Container-cards-payment-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 5px;
+
+  padding: 16px 24px;
+  gap: 16px;
+  height: 180px;
+  margin-left: 16px;
+  margin-right: 16px;
+
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+}
+
+.form-check {
+  margin-top: 12px !important;
+}
+
+.btn-payment-custumer {
+  width: 360px;
+  height: 56px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
+  border: 1px solid #81A1F8;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.form-control-custumer {
+  margin-top: 2px;
+  height: 48px;
+  width: 140px;
+
+  border: none !important;
+
+
+}
+
+.input-pago {
+  width: 140px;
+  margin-right: 10px;
+  border-bottom: 2px solid #0A3323 !important;
+}
+
+.mnj-payment {
+  margin-top: 20px !important;
+}
+
+.title-register-payment {
+  padding: 0 0 5px 5px;
+  margin-top: 20px;
+  text-align: start;
+  margin-bottom: 20px;
+  margin-left: 16px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+
+}
+
+.space-value {
+
+  margin-top: 18px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 12px;
+}
+
+.space-value-input {
+
+  margin-top: 1px;
+  margin-left: -1px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+
+}
+
+
+.card-docs-grafic-payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+
+  gap: 16px;
+  height: 58px;
+  margin-left: 16px;
+  margin-right: 16px;
+
+  border-radius: 5px;
+  top: 210px;
+  bottom: 100px;
+
+}
+
+.Container-cards-payment-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 5px;
+
+  padding: 16px 24px;
+  gap: 16px;
+  height: 270px;
+  margin-left: 16px;
+  margin-right: 16px;
+
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+}
+
+
+.text-payment-method {
+  width: 360px;
+  margin-left: 20px;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  margin-top: -5px;
+
+}
+
+.selected {
+  border: 1px solid #6C9FFF;
+/* M3/Elevation Light/1 */
+
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+}
+
+/* Estilos para el botón deshabilitado */
+.disabled {
+
+  width: 360px;
+  height: 56px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #EFEFEF;
+  box-shadow: inset -17px -10.6667px 10.6667px rgba(66, 68, 148, 0.091), inset 10px 10.6667px 20px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(13.9733px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #050505;
+}
+
+/* Estilos para el botón habilitado */
+.enabled {
+  width: 360px;
+  height: 56px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
+  border: 1px solid #81A1F8;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+
+.text-range-one {
+  margin-left: 70px;
+}
+
+.text-range-two {
+  margin-left: 20px;
+}
+
+.text-range-tree {
+  margin-left: 20px;
+}
+
+.leftIcon {
+  margin-left: 80px;
+}
+
+.rigthIcon {
+  margin-left: 300px;
+}
+
+.centrado-icon-u {
+  margin-left: 180px;
 }

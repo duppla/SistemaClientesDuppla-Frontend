@@ -291,13 +291,19 @@ code {
   margin-top: 25px;
 }
 
+.img-user-custumer {
+  width: 64px;
+  height: 63px;
+  margin-left: 32px;
+  margin-top: -20px;
+}
+
 .img-user-img {
   width: 64px;
   height: 63px;
   margin-top: 30px;
   margin-left: 16px;
   margin-bottom: 10px;
-
 }
 
 .contenedor-img-duppla {
@@ -379,6 +385,8 @@ hr {
 
 .more {
   width: 110px;
+
+  
 }
 
 .link-styles {
@@ -413,7 +421,18 @@ hr {
   border-bottom-left-radius: 60% 18%;
   border-bottom-right-radius: 60% 18%;
  
-  
+}
+
+.profile-custumer {
+ display: grid;
+  height: 177px;
+  padding: 0px 0px 0px 0px;
+  margin-bottom: 31px;
+  background: linear-gradient(60.01deg, #0A3323 19.88%, #C5F5CA 217.71%);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 60% 18%;
+  border-bottom-right-radius: 60% 18%;
  
 }
 
@@ -882,9 +901,25 @@ a {
   height: 180px;
   left: 25px;
   right: 25px;
-  top: 210px;
+  top: 210px; 
   bottom: 100px;
 }
+.card-inmueble-first {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  width: 390px;
+  height: 180px;
+  left: 25px;
+  right: 25px;
+  top: 210px; 
+  bottom: 100px;
+}
+
+
+
 
 .card-inm-value {
   display: grid;
@@ -898,6 +933,12 @@ a {
   right: 25px;
   margin-top: 80px;
   bottom: 100px;
+ 
+  
+
+ 
+  
+  
 }
 
 .card-body {
@@ -915,7 +956,7 @@ a {
 
 .card-body-docs {
   padding-bottom: 5px;
-
+  
 }
 
 
@@ -970,6 +1011,8 @@ a {
 
 .container-property {
   height: 1200px;
+ 
+
 }
 
 .card-state-properties {
@@ -1103,15 +1146,13 @@ a {
 }
 
 .icon-navbar-home{
- 
-  margin-bottom: 29px;
+   margin-bottom: 29px;
   margin-left: -12px;
 
 }
 
 .navbar-move{
-  
-  height: 500px !important;
+   height: 500px !important;
   border-radius: 12px 12px 0px 0px;
 }
 
@@ -1304,8 +1345,6 @@ a {
 
     border: 1, 3px solid #FFFFFF;
     background-color: #ffffff;
-
-
   }
 
   .img-duppla {
