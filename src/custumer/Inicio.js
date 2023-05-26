@@ -219,8 +219,7 @@ function Inicio() {
                                         <img src={Vline} className="line-custumer centrado" data-bs-dismiss="offcanvas" alt="" />
                                     </div>
                                     <div className="offcanvas-body">
-                                        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                        </p>
+                                        <p>{dataCustumer.mensaje}</p>
                                     </div>
                                 </div>
                             </div>
@@ -275,8 +274,8 @@ function Inicio() {
                                                 </Link>
                                             </li>
                                             <li className="nav-item  nav-section">
-                                                <a className="links text-white"
-                                                    href={btnpago} >
+                                                <Link to ="/pagos" className="links text-white"
+                                                    >
                                                     <div className="row ">
                                                         <div className="col-8 outline ">
                                                             <div className="row">
@@ -291,7 +290,7 @@ function Inicio() {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             </li>
                                             {/*  <li className="nav-item">
                                             <Link to="/historial">

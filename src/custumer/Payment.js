@@ -298,8 +298,8 @@ function Payment() {
                             <br />
 
                             <div className="msj-payment">
-                                <p className='text-payment-methods '>
-                                    <small> Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonara a tu participación.</small>
+                                <p className='font-text-payment '>
+                                     Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonara a tu participación.
                                 </p>
                             </div>
                         </div>
