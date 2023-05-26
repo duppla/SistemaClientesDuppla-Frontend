@@ -471,7 +471,7 @@ function Property() {
 
                             {/*card con dropdown */}
 
-                            <div className=" card  prueba-mo " >
+                            <div className=" card prueba-mo " >
                                 <div className="card-header card-dropdown-property ">
                                     <div className="accordion accordion-flush" id="accordionFlushExample">
                                         <div className="accordion-item ">

@@ -344,9 +344,12 @@ function Payment() {
                     <div className=' col-3 row text-range-tree'>
                         <p className='number-range-payment-grafic'>+30%</p>
                     </div>
-                </div>
-                <div className=''>
-                    <p className='text-payment-method'><small>Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.</small></p>
+                </div>               
+                
+                <div className="msj-payment ">
+                    <p className=' '>
+                        <small> Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.</small>
+                    </p>
                 </div>
             </div>
 

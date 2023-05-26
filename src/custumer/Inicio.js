@@ -394,7 +394,7 @@ function Inicio() {
             </div>
             {/*Sección grafica- semi-donut*/}
             <div className=" container-inicio-graph container-fluid ">
-                <div className='grafict-container-inicio-one container-fluid '>
+                <div className='grafict-container-inicio-one  '>
                     <div className='title-init'>
                         <b><h3 className='title-init-progressbar'>Actividad mensual</h3></b>
                     </div>
@@ -467,7 +467,7 @@ function Inicio() {
             {/*Sección dropdown Mes*/}
 
             <div className="accordion accordion-custumer " id="accordionExample">
-                <div className="accordion-item">
+                <div className="accordion-item ">
                     <h2 className="accordion-header" id="headingTwo">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             <div className=" text-start " id="basic-addon4"><h5>{mes}</h5></div>
@@ -592,7 +592,6 @@ function Inicio() {
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
                     <a className="links text-white"
                         href='/pagos' >
-
                         <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn  text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>Pagar </h5>

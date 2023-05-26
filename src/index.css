@@ -367,7 +367,7 @@ code {
 
 /* linea en perfil |*/
 hr {
-  position: absolute;
+ 
 
   width: 10px;
   height: 0px;
@@ -1269,7 +1269,16 @@ a {
 
     background:#ffffff;
   }
-
+  .bell {
+ 
+    height: 24px;
+    width: 24px;
+    margin-left: 140px;
+    margin-right: 30px;
+    margin-top: -46px;
+    
+   
+}
 
 
 
@@ -1367,7 +1376,16 @@ a {
     margin-right: 10px;
   }
 
-
+  .bell {
+ 
+    height: 24px;
+    width: 24px;
+    margin-left: 140px;
+    margin-right: 30px;
+    margin-top: -46px;
+    
+   
+}
 
 
 }
