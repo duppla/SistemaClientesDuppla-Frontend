@@ -359,3 +359,8 @@ border-radius: 10px;
 .centrado-icon-u {
   margin-left: 140px;
 }
+
+.font-text-payment{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}

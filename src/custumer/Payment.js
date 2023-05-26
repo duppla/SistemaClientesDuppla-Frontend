@@ -347,8 +347,8 @@ function Payment() {
                 </div>               
                 
                 <div className="msj-payment ">
-                    <p className=' '>
-                        <small> Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.</small>
+                    <p className='font-text-payment '>
+                       Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.
                     </p>
                 </div>
             </div>

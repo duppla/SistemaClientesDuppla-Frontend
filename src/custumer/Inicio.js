@@ -398,10 +398,10 @@ function Inicio() {
                     <div className='title-init'>
                         <b><h3 className='title-init-progressbar'>Actividad mensual</h3></b>
                     </div>
-                    <div className='centrado '>
+                    <div className='centrado'>
                         <GrafictHome />
                     </div>
-                    <div className=' sobrepuesto'>
+                    <div className='sobrepuesto'>
                         <div>
                             <h1>{GrafictPie()}</h1>
                         </div>
@@ -411,8 +411,8 @@ function Inicio() {
                     </div>
                     <div className="card-docs-grafic  ">
                         <div className="col-6 row prueba-inicio-espacio-u">
-                            <div className="col-2">
-                                <img src={Istatec} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                            <div className="col-2 prueba-espacio-img-verde">
+                                <img src={Istatec} className="" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
                                 <p className="text-inicio-gra">Participación actual</p>
