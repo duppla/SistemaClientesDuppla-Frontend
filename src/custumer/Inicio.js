@@ -185,10 +185,31 @@ function Inicio() {
         let years = 5;
         let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
         let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
+        let diferenciaMeta =  porcentajeActual-metaAnual;
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-
+    
 
         return porcentajeActual
+    }
+
+    const GrafictActual = () => {
+        const fecha1 = new Date();
+        const fecha2 = new Date(dataCustumer.fechaEntrega);
+        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
+        //console.log(diffYears); // Número de años entre las dos fechas 
+
+        let metaPorcentaje = 30;
+        let years = 5;
+        let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
+        let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
+        let diferenciaMeta =  porcentajeActual-metaAnual;
+       
+    diferenciaMeta = diferenciaMeta.toFixed(1); // Limitar a 1 decimal
+    diferenciaMeta = parseFloat(diferenciaMeta); 
+        let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
+     
+
+        return diferenciaMeta
     }
 
     const GrafictMeta = () => {
@@ -411,7 +432,7 @@ function Inicio() {
             <div className=" container-inicio-graph container-fluid ">
                 <div className='grafict-container-inicio-one  '>
                     <div className='title-init'>
-                        <b><h3 className='title-init-progressbar'>Actividad mensual</h3></b>
+                        <b><h2 className='title-init-progressbar'>Mi actividad</h2></b>
                     </div>
                     <div className='centrado'>
                         <GrafictHome />
@@ -443,7 +464,7 @@ function Inicio() {
                             <div className="col-2 ">                               
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra ">{GrafictPie()}%</p>
+                                <p className="text-inicio-gra ">{GrafictActual()}%</p>
                             </div>
                         </div >
                     </div>
@@ -453,7 +474,7 @@ function Inicio() {
                             <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra">Meta anual</p>
+                                <p className="text-inicio-gra">Faltante meta anual</p>
                             </div>
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
@@ -528,7 +549,7 @@ function Inicio() {
                                                         onMouseLeave={() => handleMouseLeave(0)}
                                                     >
                                                         <img src={IconToolytip} className="warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                        {tooltips[0] && <div className="tooltip">Pago mensual que realizas por el uso del inmueble</div>}
+                                                        {tooltips[0] && <div className="tooltip ">Pago mensual que realizas por el uso del inmueble</div>}
                                                     </div>
                                                 </div>
                                             </div>
