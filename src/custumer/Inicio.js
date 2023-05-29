@@ -190,6 +190,22 @@ function Inicio() {
 
         return porcentajeActual
     }
+
+    const GrafictMeta = () => {
+        const fecha1 = new Date();
+        const fecha2 = new Date(dataCustumer.fechaEntrega);
+        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
+        //console.log(diffYears); // Número de años entre las dos fechas 
+
+        let metaPorcentaje = 30;
+        let years = 5;
+        let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
+        let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
+        let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
+
+
+        return metaAnual
+    }
     //console.log("aqui esta" + GrafictPie());
 
     return (
@@ -402,7 +418,7 @@ function Inicio() {
                     </div>
                     <div className='sobrepuesto'>
                         <div>
-                            <h1>{GrafictPie()}</h1>
+                            <h1>{GrafictPie()}%</h1>
                         </div>
                         <div>
                             <p>Anual</p>
@@ -419,18 +435,38 @@ function Inicio() {
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
                             <div className="col-2">
-
                             </div>
                             <div className="col-2 ">
-
                             </div>
                         </div >
                         <div className="col-6 row prueba-inicio-espacio-u">
-                            <div className="col-2 ">
-                                <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                            <div className="col-2 ">                               
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra ">Meta anual</p>
+                                <p className="text-inicio-gra ">{GrafictPie()}%</p>
+                            </div>
+                        </div >
+                    </div>
+                    <div className="card-docs-grafic-two">
+                        <div className="col-6 row prueba-inicio-espacio-u">
+                            <div className="col-2 prueba-espacio-img-verde">
+                            <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                            </div>
+                            <div className="col-4 ">
+                                <p className="text-inicio-gra">Meta anual</p>
+                            </div>
+                        </div >
+                        <div className="col-4 row prueba-inicio-espacio-u">
+                            <div className="col-2">
+                            </div>
+                            <div className="col-2 ">
+                            </div>
+                        </div >
+                        <div className="col-6 row prueba-inicio-espacio-u">
+                            <div className="col-2 ">                                
+                            </div>
+                            <div className="col-4 ">
+                                <p className="text-inicio-gra ">{GrafictMeta()}%</p>
                             </div>
                         </div >
                     </div>
