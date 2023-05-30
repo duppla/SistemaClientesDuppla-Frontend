@@ -1,8 +1,5 @@
-
-
 import React, { useEffect, useState } from 'react'
 import numeral from 'numeral';
-
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 
@@ -51,7 +48,7 @@ const GrafictHome = () => {
     let participacionacumulada = (dataGrafict.participacionInicial / porcentajeActual) * 100;
     let faltanteMeta= porcentajeActual-dataGrafict.participacion;
 
-    console.log('diferencia' + faltanteMeta);
+    //console.log('diferencia' + faltanteMeta);
     return faltanteMeta;
   }
 
@@ -62,9 +59,9 @@ const GrafictHome = () => {
 
     return porcentaje;
   }
-  console.log(dataGrafict.participacionInicial);
-  console.log(hazComprado());
-  console.log(GrafictPie());
+  //console.log(dataGrafict.participacionInicial);
+  //console.log(hazComprado());
+ // console.log(GrafictPie());
 
 
   const dataPrueba = [

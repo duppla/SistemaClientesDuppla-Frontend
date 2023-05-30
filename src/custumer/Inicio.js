@@ -180,7 +180,7 @@ function Inicio() {
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-        console.log(diffYears); // Número de años entre las dos fechas 
+       // console.log(diffYears); // Número de años entre las dos fechas 
 
         let metaPorcentaje = 30;
         let years = 5;

@@ -116,8 +116,8 @@ function Payment() {
 
     const sumaValores = gastos + administracion;
     const precio = paymentValue;
-    console.log(sumaValores);
-    console.log(precio);
+   // console.log(sumaValores);
+    //console.log(precio);
 
     {/** function handlePayment() {
 
