@@ -38,30 +38,43 @@ const GrafictHome = () => {
 
 
   //compración de fechas
-   const GrafictPie = () => {
+  const GrafictPie = () => {
     const fecha1 = new Date();
-    const fecha2 = new Date(dataGrafict.fechaEntrega);  
-    const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;  
+    const fecha2 = new Date(dataGrafict.fechaEntrega);
+    const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
     //console.log(diffYears); // Número de años entre las dos fechas 
 
     let metaPorcentaje = 30;
     let years = 5;
-    let metaAnual = (metaPorcentaje - dataGrafict.participacion) / years; 
-    let porcentajeActual = dataGrafict.participacion + (metaAnual * diffYears);
-    let participacionacumulada = (dataGrafict.participacion / porcentajeActual)*100;
+    let metaAnual = (metaPorcentaje - dataGrafict.participacionInicial) / years;
+    let porcentajeActual = dataGrafict.participacionInicial + (metaAnual * diffYears);
+    let participacionacumulada = (dataGrafict.participacionInicial / porcentajeActual) * 100;
+    let faltanteMeta= porcentajeActual-dataGrafict.participacion;
 
-    
-    return participacionacumulada;
+    console.log('diferencia' + faltanteMeta);
+    return faltanteMeta;
   }
 
 
+  const hazComprado = () => {
+
+    let porcentaje = dataGrafict.participacion - dataGrafict.participacionInicial;
+
+    return porcentaje;
+  }
+  console.log(dataGrafict.participacionInicial);
+  console.log(hazComprado());
+  console.log(GrafictPie());
+
+
   const dataPrueba = [
-    { name: 'Group A', value: GrafictPie() },
-    { name: 'Group B', value: 100- GrafictPie() },
+    { name: 'Group A', value: dataGrafict.participacionInicial },
+    { name: 'Group B', value: hazComprado() },
+    { name: 'Group C', value: GrafictPie() },
   ];
-  
-  const COLORS = ['#0A3323', '#C5F5CA'];
-  
+
+  const COLORS = ['#0A3323', '#6C9FFF', '#C5F5CA'];
+
 
 
   //console.log(dataGrafict.participacion);

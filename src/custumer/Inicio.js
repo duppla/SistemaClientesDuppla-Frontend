@@ -102,7 +102,7 @@ function Inicio() {
 
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
-    
+
 
     //formateo de los datos en pagos
     const formatted = dataCustumer.pagoMinimo;
@@ -180,15 +180,15 @@ function Inicio() {
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-        //console.log(diffYears); // Número de años entre las dos fechas 
+        console.log(diffYears); // Número de años entre las dos fechas 
 
         let metaPorcentaje = 30;
         let years = 5;
-        let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
-        let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
-        let diferenciaMeta =  porcentajeActual-metaAnual;
+        let metaAnual = (metaPorcentaje - dataCustumer.participacionInicial) / years;
+        let porcentajeActual = dataCustumer.participacionInicial + (metaAnual * diffYears);
+        let diferenciaMeta = porcentajeActual - metaAnual;
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-    
+
 
         return porcentajeActual
     }
@@ -203,12 +203,12 @@ function Inicio() {
         let years = 5;
         let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
         let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
-        let diferenciaMeta =  porcentajeActual-metaAnual;
-       
-    diferenciaMeta = diferenciaMeta.toFixed(1); // Limitar a 1 decimal
-    diferenciaMeta = parseFloat(diferenciaMeta); 
+        let diferenciaMeta = porcentajeActual - metaAnual;
+
+        diferenciaMeta = diferenciaMeta.toFixed(1); // Limitar a 1 decimal
+        diferenciaMeta = parseFloat(diferenciaMeta);
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-     
+
 
         return diferenciaMeta
     }
@@ -222,12 +222,22 @@ function Inicio() {
 
         let metaPorcentaje = 30;
         let years = 5;
-        let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
-        let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
+        let metaAnual = (metaPorcentaje - dataCustumer.participacionInicial) / years;
+        let porcentajeActual = dataCustumer.participacionInicial + (metaAnual * diffYears);
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
+        let faltanteMeta= porcentajeActual-dataCustumer.participacion;
+        faltanteMeta = faltanteMeta.toFixed(1); // Limitar a 1 decimal
+        faltanteMeta = parseFloat(faltanteMeta);
 
+        return faltanteMeta
+    }
 
-        return metaAnual
+    const dataGrafictT = () => {
+        let porcentaje = dataCustumer.participacion - dataCustumer.participacionInicial;
+        porcentaje = porcentaje.toFixed(1); // Limitar a 1 decimal
+        porcentaje = parseFloat(porcentaje);
+        
+        return porcentaje;
     }
     //console.log("aqui esta" + GrafictPie());
 
@@ -273,7 +283,7 @@ function Inicio() {
                             alt="perfil" />
                         </Link>
                         <div className="vertical-line"></div>
-                      
+
                     </div>
                     <div className="col-6  card-perfil-datos-customer">
                         <div className="card-body">
@@ -284,11 +294,11 @@ function Inicio() {
                     {/*Navbar custumer */}
                     <nav className=" col-2 navbar  ">
                         <div className="icon-navbar-customer">
-                            <button className="navbar-toggler border-none" 
-                            type="button"
-                             data-bs-toggle="offcanvas" 
-                             data-bs-target="#offcanvasNavbar" 
-                             aria-controls="offcanvasNavbar">
+                            <button className="navbar-toggler border-none"
+                                type="button"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar"
+                                aria-controls="offcanvasNavbar">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="menu-navbar-customer" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
                             </button>
                             <div className="">
@@ -318,8 +328,8 @@ function Inicio() {
                                                 </Link>
                                             </li>
                                             <li className="nav-item  nav-section">
-                                                <Link to ="/pagos" className="links text-white"
-                                                    >
+                                                <Link to="/pagos" className="links text-white"
+                                                >
                                                     <div className="row ">
                                                         <div className="col-8 outline ">
                                                             <div className="row">
@@ -439,7 +449,7 @@ function Inicio() {
             <div className=" container-inicio-graph container-fluid ">
                 <div className='grafict-container-inicio-one  '>
                     <div className='title-init'>
-                        <b><p className='title-init-progressbar'>Actividad</p></b>
+                        <b><p className='title-init-progressbar'>Actividad periodo</p></b>
                     </div>
                     <div className='centrado'>
                         <GrafictHome />
@@ -457,7 +467,7 @@ function Inicio() {
                     <div className="card-docs-grafic  ">
                         <div className="col-6 row prueba-inicio-espacio-u">
                             <div className="col-2 prueba-espacio-img-verde">
-                                <img src={Istateb} className="" alt="" height='12px' width='12px' />
+                                <img src={Istatec} className="" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
                                 <p className="text-inicio-gra">Participación inicial</p>
@@ -470,17 +480,17 @@ function Inicio() {
                             </div>
                         </div >
                         <div className="col-6 row prueba-inicio-espacio-u">
-                            <div className="col-2 ">                               
+                            <div className="col-2 ">
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra ">{dataCustumer.participacion}%</p>
+                                <p className="text-inicio-gra ">{dataCustumer.participacionInicial}%</p>
                             </div>
                         </div >
                     </div>
                     <div className="card-docs-grafic-two">
                         <div className="col-6 row prueba-inicio-espacio-u">
                             <div className="col-2 prueba-espacio-img-verde">
-                            <img src={Istatec} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
                                 <p className="text-inicio-gra">Haz comprado</p>
@@ -493,17 +503,17 @@ function Inicio() {
                             </div>
                         </div >
                         <div className="col-6 row prueba-inicio-espacio-u">
-                            <div className="col-2 ">                                
+                            <div className="col-2 ">
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra ">{GrafictActual()}%</p>
+                                <p className="text-inicio-gra ">{dataGrafictT()}%</p>
                             </div>
                         </div >
                     </div>
                     <div className="card-docs-grafic-two">
                         <div className="col-6 row prueba-inicio-espacio-u">
                             <div className="col-2 prueba-espacio-img-verde">
-                            <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
                                 <p className="text-inicio-gra">Faltante meta</p>
@@ -516,7 +526,7 @@ function Inicio() {
                             </div>
                         </div >
                         <div className="col-6 row prueba-inicio-espacio-u">
-                            <div className="col-2 ">                                
+                            <div className="col-2 ">
                             </div>
                             <div className="col-4 ">
                                 <p className="text-inicio-gra ">{GrafictMeta()}%</p>
@@ -524,7 +534,7 @@ function Inicio() {
                         </div >
                     </div>
                     <br />
-                    <div className='horizontal-line'>                        
+                    <div className='horizontal-line'>
                     </div>
                     <br />
                     <div className="card-docs-init-customer ">
