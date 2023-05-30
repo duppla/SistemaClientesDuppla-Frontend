@@ -5,7 +5,7 @@ body {
   overflow-x: hidden !important;
   width: 100% !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Rustica'
+    'Ubuntu', 'Rustica', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Rustica'
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -109,7 +109,7 @@ code {
 
 .btn {
   border-radius: 5px;
-  
+
 }
 
 .btn-registro {
@@ -216,19 +216,18 @@ code {
   padding: 0 0 5px 5px;
   margin-top: 48px;
   text-align: start;
-  margin-bottom:-20px;
+  margin-bottom: -20px;
   margin-left: 40px;
-  
+
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   line-height: 31px;
   display: flex;
- 
-  letter-spacing: -0.015em;  
+
+  letter-spacing: -0.015em;
   color: #0A3323
-  
 }
 
 .form-register {
@@ -367,7 +366,6 @@ code {
 
 /* linea en perfil |*/
 hr {
- 
 
   width: 10px;
   height: 0px;
@@ -375,18 +373,17 @@ hr {
   top: 65px;
   margin-top: 30px;
   margin-left: 10px;
-
-
-  border: 1px solid #FFFFFF;
+  border: 1px solid #FFFFFF !important;
   transform: rotate(90deg);
-  background-color: #ffffff;
+  background-color: #ffffff !important;
+
 
 }
 
 .more {
   width: 110px;
 
-  
+
 }
 
 .link-styles {
@@ -420,12 +417,12 @@ hr {
   background-repeat: no-repeat;
   border-bottom-left-radius: 60% 18%;
   border-bottom-right-radius: 60% 18%;
- 
+
 }
 
 .profile-custumer {
   position: relative;
- display: grid;
+  display: grid;
   height: 177px;
   padding: 0px 0px 0px 0px;
   margin-bottom: 31px;
@@ -434,7 +431,7 @@ hr {
   background-repeat: no-repeat;
   border-bottom-left-radius: 60% 18%;
   border-bottom-right-radius: 60% 18%;
- 
+
 }
 
 .img-icono-card {
@@ -479,25 +476,31 @@ hr {
 
 
 .text-white-home {
-  color: var(--color-fondo);
-  font-family: Arial, Helvetica, sans-serif;
+
+  /* identical to box height */
+  letter-spacing: -0.015em;
+  font-family: 'Rustica';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  /* identical to box height */
-
-
+  display: flex;
+  align-items: center;
   letter-spacing: -0.015em;
+
+  color: #FFFFFF;
+
 }
+
 .text-white-profile {
   color: var(--color-fondo);
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-   margin-top: 12px;
-   margin-left: -24px;  /* identical to box height */
+  margin-top: 12px;
+  margin-left: -24px;
+  /* identical to box height */
 
 }
 
@@ -507,9 +510,9 @@ hr {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  
+
   margin-top: -16px;
-  margin-left: -24px; 
+  margin-left: -24px;
   margin-bottom: 0px;
   /* identical to box height */
 }
@@ -528,16 +531,21 @@ hr {
 }
 
 .text-orange {
-  margin-top: 7px;
+
+
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 10px;
   line-height: 12px;
-  
- 
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.025em;
 
-  color: var(--color-naranja-duppla);
+  color: #FF864B;
+
+
+
 
 }
 
@@ -902,9 +910,10 @@ a {
   height: 180px;
   left: 25px;
   right: 25px;
-  top: 210px; 
+  top: 210px;
   bottom: 100px;
 }
+
 .card-inmueble-first {
   display: grid;
   grid-template-columns: 1fr;
@@ -915,7 +924,7 @@ a {
   height: 180px;
   left: 25px;
   right: 25px;
-  top: 210px; 
+  top: 210px;
   bottom: 100px;
 }
 
@@ -934,12 +943,12 @@ a {
   right: 25px;
   margin-top: 80px;
   bottom: 100px;
- 
-  
 
- 
-  
-  
+
+
+
+
+
 }
 
 .card-body {
@@ -957,7 +966,7 @@ a {
 
 .card-body-docs {
   padding-bottom: 5px;
-  
+
 }
 
 
@@ -1012,7 +1021,7 @@ a {
 
 .container-property {
   height: 1200px;
- 
+
 
 }
 
@@ -1146,14 +1155,14 @@ a {
   color: #FFFFFF;
 }
 
-.icon-navbar-home{
-   margin-bottom: 29px;
+.icon-navbar-home {
+  margin-bottom: 29px;
   margin-left: -12px;
 
 }
 
-.navbar-move{
-   height: 500px !important;
+.navbar-move {
+  height: 500px !important;
   border-radius: 12px 12px 0px 0px;
 }
 
@@ -1231,9 +1240,21 @@ a {
     margin-left: 1px;
     margin-bottom: 35px;
 
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffff !important;
     transform: rotate(90deg);
-    background-color: #ffffff;
+    background-color: #ffffff !important;
+
+  }
+
+  .vertical-line {
+    position: absolute;
+    margin-left: 114px;
+    margin-top: -62px;
+    margin-bottom: 36px;
+    width: 1px;
+    height: 61px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #E7E7E7;
 
   }
 
@@ -1268,21 +1289,21 @@ a {
     margin-right: 10px;
     border-radius: 12px;
 
-    background:#ffffff;
+    background: #ffffff;
   }
 
 
 
   .bell {
- 
+
     height: 24px;
     width: 24px;
     margin-left: 140px;
     margin-right: 30px;
     margin-top: -46px;
-    
-   
-}
+
+
+  }
 
 
 
@@ -1356,9 +1377,11 @@ a {
     margin-left: 5px;
     bottom: 28px;
 
-    border: 1, 3px solid #FFFFFF;
-    background-color: #ffffff;
+    border: 1, 3px solid #FFFFFF !important;
+    background-color: #ffffff !important;
   }
+
+
 
   .img-duppla {
     position: absolute;
@@ -1381,15 +1404,15 @@ a {
   }
 
   .bell {
- 
+
     height: 24px;
     width: 24px;
     margin-left: 120px;
     margin-right: 30px;
     margin-top: -46px;
-    
-   
-}
+
+
+  }
 
 
 }

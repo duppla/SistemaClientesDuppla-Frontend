@@ -102,6 +102,7 @@ function Inicio() {
 
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
+    
 
     //formateo de los datos en pagos
     const formatted = dataCustumer.pagoMinimo;
@@ -213,6 +214,7 @@ function Inicio() {
     }
 
     const GrafictMeta = () => {
+
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
@@ -267,10 +269,11 @@ function Inicio() {
                 <div className="row container-second-elements  ">
                     <div className="col-4 ">
                         <Link to='/profile' className="link-styles"> <img src={Iperfil}
-                            className="  img-user-custumer"
+                            className=" img-user-custumer"
                             alt="perfil" />
                         </Link>
-                        <hr className="hr-position" />
+                        <div className="vertical-line"></div>
+                      
                     </div>
                     <div className="col-6  card-perfil-datos-customer">
                         <div className="card-body">
@@ -281,8 +284,12 @@ function Inicio() {
                     {/*Navbar custumer */}
                     <nav className=" col-2 navbar  ">
                         <div className="icon-navbar-customer">
-                            <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                                <span className="navbar-toggler-icon navbar-dark"></span>
+                            <button className="navbar-toggler border-none" 
+                            type="button"
+                             data-bs-toggle="offcanvas" 
+                             data-bs-target="#offcanvasNavbar" 
+                             aria-controls="offcanvasNavbar">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="menu-navbar-customer" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
                             </button>
                             <div className="">
                                 <div className=" offcanvas offcanvas-bottom navbar-container navbar-move " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -432,26 +439,28 @@ function Inicio() {
             <div className=" container-inicio-graph container-fluid ">
                 <div className='grafict-container-inicio-one  '>
                     <div className='title-init'>
-                        <b><h2 className='title-init-progressbar'>Mi actividad</h2></b>
+                        <b><p className='title-init-progressbar'>Actividad</p></b>
                     </div>
                     <div className='centrado'>
                         <GrafictHome />
                     </div>
                     <div className='sobrepuesto'>
                         <div>
-                            <h1>{GrafictPie()}%</h1>
+                            <h1 className="d-flex-justify-content-center">{GrafictPie()}%</h1>
                         </div>
                         <div>
-                            <p>Anual</p>
+                            <p className="d-flex-justify-content-center">
+                                Meta
+                            </p>
                         </div>
                     </div>
                     <div className="card-docs-grafic  ">
                         <div className="col-6 row prueba-inicio-espacio-u">
                             <div className="col-2 prueba-espacio-img-verde">
-                                <img src={Istatec} className="" alt="" height='12px' width='12px' />
+                                <img src={Istateb} className="" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra">Participación actual</p>
+                                <p className="text-inicio-gra">Participación inicial</p>
                             </div>
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
@@ -464,6 +473,29 @@ function Inicio() {
                             <div className="col-2 ">                               
                             </div>
                             <div className="col-4 ">
+                                <p className="text-inicio-gra ">{dataCustumer.participacion}%</p>
+                            </div>
+                        </div >
+                    </div>
+                    <div className="card-docs-grafic-two">
+                        <div className="col-6 row prueba-inicio-espacio-u">
+                            <div className="col-2 prueba-espacio-img-verde">
+                            <img src={Istatec} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                            </div>
+                            <div className="col-4 ">
+                                <p className="text-inicio-gra">Haz comprado</p>
+                            </div>
+                        </div >
+                        <div className="col-4 row prueba-inicio-espacio-u">
+                            <div className="col-2">
+                            </div>
+                            <div className="col-2 ">
+                            </div>
+                        </div >
+                        <div className="col-6 row prueba-inicio-espacio-u">
+                            <div className="col-2 ">                                
+                            </div>
+                            <div className="col-4 ">
                                 <p className="text-inicio-gra ">{GrafictActual()}%</p>
                             </div>
                         </div >
@@ -474,7 +506,7 @@ function Inicio() {
                             <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra">Faltante meta anual</p>
+                                <p className="text-inicio-gra">Faltante meta</p>
                             </div>
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
@@ -492,11 +524,10 @@ function Inicio() {
                         </div >
                     </div>
                     <br />
-                    <div className='centrado'>
-                        <img src={Vline} className="line-data-goal centrado" alt="" />
+                    <div className='horizontal-line'>                        
                     </div>
                     <br />
-                    <div className="card-docs-init  ">
+                    <div className="card-docs-init-customer ">
                         <div className="card-body-docs col-6">
                             <p>Pago mínimo</p>
                         </div>
@@ -508,7 +539,7 @@ function Inicio() {
                 </div>
             </div>
             {/*Meta mensual 
-                    <div className="card-docs-init  ">
+                    <div className="card-docs-init-customer  ">
                         <div className="card-body-docs col-1">
                             <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                         </div>
@@ -569,7 +600,7 @@ function Inicio() {
                                                         onMouseLeave={() => handleMouseLeave(1)}
                                                     >
                                                         <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                        {tooltips[1] && <div className="tooltip">Pago mensual que te corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.</div>}
+                                                        {tooltips[1] && <div className="tooltip">Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.</div>}
                                                     </div>
                                                 </div>
                                             </div>
@@ -612,7 +643,7 @@ function Inicio() {
                                                         onMouseLeave={() => handleMouseLeave(3)}
                                                     >
                                                         <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                        {tooltips[3] && <div className="tooltip">Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, conservaciones, etc. del edificio o conjunto donde vives.</div>}
+                                                        {tooltips[3] && <div className="tooltip">Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.</div>}
                                                     </div>
                                                 </div>
                                             </div>
