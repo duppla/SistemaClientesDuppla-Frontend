@@ -193,25 +193,6 @@ function Inicio() {
         return porcentajeActual
     }
 
-    const GrafictActual = () => {
-        const fecha1 = new Date();
-        const fecha2 = new Date(dataCustumer.fechaEntrega);
-        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-        //console.log(diffYears); // Número de años entre las dos fechas 
-
-        let metaPorcentaje = 30;
-        let years = 5;
-        let metaAnual = (metaPorcentaje - dataCustumer.participacion) / years;
-        let porcentajeActual = dataCustumer.participacion + (metaAnual * diffYears);
-        let diferenciaMeta = porcentajeActual - metaAnual;
-
-        diferenciaMeta = diferenciaMeta.toFixed(1); // Limitar a 1 decimal
-        diferenciaMeta = parseFloat(diferenciaMeta);
-        let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-
-
-        return diferenciaMeta
-    }
 
     const GrafictMeta = () => {
 

@@ -187,7 +187,7 @@ function Payment() {
                     <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
                 </div>
 
-            default: return <img src={IconUbicacion} className="leftIcon" alt="" height="24px" width="24px" />;
+            default: return <img src={IconUbicacion} className="inicialIcon" alt="" height="24px" width="24px" />;
         }
     }
 
@@ -334,7 +334,7 @@ function Payment() {
                         </div>
                     </div >
                 </div>
-                <div className="col-12 row">
+             {/**   <div className="col-12 row">
                     <div className=' col-3 row text-range-one'>
                         <p className='number-range-payment-grafic'>15%</p>
                     </div>
@@ -344,7 +344,7 @@ function Payment() {
                     <div className=' col-3 row text-range-tree'>
                         <p className='number-range-payment-grafic'>+30%</p>
                     </div>
-                </div>               
+                </div>     */}           
                 
                 <div className="msj-payment ">
                     <p className='font-text-payment '>
