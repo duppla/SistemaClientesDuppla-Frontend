@@ -153,7 +153,7 @@ code {
     margin-right: 20px;
 
     border-radius: 5px;
-   }
+}
 
 .card-docs-property {
     display: flex;
@@ -631,8 +631,37 @@ code {
     font-size: 14px;
     opacity: 1;
     box-shadow: 0px 0px 10px rgba(115, 113, 113, 0.15);
-    
 }
+
+.tooltip-grafict {
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 40px;
+}
+.tooltip-grafict-two {
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 10px;
+}
+
+.tooltip-grafict-custumer {
+    position: absolute;
+    margin-top: -24px;
+    margin-left: 120px;
+    width: 180px;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #0A3323;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 1;
+    box-shadow: 0px 0px 10px rgba(115, 113, 113, 0.15);
+}
+
+
+
+
 
 .tooltip-customer {
     width: 20px;
@@ -723,8 +752,6 @@ code {
     width: 280px;
     margin-left: 40px;
     margin-right: 20px;
-    
     height: 0px;
-
     border: 1px solid #E8E8E8;
 }

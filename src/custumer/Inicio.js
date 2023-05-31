@@ -123,9 +123,6 @@ function Inicio() {
     const formatterGastos = formatter.format(gastos);
     const formatterReservas = formatter.format(reservas);
     const formatterAdministracion = formatter.format(administracion);
-
-
-
     {/*Función que cambia el nobre de usurio a minuscula */ }
 
     function convertirAMinusculas(texto) {
@@ -156,10 +153,8 @@ function Inicio() {
         }
 
     }
-
-    // estados y funciones que manejan los tooltips
+    // Estados y funciones que manejan los tooltips
     const [tooltips, setTooltips] = useState([]);
-
     const handleMouseEnter = (index) => {
         setTooltips((prevState) => {
             const updatedTooltips = [...prevState];
@@ -167,7 +162,6 @@ function Inicio() {
             return updatedTooltips;
         });
     };
-
     const handleMouseLeave = (index) => {
         setTooltips((prevState) => {
             const updatedTooltips = [...prevState];
@@ -175,12 +169,12 @@ function Inicio() {
             return updatedTooltips;
         });
     }
-
+//Función que trae los datos de la meta anual
     const GrafictPie = () => {
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-       // console.log(diffYears); // Número de años entre las dos fechas 
+        // console.log(diffYears); // Número de años entre las dos fechas 
 
         let metaPorcentaje = 30;
         let years = 5;
@@ -192,8 +186,7 @@ function Inicio() {
 
         return porcentajeActual
     }
-
-
+//funció que calcula el faltante para la meta
     const GrafictMeta = () => {
 
         const fecha1 = new Date();
@@ -206,18 +199,18 @@ function Inicio() {
         let metaAnual = (metaPorcentaje - dataCustumer.participacionInicial) / years;
         let porcentajeActual = dataCustumer.participacionInicial + (metaAnual * diffYears);
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-        let faltanteMeta= porcentajeActual-dataCustumer.participacion;
+        let faltanteMeta = porcentajeActual - dataCustumer.participacion;
         faltanteMeta = faltanteMeta.toFixed(1); // Limitar a 1 decimal
         faltanteMeta = parseFloat(faltanteMeta);
 
         return faltanteMeta
     }
-
+//Función que calcula el porcentaje de la meta
     const dataGrafictT = () => {
         let porcentaje = dataCustumer.participacion - dataCustumer.participacionInicial;
         porcentaje = porcentaje.toFixed(1); // Limitar a 1 decimal
         porcentaje = parseFloat(porcentaje);
-        
+
         return porcentaje;
     }
     //console.log("aqui esta" + GrafictPie());
@@ -456,6 +449,14 @@ function Inicio() {
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
                             <div className="col-2">
+                                <div
+                                    className="tooltip-container"
+                                    onMouseEnter={() => handleMouseEnter(4)}
+                                    onMouseLeave={() => handleMouseLeave(4)}
+                                >
+                                    <img src={IconToolytip} className="warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
+                                    {tooltips[4] && <div className="tooltip-grafict-custumer"> Participación a inicio de periodo</div>}
+                                </div>
                             </div>
                             <div className="col-2 ">
                             </div>
@@ -478,7 +479,16 @@ function Inicio() {
                             </div>
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
-                            <div className="col-2">
+                            <div className="col-2 ">
+                            <div
+                                    className="tooltip-container"
+                                    onMouseEnter={() => handleMouseEnter(5)}
+                                    onMouseLeave={() => handleMouseLeave(5)}
+                                >
+                                    <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict-two" alt="" height='16px' width='16px' />
+                                    {tooltips[5] && <div className="tooltip-grafict-custumer"> Esta es la compra que llevas en el periodo actual</div>}
+                                </div>
+
                             </div>
                             <div className="col-2 ">
                             </div>
@@ -502,6 +512,14 @@ function Inicio() {
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
                             <div className="col-2">
+                            <div
+                                    className="tooltip-container"
+                                    onMouseEnter={() => handleMouseEnter(6)}
+                                    onMouseLeave={() => handleMouseLeave(6)}
+                                >
+                                    <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict-two" alt="" height='16px' width='16px' />
+                                    {tooltips[6] && <div className="tooltip-grafict-custumer ">Esta es la meta para comprar el % en el periodo actual</div>}
+                                </div>
                             </div>
                             <div className="col-2 ">
                             </div>

@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import './../custumer/Payment.css'
 import numeral, { options } from 'numeral';
 import IconUbicacion from '../../src/img/Iconubicacion.svg'
+import swal from 'sweetalert';
 
 
 
@@ -49,7 +50,6 @@ function Payment() {
         });
         return formatter.format(number);
     };
-
     const formatter = new Intl.NumberFormat('es-ES', {
         style: 'decimal',
         minimumFractionDigits: 0,
@@ -57,7 +57,6 @@ function Payment() {
     });
     const formatterPagoMinimo = formatter.format(pagoMinimo);
     const formatoSug = formatter.format(formatoSugerido);
-
 
 
     {/* Función que crea el link de ago que redirecciona a Paloma*/ }
@@ -68,7 +67,7 @@ function Payment() {
         descripcion: dataCustumer.inmuebleName,
     });
 
-    const generarEnlace = () => {
+    {/*} const generarEnlace = () => {
         const enlaceBase = "https://www.pay.palomma.com/?";
         const { comercio } = valoresApi;
 
@@ -91,7 +90,34 @@ function Payment() {
         setPaymentURL(enlaceModificado);
 
         return enlaceModificado;
+    };*/}
+    const generarEnlace = () => {
+        const enlaceBase = "https://www.pay.palomma.com/?";
+        const { comercio } = valoresApi;
+
+        let precio, descripcion;
+
+        if (selectedOption === "option1") {
+            precio = pagoMinimo;
+            descripcion = dataCustumer.inmuebleName;
+        } else if (selectedOption === "option2") {
+            precio = pagoMinimo + (pagoMinimo * 0.17);
+            descripcion = dataCustumer.inmuebleName;
+        } else {
+            // borrar los punto y comas cuando se ingresa el monto
+            precio = paymentValue.replace(/[.,]/g, "");
+            descripcion = dataCustumer.inmuebleName;
+
+           
+        }
+
+        const enlaceModificado = `${enlaceBase}comercio=${comercio}&precio=${precio}&descripcion=${descripcion}`;
+        setValoresApi({ comercio, precio, descripcion });
+        setPaymentURL(enlaceModificado);
+
+        return enlaceModificado;
     };
+
 
     // estados para el formulario
 
@@ -114,62 +140,41 @@ function Payment() {
         setIsButtonDisabled(false);
     }
 
-    const sumaValores = gastos + administracion;
-    const precio = paymentValue;
-   // console.log(sumaValores);
-    //console.log(precio);
-
-    {/** function handlePayment() {
-
-        let enlace;
-        //console.log(selectedOption);
-        if (selectedOption === "option1") {
-            enlace = generarEnlace();
-            window.location.href = paymentURL;
-        } else if (selectedOption === "option2") {
-            enlace = generarEnlace();
-        } else if (selectedOption === selectedOption) {
-            const precio = paymentValue;
-            const sumaValores = gastos + administracion;           
-        if (precio === sumaValores || precio < sumaValores) {
-              console.log('precio', precio);
-              alert("El valor ingresado es menor al monto mínimo requerido.");
-              
-              return;
-            }
-            enlace = generarEnlace(precio);
-        }
-        else {
-            console.log("No option selected");
-            return;
-        }
-        console.log(enlace);
-
-    }
-*/}
-
-    // función que acciona  al botón de pago
+// Función que controla el input del formulario
     function handlePayment() {
         let enlace;
-
         if (selectedOption === "option1") {
             enlace = generarEnlace();
             window.location.href = paymentURL;
         } else if (selectedOption === "option2") {
             enlace = generarEnlace();
         } else {
-            const precio = paymentValue;
-            const sumaValores = gastos + administracion;
+            const valor = paymentValue.replace(/[.,]/g, "");
+            const precio = parseFloat(valor);
 
+            const sumaValores = gastos + administracion;
+           // console.log('precio', precio);
+           // console.log('sumaValores', sumaValores);
             if (precio <= sumaValores) {
-                console.log('precio', precio);
-                alert("El valor ingresado es menor o igual al monto mínimo requerido.");
+                
+                swal({
+
+                    text: "El valor ingresado es menor al monto mínimo requerido.",
+                    icon: "info",
+                    button: "Cerrar",
+                    timer: 5000,
+                });
                 return;
             }
+
+            // Aquí puedes realizar alguna acción con el enlace generado
             enlace = generarEnlace(precio);
         }
-        //console.log(enlace);
+
+        // Realizar alguna acción con el enlace generado
+        console.log(enlace);
     }
+
 
     // cambio de icono de ubicación en la barra de pago
     const stateChangeU = () => {
@@ -283,6 +288,7 @@ function Payment() {
                                     id='paymentBtn'
                                     name="otrovalornumero"
                                     value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
+                                    //value={paymentValue}
                                     onChange={(event) => setPaymentValue(event.target.value)}
 
                                     //value={numeral(selectedOption).format('0,0')}
@@ -299,7 +305,7 @@ function Payment() {
 
                             <div className="msj-payment">
                                 <p className='font-text-payment '>
-                                     Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonara a tu participación.
+                                    Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonara a tu participación.
                                 </p>
                             </div>
                         </div>
@@ -334,7 +340,7 @@ function Payment() {
                         </div>
                     </div >
                 </div>
-             {/**   <div className="col-12 row">
+                {/**   <div className="col-12 row">
                     <div className=' col-3 row text-range-one'>
                         <p className='number-range-payment-grafic'>15%</p>
                     </div>
@@ -344,11 +350,11 @@ function Payment() {
                     <div className=' col-3 row text-range-tree'>
                         <p className='number-range-payment-grafic'>+30%</p>
                     </div>
-                </div>     */}           
-                
+                </div>     */}
+
                 <div className="msj-payment ">
                     <p className='font-text-payment '>
-                       Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.
+                        Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.
                     </p>
                 </div>
             </div>
