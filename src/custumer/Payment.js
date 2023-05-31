@@ -153,12 +153,11 @@ function Payment() {
             const precio = parseFloat(valor);
 
             const sumaValores = gastos + administracion;
-           // console.log('precio', precio);
-           // console.log('sumaValores', sumaValores);
+           console.log('precio', precio);
+            console.log('sumaValores', sumaValores);
             if (precio <= sumaValores) {
                 
                 swal({
-
                     text: "El valor ingresado es menor al monto mínimo requerido.",
                     icon: "info",
                     button: "Cerrar",

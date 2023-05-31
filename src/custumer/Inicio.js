@@ -688,7 +688,7 @@ function Inicio() {
                 <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
                     <a className="links text-white"
                         href='/pagos' >
-                        <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
+                        <img src={Iconpago} className="img-btn-pagos-custumer " alt="" width="32px" height="32px" />
                         <button type="button" id="" className="btn  text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <h5>Pagar </h5>
                         </button>

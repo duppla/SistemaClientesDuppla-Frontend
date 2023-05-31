@@ -27,7 +27,7 @@ function login() {
                             <img src={Iduppla} className="rounded justify-content-center" alt="Simbolo duppla" />
                         </div>
                         <Link to='/register' className="btn-decoration">
-                            <button type="button" id="" className="btn btn-primary btn-registro text-center centrado" width="400px" height="46px" >
+                            <button type="button" id="" className="btn  btn-registro text-center centrado" width="400px" height="46px" >
                                 Iniciar sesión
                             </button>
                         </Link>

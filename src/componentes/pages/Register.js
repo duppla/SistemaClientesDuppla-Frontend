@@ -123,11 +123,7 @@ function Register() {
         }
     };
     
-
-
-
     const handleNotification = () => {
-
         swal({
 
             text: "Correo o  contraseña incorrecta",
@@ -142,8 +138,8 @@ function Register() {
         <div className="container-fluid" id="formAuthLogin">
             <div className="">
                 <div className="container-sing">
-                    <div className="img-logotipo centrado">
-                        <img src={Iduppla} className="rounded justify-content-center" alt="Simbolo duppla" />
+                    <div className="centrado">
+                        <img src={Iduppla} className="rounded centrado" alt="Simbolo duppla" />
                     </div>
                 </div>
                 <div className="title-login">
@@ -181,7 +177,7 @@ function Register() {
 
                         }
                         <button type="submit"
-                            className="btn btn-prueba-ingreso text-center links text-white btn-mover ">Siguiente</button>
+                            className="btn centrado  btn-prueba-ingreso text-center links text-white btn-mover ">Siguiente</button>
                     </form>
 
                 </div>

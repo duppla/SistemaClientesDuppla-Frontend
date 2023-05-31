@@ -217,7 +217,7 @@ code {
   margin-top: 48px;
   text-align: start;
   margin-bottom: -20px;
-  margin-left: 40px;
+  margin-left: 25px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -1166,13 +1166,8 @@ a {
   border-radius: 12px 12px 0px 0px;
 }
 
-
-
-
-
-
 /*Responsive*/
-@media screen and (min-width: 300px) {
+@media screen and (min-width: 360px) {
 
   .btn-prueba-blanco {
     width: 300px;
@@ -1306,7 +1301,16 @@ a {
   }
 
 
-
+  .btn-pago-custumer {
+    width: 344px;
+    height: 58px;
+    margin-top: 26px;
+    margin-bottom: 26px;
+    background: linear-gradient(0deg, #81A1F8, #81A1F8), #81A1F8;
+    border: 1px solid #81A1F8;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
 
 
 
