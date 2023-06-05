@@ -138,7 +138,7 @@ function Register() {
         <div className="container-fluid" id="formAuthLogin">
             <div className="">
                 <div className="container-sing">
-                    <div className="centrado">
+                    <div className="img-logotipo centrado">
                         <img src={Iduppla} className="rounded centrado" alt="Simbolo duppla" />
                     </div>
                 </div>

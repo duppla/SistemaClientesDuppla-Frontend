@@ -187,13 +187,36 @@ function Payment() {
                     <img src={IconUbicacion} className="centrado-icon-u" alt="" height="24px" width="24px" />
                 </div>
             case "option3":
-                return <div className='rigthIcon'>
-                    <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
-                </div>
+                //función para cambiar el icono de ubicación estado del input text paymentValue
+                return <div className=''>
+                {handleInputPrueba()}
+            </div>
 
             default: return <img src={IconUbicacion} className="inicialIcon" alt="" height="24px" width="24px" />;
         }
     }
+  
+
+    const handleInputPrueba = () => {
+        const valor = paymentValue.replace(/[.,]/g, "");
+        const precio = parseFloat(valor);
+        const sumaValores = gastos + administracion;
+      
+        if (precio <= sumaValores ) {
+          return (
+            <div className='leftIcon'>
+              <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+            </div>
+          );
+        } else {
+          return (
+            <div className='rigthIcon'>
+              <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+            </div>
+          );
+        }
+      };
+      
 
     return (
         <div className='payment'>
@@ -315,7 +338,10 @@ function Payment() {
                         onClick={handlePayment}
                         disabled={isButtonDisabled}
                         className={` btn btn-payment-custumer centrado-btn  ${isButtonDisabled ? "disabled" : "enabled"} `}
-                        width="360px" height="68px" >Continuar</button>
+                        width="360px" height="68px" 
+                        onChange={handleInputPrueba}
+                        >Continuar</button>
+                        
                 </div>
             </form>
 
