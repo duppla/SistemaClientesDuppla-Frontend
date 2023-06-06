@@ -647,19 +647,24 @@ code {
 .tooltip-grafict-custumer {
     position: absolute;
     margin-top: -24px;
-    margin-left: 120px;
-    width: 180px;
+    margin-left: 142px;
+    width: 160px;
     transform: translateX(-50%);
     background-color: #ffffff;
     color: #0A3323;
     padding: 8px;
     border-radius: 4px;
-    font-size: 14px;
+    
     opacity: 1;
     box-shadow: 0px 0px 10px rgba(115, 113, 113, 0.15);
 }
 
+.tooltip-text-c{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 11px;
 
+}
 
 
 

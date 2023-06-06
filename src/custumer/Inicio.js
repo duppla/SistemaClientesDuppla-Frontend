@@ -434,7 +434,7 @@ function Inicio() {
                         </div>
                         <div>
                             <p className="d-flex-justify-content-center">
-                                Meta
+                                Meta periodo
                             </p>
                         </div>
                     </div>
@@ -455,7 +455,7 @@ function Inicio() {
                                     onMouseLeave={() => handleMouseLeave(4)}
                                 >
                                     <img src={IconToolytip} className="warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
-                                    {tooltips[4] && <div className="tooltip-grafict-custumer"> Participación a inicio de periodo</div>}
+                                    {tooltips[4] && <div className="tooltip-grafict-custumer tooltip-text-c"> Participación a inicio de periodo</div>}
                                 </div>
                             </div>
                             <div className="col-2 ">
@@ -485,8 +485,8 @@ function Inicio() {
                                     onMouseEnter={() => handleMouseEnter(5)}
                                     onMouseLeave={() => handleMouseLeave(5)}
                                 >
-                                    <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict-two" alt="" height='16px' width='16px' />
-                                    {tooltips[5] && <div className="tooltip-grafict-custumer"> Esta es la compra que llevas en el periodo actual</div>}
+                                    <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict" alt="" height='16px' width='16px' />
+                                    {tooltips[5] && <div className="tooltip-grafict-custumer tooltip-text-c"> Esta es la compra que llevas en el periodo actual</div>}
                                 </div>
 
                             </div>
@@ -517,8 +517,8 @@ function Inicio() {
                                     onMouseEnter={() => handleMouseEnter(6)}
                                     onMouseLeave={() => handleMouseLeave(6)}
                                 >
-                                    <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict-two" alt="" height='16px' width='16px' />
-                                    {tooltips[6] && <div className="tooltip-grafict-custumer ">Esta es la meta para comprar el % en el periodo actual</div>}
+                                    <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
+                                    {tooltips[6] && <div className="tooltip-grafict-custumer tooltip-text-c ">Esta es la meta para comprar el % en el periodo actual</div>}
                                 </div>
                             </div>
                             <div className="col-2 ">

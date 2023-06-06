@@ -108,7 +108,7 @@ function Payment() {
             precio = paymentValue.replace(/[.,]/g, "");
             descripcion = dataCustumer.inmuebleName;
 
-           
+
         }
 
         const enlaceModificado = `${enlaceBase}comercio=${comercio}&precio=${precio}&descripcion=${descripcion}`;
@@ -140,7 +140,7 @@ function Payment() {
         setIsButtonDisabled(false);
     }
 
-// Función que controla el input del formulario
+    // Función que controla el input del formulario
     function handlePayment() {
         let enlace;
         if (selectedOption === "option1") {
@@ -153,12 +153,14 @@ function Payment() {
             const precio = parseFloat(valor);
 
             const sumaValores = gastos + administracion;
-           console.log('precio', precio);
-            console.log('sumaValores', sumaValores);
+            const cambioValores = numeral(sumaValores).format('0,0')
+            //validación de digitos 5, 6, 7, 8, 9
+           // console.log('precio', precio);
+           // console.log('sumaValores', sumaValores);
+            const mensajeAlert = "El valor mínimo a pagar es $" + cambioValores + "";
             if (precio <= sumaValores) {
-                
                 swal({
-                    text: "El valor ingresado es menor al monto mínimo requerido.",
+                    text: mensajeAlert,
                     icon: "info",
                     button: "Cerrar",
                     timer: 5000,
@@ -180,41 +182,96 @@ function Payment() {
         switch (selectedOption) {
             case "option1":
                 return <div className=''>
-                    <img src={IconUbicacion} className="leftIcon" alt="" height="24px" width="24px" />
+                    <img src={IconUbicacion} className="icon2" alt="" height="24px" width="24px" />
                 </div>
             case "option2":
                 return <div className=''>
-                    <img src={IconUbicacion} className="centrado-icon-u" alt="" height="24px" width="24px" />
+                    <img src={IconUbicacion} className="icon4" alt="" height="24px" width="24px" />
                 </div>
             case "option3":
                 //función para cambiar el icono de ubicación estado del input text paymentValue
                 return <div className=''>
-                {handleInputPrueba()}
-            </div>
+                    {handleInputPrueba()}
+                </div>
 
-            default: return <img src={IconUbicacion} className="inicialIcon" alt="" height="24px" width="24px" />;
+            default: return <img src={IconUbicacion} className="icon0" alt="" height="24px" width="24px" />;
         }
     }
-  
+
+
+   {/* const handleInputPrueba = () => {
+        const valor = paymentValue.replace(/[.,]/g, "");
+        const precio = parseFloat(valor);
+        const sumaValores = gastos + administracion;
+
+        if (precio == "0" || sumaValores == "0" || sumaValores == null || precio == null) {
+            return (
+                <div className='icon0'>
+                    <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+                </div>
+            );
+        }
+        if (precio <= sumaValores) {
+            return (
+                <div className='icon3'>
+                    <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+                </div>
+            );
+        } else {
+            return (
+                <div className='icon4'>
+                    <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+                </div>
+            );
+        }
+
+    };* */}
 
     const handleInputPrueba = () => {
         const valor = paymentValue.replace(/[.,]/g, "");
         const precio = parseFloat(valor);
         const sumaValores = gastos + administracion;
+        const precioSugerido = pagoMinimo + (pagoMinimo * 0.17);
+        const precioPagoMinimo = pagoMinimo;
       
-        if (precio <= sumaValores ) {
+        if (valor.length < 5) {
           return (
-            <div className='leftIcon'>
+            <div className='icon0'>
               <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
             </div>
           );
-        } else {
-          return (
-            <div className='rigthIcon'>
-              <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
-            </div>
-          );
-        }
+        }  if (precio <= sumaValores) {
+            return (
+              <div className='icon1'>
+                <img src={IconUbicacion} alt="" height="24px" width="24px" />
+              </div>
+            );
+          } else if (precio <= precioPagoMinimo) {
+            return (
+              <div className='icon1'>
+                <img src={IconUbicacion} alt="" height="24px" width="24px" />
+              </div>
+            );
+          } else if (precio < precioSugerido) {
+            return (
+              <div className='icon3'>
+                <img src={IconUbicacion} alt="" height="24px" width="24px" />
+              </div>
+            );            
+          } else if (precio === precioSugerido) {
+            return (
+              <div className='icon4'>
+                <img src={IconUbicacion} alt="" height="24px" width="24px" />
+              </div>
+            );
+             } else {
+            return (
+              <div className='icon5'>
+                <img src={IconUbicacion} alt="" height="24px" width="24px" />
+              </div>
+            );
+          }
+        
       };
       
 
@@ -312,13 +369,11 @@ function Payment() {
                                     value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
                                     //value={paymentValue}
                                     onChange={(event) => setPaymentValue(event.target.value)}
-
-                                    //value={numeral(selectedOption).format('0,0')}
-                                    //value={selectedOption}
-                                    //checked={selectedOption === "option3"}
-                                    // onChange={handleOptionChange}
+                                                                   
+                                    
                                     className="form-control-custumer  input-pago"
                                     placeholder="$"
+                                    maxLength={11}
                                 />
                             </div>
                             <br />
@@ -338,10 +393,10 @@ function Payment() {
                         onClick={handlePayment}
                         disabled={isButtonDisabled}
                         className={` btn btn-payment-custumer centrado-btn  ${isButtonDisabled ? "disabled" : "enabled"} `}
-                        width="360px" height="68px" 
+                        width="360px" height="68px"
                         onChange={handleInputPrueba}
-                        >Continuar</button>
-                        
+                    >Continuar</button>
+
                 </div>
             </form>
 

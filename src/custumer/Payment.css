@@ -350,25 +350,40 @@ border-radius: 10px;
   margin-bottom: -30px;
 }
 
-.inicialIcon {
+.icon0 {
   margin-left: 2px;
   margin-bottom: -30px;
 }
 
-.leftIcon {
+.icon1 {
+  margin-left: 50px;
+  margin-bottom: -30px;
+}
+
+.icon2 {
   margin-left: 63px;
   margin-bottom: -30px;
 }
 
-.rigthIcon {
-  margin-left: 280px;
-  margin-bottom: -30px;
-}
-
-.centrado-icon-u {
+.icon3{
   margin-left: 140px;
   margin-bottom: -30px;
 }
+
+.icon4{
+  margin-left: 224px;
+  margin-bottom: -30px;
+  
+}
+.icon5{
+  margin-left: 270px;
+  margin-bottom: -30px;
+}
+.icon6{
+  margin-left: 50px;
+  margin-bottom: -30px;
+}
+
 
 .font-text-payment{
   font-family: Arial, Helvetica, sans-serif;
