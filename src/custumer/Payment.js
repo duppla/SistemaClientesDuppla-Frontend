@@ -155,8 +155,8 @@ function Payment() {
             const sumaValores = gastos + administracion;
             const cambioValores = numeral(sumaValores).format('0,0')
             //validación de digitos 5, 6, 7, 8, 9
-           // console.log('precio', precio);
-           // console.log('sumaValores', sumaValores);
+            // console.log('precio', precio);
+            // console.log('sumaValores', sumaValores);
             const mensajeAlert = "El valor mínimo a pagar es $" + cambioValores + "";
             if (precio <= sumaValores) {
                 swal({
@@ -199,7 +199,7 @@ function Payment() {
     }
 
 
-   {/* const handleInputPrueba = () => {
+    {/* const handleInputPrueba = () => {
         const valor = paymentValue.replace(/[.,]/g, "");
         const precio = parseFloat(valor);
         const sumaValores = gastos + administracion;
@@ -227,53 +227,67 @@ function Payment() {
 
     };* */}
 
+
     const handleInputPrueba = () => {
         const valor = paymentValue.replace(/[.,]/g, "");
         const precio = parseFloat(valor);
         const sumaValores = gastos + administracion;
-        const precioSugerido = pagoMinimo + (pagoMinimo * 0.17);
-        const precioPagoMinimo = pagoMinimo;
-      
-        if (valor.length < 5) {
-          return (
-            <div className='icon0'>
-              <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
-            </div>
-          );
-        }  if (precio <= sumaValores) {
-            return (
-              <div className='icon1'>
-                <img src={IconUbicacion} alt="" height="24px" width="24px" />
-              </div>
-            );
-          } else if (precio <= precioPagoMinimo) {
-            return (
-              <div className='icon1'>
-                <img src={IconUbicacion} alt="" height="24px" width="24px" />
-              </div>
-            );
-          } else if (precio < precioSugerido) {
-            return (
-              <div className='icon3'>
-                <img src={IconUbicacion} alt="" height="24px" width="24px" />
-              </div>
-            );            
-          } else if (precio === precioSugerido) {
-            return (
-              <div className='icon4'>
-                <img src={IconUbicacion} alt="" height="24px" width="24px" />
-              </div>
-            );
-             } else {
-            return (
-              <div className='icon5'>
-                <img src={IconUbicacion} alt="" height="24px" width="24px" />
-              </div>
-            );
-          }
+        const precioSugerido = Math.floor(pagoMinimo + (pagoMinimo * 0.17));
+        const precioPagoMinimo = Math.floor(pagoMinimo);
+        console.log(precioSugerido);
+        console.log(precio);
+
         
-      };
-      
+        if (valor.length < 5) {
+            return (
+                <div className='icon0'>
+                    <img src={IconUbicacion} className="" alt="" height="24px" width="24px" />
+                </div>
+            );
+        } if (precio <= sumaValores) {
+            return (
+                <div className='icon1'>
+                    <img src={IconUbicacion} alt="" height="24px" width="24px" />
+                </div>
+            );
+        } else if (precio === precioPagoMinimo) {
+            return (
+                <div className='icon2'>
+                    <img src={IconUbicacion} alt="" height="24px" width="24px" />
+                </div>
+            );
+        } else if (precio < precioPagoMinimo) {
+            return (
+                <div className='icon1'>
+                    <img src={IconUbicacion} alt="" height="24px" width="24px" />
+                </div>
+            );
+
+        }  else if (precio === precioSugerido  ) {
+            return (
+                <div className='icon4'>
+                    <img src={IconUbicacion} alt="" height="24px" width="24px" />
+                </div>
+            );
+        } else if (precio < precioSugerido) {
+            return (
+                <div className='icon3'>
+                    <img src={IconUbicacion} alt="" height="24px" width="24px" />
+                </div>
+            );
+
+        }else {
+            return (
+                <div className='icon5'>
+                    <img src={IconUbicacion} alt="" height="24px" width="24px" />
+                </div>
+            );
+        }
+    };
+    const roundToTwoDecimals = (value) => {
+        return Math.round(value * 100) / 100;
+    };
+
 
     return (
         <div className='payment'>
@@ -369,8 +383,8 @@ function Payment() {
                                     value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
                                     //value={paymentValue}
                                     onChange={(event) => setPaymentValue(event.target.value)}
-                                                                   
-                                    
+
+
                                     className="form-control-custumer  input-pago"
                                     placeholder="$"
                                     maxLength={11}
