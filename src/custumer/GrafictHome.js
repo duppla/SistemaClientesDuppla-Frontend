@@ -35,34 +35,49 @@ const GrafictHome = () => {
 
 
   //compración de fechas
-  const GrafictPie = () => {
+  const GrafictCalculos = () => {
     const fecha1 = new Date();
     const fecha2 = new Date(dataGrafict.fechaEntrega);
     const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
     //console.log(diffYears); // Número de años entre las dos fechas 
-
-    let metaPorcentaje = 30;
     let years = 5;
-    let metaAnual = (metaPorcentaje - dataGrafict.participacionInicial) / years;
-    let porcentajeActual = dataGrafict.participacionInicial + (metaAnual * diffYears);
-    let participacionacumulada = (dataGrafict.participacionInicial / porcentajeActual) * 100;
-    let faltanteMeta= porcentajeActual-dataGrafict.participacion;
+    let participacionInicialCustumer = dataGrafict.participacionInicial;
 
-    //console.log('diferencia' + faltanteMeta);
-    return faltanteMeta;
+    if (participacionInicialCustumer > 0.3) {
+      // Aplicar nuevas indicaciones cuando la participación inicial sea mayor a 30%      
+      const MetaTotal= participacionInicialCustumer + 10; // Sumar 10% a la participación inicial
+      const metaAnual =  (MetaTotal - participacionInicialCustumer)  / years; // Dividir la participación inicial por 5 años
+  
+      // Resto del código que utiliza la nueva metaAnual calculada
+      let porcentajeActual = participacionInicialCustumer + (metaAnual * diffYears);
+    
+
+      return porcentajeActual;
+    } else if (participacionInicialCustumer <= 0.15) {
+      // Aplicar acciones cuando la participación inicial sea igual o menor al 15%
+      let porcentajePeriodo = 30;
+      let years = 5;
+      let metaAnual = (porcentajePeriodo - participacionInicialCustumer) / years;
+      let porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
+
+      return porcentajeActual;
+    }
   }
 
+  // calcula el faltante de la meta en la grafica
+  function GrafictPie() {
+    let porcentajeActual = GrafictCalculos();
+    let participacionacumulada = (dataGrafict.participacionInicial / porcentajeActual) * 100;
+    let faltanteMeta = porcentajeActual - dataGrafict.participacion;
+
+    return faltanteMeta;
+
+  }
 
   const hazComprado = () => {
-
     let porcentaje = dataGrafict.participacion - dataGrafict.participacionInicial;
-
     return porcentaje;
   }
-  //console.log(dataGrafict.participacionInicial);
-  //console.log(hazComprado());
- // console.log(GrafictPie());
-
 
   const dataPrueba = [
     { name: 'Group A', value: dataGrafict.participacionInicial },

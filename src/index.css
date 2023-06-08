@@ -700,6 +700,7 @@ hr {
 .card-docs-m {
   display: flex;
   justify-content: center;
+  ;
   align-items: center;
   margin-top: 24px;
   margin-bottom: 5px;

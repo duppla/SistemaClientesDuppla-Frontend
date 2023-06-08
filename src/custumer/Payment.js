@@ -173,7 +173,7 @@ function Payment() {
         }
 
         // Realizar alguna acción con el enlace generado
-        console.log(enlace);
+        //console.log(enlace);
     }
 
 
@@ -233,11 +233,8 @@ function Payment() {
         const precio = parseFloat(valor);
         const sumaValores = gastos + administracion;
         const precioSugerido = Math.floor(pagoMinimo + (pagoMinimo * 0.17));
-        const precioPagoMinimo = Math.floor(pagoMinimo);
-        console.log(precioSugerido);
-        console.log(precio);
-
-        
+        const precioPagoMinimo = Math.floor(pagoMinimo);      
+       
         if (valor.length < 5) {
             return (
                 <div className='icon0'>

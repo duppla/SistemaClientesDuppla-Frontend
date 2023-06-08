@@ -169,43 +169,110 @@ function Inicio() {
             return updatedTooltips;
         });
     }
-//Función que trae los datos de la meta anual
-    const GrafictPie = () => {
+
+    // 
+    //Función que trae los datos de la meta periodo
+   {/*} const GrafictPie = () => {
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
         // console.log(diffYears); // Número de años entre las dos fechas 
 
-        let metaPorcentaje = 30;
+
+//la meta inicial 15% debe llegar al 30% en 5 años y si tiene mas de 30 la meta seria mas 10%
+
+//el resultado se parte en 5 para saber cuanto debe subir cada año
+
+
+      
+      let participacionInicialCustumer = dataCustumer.participacionInicial;
+
+
+    
+       // let metaPorcentaje = 30;
+        let porcentajePerido = 30;
         let years = 5;
-        let metaAnual = (metaPorcentaje - dataCustumer.participacionInicial) / years;
+
+        // si la participación es mayor al 30%, la meta del perido debe ser = a la participación actual + el 3%
+        let metaAnual = (porcentajePerido - dataCustumer.participacionInicial) / years;
+        //let metaAnual =  porcentajePerido > 30 ? dataCustumer.participacionInicial + 3 : (porcentajePerido - dataCustumer.participacionInicial) / years;
+       
         let porcentajeActual = dataCustumer.participacionInicial + (metaAnual * diffYears);
         let diferenciaMeta = porcentajeActual - metaAnual;
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
 
 
         return porcentajeActual
-    }
-//funció que calcula el faltante para la meta
-    const GrafictMeta = () => {
-
+    }*/}
+   {/**  const GrafictPie = () => {
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-        //console.log(diffYears); // Número de años entre las dos fechas 
-
-        let metaPorcentaje = 30;
+      
+        let participacionInicialCustumer = dataCustumer.participacionInicial;
+      
+        let porcentajePerido = 30;
         let years = 5;
-        let metaAnual = (metaPorcentaje - dataCustumer.participacionInicial) / years;
-        let porcentajeActual = dataCustumer.participacionInicial + (metaAnual * diffYears);
+        let metaAnual;
+        let porcentajeActual;
+      
+        if (participacionInicialCustumer <= 15) {
+          metaAnual = (porcentajePerido - participacionInicialCustumer) / years;
+          porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
+        } else {
+          metaAnual = (participacionInicialCustumer + 3) / years;
+          porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
+        }
+      
+        let diferenciaMeta = porcentajeActual - metaAnual;
         let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-        let faltanteMeta = porcentajeActual - dataCustumer.participacion;
+      
+        return porcentajeActual;
+      };
+    */}
+      
+    const GrafictPie = () => {
+        const fecha1 = new Date();
+        const fecha2 = new Date(dataCustumer.fechaEntrega);
+        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;  
+        let years = 5;     
+        let participacionInicialCustumer = dataCustumer.participacionInicial;   
+      
+        if (participacionInicialCustumer > 0.3) {
+          // Aplicar nuevas indicaciones cuando la participación inicial sea mayor a 30%
+          const MetaTotal= participacionInicialCustumer + 10; // Sumar 10% a la participación inicial
+          const metaAnual =  (MetaTotal - participacionInicialCustumer)  / years; // Dividir la participación inicial por 5 años
+      
+          // Resto del código que utiliza la nueva metaAnual calculada
+          let porcentajeActual = participacionInicialCustumer + (metaAnual * diffYears);
+        
+      
+          return porcentajeActual;
+        } else if (participacionInicialCustumer <= 0.15) {
+            // Aplicar acciones cuando la participación inicial sea igual o menor al 15%
+            let porcentajePeriodo = 30;
+            let years = 5;              
+            let metaAnual = (porcentajePeriodo - participacionInicialCustumer) / years;       
+            let porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
+        
+                     
+            return porcentajeActual;
+          }
+      }
+      
+
+    //funció que calcula el faltante para la meta   
+    
+    const GrafictMeta = () => {
+
+        let faltanteMeta = GrafictPie() - dataCustumer.participacion;
         faltanteMeta = faltanteMeta.toFixed(1); // Limitar a 1 decimal
         faltanteMeta = parseFloat(faltanteMeta);
 
         return faltanteMeta
     }
-//Función que calcula el porcentaje de la meta
+
+    //Función que calcula el porcentaje de la meta
     const dataGrafictT = () => {
         let porcentaje = dataCustumer.participacion - dataCustumer.participacionInicial;
         porcentaje = porcentaje.toFixed(1); // Limitar a 1 decimal
@@ -480,7 +547,7 @@ function Inicio() {
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
                             <div className="col-2 ">
-                            <div
+                                <div
                                     className="tooltip-container"
                                     onMouseEnter={() => handleMouseEnter(5)}
                                     onMouseLeave={() => handleMouseLeave(5)}
@@ -512,7 +579,7 @@ function Inicio() {
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">
                             <div className="col-2">
-                            <div
+                                <div
                                     className="tooltip-container"
                                     onMouseEnter={() => handleMouseEnter(6)}
                                     onMouseLeave={() => handleMouseLeave(6)}
