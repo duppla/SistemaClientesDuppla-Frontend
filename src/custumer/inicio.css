@@ -369,9 +369,17 @@ code {
 
     width: 70px;
     height: 70px;
-    left: 16px;
+    margin-left: 15px;
     top: 0px;
+    background: #EFEFEF;
+    border-radius: 36px;
+}
 
+.btn-wrapper-one{
+
+    width: 70px;
+    height: 70px;
+    margin-left: 6px;
 
     background: #EFEFEF;
     border-radius: 36px;

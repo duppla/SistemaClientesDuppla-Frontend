@@ -7,23 +7,30 @@ function pagosHistorial() {
     const estado = localStorage.getItem('estado');
 
     const [dataPago, setDatapago] = useState({});
-
+   
     
     useEffect(() => {
+      const email = localStorage.getItem('email');
 
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: '{"id":"ENGATIVA_C28_2301"}'
+            //body: '{"id":'+ id +' }'
+           // body: '{"id":"ENGATIVA_C28_2301"}'
+           body: '{ "email": ' + email + '}'
           };
           
           fetch('https://sistema-duppla-backend.herokuapp.com/pagos/sigo', options)
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => setDatapago(response))
             .catch(err => console.error(err));
 
     },[]);
 
+    const dato = dataPago.document;
+
+
+    console.log("Aqui debria haber algo", dato);
 
     // función que redirecciona al usuario de buyer a custumer
 

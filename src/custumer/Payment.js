@@ -171,10 +171,7 @@ function Payment() {
             // Aquí puedes realizar alguna acción con el enlace generado
             enlace = generarEnlace(precio);
         }
-
-        // Realizar alguna acción con el enlace generado
-        //console.log(enlace);
-    }
+        }
 
 
     // cambio de icono de ubicación en la barra de pago
@@ -197,7 +194,6 @@ function Payment() {
             default: return <img src={IconUbicacion} className="icon0" alt="" height="24px" width="24px" />;
         }
     }
-
 
     {/* const handleInputPrueba = () => {
         const valor = paymentValue.replace(/[.,]/g, "");

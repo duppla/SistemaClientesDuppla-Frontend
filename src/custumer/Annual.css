@@ -37,3 +37,20 @@ border: 1px solid #EFEFEF;
 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
 border-radius: 8px;
 }
+
+.accordion-h-payment{
+
+    
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 5px;
+
+    margin-left: 40px;
+    margin-right: 40px;
+
+    border: 1px solid #E1EBF4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+} 
+

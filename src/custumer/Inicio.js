@@ -170,99 +170,38 @@ function Inicio() {
         });
     }
 
-    // 
-    //Función que trae los datos de la meta periodo
-   {/*} const GrafictPie = () => {
-        const fecha1 = new Date();
-        const fecha2 = new Date(dataCustumer.fechaEntrega);
-        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-        // console.log(diffYears); // Número de años entre las dos fechas 
-
-
-//la meta inicial 15% debe llegar al 30% en 5 años y si tiene mas de 30 la meta seria mas 10%
-
-//el resultado se parte en 5 para saber cuanto debe subir cada año
-
-
-      
-      let participacionInicialCustumer = dataCustumer.participacionInicial;
-
-
-    
-       // let metaPorcentaje = 30;
-        let porcentajePerido = 30;
-        let years = 5;
-
-        // si la participación es mayor al 30%, la meta del perido debe ser = a la participación actual + el 3%
-        let metaAnual = (porcentajePerido - dataCustumer.participacionInicial) / years;
-        //let metaAnual =  porcentajePerido > 30 ? dataCustumer.participacionInicial + 3 : (porcentajePerido - dataCustumer.participacionInicial) / years;
-       
-        let porcentajeActual = dataCustumer.participacionInicial + (metaAnual * diffYears);
-        let diferenciaMeta = porcentajeActual - metaAnual;
-        let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-
-
-        return porcentajeActual
-    }*/}
-   {/**  const GrafictPie = () => {
-        const fecha1 = new Date();
-        const fecha2 = new Date(dataCustumer.fechaEntrega);
-        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
-      
-        let participacionInicialCustumer = dataCustumer.participacionInicial;
-      
-        let porcentajePerido = 30;
-        let years = 5;
-        let metaAnual;
-        let porcentajeActual;
-      
-        if (participacionInicialCustumer <= 15) {
-          metaAnual = (porcentajePerido - participacionInicialCustumer) / years;
-          porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
-        } else {
-          metaAnual = (participacionInicialCustumer + 3) / years;
-          porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
-        }
-      
-        let diferenciaMeta = porcentajeActual - metaAnual;
-        let participacionacumulada = (dataCustumer.participacion / porcentajeActual) * 100;
-      
-        return porcentajeActual;
-      };
-    */}
-      
+    // Función que calcula el porcentaje de la meta anual      
     const GrafictPie = () => {
         const fecha1 = new Date();
         const fecha2 = new Date(dataCustumer.fechaEntrega);
-        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;  
-        let years = 5;     
-        let participacionInicialCustumer = dataCustumer.participacionInicial;   
-      
+        const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
+        let years = 5;
+        let participacionInicialCustumer = dataCustumer.participacionInicial;
+
         if (participacionInicialCustumer > 0.3) {
-          // Aplicar nuevas indicaciones cuando la participación inicial sea mayor a 30%
-          const MetaTotal= participacionInicialCustumer + 10; // Sumar 10% a la participación inicial
-          const metaAnual =  (MetaTotal - participacionInicialCustumer)  / years; // Dividir la participación inicial por 5 años
-      
-          // Resto del código que utiliza la nueva metaAnual calculada
-          let porcentajeActual = participacionInicialCustumer + (metaAnual * diffYears);
-        
-      
-          return porcentajeActual;
+            // Aplicar nuevas indicaciones cuando la participación inicial sea mayor a 30%
+            const MetaTotal = participacionInicialCustumer + 10; // Sumar 10% a la participación inicial
+            const metaAnual = (MetaTotal - participacionInicialCustumer) / years; // Dividir la participación inicial por 5 años
+
+            // Resto del código que utiliza la nueva metaAnual calculada
+            let porcentajeActual = participacionInicialCustumer + (metaAnual * diffYears);
+
+
+            return porcentajeActual;
         } else if (participacionInicialCustumer <= 0.15) {
             // Aplicar acciones cuando la participación inicial sea igual o menor al 15%
             let porcentajePeriodo = 30;
-            let years = 5;              
-            let metaAnual = (porcentajePeriodo - participacionInicialCustumer) / years;       
+            let years = 5;
+            let metaAnual = (porcentajePeriodo - participacionInicialCustumer) / years;
             let porcentajeActual = participacionInicialCustumer + metaAnual * diffYears;
-        
-                     
+
+
             return porcentajeActual;
-          }
-      }
-      
+        }
+    }
 
     //funció que calcula el faltante para la meta   
-    
+
     const GrafictMeta = () => {
 
         let faltanteMeta = GrafictPie() - dataCustumer.participacion;
@@ -280,7 +219,7 @@ function Inicio() {
 
         return porcentaje;
     }
-    //console.log("aqui esta" + GrafictPie());
+
 
     return (
         <div className=" container-fluid continer-inicio">
@@ -766,13 +705,13 @@ function Inicio() {
             <div className='centrado'>
                 <img src={Vline} className="line-custumer centrado" alt="" />
             </div>
-            {/*componentes de menú*/}
+            {/*componentes de menú deslizable*/}
             <div className='container-fluid  centrado'>
                 <div className='container-btn-wrapper'>
                     <div className='space-btn-wrapper'>
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
-                            <div className='btn-wrapper'>
+                            <div className='btn-wrapper-one'>
                                 <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                                 <br />
                             </div>
@@ -819,8 +758,8 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Ajustar meta </p>
                         </div>
                     </div>*/}
-                    {/* <div className='space-btn-wrapper'>
-                        <Link to='/historial' className='links'> <div className='btn-wrapper'>
+                    <div className='space-btn-wrapper'>
+                        <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
                             <img src={Ihistorialpago} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
                             <br />
                         </div>
@@ -828,7 +767,7 @@ function Inicio() {
                         <div>
                             <p className='text-btn-wrapper links'>Historial de pago </p>
                         </div>
-                    </div> */}
+                    </div> 
 
                 </div>
             </div>
