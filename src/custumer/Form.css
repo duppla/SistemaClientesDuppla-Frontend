@@ -1,0 +1,120 @@
+.profile-form {
+    display: flex;
+    flex-direction: initial;
+    justify-content: space-between;
+    align-items: center;
+    height: 107px;
+    left: 0px;
+    top: 0px;
+    bottom: 100px;
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 31px;
+    background: linear-gradient(60.01deg, #0A3323 19.88%, #C5F5CA 217.71%);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 60% 18%;
+    border-bottom-right-radius: 60% 18%;
+  }
+
+  .navbar-form {
+    background-color: #0A3323;
+  }
+
+  .navbar-brand {
+    color: #0A3323;
+  }
+
+  .btn-primary {
+    background-color: #FF864B;
+    border-color: #FF864B;
+  }
+
+
+
+  body {
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+  .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #9ED19A;
+    border-color: #9ED19A;
+  }
+
+  /* Custom focus ring */
+  .btn:focus,
+  .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(197, 245, 202, 0.5);
+    border-color: #9ED19A;
+  }
+
+  .seccion-titulo {
+    color: #9ED19A;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Custom Title */
+  .custom-h4 {
+    font-family: 'Rustica', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  /* Custom Logo */
+  .custom-logo {
+    align-self: flex-end;
+  }
+
+  .back-button {
+    display: flex;
+    align-items: center;
+    padding-left: 10px; /* Adjust this value as needed */
+    background-color: transparent;
+    border: none;
+  }
+
+
+  .back-button svg {
+      fill: white;
+    width: 32px; /* Adjust size here */
+    height: 32px; /* Adjust size here */
+
+  }
+
+  .custom-logo {
+    height: 20px; /* Adjust this value as needed */
+    width: auto;
+    align-self: center;
+  }
+
+  .dropdown-item:hover {
+  color: black; /* Change as desired, this will change the color of the text */
+  background-color: lightgreen; /* This will change the background color */
+  }
+
+  .custom-h3 {
+    font-family: 'Rustica', sans-serif;
+    font-weight: 500;
+    font-size: 30px; /* Change this to adjust size */
+    color: rgb(108, 144, 111);
+  }
+
+  .custom-h4 {
+    font-family: 'Rustica', sans-serif;
+    font-weight: 500;
+    font-size: 28px; /* Change this to adjust size */
+  }
+  /* Set the textarea font */
+  textarea {
+    font-family: 'HelveticaNowText-Light', sans-serif;
+  }
+
+  /* Add spacing above the checkbox */
+  .form-check.custom-checkbox {
+    margin-top: 20px; /* Adjust the value as needed */
+  }

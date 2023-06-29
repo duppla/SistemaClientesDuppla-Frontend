@@ -12,6 +12,7 @@ function Offer() {
 
   // Estado consumo de la api con oferta
   const [oferta, setOferta] = useState({});
+  const [offerUrls, setOfferUrls] = useState('');
 
   useEffect(() => {
     const email = localStorage.getItem('email');
@@ -24,12 +25,14 @@ function Offer() {
 
     fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options)
       .then(response => response.json())
-
       .then(response => {
         //console.log( 'prueba' + JSON.stringify(response.Oferta_URL__c));
         setOferta(response)
+        setIsButtonDisabled(!response.Oferta_URL__c);
+        
       })
       .catch(err => console.error(err));
+     
 
   }, []);
 
@@ -38,9 +41,14 @@ function Offer() {
 
   // Estado de la función aceptar
   const [progress, setProgress] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+ 
 
   // Función en botón aceptar
   const handleProgress = () => {
+
+
+    const email = localStorage.getItem('email');
 
     const options = {
       method: 'POST',
@@ -53,6 +61,7 @@ function Offer() {
       .then(response => setProgress(response))
       .catch(err => console.error(err));
 
+    setIsButtonDisabled(true);
 
     swal({
       title: "Se acepto correctamente la oferta",
@@ -90,8 +99,8 @@ function Offer() {
               <div className='centrado'>
                 <a className="links text-white"
                   href={offerUrl} target="_blank"
-                  >
-                   
+                >
+
                   <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
                     Oferta
                   </button>
@@ -101,23 +110,24 @@ function Offer() {
             </div> : <div className='img-offer-conatiner '>
               <img src={Idefaultoffer} className="container fluid" alt="..." />
             </div>}
-
         </div>
-
-
-
-      
         <br />
         <br />
         {/*Sección botones oferta */}
         <div className="d-flex justify-content-center align-items-center container-sm">
           <div>
             <Link to='/home'>
-              <button type="button" className="btn btn-outline-primary btn-d-aceptar" >CANCELAR</button>
+              <button type="button" 
+               className={` btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
+              disabled={isButtonDisabled}
+              >CANCELAR</button>
             </Link>
           </div><br />
           <div className="">
-            <button type="button" className="btn btn-outline-primary btn-d-cancel" onClick={handleProgress} >ACEPTAR</button>
+            <button type="button" 
+            className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
+              onClick={handleProgress}
+              disabled={isButtonDisabled}>ACEPTAR</button>
           </div>
         </div>
 

@@ -709,13 +709,12 @@ function Inicio() {
             <div className='container-fluid  centrado'>
                 <div className='container-btn-wrapper'>
                     <div className='space-btn-wrapper'>
-                        <a className="links"
-                            href="https://api.whatsapp.com/send?phone=573152559261">
+                        <Link to='/formulario'>
                             <div className='btn-wrapper-one'>
                                 <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                                 <br />
                             </div>
-                        </a>
+                        </Link>
                         <div>
                             <p className='text-btn-wrapper'>Mantenimiento </p>
                         </div>
@@ -767,7 +766,7 @@ function Inicio() {
                         <div>
                             <p className='text-btn-wrapper links'>Historial de pago </p>
                         </div>
-                    </div> 
+                    </div>
 
                 </div>
             </div>

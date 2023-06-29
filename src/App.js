@@ -17,6 +17,7 @@ import Documents from './componentes/homecomponents/Documents';
 import Property from './componentes/homecomponents/Property';
 import Offer from './componentes/homecomponents/Offer';
 import Pagos from './Components/Pagos';
+import Form from './Components/FormMentenimiento';
 
 import Inicio from './custumer/Inicio';
 import Payment from './custumer/Payment';
@@ -90,6 +91,7 @@ function App() {
           <Route exact path='/Consolidado' element={<Private><Annual /></Private>} ></Route>
           <Route exact path='/Facturacion' element={<Private><Notification /></Private>} ></Route>
           <Route exact path='/pagosHistorial' element={<Private><Pagos /></Private>} ></Route>
+          <Route exact path='/formulario' element={<Private><Form /></Private>} ></Route>
 
 
         <Route path='/error404' element={<Error404 />} ></Route>
