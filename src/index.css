@@ -943,11 +943,6 @@ a {
   margin-top: 80px;
   bottom: 100px;
 
-
-
-
-
-
 }
 
 .card-body {
@@ -1309,6 +1304,23 @@ a {
     border: 1px solid #81A1F8;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
+}
+.card-body-form-two {
+
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 28px;
+  margin-right: 28px;
+  grid-gap: 10px;
+  margin-bottom: 31px;
+  width: 320px;
+  height: auto;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  padding: 1.25rem !important;
+  background-clip: padding-box;
+  border-radius: 10px;
+
 }
 
 

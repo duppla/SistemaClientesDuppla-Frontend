@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const FormMentenimiento = () => {
   return (
-<div>
+<div className='container-fluid'>
     <div class="profile-form">
         <button class="back-button">
         <Link to='/inicio'>
@@ -16,12 +16,12 @@ const FormMentenimiento = () => {
  
     </div>
     <div className="container">
-    <form>
-        <h3 className="seccion-titulo custom-h3">Generar solicitud de reparación / mantenimiento</h3>
+    <form className=''>
+        <h3 className="seccion-titulo custom-h3 centrado">Generar solicitud de reparación / mantenimiento</h3>
         {/*}Sección A */}
       <h4 className="seccion-titulo custom-h4">Información del inmueble</h4>
-      <div className="card mt-3">
-        <div className="card-body">
+      <div className="card mt-3 centrado">
+        <div className="card-body-form">
           <div className="form-group">
             <label for="textField">Correo / Cédula Registrado:</label>
             <input type="text" className="form-control" id="textField"/>
@@ -38,8 +38,8 @@ const FormMentenimiento = () => {
 
     {/* Sección B */}
       <h4 className="seccion-titulo custom-h4">Información de la afectación</h4>
-      <div className="card mt-3">
-        <div className="card-body">
+      <div className="card ">
+        <div className="card-body-form-two">
          {/** Dropdown 1 */}
           <div className="form-group">
             <label for="dropdownReclamacion">Tipo de Reclamación / Garantía:</label>

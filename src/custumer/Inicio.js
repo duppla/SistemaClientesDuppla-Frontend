@@ -481,7 +481,7 @@ function Inicio() {
                                 <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                             </div>
                             <div className="col-4 ">
-                                <p className="text-inicio-gra">Haz comprado</p>
+                                <p className="text-inicio-gra">Has comprado</p>
                             </div>
                         </div >
                         <div className="col-4 row prueba-inicio-espacio-u">

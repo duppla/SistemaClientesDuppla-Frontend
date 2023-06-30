@@ -1,6 +1,6 @@
 import { loadGapiInsideDOM } from 'gapi-script';
 import React, { useState, useEffect } from 'react'
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Ioferta from "../../img/Ioferta.png";
 import Idefaultoffer from "../../img/Idefaultoffer.png";
 import swal from 'sweetalert';
@@ -9,71 +9,86 @@ import swal from 'sweetalert';
 
 
 function Offer() {
-
-  // Estado consumo de la api con oferta
+  const navigate = useNavigate();
+ 
   const [oferta, setOferta] = useState({});
-  const [offerUrls, setOfferUrls] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isAcceptingOferta, setIsAcceptingOferta] = useState(false);
+  const [progress, setProgress] = useState(false);
 
-  useEffect(() => {
+  const getOferta = async () => {
     const email = localStorage.getItem('email');
-
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: '{ "email": ' + email + '}'
     };
 
-    fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options)
-      .then(response => response.json())
-      .then(response => {
-        //console.log( 'prueba' + JSON.stringify(response.Oferta_URL__c));
-        setOferta(response)
-        setIsButtonDisabled(!response.Oferta_URL__c);
-        
-      })
-      .catch(err => console.error(err));
-     
+    try {
+      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options);
+      const data = await response.json();
+      setOferta(data);
+      setIsButtonDisabled(!data.Oferta_URL__c);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-  }, []);
-
-  const offerUrl = oferta.Oferta_URL__c;
-
-
-  // Estado de la función aceptar
-  const [progress, setProgress] = useState(false);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
- 
-
-  // Función en botón aceptar
-  const handleProgress = () => {
-
-
+  const acceptOferta = async () => {
     const email = localStorage.getItem('email');
-
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: '{"id":"1","email": "pgutierrez@duppla.co"}'
+      body: '{ "email": ' + email + '}'
+
     };
 
-    fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options)
-      .then(response => response)
-      .then(response => setProgress(response))
-      .catch(err => console.error(err));
+    try {
+      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options);
+      const data = await response.json();
+      setProgress(data.progress);
+      setIsButtonDisabled(true);
+           
+      // Aquí puedes agregar la lógica para redirigir al componente de home
+    } catch (err) {
+      console.error(err);
+    }
+    
+  };
 
-    setIsButtonDisabled(true);
-
-    swal({
-      title: "Se acepto correctamente la oferta",
+  const handleAcceptOferta = () => {
+    setIsAcceptingOferta(true);
+    swal({    
+      text: "Oferta aceptada. ¡Redireccionando a la página de inicio!",
       icon: "success",
-      button: "Cerrar",
-      timer: 5000,
-    });
+      buttons: "OK",
+      
+    })  
+    navigate('/home');
+  };
 
-  }
+  useEffect(() => {
+    getOferta();
+  }, []);
 
+  useEffect(() => {
+    if (isAcceptingOferta) {
+      acceptOferta();
+    }
+  }, [isAcceptingOferta]);
 
+    const offerUrl = oferta.Oferta_URL__c;
+  
+  const handleProgress = () => {
+    // No es necesario realizar una nueva petición aquí,
+    // ya que el estado "progress" se actualiza en el useEffect.
+    setIsButtonDisabled(true);
+  };
+  
+  
+  
   return (
+
     <div className="container-fluid">
       <div className="container-offer">
         <div className="">
@@ -117,17 +132,18 @@ function Offer() {
         <div className="d-flex justify-content-center align-items-center container-sm">
           <div>
             <Link to='/home'>
-              <button type="button" 
-               className={` btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
-              disabled={isButtonDisabled}
+              <button type="button"
+                className={` btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
+                disabled={isButtonDisabled}
               >CANCELAR</button>
             </Link>
           </div><br />
           <div className="">
-            <button type="button" 
-            className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
-              onClick={handleProgress}
-              disabled={isButtonDisabled}>ACEPTAR</button>
+            <button type="button"
+              id='btnAceptar'
+              className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
+              onClick={handleAcceptOferta}
+              disabled={isButtonDisabled && progress}>ACEPTAR</button>
           </div>
         </div>
 

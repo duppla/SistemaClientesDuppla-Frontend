@@ -11,6 +11,9 @@ import Iprogresive4 from "../../img/Iprogresive4.png"
 
 import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
+import Istaten from "../../img/Istaten.png"
+import Istatem from "../../img/Istatem.png"
+
 import Idupplanaranja from "../../img/Idupplanaranja.png"
 import Vperfil from "../../img/vperfil.svg"
 import Voferta from "../../img/voferta.svg"
@@ -43,6 +46,7 @@ function Home() {
   const [data, setData] = useState({});
   const [state, setState] = useState({});
   const estado = localStorage.getItem('estado');
+  const [stateInmu, setStateInmu] = useState({});
   //console.log(estado);
 
   useEffect(() => {
@@ -56,31 +60,28 @@ function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: '{ "email": ' + email + '}'
       };
-
       const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
       const data = await response.json();
       setData(data)
-      setState(estado);   
-
+      setState(estado);
     }
 
-    {/*async function handleProgress() {
-
+    async function handleProgress() {
+      const email = localStorage.getItem('email');
       const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: '{ "estado": ' + estado + '}'
+        body: '{ "email": ' + email + '}'
       };
+      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
+      const datos = await response.json();
+      //console.log(datos);
+      setStateInmu(datos);
+      //console.log(datos);
 
-      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options)
-      const data = await response.json();
-
-      setEstado(data)
-      console.log(data);
-
-    }*/}
+    }
     fetchDatos();
-    //handleProgress();
+    handleProgress();
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
@@ -96,6 +97,7 @@ function Home() {
   const stateUser = data.estado;
   const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
+
 
   {/*Función que cambia el nobre de usurio a minuscula */ }
 
@@ -145,9 +147,9 @@ function Home() {
   }
 
   function testOffer() {
-
+{/*true-false verificar si esta */}
     const testOne = stateOffer;
-    if (testOne === null) {
+    if (testOne === null || testOne === false) {
       return <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
     }
     else {
@@ -193,10 +195,145 @@ function Home() {
     }
 
   }
+  useEffect(() => {
+    const stateChangeInm = stateInmu.estado;
+    console.log(stateChangeInm);
+    stateChangeAprovacioninm(stateChangeInm);
+  }, [stateInmu]);
+
+
+  {/*Cambio en estado inmueble */}
+  const stateChangeAprovacioninm = () => {
+    const stateChangeInm = stateInmu.estado;
+    switch (stateChangeInm) {
+      case "No evaluado":
+        return <div className=" ">
+        <div className="card-seccion"  >
+          <div className="row ">
+            <div className="col-1">
+              <img src={Iconinm} className="img-icono-card-inm" alt="" />
+            </div>
+            <div className="col-4 card-home-offer">
+              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+              <p className="link-style">Abrir</p>
+            </div>
+
+            <div className="col-1">
+              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+            </div>
+            <div className="col-4">
+              <div className="card-body">
+                <p className="card-text">03/03/2023</p>
+                <p className="card-text-aprov">No evaluado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      case "Evaluado":
+        return <div className=" ">
+        <div className="card-seccion"  >
+          <div className="row ">
+            <div className="col-1">
+              <img src={Iconinm} className="img-icono-card-inm" alt="" />
+            </div>
+            <div className="col-4 card-home-offer">
+              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+              <p className="link-style">Abrir</p>
+            </div>
+
+            <div className="col-1">
+              <img src={Istatem} className="btn-state-home" alt="" height='12px' width='12px' />
+            </div>
+            <div className="col-4">
+              <div className="card-body">
+                <p className="card-text">03/03/2023</p>
+                <p className="card-text-aprov">Evaluado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      case "Pendiente por aprobar":
+        return <div className="col-4">
+        </div>
+      case "Aprobado":
+        return <div className=" ">
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Iconinm} className="img-icono-card-inm" alt="" />
+              </div>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+                <p className="link-style">Abrir</p>
+              </div>
+
+              <div className="col-1">
+                <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text">03/03/2023</p>
+                  <p className="card-text-aprov">Aprobado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      case "Rechazado":
+        return <div className=" ">
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Iconinm} className="img-icono-card-inm" alt="" />
+              </div>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+                <p className="link-style">Abrir</p>
+              </div>
+
+              <div className="col-1">
+                <img src={Istaten} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text">03/03/2023</p>
+                  <p className="card-text-aprov">Rechazado</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      default: return <div className=" ">
+        <div className="card-seccion"  >
+          <div className="row ">
+            <div className="col-1">
+              <img src={Iconinm} className="img-icono-card-inm" alt="" />
+            </div>
+            <div className="col-4 card-home-offer">
+              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+              <p className="link-style">Abrir</p>
+            </div>
+
+            <div className="col-1">
+              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+            </div>
+            <div className="col-4">
+              <div className="card-body">
+                <p className="card-text">03/03/2023</p>
+                <p className="card-text-aprov">No evaluado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  }
 
 
   return (
-    <div className=" container-fluid ">
+    <div className="  ">
       <div className="container-sm">
         {/*Contenedor de perfil */}
         <div className="profile ">
@@ -265,7 +402,7 @@ function Home() {
                           </div>
                         </Link>
                       </li>
-                      {testEstado(estado)}                    
+                      {testEstado(estado)}
                       <li className="nav-item">
                         <Link to="/property">
                           <div className="row ">
@@ -327,7 +464,7 @@ function Home() {
             </div>
           </nav>
         </div>
-        {/*Contenedor de Propuesta Comercial */}
+   {/*Contenedor de Propuesta Comercial */}
         <div className="Container-cards-seccion-m centrado " id="cardComponet">
           <Link to='/offer' className="link-style">
             <div className="card-seccion ">
@@ -356,28 +493,8 @@ function Home() {
         {/*Contenedor de inmueble */}
         <div className="Container-cards-seccion-m centrado " id="cardComponet">
           <Link to='/property' className="link-style">
-            <div className="card-seccion"  >
-              <div className="row ">
-                <div className="col-1">
-                  <img src={Iconinm} className="img-icono-card-inm" alt="" />
-                </div>
-                <div className="col-4 card-home-offer">
-                  <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-                  <p className="link-style">Abrir</p>
-                </div>
-                <div className="col-1">
-                  {testInm(stateInm)}
-                  {/** {stateInm ? <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' /> : <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />}
-                */}
-                </div>
-                <div className="col-4">
-                  <div className="card-body">
-                    <p className="card-text more">03/02/2023</p>
-                    <p className="card-text-aprov">{stateInm ? "Aceptado" : "Pendiente"}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {stateChangeAprovacioninm(stateInmu)}
+
           </Link>
         </div>
         {/*Menú documentos*/}
@@ -403,7 +520,8 @@ function Home() {
         <div className=" centrado-mensaje ">
           <div className="row  ">
             <h6>Estado:</h6>
-            <b> {data.mensaje}  </b>
+            {/* */}
+            <b> {data.mensaje} {data.mensaje_oportunidad} </b>
           </div>
         </div>
         {/*componente calendario*/}

@@ -65,6 +65,7 @@ function Property() {
     //Cambio de estado Ficha técnica   
 
     const statefichaTecnica = datos.estado;
+    console.log(statefichaTecnica);
 
 
     const stateFtecnica = (statefichaTecnica) => {
