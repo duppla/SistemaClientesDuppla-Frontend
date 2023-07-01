@@ -68,6 +68,7 @@ function Home() {
 
     async function handleProgress() {
       const email = localStorage.getItem('email');
+
       const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -197,7 +198,7 @@ function Home() {
   }
   useEffect(() => {
     const stateChangeInm = stateInmu.estado;
-    console.log(stateChangeInm);
+   // console.log(stateChangeInm);
     stateChangeAprovacioninm(stateChangeInm);
   }, [stateInmu]);
 

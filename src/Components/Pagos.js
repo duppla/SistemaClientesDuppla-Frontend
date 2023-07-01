@@ -30,7 +30,7 @@ function pagosHistorial() {
     const dato = dataPago.document;
 
 
-    console.log("Aqui debria haber algo", dato);
+    //console.log("Aqui debria haber algo", dato);
 
     // función que redirecciona al usuario de buyer a custumer
 

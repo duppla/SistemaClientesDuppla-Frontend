@@ -36,7 +36,7 @@ function Goal() {
       
       const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/meta', options)
       const jsonData = await response.json();
-      console.log(JSON.stringify(jsonData[0].Meta__c));
+      //console.log(JSON.stringify(jsonData[0].Meta__c));
       setData(jsonData[0]);
     }
 

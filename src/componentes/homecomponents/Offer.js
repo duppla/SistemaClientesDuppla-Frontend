@@ -10,83 +10,65 @@ import swal from 'sweetalert';
 
 function Offer() {
   const navigate = useNavigate();
- 
+
   const [oferta, setOferta] = useState({});
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [isAcceptingOferta, setIsAcceptingOferta] = useState(false);
   const [progress, setProgress] = useState(false);
 
-  const getOferta = async () => {
+  useEffect(() => {
     const email = localStorage.getItem('email');
-    const options = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: '{ "email": ' + email + '}'
+
+    const getOferta = async () => {
+      const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{ "email": ' + email + '}'
+      };
+
+      try {
+        const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options);
+        const data = await response.json();
+        setOferta(data);
+        setIsButtonDisabled(data.Oferta_URL__c === null || data.Oferta_URL__c === '' || data.Oferta_URL__c === undefined);
+      } catch (err) {
+        console.error(err);
+      }
     };
 
-    try {
-      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options);
-      const data = await response.json();
-      setOferta(data);
-      setIsButtonDisabled(!data.Oferta_URL__c);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    getOferta();
+  }, []);
 
-  const acceptOferta = async () => {
+  const handleProgress = async () => {
     const email = localStorage.getItem('email');
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: '{ "email": ' + email + '}'
-
     };
 
     try {
       const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options);
       const data = await response.json();
-      setProgress(data.progress);
+      setProgress(data);
       setIsButtonDisabled(true);
-           
-      // Aquí puedes agregar la lógica para redirigir al componente de home
     } catch (err) {
       console.error(err);
     }
-    
-  };
 
-  const handleAcceptOferta = () => {
-    setIsAcceptingOferta(true);
-    swal({    
-      text: "Oferta aceptada. ¡Redireccionando a la página de inicio!",
+    swal({
+      title: "¡Oferta aceptada!",
+      text: "¡Tu oferta ha sido aceptada, se redireccionará a inicio!",
       icon: "success",
-      buttons: "OK",
-      
-    })  
-    navigate('/home');
+      button: "Aceptar",
+    }).then(() => {
+      navigate('/home');
+    });
   };
 
-  useEffect(() => {
-    getOferta();
-  }, []);
+  const offerUrl = oferta.Oferta_URL__c;
 
-  useEffect(() => {
-    if (isAcceptingOferta) {
-      acceptOferta();
-    }
-  }, [isAcceptingOferta]);
 
-    const offerUrl = oferta.Oferta_URL__c;
-  
-  const handleProgress = () => {
-    // No es necesario realizar una nueva petición aquí,
-    // ya que el estado "progress" se actualiza en el useEffect.
-    setIsButtonDisabled(true);
-  };
-  
-  
-  
+
   return (
 
     <div className="container-fluid">
@@ -142,8 +124,8 @@ function Offer() {
             <button type="button"
               id='btnAceptar'
               className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
-              onClick={handleAcceptOferta}
-              disabled={isButtonDisabled && progress}>ACEPTAR</button>
+              onClick={handleProgress}
+              disabled={isButtonDisabled}>ACEPTAR</button>
           </div>
         </div>
 

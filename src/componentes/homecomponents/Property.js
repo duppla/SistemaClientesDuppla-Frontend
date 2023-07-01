@@ -57,7 +57,7 @@ function Property() {
         }
         fetchData();
         if (datos.name) {
-            console.log(datos.name)
+            //console.log(datos.name)
             fetchFotos();
         }
     }, [datos.name]);
@@ -65,7 +65,7 @@ function Property() {
     //Cambio de estado Ficha técnica   
 
     const statefichaTecnica = datos.estado;
-    console.log(statefichaTecnica);
+   // console.log(statefichaTecnica);
 
 
     const stateFtecnica = (statefichaTecnica) => {
