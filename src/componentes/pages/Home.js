@@ -333,6 +333,24 @@ function Home() {
   }
 
 
+  {/** consicional mostrar mensaje desde legal o ventasm  */}
+
+  function mensajeSf() {
+
+    const msjLegal = data.mensaje;
+    const msjOportunidad = data.mensaje_oportunidad;
+
+    if (msjLegal !== null || msjLegal !== undefined) {
+      return <p className="card-text-aprov"> {msjOportunidad}</p>
+    }  else if (msjOportunidad !== null || msjOportunidad !== undefined){
+      return <p className="card-text-aprov"> {msjLegal}</p>
+    } else{
+      return <p className="card-text-aprov"> No tienen notificaciones nuevas</p>
+    }
+    
+  }
+
+
   return (
     <div className="  ">
       <div className="container-sm">
@@ -522,7 +540,7 @@ function Home() {
           <div className="row  ">
             <h6>Estado:</h6>
             {/* */}
-            <b> {data.mensaje} {data.mensaje_oportunidad} </b>
+            <b> {mensajeSf()} </b>
           </div>
         </div>
         {/*componente calendario*/}
@@ -536,7 +554,7 @@ function Home() {
         </div>
         {/*componente  soporte*/}
         <div className=" btn-m " id="">
-          <a className="links  btn-m  "
+          <a className="links btn-m  "
             href="https://api.whatsapp.com/send?phone=573152559261">
             <button type="button" className="btn btn-prueba-blanco text-blue btn-m"  >
               Tengo algún problema

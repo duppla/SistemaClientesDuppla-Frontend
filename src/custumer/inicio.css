@@ -12,7 +12,34 @@ code {
     --color-sombra-duppla: #EEEFF3;
     --color-fondo-gris: #F9F9F9;
 }
-
+ 
+@font-face {
+    font-family: 'Rustica';
+    src: url('./../fonts/Rustica/RusticaMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Rustica';
+    src: url('./../fonts/Rustica/RusticaLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Rustica';
+    src: url('./../fonts/Rustica/RusticaRegular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HelveticaNowText-Light';
+    src: url('./../fonts/HelveticaNow/HelveticaNowTextLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+  }
 
 .text-blue-init {
 
@@ -80,14 +107,14 @@ code {
     align-items: center;
     text-align: center;
     margin-top: 24px;
-    font-family: 'Helvetica';
+    font-family:'Rustica'!important;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     line-height: 24px;
 
     font-family: Arial, Helvetica, sans-serif;
-    color: #000000;
+    color: #0A3323;
 
 }
 

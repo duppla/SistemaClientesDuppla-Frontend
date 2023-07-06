@@ -65,20 +65,35 @@ body {
 }
 
 
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-  background-color: #9ED19A;
+.configuracion-inicial{
+  display:flex
+}
+
+.no-alinear-centro { margin: 0 auto; }
+
+.container-form-centrado-mantenimiento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
+  margin-left: 24px;
+  margin-right: 24px;
+  border-radius: 5px;
+
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #9ED19A;  
 }
 
 /* Custom focus ring */
 .btn-form:focus,
 .form-control:focus {
-  box-shadow: 0 0 0 0.2rem rgba(197, 245, 202, 0.5);
- 
+  box-shadow: 0 0 0 0.2rem rgba(197, 245, 202, 0.5); 
 }
 
 .seccion-titulo {
-  color: #9ED19A;
+  color: #42723f;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -131,20 +146,22 @@ body {
 .custom-h3 {
   font-family: 'Rustica', sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 22px;
   /* Change this to adjust size */
-  color: rgb(108, 144, 111);
-  justify-content: center;
-  text-align: center;
+  color: #0A3323;
+  justify-content: start;
+  text-align: start;
+ 
 }
 
 .custom-h4 {
   font-family: 'Rustica', sans-serif;
-  font-weight: 500;
-  font-size: 28px;
+  font-weight: 400;
+  font-size: 20px;
   /* Change this to adjust size */
-  justify-content: center;
-  text-align: center;
+  justify-content: start;
+  text-align: start;
+  
 
 }
 
@@ -162,24 +179,18 @@ textarea {
 }
 
 .card-body-form {
+  
+  justify-self: center;
+  align-items: center;
 
-  display: grid;
-
-  grid-template-columns: 1fr;
-  margin-left: 78px;
-  margin-right: 60px;
-
+ 
   grid-gap: 10px;
-
   margin-bottom: 31px;
-
-
   width: 320px;
   height: auto;
   background-color: #ffffff;
   border: 1px solid #ced4da;
   padding: 1.25rem !important;
-
   background-clip: padding-box;
   border-radius: 10px;
 
@@ -188,13 +199,9 @@ textarea {
 
 .card-body-form-two {
 
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-left: 18px;
-  margin-right: 18px;
-  grid-gap: 10px;
+ 
   margin-bottom: 31px;
-  width: 320px;
+ 
   height: auto;
   background-color: #ffffff;
   border: 1px solid #ced4da;

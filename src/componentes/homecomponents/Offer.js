@@ -17,7 +17,6 @@ function Offer() {
 
   useEffect(() => {
     const email = localStorage.getItem('email');
-
     const getOferta = async () => {
       const options = {
         method: 'POST',
@@ -29,13 +28,16 @@ function Offer() {
         const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options);
         const data = await response.json();
         setOferta(data);
-        setIsButtonDisabled(data.Oferta_URL__c === null || data.Oferta_URL__c === '' || data.Oferta_URL__c === undefined);
+        setIsButtonDisabled(data.estadoOferta__c);
+        //setIsButtonDisabled(data.estadoOferta__c !== null && data.estadoOferta__c !== '' && data.estadoOferta__c !== undefined);
+
       } catch (err) {
         console.error(err);
       }
-    };
 
+    };
     getOferta();
+   // console.log('mensaje validación' + isButtonDisabled)
   }, []);
 
   const handleProgress = async () => {
@@ -48,9 +50,10 @@ function Offer() {
 
     try {
       const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options);
-      const data = await response.json();
-      setProgress(data);
-      setIsButtonDisabled(true);
+     if(response.status === 200){
+       setIsButtonDisabled(true);
+     }
+      //console.log('mensaje validación' + response.status)
     } catch (err) {
       console.error(err);
     }
@@ -98,7 +101,7 @@ function Offer() {
                   href={offerUrl} target="_blank"
                 >
 
-                  <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
+                  <button type="button" className="btn btn-prueba text-center links text-white " width="400px" height="46px" >
                     Oferta
                   </button>
                 </a>

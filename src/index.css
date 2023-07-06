@@ -26,6 +26,39 @@ code {
   --color-fondo-gris: #F9F9F9;
 }
 
+@font-face {
+  font-family: 'Rustica';
+  src: url('./../src/fonts/Rustica/RusticaMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rustica';
+  src: url('./../src/fonts/Rustica/RusticaLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rustica';
+  src: url('./../src/fonts/Rustica/RusticaRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Rustica';
+  src: url('./../src/fonts/Rustica/RusticaRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNowText-Light';
+  src: url('./../src/fonts/HelveticaNow/HelveticaNowTextLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
 /*Configuración container*/
 .container-fluid {
   padding: 0px 0px 0px 0px;
@@ -453,7 +486,7 @@ hr {
 }
 
 .btn-state-home {
-  margin-top: 65px;
+  margin-top: 63px;
   margin-left: 4px;
 }
 
@@ -725,7 +758,7 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
+  margin-top: 8px;
   margin-bottom: 5px;
 
   padding: 16px 24px;
@@ -796,7 +829,7 @@ a {
 .btn-prueba-blanco {
   width: 365px;
   height: 58px;
-  margin-top: 20px;
+  margin-top: 8px;
   margin-bottom: 20px;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #FFFFFF;
   border: 1px solid #6C9FFF;
@@ -1166,7 +1199,7 @@ a {
   .btn-prueba-blanco {
     width: 300px;
     height: 58px;
-    margin-top: 20px;
+    margin-top: 8px;
     margin-bottom: 20px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #FFFFFF;
     border: 1px solid #6C9FFF;
@@ -1354,7 +1387,7 @@ a {
     width: 430px;
 
     height: 58px;
-    margin-top: 20px;
+    margin-top: 8px;
     margin-bottom: 20px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)), #FFFFFF;
     border: 1px solid #6C9FFF;

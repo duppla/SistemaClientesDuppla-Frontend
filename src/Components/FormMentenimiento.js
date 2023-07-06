@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const FormMentenimiento = () => {
   return (
-<div className='container-fluid'>
-    <div class="profile-form">
+<div className='container-fluid  '>
+    <div class="profile-form no-alinear-centro ">
         <button class="back-button">
         <Link to='/inicio'>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -15,12 +15,15 @@ const FormMentenimiento = () => {
         </button>
  
     </div>
-    <div className="container">
+    <div className="container no-alinear-centro   ">
     <form className=''>
+        <div className="container-form-centrado-mantenimiento ">
         <h3 className="seccion-titulo custom-h3 centrado">Generar solicitud de reparación / mantenimiento</h3>
+        </div>
         {/*}Sección A */}
-      <h4 className="seccion-titulo custom-h4">Información del inmueble</h4>
-      <div className="card mt-3 centrado">
+
+      <h4 className="seccion-titulo custom-h4 container-form-centrado-mantenimiento">Información del inmueble</h4>
+      <div className="card container-form-centrado-mantenimiento">
         <div className="card-body-form">
           <div className="form-group">
             <label for="textField">Correo / Cédula Registrado:</label>
@@ -37,8 +40,8 @@ const FormMentenimiento = () => {
       </div>
 
     {/* Sección B */}
-      <h4 className="seccion-titulo custom-h4">Información de la afectación</h4>
-      <div className="card ">
+      <h4 className="seccion-titulo custom-h4 container-form-centrado-mantenimiento">Información de la afectación</h4>
+      <div className="card container-form-centrado-mantenimiento">
         <div className="card-body-form-two">
          {/** Dropdown 1 */}
           <div className="form-group">
