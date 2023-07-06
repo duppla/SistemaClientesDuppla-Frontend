@@ -23,7 +23,7 @@ function Property() {
     const [datos, setDatos] = useState({});
 
     const [fotos, setFotos] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    //const [isLoading, setIsLoading] = useState(true);
 
     // const [formattedData, setFormattedData] = useState();
 
@@ -42,7 +42,7 @@ function Property() {
             const datos = await response.json();
             //console.log(datos);
             setDatos(datos);
-            setIsLoading(false);
+            //setIsLoading(false);
         }
 
         async function fetchFotos() {
@@ -70,25 +70,10 @@ function Property() {
     const statefichaTecnica = datos.estado;
     // console.log(statefichaTecnica);
 
-    
-    const comprobanteContendio = datos;
-    
-    function comprobtContendio() {
-        if (isLoading) {
-          return <p>Cargando...</p>;
-        }
-      
-        if (!comprobanteContendio || Object.keys(comprobanteContendio).length === 0) {
-          return (
-            <div className='img-offer-conatiner'>
-              <p>Aún no se encuentra información asociada al inmueble</p>
-            </div>
-          );
-        }
-    }
-    
+
+
     const stateFtecnica = (statefichaTecnica) => {
-        
+
         switch (statefichaTecnica) {
             case "No evaluado":
                 return <div className="col-4">
@@ -419,7 +404,7 @@ function Property() {
 
     return (
         <div>
-            { comprobtContendio ?  <div className="container-property container-fluid">
+            <div className="container-property container-fluid">
                 {testRedireccion(estado)}
                 {/*Carrusel de imagenes */}
                 <div id="carouselExampleIndicators" className="carousel slide">
@@ -647,10 +632,7 @@ function Property() {
                     </a>
                 </div>
                 <br />
-            </div > : <div className='img-offer-conatiner '>
-              {/*<img src={Idefaultoffer} className="container fluid" alt="..." />*/}
-           <p>Aún no se encuentra información asociada al inmueble</p>
-            </div>}
+            </div >
         </div>
 
 

@@ -10,9 +10,12 @@ import Iprogresive4 from "../../img/Iprogresive4.png"
 
 
 import Istateg from "../../img/Istateg.png"
-import Istatev from "../../img/Istatev.png"
 import Istaten from "../../img/Istaten.png"
 import Istatem from "../../img/Istatem.png"
+import Istatev from "../../img/Istatev.svg"
+import Istater from "../../img/Istater.svg"
+import Istatea from "../../img/Istatea.svg"
+import Istateblue from "../../img/Istateblue.svg"
 
 import Idupplanaranja from "../../img/Idupplanaranja.png"
 import Vperfil from "../../img/vperfil.svg"
@@ -244,7 +247,7 @@ function Home() {
             </div>
 
             <div className="col-1">
-              <img src={Istatem} className="btn-state-home" alt="" height='12px' width='12px' />
+              <img src={Istateblue} className="btn-state-home" alt="" height='12px' width='12px' />
             </div>
             <div className="col-4">
               <div className="card-body">
@@ -256,8 +259,29 @@ function Home() {
         </div>
       </div>
       case "Pendiente por aprobar":
-        return <div className="col-4">
+        return <div className=" ">
+        <div className="card-seccion"  >
+          <div className="row ">
+            <div className="col-1">
+              <img src={Iconinm} className="img-icono-card-inm" alt="" />
+            </div>
+            <div className="col-4 card-home-offer">
+              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+              <p className="link-style">Abrir</p>
+            </div>
+
+            <div className="col-1">
+              <img src={Istatea} className="btn-state-home" alt="" height='12px' width='12px' />
+            </div>
+            <div className="col-4">
+              <div className="card-body">
+                <p className="card-text">03/03/2023</p>
+                <p className="card-text-aprov">Aprobado</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
       case "Aprobado":
         return <div className=" ">
           <div className="card-seccion"  >
@@ -295,7 +319,7 @@ function Home() {
               </div>
 
               <div className="col-1">
-                <img src={Istaten} className="btn-state-home" alt="" height='12px' width='12px' />
+                <img src={Istater} className="btn-state-home" alt="" height='12px' width='12px' />
               </div>
               <div className="col-4">
                 <div className="card-body">
