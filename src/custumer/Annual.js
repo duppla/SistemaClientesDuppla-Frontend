@@ -42,9 +42,10 @@ function Annual() {
                 setDataPago(extractedData)
             })
             .catch(err => console.error(err));
-
-    }, []);
-
+            
+        }, []);
+        console.log(dataPago);
+        
     // redireccionamiento dependiendo si el usuario es true o false
     function testRedireccion() {
         const estado = localStorage.getItem('estado');
@@ -155,9 +156,7 @@ function Annual() {
                     </div>
                 ) : (
                     <div className="d-flex justify-content-center">
-                    <div className="spinner-border" role="status">
-                      <span className="visually-hidden">Cargando...</span>
-                    </div>
+                    <p>No se encontraron datos relacionados al usuario ...</p>
                   </div>
                     
                 )}

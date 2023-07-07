@@ -249,6 +249,17 @@ code {
     border-radius: 10px;
 }
 
+
+.container-form-centrado-customer-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 5px;
+  
+  }
 .ul {
     text-decoration: none;
     list-style: none;

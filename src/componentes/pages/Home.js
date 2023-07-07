@@ -365,9 +365,16 @@ function Home() {
     const msjOportunidad = data.mensaje_oportunidad;
 
     if (msjLegal !== null || msjLegal !== undefined) {
-      return <p className="card-text-aprov"> {msjOportunidad}</p>
-    }  else if (msjOportunidad !== null || msjOportunidad !== undefined){
-      return <p className="card-text-aprov"> {msjLegal}</p>
+      return<div>
+      <div><p className="card-text-aprov"> {msjOportunidad}</p></div>
+      <div><p className="card-text-aprov"> {msjLegal}</p></div>
+   </div>
+    }  
+    else if (msjOportunidad !== null || msjOportunidad !== undefined){
+      return <div>
+      <div><p className="card-text-aprov"> {msjLegal}</p></div>
+      <div><p className="card-text-aprov"> {msjOportunidad}</p></div>
+   </div>
     } else{
       return <p className="card-text-aprov"> No tienen notificaciones nuevas</p>
     }

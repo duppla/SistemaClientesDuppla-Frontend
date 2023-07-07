@@ -27,12 +27,15 @@ function Property() {
 
     // const [formattedData, setFormattedData] = useState();
 
+    const [error, setError] = useState(false);
+    const errorMessage = "No tiene inmueble";
+
 
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
         const email = localStorage.getItem('email');
 
-        async function fetchData() {
+      {/*  async function fetchData() {
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -43,7 +46,27 @@ function Property() {
             //console.log(datos);
             setDatos(datos);
             //setIsLoading(false);
-        }
+        }*/}
+        async function fetchData() {
+            const options = {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: '{ "email": ' + email + '}'
+            };
+          
+            try {
+              const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options);
+              if (!response.ok) {
+                throw new Error('Error en la solicitud');
+              }
+              const datos = await response.json();
+              setDatos(datos);
+              setError(false); // No hay error
+            } catch (error) {
+              setError(true); // Hay error
+            }
+          }
+          
 
         async function fetchFotos() {
             const options = {
@@ -404,7 +427,7 @@ function Property() {
 
     return (
         <div>
-            <div className="container-property container-fluid">
+           {error ? <p>{errorMessage}</p> :  <div className="container-property container-fluid">
                 {testRedireccion(estado)}
                 {/*Carrusel de imagenes */}
                 <div id="carouselExampleIndicators" className="carousel slide">
@@ -632,7 +655,7 @@ function Property() {
                     </a>
                 </div>
                 <br />
-            </div >
+            </div >}
         </div>
 
 
