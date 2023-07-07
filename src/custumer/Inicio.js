@@ -736,7 +736,7 @@ function Inicio() {
                         <a className="links"
                             href="https://api.whatsapp.com/send?phone=573152559261">
                             <div className='btn-wrapper'>
-                                <img src={Iayuda} className=" img-btn-wrapper-problem warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                                 <br />
                             </div>
                         </a>
@@ -759,7 +759,7 @@ function Inicio() {
                     </div>*/}
                     <div className='space-btn-wrapper'>
                         <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
-                            <img src={Ihistorialpago} className=" img-btn-wrapper-history warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
+                            <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
                             <br />
                         </div>
                         </Link>
