@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import './../custumer/Annual.css'
+import Idefaultoffer from "./../img/Idefaultoffer.png";
 
 function Annual() {
 
@@ -155,9 +156,12 @@ function Annual() {
                         ))}
                     </div>
                 ) : (
-                    <div className="d-flex justify-content-center">
-                    <p>No se encontraron datos relacionados al usuario ...</p>
-                  </div>
+                   
+                  <div className='img-offer-conatiner '>
+                      <p> No se encontraron datos relacionados al usuario... </p>                     
+                  
+                  <img src={Idefaultoffer} className="container-fluid"  alt="..." />
+                </div>
                     
                 )}
             </div>

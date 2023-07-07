@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const FormMentenimiento = () => {
   return (
-    <div className='container-fluid  '>
+    <div className=' '>
       <div class="profile-form ">
         <button class="back-button">
           <Link to='/inicio'>

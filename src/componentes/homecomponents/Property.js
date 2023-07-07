@@ -9,6 +9,8 @@ import Istateg from "../../img/Istateg.png"
 import Istatev from "../../img/Istatev.png"
 import swal from 'sweetalert';
 import Imgdefault from "../../img/Imgdefault.png"
+import Idefaultproperty from "../../img/Idefaultproperty.png";
+
 import { Container } from "@mui/material";
 
 
@@ -35,7 +37,7 @@ function Property() {
         // GET request using fetch inside useEffect React hook
         const email = localStorage.getItem('email');
 
-      {/*  async function fetchData() {
+        {/*  async function fetchData() {
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -49,24 +51,24 @@ function Property() {
         }*/}
         async function fetchData() {
             const options = {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: '{ "email": ' + email + '}'
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: '{ "email": ' + email + '}'
             };
-          
+
             try {
-              const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options);
-              if (!response.ok) {
-                throw new Error('Error en la solicitud');
-              }
-              const datos = await response.json();
-              setDatos(datos);
-              setError(false); // No hay error
+                const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options);
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud');
+                }
+                const datos = await response.json();
+                setDatos(datos);
+                setError(false); // No hay error
             } catch (error) {
-              setError(true); // Hay error
+                setError(true); // Hay error
             }
-          }
-          
+        }
+
 
         async function fetchFotos() {
             const options = {
@@ -427,7 +429,10 @@ function Property() {
 
     return (
         <div>
-           {error ? <p>{errorMessage}</p> :  <div className="container-property container-fluid">
+            {error ? <div className='img-offer-conatiner '>
+                <p>{errorMessage}</p>
+                <img src={Idefaultproperty} className="container-fluid" alt="..." />
+            </div> : <div className="container-property container-fluid">
                 {testRedireccion(estado)}
                 {/*Carrusel de imagenes */}
                 <div id="carouselExampleIndicators" className="carousel slide">
