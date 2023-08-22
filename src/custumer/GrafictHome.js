@@ -33,7 +33,6 @@ const GrafictHome = () => {
   const dataAniversario = dataGrafict.fechaEntrega;
   const meta = dataGrafict.meta;
 
-
   //compración de fechas
   const GrafictCalculos = () => {
     const fecha1 = new Date();
@@ -63,7 +62,6 @@ const GrafictHome = () => {
       return porcentajeActual;
     }
   }
-
   // calcula el faltante de la meta en la grafica
   function GrafictPie() {
     let porcentajeActual = GrafictCalculos();

@@ -46,6 +46,7 @@ code {
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Rustica';
   src: url('./../src/fonts/Rustica/RusticaRegular.ttf') format('truetype');
@@ -59,6 +60,7 @@ code {
   font-weight: 200;
   font-style: normal;
 }
+
 /*Configuración container*/
 .container-fluid {
   padding: 0px 0px 0px 0px;
@@ -126,7 +128,7 @@ code {
   align-items: center;
   margin-top: 120px;
   padding: 10px;
- 
+
   height: auto;
 }
 
@@ -314,11 +316,23 @@ code {
 
 }
 
+/*Manejo img de perfil y home*/
+.img-duppla-naranja {
+  width: 80px;
+  height: 30px;
+}
+
 .img-user {
   width: 64px;
   height: 63px;
   margin-left: 32px;
   margin-top: 25px;
+}
+
+.img-user-mui {
+  width: 64px;
+  height: 63px;
+
 }
 
 .img-user-custumer {
@@ -343,7 +357,7 @@ code {
 
 .img-duppla {
 
-  
+
   width: 80px;
   height: 28px;
   left: 278px;
@@ -396,7 +410,7 @@ code {
 }
 
 /* linea en perfil |*/
-hr {
+/* hr {
 
   width: 10px;
   height: 0px;
@@ -409,7 +423,7 @@ hr {
   background-color: #ffffff !important;
 
 
-}
+} */
 
 .more {
   width: 110px;
@@ -1252,7 +1266,7 @@ a {
   }
 
   hr {
-    position: absolute;
+    /*  position: absolute; */
 
     width: 59px;
     height: 0px;
@@ -1337,24 +1351,30 @@ a {
     border: 1px solid #81A1F8;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-}
-.card-body-form-two {
+  }
 
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-left: 28px;
-  margin-right: 28px;
-  grid-gap: 10px;
-  margin-bottom: 31px;
-  width: 320px;
-  height: auto;
-  background-color: #ffffff;
-  border: 1px solid #ced4da;
-  padding: 1.25rem !important;
-  background-clip: padding-box;
-  border-radius: 10px;
+  .card-body-form-two {
 
-}
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 28px;
+    margin-right: 28px;
+    grid-gap: 10px;
+    margin-bottom: 31px;
+    width: 320px;
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 1.25rem !important;
+    background-clip: padding-box;
+    border-radius: 10px;
+
+  }
+
+  .imgs-navbar-mui{
+    margin-left: 24px !important;
+
+  }
 
 
 
@@ -1414,7 +1434,7 @@ a {
   }
 
 
-  hr {
+  /*   hr {
    
 
     width: 59px;
@@ -1428,7 +1448,7 @@ a {
     border: 1, 3px solid #FFFFFF !important;
     background-color: #ffffff !important;
   }
-
+ */
 
 
   .img-duppla {

@@ -13,7 +13,7 @@ code {
     --color-fondo-gris: #F9F9F9;
 }
 
-.contenedor-progress-donut{
+.contenedor-progress-donut {
     width: 380px;
 }
 
@@ -38,7 +38,7 @@ code {
 }
 
 .chart-skills::before {
-    content:'2023';
+    content: '2023';
     width: inherit;
     height: inherit;
     border: 90px solid rgba(255, 255, 255, 0.3);
@@ -87,7 +87,7 @@ ul {
 .chart-skills li:nth-child(2) {
     z-index: 3;
     border-color: var(--color-verde-duppla);
-    
+
 }
 
 
@@ -107,21 +107,22 @@ ul {
 
 .chart-skills li:nth-child(2) {
     z-index: 3;
-    border-color:var(--color-verde-duppla);
+    border-color: var(--color-verde-duppla);
     animation-name: rotate-two;
     animation-delay: .4s;
-    
+
 }
 
 
 
 .chart-skills li:nth-child(4) {
     z-index: 1;
-    border-color:var(--color-verde-duppla);
+    border-color: var(--color-verde-duppla);
     animation-name: rotate-four;
     animation-delay: 1.2s;
 }
-.li::marker{
+
+.li::marker {
     text-emphasis: none;
 }
 
@@ -153,13 +154,16 @@ ul {
 
 
 .chart-skills {
-    /* existing rules....*/  
-    
+    /* existing rules....*/
+
     overflow: hidden;
 }
+
 .chart-skills li {
     /* existing rules....*/
-    
+
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
+
+

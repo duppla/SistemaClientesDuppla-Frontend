@@ -41,6 +41,7 @@ function Annual() {
                 }));
 
                 setDataPago(extractedData)
+                console.log(extractedData);
             })
             .catch(err => console.error(err));
             

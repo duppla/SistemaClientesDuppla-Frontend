@@ -29,6 +29,7 @@ import Igo from "../../img/go.png"
 
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
+import Navbar from "../../Components/Navbar";
 
 
 
@@ -355,10 +356,7 @@ function Home() {
       </div>
     }
   }
-
-
   {/** consicional mostrar mensaje desde legal o ventasm  */}
-
   function mensajeSf() {
 
     const msjLegal = data.mensaje;
@@ -381,12 +379,13 @@ function Home() {
     
   }
 
-
   return (
     <div className="  ">
+
+      <Navbar/>
       <div className="container-sm">
         {/*Contenedor de perfil */}
-        <div className="profile ">
+        {/* <div className="profile ">
           <div className="contenedor-img-duppla">
             <img src={Idupplanaranja} className=" img-duppla" alt="" />
           </div>
@@ -402,7 +401,7 @@ function Home() {
               <p className="text-orange">{fecha}</p>
             </div>
           </div>
-          {/*Navbar  */}
+          
           <nav className=" col-2 navbar ">
             <div className=" icon-navbar-home">
               <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -513,7 +512,7 @@ function Home() {
               </div>
             </div>
           </nav>
-        </div>
+        </div> */}
    {/*Contenedor de Propuesta Comercial */}
         <div className="Container-cards-seccion-m centrado " id="cardComponet">
           <Link to='/offer' className="link-style">
