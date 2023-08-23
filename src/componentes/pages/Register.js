@@ -5,6 +5,8 @@ import axios from 'axios';
 import { AuthContext } from '../../context/Contextauth';
 import swal from 'sweetalert';
 import Iduppla from "../../img/Iduppla.png"
+import { Button, Container, CssBaseline, TextField, Typography, Box } from '@mui/material';
+
 
 
 
@@ -84,20 +86,20 @@ function Register() {
     };*/}
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         // Validar si el correo es válido
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(datos.email)) {
             alert('El correo no es válido');
             return;
         }
-    
+
         // Validar que los campos no estén vacíos
         if (!datos.email || !datos.password) {
             alert('Por favor, ingrese su correo y contraseña');
             return;
         }
-    
+
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -106,11 +108,11 @@ function Register() {
                 password: datos.password,
             }),
         };
-    
+
         try {
             const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options);
             const responseData = await response.json();
-    
+
             if (response.status === 200) {
                 login(responseData.token, datos.email, responseData.estado);
                 setDatos('');
@@ -122,7 +124,7 @@ function Register() {
             console.error(error);
         }
     };
-    
+
     const handleNotification = () => {
         swal({
 
@@ -136,7 +138,7 @@ function Register() {
     return (
 
         <div className="container-fluid" id="formAuthLogin">
-            <div className="">
+            {/* <div className="">
                 <div className="container-sing">
                     <div className="img-logotipo centrado">
                         <img src={Iduppla} className="rounded centrado" alt="Simbolo duppla" />
@@ -181,7 +183,108 @@ function Register() {
                     </form>
 
                 </div>
-            </div>
+            </div> */}
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <Box
+                    sx={{
+                        mt: 4,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        
+                    }}
+                >
+                    <div>
+                        <img src={Iduppla} alt="" style={{
+                            width: '327px',
+                            height: '269px',
+                            
+
+                        }} />
+                    </div>
+                    <Typography  component="h1" variant="" sx={{
+                        mt:3,                        
+                        color: '#0A3323',                        
+                        textAlign: 'start',
+                        fontFamily: 'Helvetica',
+                        fontSize: '24px',
+                        fontWeight: '300',
+                        fontStyle: 'normal',
+                        
+
+
+                    }}>
+                     <h5><b className="title-login">Iniciar sesión  </b>  
+                        </h5> 
+                    </Typography>
+                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ marginTop: '35px', alignItems: 'center',}}>
+                        {/*  <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email"
+                            name="email"
+                             onChange={handleChange} 
+                            autoComplete="email"
+                            autoFocus
+                        /> */}
+                        <input type="email"
+                            name='email'
+                            onChange={handleInputChance}
+                            value={datos.email}
+                            className="form-control input-register"
+                            id="exampleInputEmail1"
+                            placeholder="Correo electrónico"
+                            aria-describedby="emailHelp"
+                            required />
+
+                        <input type="password"
+                            name='password'
+                            onChange={handleInputChance}
+                            value={datos.password}
+                            className="form-control input-register"
+                            placeholder="Contraseña"
+                            id="exampleInputPassword1"
+                            required />
+
+
+                        {/*  <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                             onChange={handleChange} 
+                            autoComplete="current-password"
+                        /> */}
+                        {showMessage && (handleNotification(true))
+
+                        }
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{
+                                marginTop: '40px',
+                                mb: 2,
+                                background: '#81A1F8',
+                                borderRadius: '10px',
+                                color: '#FFFFFF',
+                                borderRadius: '10px',
+                                height: '56px',
+                                
+                            }}
+                            onSubmit={handleSubmit}
+                        >
+                            Siguiente
+                        </Button>
+                    </Box>
+                </Box>
+
+            </Container>
         </div>
     );
 };
