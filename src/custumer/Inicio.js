@@ -2,6 +2,7 @@ import React, { useState, createContext, useEffect, useContext } from "react";
 import './../custumer/inicio.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../../src/context/Contextauth";
+import NavbarCustomer from "../Components/NavbarCustomer";
 
 import Idupplanaranja from "../../src/img/Idupplanaranja.png";
 import Iperfil from "../../src/img/iconoperfil.png"
@@ -223,12 +224,13 @@ function Inicio() {
 
     return (
         <div className=" container-fluid continer-inicio">
-            <div className="profile-custumer">
+     <NavbarCustomer/>
+           {/*  <div className="profile-custumer">
                 <div className="row container-first-elements ">
                     <div className="col-6 ">
                         <img src={Idupplanaranja} className=" img-duppla-custumer" alt="" />
                     </div>
-                    {/*Navbar para la campana de notificaciones */}
+                  
                     <div className="col-6 bell ">
                         <nav className="navbar ">
                             <div className="container-fluid">
@@ -255,7 +257,7 @@ function Inicio() {
                         </nav>
                     </div>
                 </div>
-                {/*Navbar para el perfil del usuario */}
+               
                 <div className="row container-second-elements  ">
                     <div className="col-4 ">
                         <Link to='/profile' className="link-styles"> <img src={Iperfil}
@@ -271,7 +273,7 @@ function Inicio() {
                             <p className="text-orange">{fecha}</p>
                         </div>
                     </div>
-                    {/*Navbar custumer */}
+                  
                     <nav className=" col-2 navbar  ">
                         <div className="icon-navbar-customer">
                             <button className="navbar-toggler border-none"
@@ -326,7 +328,7 @@ function Inicio() {
                                                     </div>
                                                 </Link>
                                             </li>
-                                            {/*  <li className="nav-item">
+                                          <li className="nav-item">
                                             <Link to="/historial">
                                                 <div className="row ">
                                                     <div className="col-8 outline ">
@@ -344,7 +346,7 @@ function Inicio() {
                                                     </div>
                                                 </div>
                                             </Link>
-                                        </li>*/}
+                                        </li>
                                             <li className="">
                                                 <div className="row ">
                                                     <div className="col-8 outline ">
@@ -424,7 +426,7 @@ function Inicio() {
                         </div>
                     </nav>
                 </div>
-            </div>
+            </div> */}
             {/*Sección grafica- semi-donut*/}
             <div className=" container-inicio-graph container-fluid ">
                 <div className='grafict-container-inicio-one  '>

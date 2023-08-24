@@ -165,7 +165,7 @@ const Navbar = () => {
                                 <Typography gutterBottom component="div" sx={{
                                     mt: 1,
                                 }}>
-                                    <p className="" >{data.nombre && <p className="text-name-home">{convertirAMinusculas(data.nombre)}</p>}</p>
+                                    <p className="text-name-space" >{data.nombre && <p className="text-name-home">{convertirAMinusculas(data.nombre)}</p>}</p>
                                     <p className="text-orange">{fecha}</p>
                                 </Typography>
                             </Grid>

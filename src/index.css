@@ -108,6 +108,11 @@ code {
   font-size: 12px;
   margin-top: 25px;
 }
+.card-text-grid {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  margin-top: 5px;
+}
 
 .card-text-docs {
   font-family: Arial, Helvetica, sans-serif;
@@ -119,6 +124,12 @@ code {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   margin-top: 4px;
+}
+
+.card-text-aprov-grid {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: -11px;
 }
 
 .container-sing {
@@ -487,6 +498,15 @@ code {
   bottom: 22px;
 
 }
+.img-icono-card-grid {
+  width: 36px;
+  height: 48px;
+  left: 27px;
+  /* margin-top: 25px; */
+  margin-right: 16px;
+  bottom: 22px;
+
+}
 
 .img-icono-card-inm {
   width: 50px;
@@ -503,9 +523,18 @@ code {
   margin-left: 4px;
 }
 
+.btn-state-home-grid {
+  margin-top: 32px;
+  margin-left: -4px;
+  
+}
 .card-top {
   margin-top: 25px;
   margin-bottom: 4px;
+}
+
+.card-top-grid{
+  width: 100%;
 }
 
 .card-home-offer {
@@ -574,6 +603,10 @@ code {
   letter-spacing: -0.015em;
 }
 
+.text-name-space{
+  margin-top: 10px;
+}
+
 .text-orange {
 
 
@@ -588,9 +621,7 @@ code {
 
   color: #FF864B;
 
-
-
-
+  margin-top: -5px;
 }
 
 .img-cerrar {
@@ -1339,6 +1370,16 @@ a {
 
   }
 
+  .bell-mui{
+    height: 24px;
+    width: 24px;
+    margin-left: 10px;
+     margin-top: -46px;
+    color: #FFFFFF;
+    fill: #FFFFFF;
+
+  }
+
 
   .btn-pago-custumer {
     width: 344px;
@@ -1476,7 +1517,6 @@ a {
     margin-right: 30px;
     margin-top: -46px;
 
-
   }
 
 
@@ -1489,9 +1529,30 @@ a {
 @media screen and (min-width: 992px) {}
 
 /* Dispositivos X-Large (escritorios grandes, 1200px y más)*/
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+  .bell-mui{
+    height: 24px;
+    width: 24px;
+    margin-left: -10px;
+     margin-top: -46px;
+    color: #FFFFFF;
+    fill: #FFFFFF;
+
+  }
+}
 
 /* Dispositivos XX-Large (escritorios más grandes, 1400px y más)*/
-@media (min-width: 1400px) {}
+@media (min-width: 1600px) {
+  .bell-mui{
+    height: 24px;
+    width: 24px;
+    margin-left: -10px;
+     margin-top: -46px;
+    color: #FFFFFF;
+    fill: #FFFFFF;
+
+  }
+
+}
 
 ;

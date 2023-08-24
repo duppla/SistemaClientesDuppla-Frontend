@@ -30,6 +30,7 @@ import Igo from "../../img/go.png"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Navbar from "../../Components/Navbar";
+import { Box, CssBaseline, Grid } from "@mui/material";
 
 
 
@@ -152,13 +153,13 @@ function Home() {
   }
 
   function testOffer() {
-{/*true-false verificar si esta */}
+    {/*true-false verificar si esta */ }
     const testOne = stateOffer;
     if (testOne === null || testOne === false) {
-      return <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+      return <img src={Istateg} className="btn-state-home-grid" alt="" height='12px' width='12px' />
     }
     else {
-      return <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' />
+      return <img src={Istatev} className="btn-state-home-grid" alt="" height='12px' width='12px' />
     }
   }
 
@@ -202,87 +203,87 @@ function Home() {
   }
   useEffect(() => {
     const stateChangeInm = stateInmu.estado;
-   // console.log(stateChangeInm);
+    // console.log(stateChangeInm);
     stateChangeAprovacioninm(stateChangeInm);
   }, [stateInmu]);
 
 
-  {/*Cambio en estado inmueble */}
+  {/*Cambio en estado inmueble */ }
   const stateChangeAprovacioninm = () => {
     const stateChangeInm = stateInmu.estado;
     switch (stateChangeInm) {
       case "No evaluado":
         return <div className=" ">
-        <div className="card-seccion"  >
-          <div className="row ">
-            <div className="col-1">
-              <img src={Iconinm} className="img-icono-card-inm" alt="" />
-            </div>
-            <div className="col-4 card-home-offer">
-              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-              <p className="link-style">Abrir</p>
-            </div>
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Iconinm} className="img-icono-card-inm" alt="" />
+              </div>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+                <p className="link-style">Abrir</p>
+              </div>
 
-            <div className="col-1">
-              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
-            </div>
-            <div className="col-4">
-              <div className="card-body">
-                <p className="card-text">03/03/2023</p>
-                <p className="card-text-aprov">No evaluado</p>
+              <div className="col-1">
+                <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text">03/03/2023</p>
+                  <p className="card-text-aprov">No evaluado</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       case "Evaluado":
         return <div className=" ">
-        <div className="card-seccion"  >
-          <div className="row ">
-            <div className="col-1">
-              <img src={Iconinm} className="img-icono-card-inm" alt="" />
-            </div>
-            <div className="col-4 card-home-offer">
-              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-              <p className="link-style">Abrir</p>
-            </div>
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Iconinm} className="img-icono-card-inm" alt="" />
+              </div>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+                <p className="link-style">Abrir</p>
+              </div>
 
-            <div className="col-1">
-              <img src={Istateblue} className="btn-state-home" alt="" height='12px' width='12px' />
-            </div>
-            <div className="col-4">
-              <div className="card-body">
-                <p className="card-text">03/03/2023</p>
-                <p className="card-text-aprov">Evaluado</p>
+              <div className="col-1">
+                <img src={Istateblue} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text">03/03/2023</p>
+                  <p className="card-text-aprov">Evaluado</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       case "Pendiente por aprobar":
         return <div className=" ">
-        <div className="card-seccion"  >
-          <div className="row ">
-            <div className="col-1">
-              <img src={Iconinm} className="img-icono-card-inm" alt="" />
-            </div>
-            <div className="col-4 card-home-offer">
-              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-              <p className="link-style">Abrir</p>
-            </div>
+          <div className="card-seccion"  >
+            <div className="row ">
+              <div className="col-1">
+                <img src={Iconinm} className="img-icono-card-inm" alt="" />
+              </div>
+              <div className="col-4 card-home-offer">
+                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
+                <p className="link-style">Abrir</p>
+              </div>
 
-            <div className="col-1">
-              <img src={Istatea} className="btn-state-home" alt="" height='12px' width='12px' />
-            </div>
-            <div className="col-4">
-              <div className="card-body">
-                <p className="card-text">03/03/2023</p>
-                <p className="card-text-aprov">Aprobado</p>
+              <div className="col-1">
+                <img src={Istatea} className="btn-state-home" alt="" height='12px' width='12px' />
+              </div>
+              <div className="col-4">
+                <div className="card-body">
+                  <p className="card-text">03/03/2023</p>
+                  <p className="card-text-aprov">Aprobado</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       case "Aprobado":
         return <div className=" ">
           <div className="card-seccion"  >
@@ -356,242 +357,167 @@ function Home() {
       </div>
     }
   }
-  {/** consicional mostrar mensaje desde legal o ventasm  */}
+  {/** consicional mostrar mensaje desde legal o ventasm  */ }
   function mensajeSf() {
 
     const msjLegal = data.mensaje;
     const msjOportunidad = data.mensaje_oportunidad;
 
     if (msjLegal !== null || msjLegal !== undefined) {
-      return<div>
-      <div><p className="card-text-aprov"> {msjOportunidad}</p></div>
-      <div><p className="card-text-aprov"> {msjLegal}</p></div>
-   </div>
-    }  
-    else if (msjOportunidad !== null || msjOportunidad !== undefined){
       return <div>
-      <div><p className="card-text-aprov"> {msjLegal}</p></div>
-      <div><p className="card-text-aprov"> {msjOportunidad}</p></div>
-   </div>
-    } else{
+        <div><p className="card-text-aprov"> {msjOportunidad}</p></div>
+        <div><p className="card-text-aprov"> {msjLegal}</p></div>
+      </div>
+    }
+    else if (msjOportunidad !== null || msjOportunidad !== undefined) {
+      return <div>
+        <div><p className="card-text-aprov"> {msjLegal}</p></div>
+        <div><p className="card-text-aprov"> {msjOportunidad}</p></div>
+      </div>
+    } else {
       return <p className="card-text-aprov"> No tienen notificaciones nuevas</p>
     }
-    
+
   }
 
   return (
     <div className="  ">
+      <Navbar />
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+        alignItems: 'center',
+        textAlign: 'start',
+      }}>
+        <CssBaseline />
 
-      <Navbar/>
-      <div className="container-sm">
-        {/*Contenedor de perfil */}
-        {/* <div className="profile ">
-          <div className="contenedor-img-duppla">
-            <img src={Idupplanaranja} className=" img-duppla" alt="" />
-          </div>
-          <div className="col-4 ">
-            <Link to='/profile' className="link-styles"> <img src={Iperfil}
-              className="  img-user"
-              alt="perfil" />
+
+        <div className="container-sm">
+          {/*Contenedor de Propuesta Comercial */}
+
+          <div className="Container-cards-seccion-m centrado " id="cardComponet">
+            <Link to='/offer' className="link-style">           
+
+              <Grid container className="card-seccion" sx={{
+              }}>
+                <Grid item xs={10} md={10} lg={10}>
+
+                  <Grid container maxWidth="xl" spacing={2} sx={{
+                    mt: 2,
+                  }}>
+                    <Grid item xs={2} md={2} lg={2}>
+                      <div className="col-1">
+                        <img src={Idocumento} className="img-icono-card-grid" alt="" />
+                      </div>
+                    </Grid>
+                    <Grid item xs={8} md={8} lg={8}>
+                      <div className="col-4 card-home-offer">
+                        <h4 className="card-title-home card-top-grid"><b>Propuesta Comercial</b></h4>
+                        < p className="link-style">Abrir</p>
+                      </div>
+                    </Grid>
+                    <Grid item xs={2} md={2} lg={2}>
+
+                      <Grid container maxWidth="xl" spacing={1} sx={{
+                       
+                      }}>
+                        <Grid item xs={3} md={3} lg={3}>
+                          <div className="col-1">
+                            {testOffer(stateOffer)}
+                          </div>
+                        </Grid>
+                        <Grid item xs={7} md={7} lg={7}>
+                          <div className="">
+                            <p className="card-text-grid">03/03/2023</p>
+                            <p className="card-text-aprov-grid">{stateOffer ? "Aceptado" : "Pendiente"}</p>
+                          </div>
+
+                        </Grid>
+
+
+
+                      </Grid>
+
+
+
+                    </Grid>
+
+
+
+                  </Grid>
+
+                </Grid>
+
+              </Grid>
+
+
             </Link>
-          </div><hr className="hr-position" />
-          <div className="col-6  card-perfil-datos">
-            <div className="card-body">
-              <p className="card-title card-home text-white-home" >{data.nombre && <p className="text-name-home">{convertirAMinusculas(data.nombre)}</p>}</p>
-              <p className="text-orange">{fecha}</p>
+
+          </div>
+
+
+
+
+
+
+
+          {/*Contenedor de inmueble */}
+          <div className="Container-cards-seccion-m centrado " id="cardComponet">
+            <Link to='/property' className="link-style">
+              {stateChangeAprovacioninm(stateInmu)}
+
+            </Link>
+          </div>
+          {/*Menú documentos*/}
+          <Link to='/documents' className="links text-black ">
+            <div className="card-docs-m  ">
+              <div className="card-body  col-8 text-docs">
+                <b>Menú documentos</b>
+              </div>
+              <div className="col-2 outline">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+                  className="arrow-menu" />
+              </div>
+            </div>
+          </Link>
+          <br />
+          {/*componente de estados*/}
+          <div className="centrado space-docs-home container-fluid">
+            <div className="row ">
+              {stateChange(stateUser)}
             </div>
           </div>
-          
-          <nav className=" col-2 navbar ">
-            <div className=" icon-navbar-home">
-              <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span className="navbar-toggler-icon navbar-dark"></span>
+          {/*componente de estados*/}
+          <div className=" centrado-mensaje ">
+            <div className="row  ">
+              <h6>Estado:</h6>
+              {/* */}
+              <b> {mensajeSf()} </b>
+            </div>
+          </div>
+          {/*componente calendario*/}
+          <div className="  btn-m" id="btnIniciarSesion">
+            <a className="links text-white"
+              href="https://calendly.com/agendadaniel">
+              <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
+                Agendar una cita
               </button>
-              <div className="">
-                <div className=" offcanvas offcanvas-bottom navbar-container navbar-move" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                  <div className="offcanvas-body ">
-                    <div className="img-navbar-home">
-
-                      <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
-                    </div>
-                    <ul className="navbar-nav " >
-                      <li className="nav-item ">
-                        <Link to="/profile">
-                          <div className="row ">
-                            <div className="col-8 outline ">
-                              <div className="row">
-                                <div className="card-state-properties-home nav-link active text-navbar-options">
-                                  <div className="card-body col-1  img-state-propety">
-                                    <img src={Vperfil} className="" alt="" height='24px' width='24px' />
-                                  </div>
-                                  <div className="col-10 outline">
-                                    <p className=" text-docs "><b >Perfil </b></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="nav-item  nav-section">
-                        <Link to="/offer">
-                          <div className="row ">
-                            <div className="col-8 outline ">
-                              <div className="row">
-                                <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
-                                  <div className="card-body col-1  img-state-propety">
-                                    <img src={Voferta} className="" alt="" height='24px' width='24px' />
-                                  </div>
-                                  <div className="col-10 outline">
-                                    <p className=" text-docs"><b >Ultima oferta</b></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </li>
-                      {testEstado(estado)}
-                      <li className="nav-item">
-                        <Link to="/property">
-                          <div className="row ">
-                            <div className="col-8 outline ">
-                              <div className="row">
-                                <div className="card-state-properties-home nav-link active text-navbar-options">
-                                  <div className="card-body col-1  img-state-propety">
-                                    <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
-                                  </div>
-                                  <div className="col-10 outline">
-                                    <p className=" text-docs"><b >Inmueble</b></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="">
-                        <Link to="/documents">
-                          <div className="row ">
-                            <div className="col-8 outline ">
-                              <div className="row">
-                                <div className="card-state-properties-home nav-link active text-navbar-options">
-                                  <div className="card-body col-1  img-state-propety">
-                                    <img src={Vdocs} className="" alt="" height='24px' width='24px' />
-                                  </div>
-                                  <div className="col-10 outline">
-                                    <p className=" text-docs"><b>Documentos</b></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link to="">
-                          <div className="row ">
-                            <div className="col-8 outline ">
-                              <div className="row">
-                                <div className="card-state-properties-home nav-link active text-navbar-options">
-                                  <div className="card-body col-1  img-state-propety">
-                                    <img src={Vlogout} className="" alt="" height='24px' width='24px' />
-                                  </div>
-                                  <div className="col-10 outline" onClick={handleLogout}>
-                                    <p className=" text-docs"><b >Cerrar sesión</b></p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div> */}
-   {/*Contenedor de Propuesta Comercial */}
-        <div className="Container-cards-seccion-m centrado " id="cardComponet">
-          <Link to='/offer' className="link-style">
-            <div className="card-seccion ">
-              <div className="row ">
-                <div className="col-1">
-                  <img src={Idocumento} className="img-icono-card" alt="" />
-                </div>
-                <div className="col-4 card-home-offer">
-                  <h4 className="card-title-home card-top"><b>Propuesta Comercial</b></h4>
-                  < p className="link-style">Abrir</p>
-                </div>
-                <div className="col-1">
-                  {testOffer(stateOffer)}
-                </div>
-                <div className="col-4">
-                  <div className="card-body">
-                    <p className="card-text">03/03/2023</p>
-                    <p className="card-text-aprov">{stateOffer ? "Aceptado" : "Pendiente"}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
-
-        </div>
-        {/*Contenedor de inmueble */}
-        <div className="Container-cards-seccion-m centrado " id="cardComponet">
-          <Link to='/property' className="link-style">
-            {stateChangeAprovacioninm(stateInmu)}
-
-          </Link>
-        </div>
-        {/*Menú documentos*/}
-        <Link to='/documents' className="links text-black ">
-          <div className="card-docs-m  ">
-            <div className="card-body  col-8 text-docs">
-              <b>Menú documentos</b>
-            </div>
-            <div className="col-2 outline">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                className="arrow-menu" />
-            </div>
+            </a>
           </div>
-        </Link>
-        <br />
-        {/*componente de estados*/}
-        <div className="centrado space-docs-home container-fluid">
-          <div className="row ">
-            {stateChange(stateUser)}
+          {/*componente  soporte*/}
+          <div className=" btn-m " id="">
+            <a className="links btn-m  "
+              href="https://api.whatsapp.com/send?phone=573152559261">
+              <button type="button" className="btn btn-prueba-blanco text-blue btn-m"  >
+                Tengo algún problema
+              </button>
+            </a>
           </div>
         </div>
-        {/*componente de estados*/}
-        <div className=" centrado-mensaje ">
-          <div className="row  ">
-            <h6>Estado:</h6>
-            {/* */}
-            <b> {mensajeSf()} </b>
-          </div>
-        </div>
-        {/*componente calendario*/}
-        <div className="  btn-m" id="btnIniciarSesion">
-          <a className="links text-white"
-            href="https://calendly.com/agendadaniel">
-            <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
-              Agendar una cita
-            </button>
-          </a>
-        </div>
-        {/*componente  soporte*/}
-        <div className=" btn-m " id="">
-          <a className="links btn-m  "
-            href="https://api.whatsapp.com/send?phone=573152559261">
-            <button type="button" className="btn btn-prueba-blanco text-blue btn-m"  >
-              Tengo algún problema
-            </button>
-          </a>
-        </div>
-      </div>
+
+      </Box>
+
     </div>
 
   );

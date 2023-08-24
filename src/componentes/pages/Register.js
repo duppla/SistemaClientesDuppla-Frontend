@@ -5,12 +5,26 @@ import axios from 'axios';
 import { AuthContext } from '../../context/Contextauth';
 import swal from 'sweetalert';
 import Iduppla from "../../img/Iduppla.png"
-import { Button, Container, CssBaseline, TextField, Typography, Box } from '@mui/material';
+import { Button, Container, CssBaseline, TextField, Typography, Box, createTheme, ThemeProvider } from '@mui/material';
 
 
 
 
-
+const themeLogin = createTheme({
+    status: {
+        danger: '#FF111F',
+    },
+    palette: {
+        primary: {
+            main: '#81A1F8',
+            darker: '#0A3323',
+        },
+        neutral: {
+            main: '#6C9FFF',
+            contrastText: '#fff',
+        },
+    },
+});
 
 function Register() {
     // estados 
@@ -136,9 +150,9 @@ function Register() {
     };
 
     return (
-
-        <div className="container-fluid" id="formAuthLogin">
-            {/* <div className="">
+        <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
+            <div className="container-fluid" id="formAuthLogin">
+                {/* <div className="">
                 <div className="container-sing">
                     <div className="img-logotipo centrado">
                         <img src={Iduppla} className="rounded centrado" alt="Simbolo duppla" />
@@ -184,41 +198,63 @@ function Register() {
 
                 </div>
             </div> */}
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        mt: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        
-                    }}
-                >
-                    <div>
-                        <img src={Iduppla} alt="" style={{
-                            width: '327px',
-                            height: '269px',
-                            
+                <Container className='cetrado' component="main" maxWidth="xs">
+                    <CssBaseline />
+                    <Box
+                        sx={{
+                            mt: 4,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                            textAlign: 'start',
 
-                        }} />
-                    </div>
-                    <Typography  component="h1" variant="" sx={{
-                        mt:3,                        
-                        color: '#0A3323',                        
-                        textAlign: 'start',
-                        fontFamily: 'Helvetica',
-                        fontSize: '24px',
-                        fontWeight: '300',
-                        fontStyle: 'normal',
-                        
+                        }}
+                    >
+                        <div >
+                            <img src={Iduppla} alt="" style={{
+                                width: '327px',
+                                height: '269px',
 
 
-                    }}>
-                     <h5><b className="title-login">Iniciar sesión  </b>  
-                        </h5> 
-                    </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ marginTop: '35px', alignItems: 'center',}}>
-                        {/*  <TextField
+                            }} />
+                        </div>
+                        <Typography component="h1" variant="" sx={{
+                            mt: 3,
+                            color: '#0A3323',
+                            textAlign: 'center',
+                            fontFamily: 'Rustica',
+                            fontSize: '24px',
+                            fontWeight: '500',
+                            fontStyle: 'normal',
+                            lineHeight: '20px',
+
+
+
+                        }}>
+                            <h1>Sistema Clientes
+                            </h1>
+                        </Typography>
+                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ marginTop: '30px', alignItems: 'center', }}>
+
+                            <Typography component="h1" variant="" sx={{
+                                mt: 2,
+
+                                textAlign: 'start',
+                                fontFamily: 'Rustica',
+                                fontStyle: 'normal',
+                                fontWeight: '500',
+                                fontSize: '16px',
+                                color: '#0A3323',
+                                lineHeight: '20px',
+
+
+                            }}>
+                                <p>Iniciar sesión
+                                </p>
+                            </Typography>
+
+                            {/*  <TextField
                             margin="normal"
                             required
                             fullWidth
@@ -229,27 +265,27 @@ function Register() {
                             autoComplete="email"
                             autoFocus
                         /> */}
-                        <input type="email"
-                            name='email'
-                            onChange={handleInputChance}
-                            value={datos.email}
-                            className="form-control input-register"
-                            id="exampleInputEmail1"
-                            placeholder="Correo electrónico"
-                            aria-describedby="emailHelp"
-                            required />
+                            <input type="email"
+                                name='email'
+                                onChange={handleInputChance}
+                                value={datos.email}
+                                className="form-control input-register"
+                                id="exampleInputEmail1"
+                                placeholder="Correo electrónico"
+                                aria-describedby="emailHelp"
+                                required />
 
-                        <input type="password"
-                            name='password'
-                            onChange={handleInputChance}
-                            value={datos.password}
-                            className="form-control input-register"
-                            placeholder="Contraseña"
-                            id="exampleInputPassword1"
-                            required />
+                            <input type="password"
+                                name='password'
+                                onChange={handleInputChance}
+                                value={datos.password}
+                                className="form-control input-register"
+                                placeholder="Contraseña"
+                                id="exampleInputPassword1"
+                                required />
 
 
-                        {/*  <TextField
+                            {/*  <TextField
                             margin="normal"
                             required
                             fullWidth
@@ -260,32 +296,33 @@ function Register() {
                              onChange={handleChange} 
                             autoComplete="current-password"
                         /> */}
-                        {showMessage && (handleNotification(true))
+                            {showMessage && (handleNotification(true))
 
-                        }
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{
-                                marginTop: '40px',
-                                mb: 2,
-                                background: '#81A1F8',
-                                borderRadius: '10px',
-                                color: '#FFFFFF',
-                                borderRadius: '10px',
-                                height: '56px',
-                                
-                            }}
-                            onSubmit={handleSubmit}
-                        >
-                            Siguiente
-                        </Button>
+                            }
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{
+                                    marginTop: '40px',
+                                    mb: 2,
+                                    background: '#81A1F8',
+                                    borderRadius: '10px',
+                                    color: '#FFFFFF',
+                                    borderRadius: '10px',
+                                    height: '56px',
+
+                                }}
+                                onSubmit={handleSubmit}
+                            >
+                                Siguiente
+                            </Button>
+                        </Box>
                     </Box>
-                </Box>
 
-            </Container>
-        </div>
+                </Container>
+            </div>
+        </ThemeProvider>
     );
 };
 
