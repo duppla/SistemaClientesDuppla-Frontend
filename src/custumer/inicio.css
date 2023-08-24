@@ -52,10 +52,6 @@ code {
     color: var(--color-cimiento-duppla);
 }
 
-.continer-inicio {
-    height: 1000px;
-}
-
 /*Sección Perfil inicio custumer*/
 .profile-inicio {
     display: flex;

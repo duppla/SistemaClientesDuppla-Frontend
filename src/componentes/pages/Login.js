@@ -175,10 +175,12 @@ function login() {
                                     height: '56px',
                                     textTransform: 'none',
                                     fontSize: '18px',
+                                    alignItems: 'center',
+                                    width: '100',
 
                                 }}
                             >
-                                Siguiente
+                                Iniciar Sesión
                             </Button>
                         </Link>
                         <Button
@@ -201,7 +203,7 @@ function login() {
                         >
                             Sign in with Google
                         </Button>
-                        <Button
+                      {/*   <Button
 
                             fullWidth
                             variant="contained"
@@ -221,12 +223,12 @@ function login() {
                             }}
                         >
                             Sign in with Facebook
-                        </Button>
+                        </Button> */}
 
-                        <div className="centrado">
+                     {/*    <div className="centrado">
                             <Link to='/password' className="links">Registro de contraseña</Link>
 
-                        </div>
+                        </div> */}
 
 
                     </Box>

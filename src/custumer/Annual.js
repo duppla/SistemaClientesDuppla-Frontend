@@ -41,12 +41,12 @@ function Annual() {
                 }));
 
                 setDataPago(extractedData)
-                console.log(extractedData);
+                //console.log(extractedData);
             })
             .catch(err => console.error(err));
             
         }, []);
-        console.log(dataPago);
+       // console.log(dataPago);
         
     // redireccionamiento dependiendo si el usuario es true o false
     function testRedireccion() {

@@ -397,7 +397,7 @@ function Home() {
           {/*Contenedor de Propuesta Comercial */}
 
           <div className="Container-cards-seccion-m centrado " id="cardComponet">
-            <Link to='/offer' className="link-style">           
+            <Link to='/offer' className="link-style">
 
               <Grid container className="card-seccion" sx={{
               }}>
@@ -420,7 +420,7 @@ function Home() {
                     <Grid item xs={2} md={2} lg={2}>
 
                       <Grid container maxWidth="xl" spacing={1} sx={{
-                       
+
                       }}>
                         <Grid item xs={3} md={3} lg={3}>
                           <div className="col-1">

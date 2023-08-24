@@ -213,18 +213,18 @@ function Register() {
                     >
                         <div >
                             <img src={Iduppla} alt="" style={{
-                                width: '327px',
-                                height: '269px',
+                                width: '280px',
+                                height: '220px',
 
 
                             }} />
                         </div>
                         <Typography component="h1" variant="" sx={{
-                            mt: 3,
+                            mt: 2,
                             color: '#0A3323',
                             textAlign: 'center',
                             fontFamily: 'Rustica',
-                            fontSize: '24px',
+                            fontSize: '20px',
                             fontWeight: '500',
                             fontStyle: 'normal',
                             lineHeight: '20px',
@@ -238,7 +238,7 @@ function Register() {
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ marginTop: '30px', alignItems: 'center', }}>
 
                             <Typography component="h1" variant="" sx={{
-                                mt: 2,
+                                mt: 1,
 
                                 textAlign: 'start',
                                 fontFamily: 'Rustica',
@@ -304,7 +304,7 @@ function Register() {
                                 fullWidth
                                 variant="contained"
                                 sx={{
-                                    marginTop: '40px',
+                                    marginTop: '26px',
                                     mb: 2,
                                     background: '#81A1F8',
                                     borderRadius: '10px',
