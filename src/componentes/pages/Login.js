@@ -45,62 +45,7 @@ function login() {
 
     return (
         <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
-        <div className="container-fluid">
-           {/*  <div className="centrado">
-                <div className=" centrado" b-color="#0000">
-                    <div className="container-sing">
-                        <div className="img-logotipo centrado">
-                            <img src={Iduppla} className="rounded justify-content-center" alt="Simbolo duppla" />
-                        </div>
-                        <Link to='/register' className="btn-decoration">
-                            <button type="button" id="" className="btn  btn-registro text-center centrado" width="400px" height="46px" >
-                                Iniciar sesión
-                            </button>
-                        </Link>
-                        {/*Configuración de facebook para el ingreso */}
-                        {/*<div >
-                                <FacebookLogin className="btn btn-ingreso-google centrado-btn" width="400px" height="52px"
-                                    appId="1329413604538602"
-                                    autoLoad={false}
-                                    fields="name,email,picture"
-                                    onClick={componentClicked}
-                                    callback={responseFacebook} />
-                            </div>*/}
-
-
-
-                    {/*     <div id="btnInicioGoogle">
-                            <div className="btn btn-ingreso-google centrado-btn" width="400px" height="52px" >
-                                <img src={Btngoogle} className="input-group-img img-ingreso" id="btnIngresoGoogle" alt="ingreso google" width="32px" height="32px" />
-                                <div><b>Sign in with Google</b></div>
-
-                            </div> */}
-
-                            {/* < GoogleLogin
-                                onSuccess={credentialResponse => {
-                                    console.log(credentialResponse);
-                                }}
-                                onError={() => {
-                                    console.log('Login Failed');
-                                }}
-                            />*/}
-
-                          {/*   <div className="btn btn-ingreso-facebook centrado-btn" width="400px" height="52px">
-                                <img src={Btnfacebook} className="input-group-img img-ingreso" id="btnIngresoFacebook" alt="ingreso google" width="32px" height="32px" />
-                                <div><b>Sign in with Facebook</b></div>
-
-                            </div>
-                            <div className="centrado-btn">
-                                <Link to='/password' className="links">Registro de contraseña</Link>
-
-                            </div>
-                        </div>
-                    </div> */}
-           {/*      </div>
-            </div > */} 
-
-
-
+        <div className="container-fluid">   
             <Container className='cetrado' component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -148,18 +93,6 @@ function login() {
                             autoFocus
                         /> */}
 
-
-                        {/*  <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                             onChange={handleChange} 
-                            autoComplete="current-password"
-                        /> */}
                         <Link to='/register' className="btn-decoration">
                             <Button
 

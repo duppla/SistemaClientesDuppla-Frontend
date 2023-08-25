@@ -11,7 +11,7 @@ import swal from 'sweetalert';
 import Imgdefault from "../../img/Imgdefault.png"
 import Idefaultproperty from "../../img/Idefaultproperty.png";
 
-import { Container } from "@mui/material";
+import { Box, Button, Container, CssBaseline, Grid } from "@mui/material";
 
 
 
@@ -95,8 +95,6 @@ function Property() {
     const statefichaTecnica = datos.estado;
     // console.log(statefichaTecnica);
 
-
-
     const stateFtecnica = (statefichaTecnica) => {
 
         switch (statefichaTecnica) {
@@ -116,14 +114,6 @@ function Property() {
                         </div>
                         <div className="col-10 outline">
                             Evaluado
-                        </div>
-                    </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Pendiente por aprobar
                         </div>
                     </div>
 
@@ -160,14 +150,7 @@ function Property() {
                             Evaluado
                         </div>
                     </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Pendiente por aprobar
-                        </div>
-                    </div>
+
                     <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istateg} className="" height="12px" width="12px" alt="..." />
@@ -183,47 +166,7 @@ function Property() {
                             Rechazado
                         </div>
                     </div></div>
-            case "Pendiente por aprobar":
-                return <div className="col-4">
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            No evaluado
-                        </div>
-                    </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Evaluado
-                        </div>
-                    </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istatev} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Pendiente por aprobar
-                        </div>
-                    </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1  ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Aprobado
-                        </div>
-                    </div><div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Rechazado
-                        </div>
-                    </div></div>
+
             case "Aprobado":
                 return <div className="col-4">
                     <div className="card-state-properties ">
@@ -242,14 +185,7 @@ function Property() {
                             Evaluado
                         </div>
                     </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Pendiente por aprobar
-                        </div>
-                    </div>
+
                     <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istatev} className="" height="12px" width="12px" alt="..." />
@@ -283,14 +219,7 @@ function Property() {
                             Evaluado
                         </div>
                     </div>
-                    <div className="card-state-properties ">
-                        <div className="card-body col-1 ">
-                            <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                        </div>
-                        <div className="col-10 outline">
-                            Pendiente por aprobar
-                        </div>
-                    </div>
+
                     <div className="card-state-properties ">
                         <div className="card-body col-1  ">
                             <img src={Istateg} className="" height="12px" width="12px" alt="..." />
@@ -324,14 +253,7 @@ function Property() {
                         Evaluado
                     </div>
                 </div>
-                <div className="card-state-properties ">
-                    <div className="card-body col-1 ">
-                        <img src={Istateg} className="" height="12px" width="12px" alt="..." />
-                    </div>
-                    <div className="col-10 outline">
-                        Pendiente por aprobar
-                    </div>
-                </div>
+
                 <div className="card-state-properties ">
                     <div className="card-body col-1  ">
                         <img src={Istateg} className="" height="12px" width="12px" alt="..." />
@@ -434,179 +356,190 @@ function Property() {
                 <img src={Idefaultproperty} className="container-fluid" alt="..." />
             </div> : <div className="container-property container-fluid">
                 {testRedireccion(estado)}
-                {/*Carrusel de imagenes */}
-                <div id="carouselExampleIndicators" className="carousel slide">
-                    <div className="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="0" className="active" aria-current="true"
-                            aria-label="Slide 1"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="4" aria-label="Slide 5"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="5" aria-label="Slide 6"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="6" aria-label="Slide 7"></button>
-                        <button type="button"
-                            data-bs-target="#carouselExampleIndicators"
-                            data-bs-slide-to="7" aria-label="Slide 8"></button>
-                    </div>
-                    <div className="carousel-inner">
-                        {carrusel()}
-                    </div>
-                    <button className="carousel-control-prev" type="button"
-                        data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button className="carousel-control-next" type="button"
-                        data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="visually-hidden">Next</span>
-                    </button>
-                </div><br />
-                {/*información inmueble */}
-                <div className="container-movil">
-                    <div className="text-title-property container-sm">
-                        <div className="description-apt">
-                            <h1 className="text-title-property-title"><b>{datos.Tipo_de_inmueble}</b></h1>
-                            {/*<p><b>{ formattedData(datos.Valor_inmueble_compra_duppla)}</b></p><br />*/}
-                            <p><b>${formattedNumber}</b></p>
-                            <p><b>Observaciones:</b>{datos.observaciones}
-                            </p>
+
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'start',
+                }}>
+                    <CssBaseline />
+                    {/*Carrusel de imagenes */}
+
+                    <div id="carouselExampleIndicators" className="carousel slide">
+                        <div className="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="0" className="active" aria-current="true"
+                                aria-label="Slide 1"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="4" aria-label="Slide 5"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="5" aria-label="Slide 6"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="6" aria-label="Slide 7"></button>
+                            <button type="button"
+                                data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="7" aria-label="Slide 8"></button>
                         </div>
+                        <div className="carousel-inner">
+                            {carrusel()}
+                        </div>
+                        <button className="carousel-control-prev" type="button"
+                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next" type="button"
+                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
+                        </button>
                     </div><br />
-
-                    <div className="card-inmueble-first container-fluid ">
-                        <div className="row ">
-                            <div className="col-2">
-                                <img src={Iubicacion} className=" " alt="..." width='24px' height='24px' />
+                    {/*información inmueble */}
+                    <div className="container-movil">
+                        <div className="text-title-property container-sm">
+                            <div className="description-apt">
+                                <h1 className="text-title-property-title"><b>{datos.Tipo_de_inmueble}</b></h1>
+                                {/*<p><b>{ formattedData(datos.Valor_inmueble_compra_duppla)}</b></p><br />*/}
+                                <p><b>${formattedNumber}</b></p>
+                                <p><b>Observaciones:</b>{datos.observaciones}
+                                </p>
                             </div>
-                            <div className="col-8">
-                                <div className="card-body">
-                                    <h5 className="">Ubicación</h5><br />
-                                    <p className=""><b>{datos.Direccion}</b></p>
-                                    <p className=""><b>{datos.Barrio}</b></p>
+                        </div><br />
+
+                        <div className="card-inmueble-first container-fluid ">
+                            <div className="row ">
+                                <div className="col-2">
+                                    <img src={Iubicacion} className=" " alt="..." width='24px' height='24px' />
                                 </div>
+                                <div className="col-8">
+                                    <div className="card-body">
+                                        <h5 className="">Ubicación</h5><br />
+                                        <p className=""><b>{datos.Direccion}</b></p>
+                                        <p className=""><b>{datos.Barrio}</b></p>
+                                    </div>
 
-                                {/*card con dropdown */}
+                                    {/*card con dropdown */}
+                                </div>
                             </div>
+
                         </div>
+                        {/*Tarjetas estado del inmueble */}
+                        <div className="accordion accordion-property " id="accordionExample">
+                            <div className="accordion-item acordion-item-border">
+                                <h2 className="accordion-header" id="headingTwo">
+                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        <div className=" text-blue space-title-p " id="basic-addon4"><h5>Ver más</h5></div>
+                                        <div className="  text-space-property" id="basic-addon4"></div>
+                                    </button>
+                                </h2>
+                                {/*---------------------------------------------------------------------------------------------------------------------------------*/}
+                                <div className="card-payment-home-custumer ">
+                                    <div className="collapse" id="collapseExample">
+                                        <div className="card ">
+                                            <div className="card card-new" >
+                                                <div className="d-grid">
+                                                    <br />
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Área: </p>
+                                                            </div>
+                                                            <div className="col-2 tooltip-customer">
 
-                    </div>
-                    {/*Tarjetas estado del inmueble */}
-                    <div className="accordion accordion-property " id="accordionExample">
-                        <div className="accordion-item acordion-item-border">
-                            <h2 className="accordion-header" id="headingTwo">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                    <div className=" text-blue space-title-p " id="basic-addon4"><h5>Ver más</h5></div>
-                                    <div className="  text-space-property" id="basic-addon4"></div>
-                                </button>
-                            </h2>
-                            {/*---------------------------------------------------------------------------------------------------------------------------------*/}
-                            <div className="card-payment-home-custumer ">
-                                <div className="collapse" id="collapseExample">
-                                    <div className="card ">
-                                        <div className="card card-new" >
-                                            <div className="d-grid">
-                                                <br />
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Área: </p>
+                                                            </div>
                                                         </div>
-                                                        <div className="col-2 tooltip-customer">
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Area}m²</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Antigüedad:</p>
+                                                            </div>
+                                                            <div className="col-2 tooltip-customer">
 
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Antiguedad} años</p>
                                                         </div>
                                                     </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Area}m²</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Antigüedad:</p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
-
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Antiguedad} años</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Estrato: </p>
-                                                        </div>
-
-                                                    </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Estrato}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Habitaciones: </p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Habitaciones}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Baños: </p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Estrato: </p>
+                                                            </div>
 
                                                         </div>
-                                                    </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Banos}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Parqueadero: </p>
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Estrato}</p>
                                                         </div>
-                                                        <div className="col-2 tooltip-customer">
+                                                    </div>
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Habitaciones: </p>
+                                                            </div>
+                                                            <div className="col-2 tooltip-customer">
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Habitaciones}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Baños: </p>
+                                                            </div>
+                                                            <div className="col-2 tooltip-customer">
 
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Banos}</p>
                                                         </div>
                                                     </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Parqueadero}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Piso: </p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Parqueadero: </p>
+                                                            </div>
+                                                            <div className="col-2 tooltip-customer">
 
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Parqueadero}</p>
                                                         </div>
                                                     </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>{datos.Piso}</p>
+                                                    <div className="card-docs-init  ">
+                                                        <div className="card-body-docs-c  row col-6">
+                                                            <div className=" col-5">
+                                                                <p className="space-title-dop">Piso: </p>
+                                                            </div>
+                                                            <div className="col-2 tooltip-customer">
+
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-6 outline text-dropdown-right">
+                                                            <p className='text-end text-space-card-c '>{datos.Piso}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -615,51 +548,99 @@ function Property() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="card-inm-value container-sm  ">
-                        <div className="row ">
-                            <div className="col-2">
-                                <img src={Ievaluacionprecio} className="" alt="..." width='24px' height='24px' />
-                            </div>
-                            <div className="col-8">
-                                <div className="card-body">
-                                    <h5 className="">Evaluación de precio</h5><br />
-                                    <p className=""><b>Precio oferta m²: ${formattedcostm} </b></p>
-                                    <p className=""><b>Precio oferta: $ {formattedCompraDuppla}</b></p>
+                        <div className="card-inm-value container-sm  ">
+                            <div className="row ">
+                                <div className="col-2">
+                                    <img src={Ievaluacionprecio} className="" alt="..." width='24px' height='24px' />
                                 </div>
+                                <div className="col-8">
+                                    <div className="card-body">
+                                        <h5 className="">Evaluación de precio</h5><br />
+                                        <p className=""><b>Precio oferta m²: ${formattedcostm} </b></p>
+                                        <p className=""><b>Precio oferta: $ {formattedCompraDuppla}</b></p>
+                                    </div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-inmueble container-sm space-property-evaluation">
-                        <div className="row ">
-                            <div className="col-2">
-                                <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
-                            </div>
-                            <div className="col-8 ">
-                                <div className="card-body">
-                                    <h5 className="">Evaluación técnica</h5><br />
-                                    {stateFtecnica(statefichaTecnica)}
                                 </div>
                             </div>
                         </div>
+                        <div className="card-inmueble container-sm space-property-evaluation">
+                            <div className="row ">
+                                <div className="col-2">
+                                    <img src={Ivalidacioninmueble} className="" alt="..." width='24px' height='24px' />
+                                </div>
+                                <div className="col-8 ">
+                                    <div className="card-body">
+                                        <h5 className="">Evaluación técnica</h5><br />
+                                        {stateFtecnica(statefichaTecnica)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
                     </div>
-                    <br />
-                    <br />
-                </div>
 
-                {/*Botón*/}
-                <div className="centrado">
-                    <span className="space-text-span">¿Los datos no son los que corresponden?</span>
-                </div>
-                <div className="centrado  container-sm" id="btnIniciarSesion">
-                    <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
-                        <button type="button" id="" className="btn btn-prueba text-white" onClick={handleInm} width="400px" height="46px" >
-                            Reporta aquí los datos incorrectos
-                        </button>
-                    </a>
-                </div>
-                <br />
+         
+                    {/*componente botones  calendario y whatsApp */}
+                    <Container maxWidth="xl" sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                    }}
+                        className=''>
+                              {/*Botón*/}
+                    <div className="">
+                        <span className="space-text-span">¿Los datos no son los que corresponden?</span>
+                    </div>
+
+
+                        <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
+                        }}>
+
+
+                            <Grid item sx={12} sm={12} md={12} lg={12} >
+                                <div className="">
+                                    <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            sx={{
+                                                marginTop: '10px',
+                                                mb: 3,
+                                                mt:2,
+                                                background: '#81A1F8',
+                                                borderRadius: '10px',
+                                                color: '#ffffff',
+
+                                                textTransform: 'none',
+                                                border: '1px solid #81A1F8',
+                                                height: '58px',
+
+                                                fontFamily: 'Helvetica',
+                                                fontSize: '18px',
+
+                                                maxWidth: '430px', // Utiliza maxWidth en lugar de width
+                                                width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                                                margin: '0 auto', // Centrar horizontalmente
+                                                display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                                                justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                                                alignItems: 'center', // Centrar verticalmente el contenido
+                                                minWidth: '300px',
+                                            }}
+                                        >
+                                             Reportar aquí los datos incorrectos
+                                        </Button>
+                                    </a>
+                                </div>
+
+                            </Grid>
+                         
+                        </Grid>
+                    </Container>
+                </Box>
             </div >}
         </div>
 

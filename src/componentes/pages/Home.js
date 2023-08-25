@@ -30,7 +30,7 @@ import Igo from "../../img/go.png"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Navbar from "../../Components/Navbar";
-import { Box, CssBaseline, Grid } from "@mui/material";
+import { Box, Button, Container, CssBaseline, Grid } from "@mui/material";
 
 
 
@@ -213,148 +213,214 @@ function Home() {
     const stateChangeInm = stateInmu.estado;
     switch (stateChangeInm) {
       case "No evaluado":
-        return <div className=" ">
-          <div className="card-seccion"  >
-            <div className="row ">
-              <div className="col-1">
-                <img src={Iconinm} className="img-icono-card-inm" alt="" />
-              </div>
-              <div className="col-4 card-home-offer">
-                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-                <p className="link-style">Abrir</p>
-              </div>
+        return <Container maxWidth='xl' className="container-inm-home-grid">
+          <Grid container className="card-seccion" sx={{
+          }}>
+            <Grid item xs={10} md={10} lg={10}>
 
-              <div className="col-1">
-                <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
-              </div>
-              <div className="col-4">
-                <div className="card-body">
-                  <p className="card-text">03/03/2023</p>
-                  <p className="card-text-aprov">No evaluado</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              <Grid container maxWidth="xl" spacing={2} sx={{
+                mt: 2,
+              }}>
+                <Grid item xs={2} md={2} lg={2}>
+                  <div className="col-1">
+                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
+                  </div>
+                </Grid>
+                <Grid item xs={8} md={8} lg={8}>
+                  <div className="col-4 card-home-offer">
+                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
+                    < p className="link-style">Abrir</p>
+                  </div>
+                </Grid>
+                <Grid item xs={2} md={2} lg={2}>
+
+                  <Grid container maxWidth="xl" spacing={1} sx={{
+
+                  }}>
+                    <Grid item xs={3} md={3} lg={3}>
+                      <div className="col-1">
+                        <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+                      </div>
+                    </Grid>
+                    <Grid item xs={7} md={7} lg={7}>
+                      <div className="">
+                        <p className="card-text-grid">03/03/2023</p>
+                        <p className="card-text-aprov-grid">No evaluado</p>
+                      </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
       case "Evaluado":
-        return <div className=" ">
-          <div className="card-seccion"  >
-            <div className="row ">
-              <div className="col-1">
-                <img src={Iconinm} className="img-icono-card-inm" alt="" />
-              </div>
-              <div className="col-4 card-home-offer">
-                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-                <p className="link-style">Abrir</p>
-              </div>
+        return <Container maxWidth='xl' className="container-inm-home-grid">
+          <Grid container className="card-seccion" sx={{
+          }}>
+            <Grid item xs={10} md={10} lg={10}>
 
-              <div className="col-1">
-                <img src={Istateblue} className="btn-state-home" alt="" height='12px' width='12px' />
-              </div>
-              <div className="col-4">
-                <div className="card-body">
-                  <p className="card-text">03/03/2023</p>
-                  <p className="card-text-aprov">Evaluado</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      case "Pendiente por aprobar":
-        return <div className=" ">
-          <div className="card-seccion"  >
-            <div className="row ">
-              <div className="col-1">
-                <img src={Iconinm} className="img-icono-card-inm" alt="" />
-              </div>
-              <div className="col-4 card-home-offer">
-                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-                <p className="link-style">Abrir</p>
-              </div>
+              <Grid container maxWidth="xl" spacing={2} sx={{
+                mt: 2,
+              }}>
+                <Grid item xs={2} md={2} lg={2}>
+                  <div className="col-1">
+                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
+                  </div>
+                </Grid>
+                <Grid item xs={8} md={8} lg={8}>
+                  <div className="col-4 card-home-offer">
+                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
+                    < p className="link-style">Abrir</p>
+                  </div>
+                </Grid>
+                <Grid item xs={2} md={2} lg={2}>
 
-              <div className="col-1">
-                <img src={Istatea} className="btn-state-home" alt="" height='12px' width='12px' />
-              </div>
-              <div className="col-4">
-                <div className="card-body">
-                  <p className="card-text">03/03/2023</p>
-                  <p className="card-text-aprov">Aprobado</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <Grid container maxWidth="xl" spacing={1} sx={{
+
+                  }}>
+                    <Grid item xs={3} md={3} lg={3}>
+                      <div className="col-1">
+                        <img src={Istateblue} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+                      </div>
+                    </Grid>
+                    <Grid item xs={7} md={7} lg={7}>
+                      <div className="">
+                        <p className="card-text-grid">03/03/2023</p>
+                        <p className="card-text-aprov-grid">Evaluado</p>
+                      </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
       case "Aprobado":
-        return <div className=" ">
-          <div className="card-seccion"  >
-            <div className="row ">
-              <div className="col-1">
-                <img src={Iconinm} className="img-icono-card-inm" alt="" />
-              </div>
-              <div className="col-4 card-home-offer">
-                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-                <p className="link-style">Abrir</p>
-              </div>
+        return <Container maxWidth='xl' className="container-inm-home-grid">
+          <Grid container className="card-seccion" sx={{
+          }}>
+            <Grid item xs={10} md={10} lg={10}>
 
-              <div className="col-1">
-                <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' />
-              </div>
-              <div className="col-4">
-                <div className="card-body">
-                  <p className="card-text">03/03/2023</p>
-                  <p className="card-text-aprov">Aprobado</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              <Grid container maxWidth="xl" spacing={2} sx={{
+                mt: 2,
+              }}>
+                <Grid item xs={2} md={2} lg={2}>
+                  <div className="col-1">
+                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
+                  </div>
+                </Grid>
+                <Grid item xs={8} md={8} lg={8}>
+                  <div className="col-4 card-home-offer">
+                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
+                    < p className="link-style">Abrir</p>
+                  </div>
+                </Grid>
+                <Grid item xs={2} md={2} lg={2}>
+                  <Grid container maxWidth="xl" spacing={1} sx={{
+                  }}>
+                    <Grid item xs={3} md={3} lg={3}>
+                      <div className="col-1">
+                        <img src={Istatev} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+                      </div>
+                    </Grid>
+                    <Grid item xs={7} md={7} lg={7}>
+                      <div className="">
+                        <p className="card-text-grid">03/03/2023</p>
+                        <p className="card-text-aprov-grid">Aprobado</p>
+                      </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+
       case "Rechazado":
-        return <div className=" ">
-          <div className="card-seccion"  >
-            <div className="row ">
-              <div className="col-1">
-                <img src={Iconinm} className="img-icono-card-inm" alt="" />
-              </div>
-              <div className="col-4 card-home-offer">
-                <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-                <p className="link-style">Abrir</p>
-              </div>
+        return <Container maxWidth='xl' className="container-inm-home-grid">
+          <Grid container className="card-seccion" sx={{
+          }}>
+            <Grid item xs={10} md={10} lg={10}>
 
-              <div className="col-1">
-                <img src={Istater} className="btn-state-home" alt="" height='12px' width='12px' />
-              </div>
-              <div className="col-4">
-                <div className="card-body">
-                  <p className="card-text">03/03/2023</p>
-                  <p className="card-text-aprov">Rechazado</p>
+              <Grid container maxWidth="xl" spacing={2} sx={{
+                mt: 2,
+              }}>
+                <Grid item xs={2} md={2} lg={2}>
+                  <div className="col-1">
+                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
+                  </div>
+                </Grid>
+                <Grid item xs={8} md={8} lg={8}>
+                  <div className="col-4 card-home-offer">
+                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
+                    < p className="link-style">Abrir</p>
+                  </div>
+                </Grid>
+                <Grid item xs={2} md={2} lg={2}>
+
+                  <Grid container maxWidth="xl" spacing={1} sx={{
+
+                  }}>
+                    <Grid item xs={3} md={3} lg={3}>
+                      <div className="col-1">
+                        <img src={Istater} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+                      </div>
+                    </Grid>
+                    <Grid item xs={7} md={7} lg={7}>
+                      <div className="">
+                        <p className="card-text-grid">03/03/2023</p>
+                        <p className="card-text-aprov-grid">Rechazado</p>
+                      </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+
+      default: return <Container maxWidth='xl' className="container-inm-home-grid">
+        <Grid container className="card-seccion" sx={{
+        }}>
+          <Grid item xs={10} md={10} lg={10}>
+
+            <Grid container maxWidth="xl" spacing={2} sx={{
+              mt: 2,
+            }}>
+              <Grid item xs={2} md={2} lg={2}>
+                <div className="col-1">
+                  <img src={Iconinm} className="img-icono-card-inm" alt="" />
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      default: return <div className=" ">
-        <div className="card-seccion"  >
-          <div className="row ">
-            <div className="col-1">
-              <img src={Iconinm} className="img-icono-card-inm" alt="" />
-            </div>
-            <div className="col-4 card-home-offer">
-              <h4 className="card-title-home card-top "><b>Inmueble</b></h4>
-              <p className="link-style">Abrir</p>
-            </div>
+              </Grid>
+              <Grid item xs={8} md={8} lg={8}>
+                <div className="col-4 card-home-offer">
+                  <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
+                  < p className="link-style">Abrir</p>
+                </div>
+              </Grid>
+              <Grid item xs={2} md={2} lg={2}>
 
-            <div className="col-1">
-              <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
-            </div>
-            <div className="col-4">
-              <div className="card-body">
-                <p className="card-text">03/03/2023</p>
-                <p className="card-text-aprov">No evaluado</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                <Grid container maxWidth="xl" spacing={1} sx={{
+
+                }}>
+                  <Grid item xs={3} md={3} lg={3}>
+                    <div className="col-1">
+                      <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+                    </div>
+                  </Grid>
+                  <Grid item xs={7} md={7} lg={7}>
+                    <div className="">
+                      <p className="card-text-grid">03/03/2023</p>
+                      <p className="card-text-aprov-grid">No evaluado</p>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
     }
   }
   {/** consicional mostrar mensaje desde legal o ventasm  */ }
@@ -391,14 +457,11 @@ function Home() {
         textAlign: 'start',
       }}>
         <CssBaseline />
-
-
         <div className="container-sm">
           {/*Contenedor de Propuesta Comercial */}
 
           <div className="Container-cards-seccion-m centrado " id="cardComponet">
             <Link to='/offer' className="link-style">
-
               <Grid container className="card-seccion" sx={{
               }}>
                 <Grid item xs={10} md={10} lg={10}>
@@ -432,43 +495,21 @@ function Home() {
                             <p className="card-text-grid">03/03/2023</p>
                             <p className="card-text-aprov-grid">{stateOffer ? "Aceptado" : "Pendiente"}</p>
                           </div>
-
                         </Grid>
-
-
-
                       </Grid>
-
-
-
                     </Grid>
-
-
-
                   </Grid>
-
                 </Grid>
-
               </Grid>
-
-
             </Link>
-
           </div>
-
-
-
-
-
-
-
           {/*Contenedor de inmueble */}
           <div className="Container-cards-seccion-m centrado " id="cardComponet">
             <Link to='/property' className="link-style">
               {stateChangeAprovacioninm(stateInmu)}
-
             </Link>
           </div>
+
           {/*Menú documentos*/}
           <Link to='/documents' className="links text-black ">
             <div className="card-docs-m  ">
@@ -482,6 +523,8 @@ function Home() {
             </div>
           </Link>
           <br />
+
+
           {/*componente de estados*/}
           <div className="centrado space-docs-home container-fluid">
             <div className="row ">
@@ -489,31 +532,109 @@ function Home() {
             </div>
           </div>
           {/*componente de estados*/}
-          <div className=" centrado-mensaje ">
-            <div className="row  ">
-              <h6>Estado:</h6>
-              {/* */}
-              <b> {mensajeSf()} </b>
-            </div>
-          </div>
-          {/*componente calendario*/}
-          <div className="  btn-m" id="btnIniciarSesion">
-            <a className="links text-white"
-              href="https://calendly.com/agendadaniel">
-              <button type="button" className="btn btn-prueba text-center links text-white" width="400px" height="46px" >
-                Agendar una cita
-              </button>
-            </a>
-          </div>
-          {/*componente  soporte*/}
-          <div className=" btn-m " id="">
-            <a className="links btn-m  "
-              href="https://api.whatsapp.com/send?phone=573152559261">
-              <button type="button" className="btn btn-prueba-blanco text-blue btn-m"  >
-                Tengo algún problema
-              </button>
-            </a>
-          </div>
+
+          <Grid container className="" >
+            <Grid sx={12} sm={10} md={10} lg={10} >
+              <div>
+
+                <div className="row borde-card-mui ">
+                  <h6>Estado:</h6>
+                  {/* */}
+                  <b> {mensajeSf()} </b>
+                </div>
+
+              </div>
+            </Grid>
+
+
+          </Grid>
+
+          <Container maxWidth="xl" sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignContent: 'center',
+            alignItems: 'center',
+            mb: 2,
+            mt: 4,
+          }}
+            className=''>
+            <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
+            }}>
+
+              <Grid item sx={12} sm={12} md={12} lg={12} >
+                <div className="">
+                  <a className="links" href="https://calendly.com/agendadaniel">
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      sx={{
+                        marginTop: '10px',
+                        mb: 3,
+                        background: '#81A1F8',
+                        borderRadius: '10px',
+                        color: '#ffffff',
+
+                        textTransform: 'none',
+                        border: '1px solid #81A1F8',
+                        height: '58px',
+
+                        fontFamily: 'Helvetica',
+                        fontSize: '18px',
+
+                        maxWidth: '430px', // Utiliza maxWidth en lugar de width
+                        width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                        margin: '0 auto', // Centrar horizontalmente
+                        display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                        justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                        alignItems: 'center', // Centrar verticalmente el contenido
+                        minWidth: '300px',
+                      }}
+                    >
+                      Agendar una cita
+                    </Button>
+                  </a>
+                </div>
+
+              </Grid>
+              <Grid item sx={12} sm={12} md={12} lg={12} >
+                <div className="">
+                  <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
+                    <Button
+                      fullWidth
+                      variant="contained"
+
+                      sx={{
+
+                        marginTop: '10px',
+                        mb: 3,
+                        background: '#ffffff',
+                        borderRadius: '10px',
+                        color: '#6C9FFF',
+
+                        textTransform: 'none',
+                        border: '1px solid #6C9FFF',
+                        height: '58px',
+
+                        fontFamily: 'Helvetica',
+                        fontSize: '18px',
+
+                        maxWidth: '430px', // Utiliza maxWidth en lugar de width
+                        width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                        margin: '0 auto', // Centrar horizontalmente
+                        display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                        justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                        alignItems: 'center', // Centrar verticalmente el contenido
+                        minWidth: '300px',
+                      }}
+                    >
+                      Tengo algún problema
+                    </Button>
+                  </a>
+                </div>
+              </Grid>
+            </Grid>
+          </Container>
         </div>
 
       </Box>

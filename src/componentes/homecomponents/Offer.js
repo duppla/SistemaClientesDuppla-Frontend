@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Ioferta from "../../img/Ioferta.png";
 import Idefaultoffer from "../../img/Idefaultoffer.png";
 import swal from 'sweetalert';
+import { Box, CssBaseline } from '@mui/material';
 
 
 
@@ -75,6 +76,9 @@ function Offer() {
   return (
 
     <div className="container-fluid">
+
+
+
       <div className="container-offer">
         <div className="">
           <div className="arrow-return">
@@ -90,6 +94,16 @@ function Offer() {
           </h1>
         </div>
         {/* */}
+
+
+        <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'center',
+        alignItems: 'center',
+        textAlign: 'start',
+      }}>
+        <CssBaseline />
         <div className='container-fluid '>
           {offerUrl ?
             <div className="  offer-container-link  " id="btnIniciarSesion">
@@ -121,7 +135,7 @@ function Offer() {
               <button type="button"
                 className={` btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
                 disabled={isButtonDisabled}
-              >CANCELAR</button>
+              >Rechazar</button>
             </Link>
           </div><br />
           <div className="">
@@ -129,9 +143,11 @@ function Offer() {
               id='btnAceptar'
               className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
               onClick={handleProgress}
-              disabled={isButtonDisabled}>ACEPTAR</button>
+              disabled={isButtonDisabled}>Aceptar</button>
           </div>
         </div>
+
+    </Box>
 
       </div>
     </div>

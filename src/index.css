@@ -108,6 +108,7 @@ code {
   font-size: 12px;
   margin-top: 25px;
 }
+
 .card-text-grid {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -261,7 +262,7 @@ code {
   margin-top: 48px;
   text-align: start;
   margin-bottom: -20px;
-  
+
 
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -398,7 +399,7 @@ code {
 .user-data-card {
 
   background-color: var(--color-fondo);
-  height: 650px;
+  height: 100%;
   padding: 18px 138px 18px 16px;
   gap: 10px;
   top: 204px;
@@ -498,6 +499,7 @@ code {
   bottom: 22px;
 
 }
+
 .img-icono-card-grid {
   width: 36px;
   height: 48px;
@@ -512,11 +514,17 @@ code {
   width: 50px;
   height: 56px;
   margin-left: -5px;
-  margin-top: 18px;
+  margin-top: -6px;
   margin-right: 30px;
   bottom: 22px;
 
 }
+
+.container-inm-home-grid {
+  width: 300px;
+}
+
+
 
 .btn-state-home {
   margin-top: 63px;
@@ -525,15 +533,16 @@ code {
 
 .btn-state-home-grid {
   margin-top: 32px;
-  margin-left: -4px;
-  
+  margin-left: -8px;
+
 }
+
 .card-top {
   margin-top: 25px;
   margin-bottom: 4px;
 }
 
-.card-top-grid{
+.card-top-grid {
   width: 100%;
 }
 
@@ -603,7 +612,7 @@ code {
   letter-spacing: -0.015em;
 }
 
-.text-name-space{
+.text-name-space {
   margin-top: 10px;
 }
 
@@ -697,6 +706,17 @@ code {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
 
+}
+
+.borde-card-mui{
+ 
+margin-top: 10px;
+ margin-left: 18px;
+ margin-right: 18px;
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
 }
 
 .text-black {
@@ -881,6 +901,14 @@ a {
 
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+}
+
+.btn-prueba-blanco-grid {
+  width: 365px;
+  height: 58px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  
 
 }
 
@@ -1090,11 +1118,6 @@ a {
 
 }
 
-.container-property {
-  height: 1200px;
-
-
-}
 
 .card-state-properties {
   display: flex;
@@ -1238,7 +1261,26 @@ a {
 }
 
 /*Responsive*/
+
+
+@media screen and (min-width: 270px) {
+
+  .container-inm-home-grid {
+    width: 300px !important;
+  }
+
+}
+
 @media screen and (min-width: 360px) {
+
+  .btn-prueba-blanco-grid {
+    width: 300px;
+    height: 58px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    
+
+  }
 
   .btn-prueba-blanco {
     width: 300px;
@@ -1252,7 +1294,6 @@ a {
     border-radius: 10px;
 
   }
-
   .btn-prueba {
     display: flex;
     flex-direction: column;
@@ -1291,7 +1332,7 @@ a {
     height: 52px;
     margin-top: 10px;
     margin-bottom: 10px;
-   
+
   }
 
   hr {
@@ -1370,11 +1411,11 @@ a {
 
   }
 
-  .bell-mui{
+  .bell-mui {
     height: 24px;
     width: 24px;
     margin-left: 10px;
-     margin-top: -46px;
+    margin-top: -46px;
     color: #FFFFFF;
     fill: #FFFFFF;
 
@@ -1410,9 +1451,14 @@ a {
 
   }
 
-  .imgs-navbar-mui{
+  .imgs-navbar-mui {
     margin-left: 24px !important;
 
+  }
+
+
+  .container-inm-home-grid {
+    width: 310px !important;
   }
 
 
@@ -1506,7 +1552,7 @@ a {
     height: 52px;
     margin-top: 10px;
     margin-bottom: 10px;
-   
+
   }
 
   .bell {
@@ -1518,38 +1564,68 @@ a {
     margin-top: -46px;
 
   }
+  .container-inm-home-grid {
+    width: 300px !important;
+  }
 
 
 }
 
 /*Dispositivos medianos (tabletas, 768px y más)*/
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+  .container-inm-home-grid {
+    width: 400px;
+  }
+}
 
 /* Dispositivos grandes (escritorios, 992px y más)*/
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+  .container-inm-home-grid {
+    width: 400px;
+  }
+}
 
 /* Dispositivos X-Large (escritorios grandes, 1200px y más)*/
 @media (min-width: 1200px) {
-  .bell-mui{
+  .bell-mui {
     height: 24px;
     width: 24px;
     margin-left: -10px;
-     margin-top: -46px;
+    margin-top: -46px;
     color: #FFFFFF;
     fill: #FFFFFF;
 
+  }
+
+  .container-inm-home-grid {
+    width: 400px !important;
   }
 }
 
 /* Dispositivos XX-Large (escritorios más grandes, 1400px y más)*/
 @media (min-width: 1600px) {
-  .bell-mui{
+  .bell-mui {
     height: 24px;
     width: 24px;
     margin-left: -10px;
-     margin-top: -46px;
+    margin-top: -46px;
     color: #FFFFFF;
     fill: #FFFFFF;
+
+  }
+
+
+  .container-inm-home-grid {
+    width: 400px !important;
+  }
+  
+  .btn-prueba-blanco-grid {
+    width: 430px;
+
+    height: 58px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+  
 
   }
 
