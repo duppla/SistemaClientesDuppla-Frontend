@@ -142,169 +142,191 @@ function profile() {
                     {/*Sesión de perfil */}
                     <div className="profile-data container-fluid">
                         <div className="">
-                            <div className="row ">
-                                <div className="col-4">
-                                    <img src={Iperfil} className="img-fluid  img-user-img" alt="perfil" />
-                                </div>
-                                <div className="col-8 ">
-                                    <div className="card-body"><br />
-                                        <p className="card-title card-home text-white-profile" >{data.nombre && <p className="text-name-profile">{convertirAMinusculas(data.nombre)}</p>}</p>
-                                        <p className=" text-white-email ">{data.email}</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <Grid container spacing={2} sx={{
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <img src={Iperfil} className="img-fluid  img-user-img" alt="perfil" />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="text-profile-mui" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+                                                <p className="text-white-profile" >{data.nombre && <p className="text-name-profile">{convertirAMinusculas(data.nombre)}</p>}</p>
+                                                <p className=" text-white-email ">{data.email}</p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
                         </div>
                     </div>
+
 
                     {/*Sección de datos- hay que traerlos de salesforce*/}
-                    <div className="user-data-card container-fluid">
-                        <div className="tarjetas-datos-usuario d-grid " id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <img src={Idata} className=" img-data-perfil" alt="" />
-                                    </div>
-                                    <div className="col-4">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Cédula</small><br /></p>
-                                            <p className=""><b>{data.cedula}</b></p>
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <div className="col-4">
-                                        <img src={Idata} className=" img-data-perfil" alt="" />
-                                    </div>
-                                    </div>
-                                    <div className="col-4">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Teléfono</small><br /></p>
-                                            <p className=""><b>{data.celular}</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <img src={Idata} className="img-data-perfil" alt="" />
-                                    </div>
-                                    <div className="col-4">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Correo</small><br /></p>
-                                            <p className=""><b>{data.email}</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <img src={Idata} className="img-data-perfil" alt="" />
-                                    </div>
-                                    <div className="col-4">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Ingreso</small><br /></p>
-                                            <p className=""><b>{formattedNumber}</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <img src={Idata} className="img-data-perfil" alt="" />
-                                    </div>
-                                    <div className="col-4">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Ocupación</small><br /></p>
-                                            <p className=""><b>{data.profecion}</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <img src={Idata} className="img-data-perfil" alt="" />
-                                    </div>
-                                    <div className="col-6">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Ingresos adicionales</small><br /></p>
-                                            <p className=""><b>No</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tarjetas-datos-usuario d-grid" id="cardComponet">
-                            <div className="card-seccion">
-                                <div className="row ">
-                                    <div className="col-4">
-                                        <img src={Idata} className="img-data-perfil" alt="" />
-                                    </div>
-                                    <div className="col-4">
-                                        <div className="card-body">
-                                            <p className=""> <small className="text-muted">Ahorro</small><br /></p>
-                                            <p className=""><b>{formattedNumberr}</b></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
                     {/*componente cards */}
                     <Container maxWidth="xl" sx={{
                         display: 'flex',
-                        flexDirection: 'column',
+                        flexDirection: 'row',
                         justifyContent: 'center',
                         alignContent: 'center',
                         alignItems: 'center',
                         mb: 4,
                     }}
                         className=''>
-                        <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
-                        }}>
 
-                            <Grid item sx={12} sm={12} md={12} lg={12} >
-                                <Grid container spacing={2} sx={{
-                                }}>
-                                    <Grid justifyContent="center" alignItems="center" item sx={2} sm={2} md={2} lg={4} >
-                                    <div className="col-4">
-                                        
-                                        <FingerprintIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }}/>
-                                    </div>
+                        <div className="user-data-card container-fluid">
+                            <Grid container spacing={2} sx={{
+                                mt: 2,
+                                ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <FingerprintIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+                                                <p className=""> <small className="text-muted">Cédula</small><br /></p>
+                                                <p className=""><b>{data.cedula}</b></p>
+                                            </div>
+                                        </Grid>
                                     </Grid>
-                                    <Grid justifyContent="center" alignItems="center" item sx={8} sm={8} md={8} lg={8} >
-                                    <div className="card-body">
-                                            <p className=""> <small className="text-muted">Teléfono</small><br /></p>
-                                            <p className=""><b>{data.celular}</b></p>
-                                        </div>
-                                    </Grid>
-                                  
                                 </Grid>
                             </Grid>
-                            <Grid item sx={12} sm={12} md={12} lg={12} >
-
+                            <Grid container spacing={2} sx={{
+                                mt: 2,
+                                ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <PhoneIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+                                                <p className=""> <small className="text-muted">Teléfono</small><br /></p>
+                                                <p className=""><b>{data.celular}</b></p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                            <Grid container spacing={2} sx={{
+                                mt: 2,
+                                ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <MailOutlineIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+                                                <p className=""> <small className="text-muted">Correo</small><br /></p>
+                                                <p className=""><b>{data.email}</b></p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2} sx={{
+                                mt: 2, ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <RequestQuoteIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+                                                <p className=""> <small className="text-muted">Ingreso</small><br /></p>
+                                                <p className=""><b>{formattedNumber}</b></p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2} sx={{
+                                mt: 2, ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <WorkOutlineIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+
+                                                <p className=""> <small className="text-muted">Ocupación</small><br /></p>
+                                                <p className=""><b>{data.profesion}</b></p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2} sx={{
+                                mt: 2, ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <PriceCheckIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+
+                                                <p className=""> <small className="text-muted">Ingresos adicionales</small><br /></p>
+                                                <p className=""><b>No</b></p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid container spacing={2} sx={{
+                                mt: 2, ml: 1
+                            }}>
+                                <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid container spacing={2} sx={{
+                                    }}>
+                                        <Grid item sx={4} sm={2} md={2} lg={4} >
+                                            <div className="centrado">
+                                                <SavingsIcon style={{ color: '#3b5998', width: '48px', height: '48px', marginTop: '18px' }} />
+                                            </div>
+                                        </Grid>
+                                        <Grid className="" item sx={8} sm={8} md={8} lg={8} >
+                                            <div className="size-text-card-profile-mui">
+                                                <p className=""> <small className="text-muted">Ahorro</small><br /></p>
+                                                <p className=""><b>{formattedNumberr}</b></p>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </div>
                     </Container>
-                    {/*componente botones  calendario y whatsApp */}
+                    {/*componente botones cerrar sesión y whatsApp */}
                     <Container maxWidth="xl" sx={{
                         display: 'flex',
                         flexDirection: 'column',

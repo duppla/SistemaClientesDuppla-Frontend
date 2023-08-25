@@ -395,20 +395,24 @@ code {
   font-size: 18px;
 }
 
+.text-profile-mui{
+  margin-top: 24px;
+}
 
 .user-data-card {
 
   background-color: var(--color-fondo);
   height: 100%;
-  padding: 18px 138px 18px 16px;
-  gap: 10px;
-  top: 204px;
-  margin-bottom: 30px;
+
+
   background: #FFFFFF;
   box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.06);
   border-radius: 5px;
 }
 
+.size-text-card-profile-mui{
+  margin-top: 10px;
+}
 /*sección datos en perfil*/
 
 .card-perfil {
@@ -580,8 +584,9 @@ code {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  margin-top: 12px;
+  margin-top: 34px;
   margin-left: -24px;
+  width: 300px;
   /* identical to box height */
 
 }
@@ -1474,7 +1479,18 @@ a {
   .container-inm-home-grid {
     width: 310px !important;
   }
-
+  .text-white-profile {
+    color: var(--color-fondo);
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 24px;
+    margin-left: -24px;
+    width: 200px;
+    /* identical to box height */
+  
+  }
 
 
 
@@ -1614,6 +1630,19 @@ a {
   .container-inm-home-grid {
     width: 400px !important;
   }
+
+  .text-white-profile {
+    color: var(--color-fondo);
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 34px;
+    margin-left: -24px;
+    width: 300px;
+    /* identical to box height */
+  
+  }
 }
 
 /* Dispositivos XX-Large (escritorios más grandes, 1400px y más)*/
@@ -1641,6 +1670,19 @@ a {
     margin-bottom: 20px;
   
 
+  }
+
+  .text-white-profile {
+    color: var(--color-fondo);
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 34px;
+    margin-left: -24px;
+    width: 300px;
+    /* identical to box height */
+  
   }
 
 }
