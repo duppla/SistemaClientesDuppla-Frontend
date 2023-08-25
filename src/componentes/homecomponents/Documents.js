@@ -261,7 +261,7 @@ function Docs() {
                                             display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
                                             justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
                                             alignItems: 'center', // Centrar verticalmente el contenido
-                                            minWidth: '280px',
+                                            minWidth: '300px',
 
 
                                         }}>
@@ -280,10 +280,7 @@ function Docs() {
                                                     fontSize: '18px',
                                                     color: '#0A3323',
                                                     lineHeight: '20px',
-                                                    width: '180px',
-
-
-
+                                                   
                                                 }}>
                                                     {file.name}
 
