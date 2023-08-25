@@ -11,8 +11,25 @@ import swal from 'sweetalert';
 import Imgdefault from "../../img/Imgdefault.png"
 import Idefaultproperty from "../../img/Idefaultproperty.png";
 
-import { Box, Button, Container, CssBaseline, Grid } from "@mui/material";
+import { Box, Button, Container, CssBaseline, Grid, ThemeProvider, createTheme } from "@mui/material";
 
+
+
+const themeLogin = createTheme({
+    status: {
+        danger: '#FF111F',
+    },
+    palette: {
+        primary: {
+            main: '#5782F2',
+            darker: '#0A3323',
+        },
+        neutral: {
+            main: '#6C9FFF',
+            contrastText: '#fff',
+        },
+    },
+});
 
 
 
@@ -350,6 +367,7 @@ function Property() {
 
 
     return (
+        <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
         <div>
             {error ? <div className='img-offer-conatiner '>
                 <p>{errorMessage}</p>
@@ -643,6 +661,8 @@ function Property() {
                 </Box>
             </div >}
         </div>
+
+        </ThemeProvider>
 
 
     );

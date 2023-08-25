@@ -30,10 +30,25 @@ import Igo from "../../img/go.png"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Navbar from "../../Components/Navbar";
-import { Box, Button, Container, CssBaseline, Grid } from "@mui/material";
+import { Box, Button, Container, CssBaseline, Grid, ThemeProvider, createTheme } from "@mui/material";
 
 
 
+const themeLogin = createTheme({
+  status: {
+      danger: '#FF111F',
+  },
+  palette: {
+      primary: {
+          main: '#5782F2',
+          darker: '#0A3323',
+      },
+      neutral: {
+          main: '#6C9FFF',
+          contrastText: '#fff',
+      },
+  },
+});
 
 function Home() {
 
@@ -103,6 +118,7 @@ function Home() {
   const stateUser = data.estado;
   const stateInm = data.estado_inm;
   const stateOffer = data.estado_oferta;
+  const whatsappLink = data.link_whatsapp;
 
 
   {/*Función que cambia el nobre de usurio a minuscula */ }
@@ -447,6 +463,7 @@ function Home() {
   }
 
   return (
+    <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
     <div className="  ">
       <Navbar />
       <Box sx={{
@@ -599,7 +616,7 @@ function Home() {
               </Grid>
               <Grid item sx={12} sm={12} md={12} lg={12} >
                 <div className="">
-                  <a className="links" href="https://api.whatsapp.com/send?phone=573152559261">
+                  <a className="links" href={whatsappLink}>
                     <Button
                       fullWidth
                       variant="contained"
@@ -640,6 +657,7 @@ function Home() {
       </Box>
 
     </div>
+    </ThemeProvider>
 
   );
 }
