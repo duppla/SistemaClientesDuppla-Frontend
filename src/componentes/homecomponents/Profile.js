@@ -180,7 +180,7 @@ function profile() {
 
                         <div className="user-data-card container-fluid">
                             <Grid container spacing={2} sx={{
-                                mt: 2,
+                                mt: 1,
                                 ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
@@ -194,14 +194,14 @@ function profile() {
                                         <Grid className="" item sx={8} sm={8} md={8} lg={8} >
                                             <div className="size-text-card-profile-mui">
                                                 <p className=""> <small className="text-muted">Cédula</small><br /></p>
-                                                <p className=""><b>{data.cedula}</b></p>
+                                                <p className="separacion-text-mui"><b>{data.cedula}</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2} sx={{
-                                mt: 2,
+                                mt: 1,
                                 ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
@@ -215,14 +215,14 @@ function profile() {
                                         <Grid className="" item sx={8} sm={8} md={8} lg={8} >
                                             <div className="size-text-card-profile-mui">
                                                 <p className=""> <small className="text-muted">Teléfono</small><br /></p>
-                                                <p className=""><b>{data.celular}</b></p>
+                                                <p className="separacion-text-mui"><b>{data.celular}</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2} sx={{
-                                mt: 2,
+                                mt: 1,
                                 ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
@@ -236,14 +236,14 @@ function profile() {
                                         <Grid className="" item sx={8} sm={8} md={8} lg={8} >
                                             <div className="size-text-card-profile-mui">
                                                 <p className=""> <small className="text-muted">Correo</small><br /></p>
-                                                <p className=""><b>{data.email}</b></p>
+                                                <p className="separacion-text-mui"><b>{data.email}</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2} sx={{
-                                mt: 2, ml: 1
+                                mt: 1, ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
                                     <Grid container spacing={2} sx={{
@@ -256,14 +256,14 @@ function profile() {
                                         <Grid className="" item sx={8} sm={8} md={8} lg={8} >
                                             <div className="size-text-card-profile-mui">
                                                 <p className=""> <small className="text-muted">Ingreso</small><br /></p>
-                                                <p className=""><b>{formattedNumber}</b></p>
+                                                <p className="separacion-text-mui"><b>{formattedNumber}</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2} sx={{
-                                mt: 2, ml: 1
+                                mt: 1, ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
                                     <Grid container spacing={2} sx={{
@@ -277,14 +277,14 @@ function profile() {
                                             <div className="size-text-card-profile-mui">
 
                                                 <p className=""> <small className="text-muted">Ocupación</small><br /></p>
-                                                <p className=""><b>{data.profesion}</b></p>
+                                                <p className="separacion-text-mui"><b>{data.profesion}</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2} sx={{
-                                mt: 2, ml: 1
+                                mt: 1, ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
                                     <Grid container spacing={2} sx={{
@@ -298,14 +298,14 @@ function profile() {
                                             <div className="size-text-card-profile-mui">
 
                                                 <p className=""> <small className="text-muted">Ingresos adicionales</small><br /></p>
-                                                <p className=""><b>No</b></p>
+                                                <p className="separacion-text-mui"><b>No</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>
                             <Grid container spacing={2} sx={{
-                                mt: 2, ml: 1
+                                mt: 1, ml: 1
                             }}>
                                 <Grid item sx={12} sm={12} md={12} lg={12} >
                                     <Grid container spacing={2} sx={{
@@ -318,7 +318,7 @@ function profile() {
                                         <Grid className="" item sx={8} sm={8} md={8} lg={8} >
                                             <div className="size-text-card-profile-mui">
                                                 <p className=""> <small className="text-muted">Ahorro</small><br /></p>
-                                                <p className=""><b>{formattedNumberr}</b></p>
+                                                <p className="separacion-text-mui"><b>{formattedNumberr}</b></p>
                                             </div>
                                         </Grid>
                                     </Grid>
@@ -412,9 +412,7 @@ function profile() {
                             </Grid>
                         </Grid>
                     </Container>
-
                 </Box>
-
             </div>
         </ThemeProvider>
 

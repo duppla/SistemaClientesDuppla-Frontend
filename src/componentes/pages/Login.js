@@ -93,7 +93,7 @@ function login() {
                             autoFocus
                         /> */}
 
-                        <Link to='/register' className="btn-decoration">
+                        <Link to='/login' className="btn-decoration">
                             <Button
 
                                 fullWidth

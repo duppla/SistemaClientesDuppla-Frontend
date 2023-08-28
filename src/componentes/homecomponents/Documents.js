@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Istateg from "../../img/Istateg.png";
 import Istatev from "../../img/Istatev.png";
 import { Box, Container, CssBaseline, Grid, Typography, createTheme } from "@mui/material";
+import Idefaultoffer from "../../img/Idefaultoffer.png";
+import swal from 'sweetalert';
 
 const themeLogin = createTheme({
     status: {
@@ -27,27 +29,6 @@ function Docs() {
 
 
     const [docsBuyer, setDocsBuyer] = useState({});
-
-    /*     useEffect(() => {
-            const email = localStorage.getItem('email');
-    
-            const options = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: '{ "email": ' + email + '}'
-            };
-    
-            fetch('https://sistema-duppla-backend.herokuapp.com/docs/getDocument', options)
-    
-    
-                .then(response => response.json())
-                .then(response => {
-                    setDocsBuyer(response)
-    
-                })
-                .catch(err => console.error(err));
-        }, []); */
-
 
     useEffect(() => {
         const emailWithQuotes = localStorage.getItem('email');
@@ -75,28 +56,7 @@ function Docs() {
     }, []);
 
 
-    {/*Estados */ }
-    /*   const stateVinculante = docsBuyer.Oferta_Vinculante_Doc__c;
-      const stateCvendedor = docsBuyer.Compraventa_vendedor_Doc__c;
-      const stateCcliente = docsBuyer.Compraventa_cliente_Doc__c;
-      const stateArrendamiento = docsBuyer.Contrato_de_Arrendamiento_Doc__c;
-      const stateActaE = docsBuyer.Acta_de_Entrega_Doc__c;
-      const stateAutoAdm = docsBuyer.Autorizaci_n_administraci_n_Doc__c;
-      const stateAutoImg = docsBuyer.Autorizaci_n_Uso_de_Imagen_Doc__c; */
-
-
-    // función que  cambia el estado de los documentos
-    /*     function stateDocs(estado) {
-    
-            if (estado === null || estado === undefined) {
-                return <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-            }
-            else {
-                return <img src={Istatev} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-            }
-        }  */
-
-    // función que redirecciona al usuario de buyer a custumer
+    /* Función que según el estado general direcciona a inicio de prospecto o customer */
 
     function testRedireccion() {
         const estado = localStorage.getItem('estado');
@@ -130,6 +90,8 @@ function Docs() {
                 <h1> <b>Documentos</b>
                 </h1>
             </div>
+
+
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -140,288 +102,192 @@ function Docs() {
                 <CssBaseline />
 
                 {/*componente cards */}
-                <Container maxWidth="xl" sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    alignItems: 'center',
-                    mb: 4,
-                }}
-                    className=''>
-                    <Typography component="h1" variant="" sx={{
-                        ml: -1,
-                        fontFamily: 'Rustica',
-                        fontStyle: 'normal',
-                        fontWeight: '500',
-                        fontSize: '18px',
-                        color: '#0A3323',
-                        lineHeight: '20px',
+
+                {docsBuyer.signed_files && docsBuyer.signed_files.length > 0 ? (
+                    <Container maxWidth="xl" sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                    }}
+                        className=''>
+                        <Typography component="h1" variant="" sx={{
+                            ml: -1,
+                            fontFamily: 'Rustica',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            fontSize: '18px',
+                            color: '#0A3323',
+                            lineHeight: '20px',
 
 
-                    }}>
-                        <h5>Documentos firmados
-                        </h5>
-                    </Typography>
+                        }}>
+                            <h5>Documentos firmados
+                            </h5>
+                        </Typography>
 
-                    {docsBuyer.signed_files &&
-                        docsBuyer.signed_files.map((file, index) => (
-                            <div key={index} className="card-docs-grid-mui ">
-                                <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
-                                }}>
+                        {docsBuyer.signed_files &&
+                            docsBuyer.signed_files.map((file, index) => (
+                                <div key={index} className="card-docs-grid-mui ">
+                                    <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
+                                    }}>
 
-                                    <Grid item sx={12} sm={12} md={12} lg={12} >
-                                        <Grid container spacing={2} sx={{
-                                            maxWidth: '600px', // Utiliza maxWidth en lugar de width
-                                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                            margin: '0 auto', // Centrar horizontalmente
-                                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                            alignItems: 'center', // Centrar verticalmente el contenido
-                                            minWidth: '280px',
-
-
-                                        }}>
-                                            <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                <img src={Istatev} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                            </Grid>
-                                            <Grid item sx={8} sm={6} md={6} lg={6} >
-                                                <Typography component="h1" variant="" sx={{
-                                                    mt: 0,
-
-                                                    textAlign: 'center',
-
-                                                    fontFamily: 'Rustica',
-                                                    fontStyle: 'normal',
-                                                    fontWeight: '500',
-                                                    fontSize: '18px',
-                                                    color: '#0A3323',
-                                                    lineHeight: '20px',
-                                                    width: '180px',
+                                        <Grid item sx={12} sm={12} md={12} lg={12} >
+                                            <Grid container spacing={2} sx={{
+                                                maxWidth: '600px', // Utiliza maxWidth en lugar de width
+                                                width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                                                margin: '0 auto', // Centrar horizontalmente
+                                                display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                                                justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                                                alignItems: 'center', // Centrar verticalmente el contenido
+                                                minWidth: '280px',
 
 
+                                            }}>
+                                                <Grid item sx={2} sm={2} md={3} lg={3} >
+                                                    <img src={Istatev} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                                </Grid>
+                                                <Grid item sx={8} sm={6} md={6} lg={6} >
+                                                    <Typography component="h1" variant="" sx={{
+                                                        mt: 0,
 
-                                                }}>
-                                                    {file.name}
+                                                        textAlign: 'center',
 
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                <a href={file.drive_url} target="_blank" rel="noopener noreferrer"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                                    className="arrow-menu" /></a>
+                                                        fontFamily: 'Rustica',
+                                                        fontStyle: 'normal',
+                                                        fontWeight: '500',
+                                                        fontSize: '18px',
+                                                        color: '#0A3323',
+                                                        lineHeight: '20px',
+                                                        width: '180px',
+
+
+
+                                                    }}>
+                                                        {file.name}
+
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid item sx={2} sm={2} md={3} lg={3} >
+                                                    <a href={file.drive_url} target="_blank" rel="noopener noreferrer"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+                                                        className="arrow-menu" /></a>
+                                                </Grid>
                                             </Grid>
                                         </Grid>
+
+
+
+
                                     </Grid>
+                                </div>
+                            ))}
 
+                    </Container>) : (
 
-
-
-                                </Grid>
-                            </div>
-                        ))}
-
-                </Container>
+                    <Container maxWidth="xl" sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                    }}>
+                        <div className='img-offer-conatiner '>
+                            <p>Aún no tienes ningún documento firmado</p>
+                            <img src={Idefaultoffer} className="container fluid" alt="..." />
+                        </div>
+                    </Container>
+                )}
 
                 {/*componente cards */}
-                <Container maxWidth="xl" sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    alignItems: 'center',
-                    mb: 4,
-                }}
-                    className=''>
-                    <Typography component="h1" variant="" sx={{
-                        ml: -1,
-                        fontFamily: 'Rustica',
-                        fontStyle: 'normal',
-                        fontWeight: '500',
-                        fontSize: '18px',
-                        color: '#0A3323',
-                        lineHeight: '20px',
 
+                {docsBuyer.unsigned_files && docsBuyer.unsigned_files.length > 0 ? (
+                    <Container maxWidth="xl" sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                    }}
+                        className=''>
+                        <Typography component="h1" variant="" sx={{
+                            ml: -1,
+                            fontFamily: 'Rustica',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            fontSize: '18px',
+                            color: '#0A3323',
+                            lineHeight: '20px',
+                        }}>
+                            <h5>Documentos por firmar
+                            </h5>
+                        </Typography>
 
-                    }}>
-                        <h5>Documentos por firmar
-                        </h5>
-                    </Typography>
+                        {docsBuyer.unsigned_files &&
+                            docsBuyer.unsigned_files.map((file, index) => (
+                                <div key={index} className="card-docs-grid-mui ">
+                                    <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
+                                    }}>
 
-                    {docsBuyer.unsigned_files &&
-                        docsBuyer.unsigned_files.map((file, index) => (
-                            <div key={index} className="card-docs-grid-mui ">
-                                <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
-                                }}>
+                                        <Grid item sx={12} sm={12} md={12} lg={12} >
+                                            <Grid container spacing={2} sx={{
+                                                maxWidth: '600px', // Utiliza maxWidth en lugar de width
+                                                width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                                                margin: '0 auto', // Centrar horizontalmente
+                                                display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                                                justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                                                alignItems: 'center', // Centrar verticalmente el contenido
+                                                minWidth: '300px',
+                                            }}>
+                                                <Grid item sx={2} sm={2} md={3} lg={3} >
+                                                    <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                                </Grid>
+                                                <Grid item sx={8} sm={6} md={6} lg={6} >
+                                                    <Typography component="h1" variant="" sx={{
+                                                        mt: 0,
+                                                        textAlign: 'center',
+                                                        fontFamily: 'Rustica',
+                                                        fontStyle: 'normal',
+                                                        fontWeight: '500',
+                                                        fontSize: '18px',
+                                                        color: '#0A3323',
+                                                        lineHeight: '20px',
 
-                                    <Grid item sx={12} sm={12} md={12} lg={12} >
-                                        <Grid container spacing={2} sx={{
-                                            maxWidth: '600px', // Utiliza maxWidth en lugar de width
-                                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                            margin: '0 auto', // Centrar horizontalmente
-                                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                            alignItems: 'center', // Centrar verticalmente el contenido
-                                            minWidth: '300px',
+                                                    }}>
+                                                        {file.name}
 
-
-                                        }}>
-                                            <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                            </Grid>
-                                            <Grid item sx={8} sm={6} md={6} lg={6} >
-                                                <Typography component="h1" variant="" sx={{
-                                                    mt: 0,
-
-                                                    textAlign: 'center',
-
-                                                    fontFamily: 'Rustica',
-                                                    fontStyle: 'normal',
-                                                    fontWeight: '500',
-                                                    fontSize: '18px',
-                                                    color: '#0A3323',
-                                                    lineHeight: '20px',
-                                                   
-                                                }}>
-                                                    {file.name}
-
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                <a href={file.drive_url} target="_blank" rel="noopener noreferrer"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                                    className="arrow-menu" /></a>
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid item sx={2} sm={2} md={3} lg={3} >
+                                                    <a href={file.drive_url} target="_blank" rel="noopener noreferrer"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+                                                        className="arrow-menu" /></a>
+                                                </Grid>
                                             </Grid>
                                         </Grid>
                                     </Grid>
+                                </div>
+                            ))}
 
+                    </Container>) : (
+                    <Container maxWidth="xl" sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                    }}>
+                        <div className='img-offer-conatiner '>
+                            <p>No cuenta con documentos por firmar</p>
+                            <img src={Idefaultoffer} className="container fluid" alt="..." />
+                        </div>
+                    </Container>
 
-
-
-                                </Grid>
-                            </div>
-                        ))}
-
-                </Container>
-                {/* Div de docs*/}
-                {/*       <div className="content-docs  container-sm ">
-
-
-                    <div className="card-docs-m   ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateVinculante)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b className="">Oferta vinculante</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Oferta_Vinculante_Doc__c} target="_blank">
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-                    <div className="card-docs-m  ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateCvendedor)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b>Compraventa vendedor</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Compraventa_vendedor_Doc__c} target="_blank">
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-                    <div className="card-docs-m  ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateCcliente)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b>Compraventa cliente</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Compraventa_cliente_Doc__c} target="_blank">
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-                    <div className="card-docs-m  ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateArrendamiento)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b>Contrato de arrendamiento</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Contrato_de_Arrendamiento_Doc__c} target="_blank">
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-
-                    <div className="card-docs-m  ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateActaE)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b>Acta de entrega</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Acta_de_Entrega_Doc__c} target="_blank" >
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-                    <div className="card-docs-m  ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateAutoAdm)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b>Autorización administración</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Autorizaci_n_administraci_n_Doc__c} target="_blank">
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-                    <div className="card-docs-m  ">
-                        <div className="card-body-docs col-2">
-                            {stateDocs(stateAutoImg)}
-                        </div>
-                        <div className="card-body col-8 text-space">
-                            <b>Autorización uso de imagen</b>
-                            <p className="card-text-docs"><small className="text-muted">{ }</small></p>
-                        </div>
-                        <a className="links text-black"
-                            href={docsBuyer.Autorizaci_n_Uso_de_Imagen_Doc__c} target="_blank">
-                            <div className="col-2 outline">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu" />
-                            </div>
-                        </a>
-                    </div>
-                </div> */}
-
+                )}
             </Box>
-
         </div >/*Div de cierre*/
     );
 }

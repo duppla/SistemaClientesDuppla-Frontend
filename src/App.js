@@ -73,8 +73,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Login />} ></Route>
         <Route path='/singIn' element={<SingIn />} ></Route>
-        <Route path='/login' element={<Login />} ></Route>
-        <Route path='/register' element={<Register />} ></Route>
+       {/*  <Route path='/register' element={<Login />} ></Route> */}
+        <Route path='/login' element={<Register />} ></Route>
         <Route path='/password' element={<Password />} ></Route>
 
 

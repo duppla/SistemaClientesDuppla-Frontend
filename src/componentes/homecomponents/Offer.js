@@ -76,9 +76,6 @@ function Offer() {
   return (
 
     <div className="container-fluid">
-
-
-
       <div className="container-offer">
         <div className="">
           <div className="arrow-return">
@@ -121,7 +118,10 @@ function Offer() {
                 </a>
               </div>
 
-            </div> : <div className='img-offer-conatiner '>
+            </div> :      
+          
+            
+            <div className='img-offer-conatiner '>
               <p>Todavía no tenemos tu propuesta comercial, te avisaremos cuando esté disponible</p>
               <img src={Idefaultoffer} className="container fluid" alt="..." />
             </div>}

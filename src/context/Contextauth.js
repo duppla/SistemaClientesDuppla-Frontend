@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
                     
                     //console.log(response);
                     if(tokenUser == "undefined"){
-                        navigate('/register');
+                        navigate('/login');
                         localStorage.removeItem('token');
                     }
                     else if(estado == true){
@@ -65,10 +65,10 @@ export const AuthProvider = ({ children }) => {
                 .catch(err => {                
                     
                     console.error(err)                
-                    navigate('/register')
+                    navigate('/login')
                 });
         } else {
-            navigate('/register')
+            navigate('/login')
         }
     };
 
@@ -78,7 +78,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem('email');
         localStorage.removeItem('estado');
         setToken(null);
-        navigate('/register');
+        navigate('/login');
     };
 
     return (

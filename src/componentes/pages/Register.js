@@ -49,55 +49,9 @@ function Register() {
         })
     }
 
-    /*Función para enviar los datos al servidor cooki*/
-    /*const handleToken= (e) => {
-    e.preventDefault();
-    console.log(datos);
-    axios.post('https://sistemas-clientes-duppla.herokuapp.com/users/login', datos)
-      .then(res => {
-            console.log(res.data);
-
-       })*/
 
     /*Función que maneja el envio de la información del formulario */
 
-    {/*const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        // deberia validar que si el correo no es valido, no pase o de error
-        if (datos.email === "" || datos.email === null ||datos.email === undefined || datos.password === "" || datos.password === undefined || datos.password === null) {
-            alert('Correo o contraseña incorrecta');
-            
-        } else {
-            //console.log(datos.email);
-            const options = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: '{"email":"' + datos.email + '","password":"' + datos.password + '"}'
-            };
-            fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options).then(response => response.json())
-                .then(function (response) {
-                    //console.log(response.data);
-                    //console.log(response.status);
-                    if (!response.status === 200) {
-                        console.log('error de login');
-                    } else {
-                        if (!datos.email === response.status && datos.password === response.status) {
-                            // validar que sea igual a 200 response.status === 200  si es va a home de lo contraio error
-                            alert('error');
-
-                        } else {                                                   
-                             login(response.token, datos.email, response.estado);
-                                             
-                            setDatos('');
-                        }
-                    }
-                }).catch(function (error) {
-                    console.error(error);
-
-                });
-        };
-    };*/}
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -152,52 +106,7 @@ function Register() {
     return (
         <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
             <div className="container-fluid" id="formAuthLogin">
-                {/* <div className="">
-                <div className="container-sing">
-                    <div className="img-logotipo centrado">
-                        <img src={Iduppla} className="rounded centrado" alt="Simbolo duppla" />
-                    </div>
-                </div>
-                <div className="title-login">
-                    <p> <b>Iniciar sesión</b>
-                    </p>
-                </div>
-                <div className="form-register  centrado container-sm">
-                    <form onSubmit={handleSubmit} >
-                        <div className="mb-3">
-                            <input type="email"
-                                name='email'
-                                onChange={handleInputChance}
-                                value={datos.email}
-                                className="form-control input-register"
-                                id="exampleInputEmail1"
-                                placeholder="Correo electrónico"
-                                aria-describedby="emailHelp"
-                                required />
-
-                        </div>
-                        <div className="mb-3">
-
-                            <input type="password"
-                                name='password'
-                                onChange={handleInputChance}
-                                value={datos.password}
-                                className="form-control input-register"
-                                placeholder="Contraseña"
-                                id="exampleInputPassword1"
-                                required />
-
-                        </div>
-
-                        {showMessage && (handleNotification(true))
-
-                        }
-                        <button type="submit"
-                            className="btn centrado  btn-prueba-ingreso text-center links text-white btn-mover ">Siguiente</button>
-                    </form>
-
-                </div>
-            </div> */}
+              {/* Form de ingreso al portal clientes */}
                 <Container className='cetrado' component="main" maxWidth="xs">
                     <CssBaseline />
                     <Box
@@ -208,16 +117,13 @@ function Register() {
                             alignContent: 'center',
                             alignItems: 'center',
                             textAlign: 'start',
-
                         }}
                     >
                         <div >
                             <img src={Iduppla} alt="" style={{
                                 width: '280px',
-                                height: '220px',
-
-
-                            }} />
+                                height: '220px',     
+                          }} />
                         </div>
                         <Typography component="h1" variant="" sx={{
                             mt: 2,
@@ -228,9 +134,6 @@ function Register() {
                             fontWeight: '500',
                             fontStyle: 'normal',
                             lineHeight: '20px',
-
-
-
                         }}>
                             <h1>Sistema Clientes
                             </h1>
@@ -285,17 +188,6 @@ function Register() {
                                 required />
 
 
-                            {/*  <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                             onChange={handleChange} 
-                            autoComplete="current-password"
-                        /> */}
                             {showMessage && (handleNotification(true))
 
                             }
@@ -311,6 +203,7 @@ function Register() {
                                     color: '#FFFFFF',
                                     borderRadius: '10px',
                                     height: '56px',
+                                    textTransform: 'none',
 
                                 }}
                                 onSubmit={handleSubmit}
