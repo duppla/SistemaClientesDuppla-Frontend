@@ -558,23 +558,28 @@ function Home() {
                 {stateChange(stateUser)}
               </div>
             </div>
+
+
             {/*componente de estados*/}
 
-            <Grid container className="" >
+            <div className="borde-card-mui" >
+            <Grid container maxWidth="xl" spacing={1} sx={{
+              alignItems: 'center',
+              alignContent: 'center',
+              textAlign: 'start',
+              mt: 2
+            }}>
               <Grid sx={12} sm={10} md={10} lg={10} >
                 <div>
-
-                  <div className="row borde-card-mui ">
+                  <div className=" text-mui-home ">
                     <h6>Estado:</h6>
                     {/* */}
                     <b> {mensajeSf()} </b>
                   </div>
-
                 </div>
               </Grid>
-
-
             </Grid>
+            </div>
 
             <Container maxWidth="xl" sx={{
               display: 'flex',

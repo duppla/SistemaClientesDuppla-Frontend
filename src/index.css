@@ -718,8 +718,6 @@ code {
  
   margin-top: 24px;
   margin-bottom: 5px;
-
- 
  
   height: 80px;
   margin-left: 16px;
@@ -732,6 +730,8 @@ code {
 
 }
 
+
+
 .borde-card-mui {
 
   margin-top: 10px;
@@ -741,6 +741,11 @@ code {
   border: 1px solid #E1EBF4;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
+}
+
+.text-mui-home{
+  padding: 16px;
+
 }
 
 .text-black {
@@ -1396,13 +1401,14 @@ a {
   hr {
     /*  position: absolute; */
 
-    width: 59px;
+    width: 79px;
     height: 0px;
     left: 80px;
     top: 65px;
-    margin-top: 37px;
+    margin-top: 50px;
     margin-left: 1px;
     margin-bottom: 35px;
+    fill: #ffffff;
 
     border: 1px solid #ffffff !important;
     transform: rotate(90deg);
