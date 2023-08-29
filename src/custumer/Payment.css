@@ -221,7 +221,7 @@
 
 .space-value {
 
-  margin-top: 18px;
+  margin-top: 8px;
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
@@ -238,6 +238,10 @@
   font-weight: 400;
   font-size: 16px;
 
+}
+
+.margin-mui{
+  margin-top: 24px;
 }
 
 

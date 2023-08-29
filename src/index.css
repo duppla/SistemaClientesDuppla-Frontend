@@ -209,10 +209,6 @@ code {
   margin-right: 18px;
 }
 
-.btn-primary {
-  background-color: var(--color-primario-btn);
-}
-
 .link-btn {
   text-decoration: none;
 }
@@ -1505,7 +1501,7 @@ a {
     margin-right: 28px;
     grid-gap: 10px;
     margin-bottom: 31px;
-    width: 320px;
+   /*  width: 320px; */
     height: auto;
     background-color: #ffffff;
     border: 1px solid #ced4da;

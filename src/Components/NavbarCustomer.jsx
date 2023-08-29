@@ -180,11 +180,12 @@ const NavbarCustomer = () => {
 
                         <Grid container className='centrado' maxWidth="xl" spacing={1} sx={{
 
+mt:4
                         }}>
 
-                            <Grid item xs={10} md={10} lg={10} >
+                            <Grid item xs={10} md={10} lg={10} sx={{mt:3}} >
 
-                                <div className="centrado">
+                                {/* <div className="centrado">
                                     <nav className="navbar ">
                                         <div className="container-fluid">
                                             <button className="navbar-toggler" type="button"
@@ -208,10 +209,10 @@ const NavbarCustomer = () => {
                                             </div>
                                         </div>
                                     </nav>
-                                </div>
+                                </div> */}
                             </Grid>
                             <Grid item xs={10} md={10} lg={10} className='centrado'>
-                            <nav className=" col-2 navbar  ">
+                            <nav className=" col-2 navbar  " >
                                 <div className="icon-navbar-customer">
                                     <button className="navbar-toggler border-none"
                                         type="button"

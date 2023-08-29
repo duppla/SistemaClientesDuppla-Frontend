@@ -181,7 +181,7 @@ textarea {
   align-items: center; 
   grid-gap: 10px;
   margin-bottom: 31px;
-  width: 320px;
+  /* width: 320px; */
   height: auto;
   background-color: #ffffff;
   border: 1px solid #ced4da;

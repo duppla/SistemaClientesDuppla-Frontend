@@ -32,6 +32,8 @@ import { useNavigate } from "react-router-dom";
 import numeral from "numeral";
 import GrafictHome from "./GrafictHome";
 import IconToolytip from "../../src/img/IconTooltip.svg";
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { Button, Container, Grid } from "@mui/material";
 
 
 
@@ -491,10 +493,62 @@ function Inicio() {
                 </div>
             </div>
             {/*componente pago*/}
-            <div className="row centrado" >
-                {/* */}
 
-                <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
+
+            {/*componente botones cerrar sesión y whatsApp */}
+            <Container maxWidth="xl" sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignContent: 'center',
+                alignItems: 'center',
+                mb: 4,
+                mt:4,
+            }}
+                className=''>
+                <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
+                }}>
+
+                    <Grid item sx={12} sm={12} md={12} lg={12} >
+                        <div className="">
+                            <a className="links text-white"
+                                href='/pagos' >
+                                <Button
+                                    fullWidth
+                                    variant="contained"
+                                    startIcon={<MonetizationOnIcon style={{ color: '#ffffff', width: '32px', height: '32px' }} />}
+                                    sx={{
+                                        marginTop: '20px',
+                                        mb: 3,
+                                        background: '#81A1F8',
+                                        borderRadius: '10px',
+                                        color: '#ffffff',
+
+                                        textTransform: 'none',
+                                        border: '1px solid #81A1F8',
+                                        height: '58px',
+
+                                        fontFamily: 'Helvetica',
+                                        fontSize: '20px',
+
+                                        maxWidth: '390px', // Utiliza maxWidth en lugar de width
+                                        width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                                        margin: '0 auto', // Centrar horizontalmente
+                                        display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                                        justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                                        alignItems: 'center', // Centrar verticalmente el contenido
+                                        minWidth: '380px',
+                                    }}
+                                >
+                                    <b>  Pagar</b>
+                                </Button>
+                            </a>
+                        </div>
+                    </Grid>
+                </Grid>
+            </Container>
+          {/*  <div className="row centrado" >
+                             <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
                     <a className="links text-white"
                         href='/pagos' >
                         <img src={Iconpago} className="img-btn-pagos-custumer " alt="" width="32px" height="32px" />
@@ -503,7 +557,7 @@ function Inicio() {
                         </button>
                     </a>
                 </div>
-            </div>
+            </div> */}
             {/*Linea de división */}
             <div className='centrado'>
                 <img src={Vline} className="line-custumer centrado" alt="" />
