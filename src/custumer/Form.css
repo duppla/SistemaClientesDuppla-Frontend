@@ -175,21 +175,7 @@ textarea {
   /* Adjust the value as needed */
 }
 
-.card-body-form {
-  
-  justify-self: center;
-  align-items: center; 
-  grid-gap: 10px;
-  margin-bottom: 31px;
-  /* width: 320px; */
-  height: auto;
-  background-color: #ffffff;
-  border: 1px solid #ced4da;
-  padding: 1.25rem !important;
-  background-clip: padding-box;
-  border-radius: 10px;
 
-}
 .card-body-form-two { 
   margin-bottom: 31px;
   height: auto;

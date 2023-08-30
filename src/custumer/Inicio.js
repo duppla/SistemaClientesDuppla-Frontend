@@ -105,6 +105,8 @@ function Inicio() {
 
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
+    const whatsappLink = dataCustumer.Link_whatsapp;
+
 
 
     //formateo de los datos en pagos
@@ -503,7 +505,7 @@ function Inicio() {
                 alignContent: 'center',
                 alignItems: 'center',
                 mb: 4,
-                mt:4,
+                mt: 4,
             }}
                 className=''>
                 <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
@@ -547,7 +549,7 @@ function Inicio() {
                     </Grid>
                 </Grid>
             </Container>
-          {/*  <div className="row centrado" >
+            {/*  <div className="row centrado" >
                              <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
                     <a className="links text-white"
                         href='/pagos' >
@@ -591,19 +593,19 @@ function Inicio() {
                     </div>*/}
                     <div className='space-btn-wrapper' >
                         <a className="links"
-                            href="https://api.whatsapp.com/send?phone=573152559261">
-                            <div className='btn-wrapper'>
-                                <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
-                                <br />
-                            </div>
-                        </a>
-                        <div>
-                            <p className='text-btn-wrapper'>Tengo un problema </p>
+                            href={whatsappLink}>
+                        <div className='btn-wrapper'>
+                            <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                            <br />
                         </div>
+                    </a>
+                    <div>
+                        <p className='text-btn-wrapper'>Tengo un problema </p>
                     </div>
+                </div>
 
 
-                    {/* <div className='space-btn-wrapper'>
+                {/* <div className='space-btn-wrapper'>
                         <Link to='/Ajustemeta' className='links'>
                             <div className='btn-wrapper'>
                                 <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
@@ -614,19 +616,19 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Ajustar meta </p>
                         </div>
                     </div>*/}
-                    <div className='space-btn-wrapper'>
-                        <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
-                            <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
-                            <br />
-                        </div>
-                        </Link>
-                        <div>
-                            <p className='text-btn-wrapper links'>Historial de pago </p>
-                        </div>
+                <div className='space-btn-wrapper'>
+                    <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
+                        <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
+                        <br />
                     </div>
-
+                    </Link>
+                    <div>
+                        <p className='text-btn-wrapper links'>Historial de pago </p>
+                    </div>
                 </div>
+
             </div>
+        </div>
 
 
 

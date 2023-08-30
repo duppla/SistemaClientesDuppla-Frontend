@@ -249,9 +249,18 @@ code {
   text-align: start;
   margin-bottom: 20px;
   margin-left: 15px;
+  color: #0A3323;
 
 }
 
+.element-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinear elementos en el centro horizontalmente */
+  width: 100%; /* Establecer el ancho del contenedor */
+  max-width: 800px; /* Puedes ajustar este valor según tus necesidades */
+  margin: 0 auto; /* Centrar el contenedor en la página */
+}
 
 .title-login {
   padding: 0 0 5px 5px;
@@ -1326,6 +1335,18 @@ a {
   .container-inm-home-grid {
     width: 300px !important;
   }
+  .card-body-form { 
+
+    margin-bottom: 31px;
+    width: 260px; 
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 1.25rem !important;
+    background-clip: padding-box;
+    border-radius: 10px;
+  
+  }
 
 }
 
@@ -1537,6 +1558,18 @@ a {
     /* identical to box height */
 
   }
+  .card-body-form { 
+
+    margin-bottom: 31px;
+    width: 320px; 
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 1.25rem !important;
+    background-clip: padding-box;
+    border-radius: 10px;
+  
+  }
 
 
 
@@ -1644,6 +1677,18 @@ a {
   .container-inm-home-grid {
     width: 300px !important;
   }
+  .card-body-form { 
+
+    margin-bottom: 31px;
+    width: 320px; 
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 1.25rem !important;
+    background-clip: padding-box;
+    border-radius: 10px;
+  
+  }
 
 
 }
@@ -1659,6 +1704,18 @@ a {
 @media screen and (min-width: 992px) {
   .container-inm-home-grid {
     width: 400px;
+  }
+  .card-body-form { 
+
+    margin-bottom: 31px;
+    width: 100%; 
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 1.25rem !important;
+    background-clip: padding-box;
+    border-radius: 10px;
+  
   }
 }
 
@@ -1689,6 +1746,18 @@ a {
     width: 300px;
     /* identical to box height */
 
+  }
+
+  .card-body-form { 
+
+    margin-bottom: 31px;
+    width: 100%; 
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    
+    border-radius: 10px;
+  
   }
 }
 
@@ -1730,6 +1799,20 @@ a {
     width: 300px;
     /* identical to box height */
 
+  }
+
+  .card-body-form { 
+
+    margin-bottom: 31px;
+   width: 100%; 
+    height: auto;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    padding: 1.25rem !important;
+    background-clip: padding-box;
+    border-radius: 10px;
+  
+  
   }
 
 }

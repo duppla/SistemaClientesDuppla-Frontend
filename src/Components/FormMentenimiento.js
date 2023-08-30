@@ -152,13 +152,13 @@ const FormMentenimiento = () => {
 
     return (
       <ThemeProvider theme={themeFormMantenimiento} sx={{ m: 0, p: 0, }}>
-        <div className=' '>
           {testRedireccion(estado)}
-          <div className="title-register container sm ">
+          <div className="title-register ">
             <h1> <b></b>
             </h1>
           </div>
 
+        <div className="element-container">
 
           {/*    <div class="profile-form ">
           <button class="back-button">
@@ -176,6 +176,7 @@ const FormMentenimiento = () => {
             alignContent: 'center',
             alignItems: 'center',
             textAlign: 'start',
+            marginTop:'-60px',
 
           }}>
             <CssBaseline />
@@ -192,13 +193,14 @@ const FormMentenimiento = () => {
             }}
               className=''>
               <Typography component="h1" variant="" sx={{
-                ml: -1,
+                
                 fontFamily: 'Rustica',
                 fontStyle: 'normal',
                 fontWeight: '500',
                 fontSize: '18px',
                 color: '#42723f',
                 lineHeight: '20px',
+                textAlign: 'center',
               }}>
                 <h3>Generar solicitud de reparación / mantenimiento
                 </h3>

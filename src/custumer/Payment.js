@@ -242,7 +242,7 @@ function Payment() {
             <div className="">
                 <div className="arrow-return">
                     <Link to='/inicio'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="56px" height="56px" fill="#0A3323" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" fill="#0A3323" className=" arrow-return bi bi-arrow-left-short" viewBox="0 0 16 16">
                             <path fillrule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                         </svg>
                     </Link>
@@ -284,7 +284,7 @@ function Payment() {
                                     onChange={handleOptionChange}
                                 >
 
-                                    <Grid container justifyContent="center" alignItems="center" sx={{
+                                    <Grid container justifyContent="center" alignItems="stretch" sx={{
                                         mt: 2
                                     }}>
                                         <Grid item sx={10} sm={10} md={10} lg={10} >
@@ -356,9 +356,7 @@ function Payment() {
                                                                 mt: 4,
                                                                 minWidth: '180px',
                                                             }}
-
                                                         />
-
                                                     )}
                                                 </Grid>
                                                 <Grid item sx={10} sm={10} md={10} lg={10} >
@@ -366,12 +364,9 @@ function Payment() {
                                                     <p className='font-text-payment'>
                                                         Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonará a tu participación.
                                                     </p>
-
                                                 </Grid>
-
                                             </Grid>
                                         </Grid>
-
                                     </Grid>
                                 </RadioGroup>
                             </form>
@@ -396,21 +391,6 @@ function Payment() {
 
                                 </div>
                             </div>
-
-                            {/*  <Button
-                                type="submit"
-                                variant="contained"
-                                disabled={isButtonDisabled || (selectedOption === 'option3' && paymentValue === '')}
-                                className={`btn btn-payment-custumer centrado-btn ${isButtonDisabled ? "disabled" : "enabled"}`}
-                                onClick={handlePayment}
-                                onChange={handleInputPrueba}
-                                sx={{
-                                    maxWidth: '400px',
-                                    minWidth: '280px',
-                                }}
-                            >
-                                Continuar
-                            </Button> */}
                         </Grid>
 
 
@@ -456,348 +436,7 @@ function Payment() {
                     </div>
 
                 </Container>
-            </Box>
-
-
-
-
-
-
-
-
-
-
-
-            {/*Sección de btn-radio */}
-            {/*  { <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignContent: 'center',
-                alignItems: 'center',
-                textAlign: 'start',
-            }}>
-                <CssBaseline />
- <Container maxWidth="xl" sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            mb: 4,
-
-                        }}
-                            className=''>
-                            <Grid container justifyContent="center" alignItems="center" sx={{
-                                mt: 1,
-                            }}>
-                                <Grid item sx={12} sm={12} md={12} lg={12} >
-                                    <Grid container justifyContent="center" alignItems="center" sx={{
-                                        mt: 3
-                                    }}>
-                                        <Grid item sx={6} sm={6} md={6} lg={6} >
-                                            <FormControl>
-                                                <RadioGroup
-                                                    aria-label="Pago mínimo"
-                                                    name="pagoMinimo"
-                                                    value={selectedOption}
-                                                    onChange={handleOptionChange}
-                                                >
-
-                                                    <FormControlLabel value="option1" control={<Radio />} label="Pago mínimo" />
-                                                </RadioGroup>
-                                            </FormControl>
-
-                                        </Grid>
-                                        <Grid item sx={5} sm={6} md={6} lg={6} >
-
-                                            <div className=" space-value">
-                                                <p className="card-text text-end more space-value">$ {formatterPagoMinimo}</p>
-                                            </div>
-
-                                        </Grid>
-                                    </Grid>
-
-                                </Grid>
-                            </Grid>
-                        </Container> */}
-
-            {/*            <form onSubmit={handleOptionChange}>
-
-
-
-                <div className={`Container-cards-payment-customer ${selectedOption === 'option1' ? 'selected' : ''}`}>
-
-                    <Container maxWidth="xl" sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignContent: 'center',
-                        alignItems: 'center',
-                        mb: 4,
-
-                    }}
-                        className=''>
-                        <Grid container justifyContent="center" alignItems="center" sx={{
-                            mt: 1,
-                        }}>
-                            <Grid item sx={12} sm={12} md={12} lg={12} >
-                                <Grid container justifyContent="center" alignItems="center" sx={{
-                                    mt: 3
-                                }}>
-                                    <Grid item sx={6} sm={6} md={6} lg={6} >
-                                        <FormControl>
-                                            <RadioGroup
-                                                aria-label="Pago mínimo"
-                                                name="pagoMinimo"
-                                                value={selectedOption}
-                                                onChange={handleOptionChange}
-                                            >
-
-                                                <FormControlLabel value="option1" control={<Radio />} label="Pago mínimo" />
-                                            </RadioGroup>
-                                        </FormControl>
-
-                                    </Grid>
-                                    <Grid item sx={5} sm={6} md={6} lg={6} >
-
-                                        <div className=" space-value">
-                                            <p className="card-text text-end more space-value">$ {formatterPagoMinimo}</p>
-                                        </div>
-
-                                    </Grid>
-                                </Grid>
-
-                            </Grid>
-                        </Grid>
-                    </Container> */}
-
-
-            {/* <div className="card-seccion input-group"  >
-                            <div className="row ">
-                                <div className="col-6">
-                                    <div className="form-check">
-                                        <input className="form-check-input"
-                                            type="radio"
-                                            value="option1"
-                                            name="flexRadioDefault"
-                                            id="flexRadioDefault1"
-                                            checked={selectedOption === "option1"}
-                                            onChange={handleOptionChange} />
-                                        <label className="form-check-label" for="flexRadioDefault1">
-                                            Pago mínimo
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="col-6 ">
-                                    <div className="card-body space-value">
-                                        <p className="card-text text-end more space-value">$ {formatterPagoMinimo}</p>
-                                    </div>
-                                </div>
-
-                                
-                            </div>
-                        </div> */}
-            {/*                     </div>
-                    <div className={`Container-cards-payment-customer ${selectedOption === 'option2' ? 'selected' : ''}`} id="cardComponet">
-
-                        <Container maxWidth="xl" sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            mb: 4,
-
-                        }}
-                            className=''>
-                            <Grid container justifyContent="center" alignItems="center" sx={{
-                                mt: 1,
-                            }}>
-                                <Grid item sx={12} sm={12} md={12} lg={12} >
-                                    <Grid container justifyContent="center" alignItems="center" sx={{
-                                        mt: 3
-                                    }}>
-                                        <Grid item sx={6} sm={6} md={6} lg={6} >
-                                            <FormControl>
-                                                <RadioGroup
-                                                    aria-label="Pago sugerido"
-                                                    name="pagoSugerido"
-                                                    value={selectedOption}
-                                                    onChange={handleOptionChange}
-                                                >
-
-                                                    <FormControlLabel value="option2" control={<Radio />} label="Pago sugerido" />
-                                                </RadioGroup>
-                                            </FormControl>
-
-                                        </Grid>
-                                        <Grid item sx={5} sm={6} md={6} lg={6} >
-
-                                            <div className=" space-value">
-                                                <p className="card-text text-end more space-value">$ {formatoSug}</p>
-                                            </div>
-
-                                        </Grid>
-                                    </Grid>
-
-                                </Grid>
-                            </Grid>
-                        </Container> */}
-
-
-
-            {/* <div className="card-seccion"  >
-                            <div className="row ">
-                                <div className="col-6">
-                                    <div className="form-check">
-                                        <input className="form-check-input"
-                                            type="radio"
-                                            name="flexRadioDefault"
-                                            id="flexRadioDefault2"
-                                            value="option2"
-                                            checked={selectedOption === "option2"}
-                                            onChange={handleOptionChange} />
-                                        <label className="form-check-label" for="flexRadioDefault2">
-                                            Pago sugerido
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <div className="card-body">
-                                        <p className="card-text text-end more space-value">$ {formatoSug}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
-            {/*          </div>
-
-                    <div id='inputData' className={`Container-cards-payment-c ${selectedOption === 'option3' ? 'selected' : ''}`}>
-
-
-                        <Container maxWidth="xl" sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            mb: 4,
-
-                        }}
-                            className=''>
-                            <Grid container justifyContent="center" alignItems="center" sx={{
-                                mt: 1,
-                            }}>
-                                <Grid item sx={12} sm={12} md={12} lg={12} >
-                                    <Grid container justifyContent="center" alignItems="center" sx={{
-                                        mt: 3
-                                    }}>
-                                        <Grid item sx={6} sm={6} md={6} lg={6} >
-                                            <FormControl>
-                                                <RadioGroup
-                                                    aria-label="Otro valor"
-                                                    name="otroValor"
-                                                    value={selectedOption}
-                                                    onChange={handleOptionChange}
-                                                >
-
-                                                    <FormControlLabel value="option3" control={<Radio />} label="Otro valor" />
-                                                </RadioGroup>
-                                            </FormControl>
-
-                                        </Grid>
-                                        <Grid item sx={5} sm={6} md={6} lg={6} >
-                                            <div className="">
-                                                <input
-                                                    type="text"
-                                                    id="paymentBtn"
-                                                    name="otrovalornumero"
-                                                    value={numeral(paymentValue).format('0,0')}
-                                                    onChange={(event) => setPaymentValue(event.target.value)}
-                                                    className="form-control-custumer input-pago"
-                                                    placeholder="$"
-                                                    maxLength={11}
-                                                />
-                                            </div>
-
-
-                                        </Grid>
-                                    </Grid>
-
-                                </Grid>
-                                <Grid item sx={12} sm={12} md={12} lg={12}  >
-                                    <div className="msj-payment  margin-mui">
-                                        <p className="font-text-payment">
-                                            Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonará a tu participación.
-                                        </p>
-                                    </div>
-                                </Grid>
-                            </Grid>
-                        </Container>
-
- */}
-
-
-
-            {/*  <div className="card-seccion "  >
-                            <div className="row ">
-                                <div className="col-6">
-                                    <div className="form-check">
-                                        <input className="form-check-input"
-                                            type="radio"
-                                            name="flexRadioDefault"
-                                            id="flexRadioDefault2"
-                                            value="option3"
-                                            checked={selectedOption === "option3"}
-                                            onChange={handleOptionChange} />
-                                        <label className="form-check-label space-value-input" htmlFor="flexRadioDefault3">
-                                            Otro valor
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <input type="text"
-                                        id='paymentBtn'
-                                        name="otrovalornumero"
-                                        value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
-                                        //value={paymentValue}
-                                        onChange={(event) => setPaymentValue(event.target.value)}
-
-
-                                        className="form-control-custumer  input-pago"
-                                        placeholder="$"
-                                        maxLength={11}
-                                    />
-                                </div>
-                                <br />
-                                <br />
-                                <br />
-
-                                <div className="msj-payment">
-                                    <p className='font-text-payment '>
-                                        Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonara a tu participación.
-                                    </p>
-                                </div>
-                            </div>
-                        </div> */}
-            {/*    </div>
-
-
-                    <div className="row centrado" >
-                        <button type="submit"
-                            onClick={handlePayment}
-                            disabled={isButtonDisabled}
-                            className={` btn btn-payment-custumer centrado-btn  ${isButtonDisabled ? "disabled" : "enabled"} `}
-                            width="360px" height="68px"
-                            onChange={handleInputPrueba}
-                        >Continuar</button>
-
-                    </div>
-                </form> */}
-            {/* 
-      <div className='d-grid  Container-cards-payment-bar '> 
-          
-        {/* </Box>} */}
-
+            </Box> 
         </div >
 
     )
