@@ -4,7 +4,7 @@ import './../custumer/Payment.css'
 import numeral, { options } from 'numeral';
 import IconUbicacion from '../../src/img/Iconubicacion.svg'
 import swal from 'sweetalert';
-import { Box, Button, Container, CssBaseline, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField } from '@mui/material';
+import { Box, Button, Container, CssBaseline, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 
@@ -248,16 +248,32 @@ function Payment() {
                     </Link>
                 </div>
             </div>
-            <div className="title-register-payment ">
-                <h1> <b>Seleccione el monto a pagar</b>
+
+            <Typography component="h1" variant="" sx={{
+                ml:1,
+                mt:1,
+                fontFamily: 'Helvetica',
+                fontStyle: 'normal',
+                fontWeight: '500',
+                fontSize: '15px',
+                color: '#0A3323',
+                lineHeight: '20px',
+                padding: '0 0 5px 5px',
+                textAlign: 'start',
+            }}>
+                <h1><b>Seleccione el monto a pagar</b>
                 </h1>
-            </div>
+            </Typography>
+
+
+
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignContent: 'center',
                 alignItems: 'center',
                 textAlign: 'start',
+                marginTop: '-30px',
             }}>
                 <CssBaseline />
                 <Container maxWidth="xl" sx={{
@@ -287,7 +303,7 @@ function Payment() {
                                     <Grid container justifyContent="center" alignItems="stretch" sx={{
                                         mt: 2
                                     }}>
-                                        <Grid item sx={10} sm={10} md={10} lg={10} >
+                                        <Grid item sx={12} sm={12} md={10} lg={10} >
 
                                             <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option1' ? 'selected' : ''}`} sx={{
                                                 mt: 2,
@@ -308,7 +324,7 @@ function Payment() {
                                             </Grid>
                                         </Grid>
 
-                                        <Grid item sx={10} sm={10} md={10} lg={10} >
+                                        <Grid item sx={12} sm={12} md={10} lg={10} >
                                             <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option2' ? 'selected' : ''}`} sx={{
                                                 mt: 2,
                                             }}>
@@ -327,7 +343,7 @@ function Payment() {
                                                 </Grid>
                                             </Grid>
                                         </Grid>
-                                        <Grid item sx={10} sm={10} md={10} lg={10} >
+                                        <Grid item sx={12} sm={12} md={10} lg={10} >
                                             <Grid container
                                                 className={`Container-cards-payment-c ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
                                                     mt: 2,
@@ -343,7 +359,6 @@ function Payment() {
                                                 </Grid>
                                                 <Grid item sx={5} sm={5} md={6} lg={6} >
                                                     {selectedOption === 'option3' && (
-
                                                         <TextField
                                                             id="paymentValue"
                                                             label="Ingrese otro valor"
@@ -353,8 +368,9 @@ function Payment() {
                                                             maxLength={11}
                                                             onChange={(event) => setPaymentValue(event.target.value)}
                                                             sx={{
-                                                                mt: 4,
-                                                                minWidth: '180px',
+                                                                mt: 2,
+                                                                mb: 1
+
                                                             }}
                                                         />
                                                     )}
@@ -382,9 +398,9 @@ function Payment() {
                                         className={`btn-payment-custumer  ${isButtonDisabled ? "disabled" : "enabled"}`}
                                         onClick={handlePayment}
                                         onChange={handleInputPrueba}
-                                      sx={{
-                                          mt:2
-                                      }} 
+                                        sx={{
+                                            mt: 2
+                                        }}
                                     >
                                         Continuar
                                     </Button>
@@ -436,7 +452,7 @@ function Payment() {
                     </div>
 
                 </Container>
-            </Box> 
+            </Box>
         </div >
 
     )
