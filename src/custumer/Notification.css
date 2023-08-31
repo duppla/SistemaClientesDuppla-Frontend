@@ -49,7 +49,7 @@ code {
 .container-notice-date-two{
     padding: 14px 0px 0px 0px;
     background: var(--color-primario-btn);
-    height: 240px;
+    height: auto;
 }
 
 .text-notice-date-two {
@@ -57,6 +57,8 @@ code {
     color: #FFFFFF;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+    border-radius: 0 0 20px 20px;
+    min-width: 340px!important;
 }
 
 .text-notice-second {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import './../custumer/Annual.css'
 import Idefaultoffer from "./../img/Idefaultoffer.png";
+import { Box, Container, CssBaseline } from '@mui/material';
 
 function Annual() {
 
@@ -80,17 +81,36 @@ function Annual() {
                 </h4>
             </div>
             {/*Componente facturas */}
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignContent: 'center',
+                alignItems: 'center',
+                textAlign: 'start',
+                
+                
+            }}>
+                <CssBaseline />
 
-            <div>
+                <Container maxWidth="xl" sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignContent: 'center',
+                    alignItems: 'center',
+                    mb: 4,
+                }}>
+            
+                
                 {dataPago.length > 0 ? (
-                    <div>
+                    <div  className="size-margin-mui-cards-anual ">
                         {dataPago.map((item, index) => (
-                            <div key={item.id}>
+                            <div key={item.id} >
                                 <div className=" accordion accordion-h-payment " id={`accordionExample-${index}`}>
-                                    <div className="accordion-item ">
+                                    <div className="accordion-item   ">
                                         <h2 className="accordion-header" id={`headingTwo-${index}`}>
                                             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-${index}`} aria-expanded="false" aria-controls={`mesDos-${index}`}>
-                                                <div className=" text-start text-blue " id="basic-addon4"><h4>
+                                                <div className="text-start text-blue " id="basic-addon4"><h4>
                                                     {(() => {
                                                         const month = new Date(item.date).getMonth();
                                                         switch (month) {
@@ -129,7 +149,7 @@ function Annual() {
                                             </button>
                                         </h2>
                                         {/*---------------------------------------------------------------------------------------------------------------------------------*/}
-                                        <div className="card-payment-home-custumer ">
+                                        <div className=" ">
                                             <div className="collapse" id={`mesDos-${index}`}>
                                                 <div className='container-notice-date-two'>
                                                     <div className='notice-up-to-date '>
@@ -165,8 +185,9 @@ function Annual() {
                 </div>
                     
                 )}
-            </div>
-
+            
+            </Container>
+</Box>
             {/** <div className='container-fluid'>
                 <div className='centrado'>
                     <div className=" btn input-group card-month centrado-btn " width="400px" height="68px" >

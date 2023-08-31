@@ -1348,6 +1348,20 @@ a {
   
   }
 
+  .Container-cards-payment-customer-mui {
+
+    width: 340px !important;
+    margin-top: 24px;
+    margin-bottom: 5px;
+    padding: 16px 24px;
+    height: 90px;
+    background-color: var(--color-fondo);
+    border: 1px solid #E1EBF4;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+  
+  }
+
 }
 
 @media screen and (min-width: 360px) {
@@ -1573,8 +1587,7 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-
-      width: 340px !important;
+      width: 380px !important;
       margin-top: 24px;
       margin-bottom: 5px;
       padding: 16px 24px;
@@ -1730,7 +1743,7 @@ a {
   .Container-cards-payment-customer-mui {
 
 
-    width: 330px !important;
+    width: 400px !important;
       margin-top: 24px;
       margin-bottom: 5px;
       padding: 16px 24px;
@@ -1753,7 +1766,7 @@ a {
   .Container-cards-payment-customer-mui {
 
 
-    width: 420px !important;
+    width: 720px !important;
       margin-top: 24px;
       margin-bottom: 5px;
       padding: 16px 24px;
