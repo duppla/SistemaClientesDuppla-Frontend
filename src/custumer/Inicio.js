@@ -206,15 +206,31 @@ function Inicio() {
     }
 
     //funció que calcula el faltante para la meta   
-
-    const GrafictMeta = () => {
+ 
+  /*   const GrafictMeta = () => {
 
         let faltanteMeta = GrafictPie() - dataCustumer.participacion;
         faltanteMeta = faltanteMeta.toFixed(1); // Limitar a 1 decimal
         faltanteMeta = parseFloat(faltanteMeta);
 
         return faltanteMeta
-    }
+    }  */
+
+   const GrafictMeta = () => {
+        const grafictPieValue = GrafictPie();
+        const participacionActual = dataCustumer.participacion;
+    
+        // Validar si el objetivo ya fue alcanzado
+        if (participacionActual >= grafictPieValue) {
+            return 0; // El objetivo ya fue alcanzado
+        }
+    
+        let faltanteMeta = grafictPieValue - participacionActual;
+        faltanteMeta = faltanteMeta.toFixed(1); // Limitar a 1 decimal
+        faltanteMeta = parseFloat(faltanteMeta);
+    
+        return faltanteMeta;
+    } 
 
     //Función que calcula el porcentaje de la meta
     const dataGrafictT = () => {
@@ -373,8 +389,9 @@ function Inicio() {
                         </div>
                     </div>*/}
 
-            {/*Sección dropdown Mes*/}
 
+
+            {/*Sección dropdown Mes*/}
             <div className="accordion container-form-centrado-customer-card  " id="accordionExample">
                 <div className="accordion-item ">
                     <h2 className="accordion-header" id="headingTwo">
@@ -549,17 +566,6 @@ function Inicio() {
                     </Grid>
                 </Grid>
             </Container>
-            {/*  <div className="row centrado" >
-                             <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
-                    <a className="links text-white"
-                        href='/pagos' >
-                        <img src={Iconpago} className="img-btn-pagos-custumer " alt="" width="32px" height="32px" />
-                        <button type="button" id="" className="btn  text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <h5>Pagar </h5>
-                        </button>
-                    </a>
-                </div>
-            </div> */}
             {/*Linea de división */}
             <div className='centrado'>
                 <img src={Vline} className="line-custumer centrado" alt="" />
