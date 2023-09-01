@@ -393,7 +393,7 @@ function Inicio() {
 
             {/*Sección dropdown Mes*/}
             <div className="accordion container-form-centrado-customer-card  " id="accordionExample">
-                <div className="accordion-item ">
+                <div className="accordion-item  accordion-item-mui">
                     <h2 className="accordion-header" id="headingTwo">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                             <div className=" text-start " id="basic-addon4"><h5>{mes}</h5></div>

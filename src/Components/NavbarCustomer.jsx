@@ -65,6 +65,8 @@ const NavbarCustomer = () => {
 
     //url boton de pago
     const btnpago = dataCustumer.linkPago;
+    const whatsappLink = dataCustumer.Link_whatsapp;
+
 
     //formateo de los datos en pagos
     const formatted = dataCustumer.pagoMinimo;
@@ -72,6 +74,7 @@ const NavbarCustomer = () => {
     const gastos = dataCustumer.gastos;
     const reservas = dataCustumer.reservas;
     const administracion = dataCustumer.administracion;
+
 
 
 
@@ -168,7 +171,7 @@ const NavbarCustomer = () => {
                                     mt: 1,
                                 }}>
                                     <p className="" >{dataCustumer.nombre && <p className="text-name-home">{convertirAMinusculas(dataCustumer.nombre)}</p>}</p>
-                                    <p className="text-orange">{fecha}</p>
+                                    {/* <p className="text-orange">{fecha}</p> */}
                                 </Typography>
                             </Grid>
 
@@ -289,7 +292,7 @@ mt:4
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
                                                                 <a className="links  "
-                                                                    href="https://api.whatsapp.com/send?phone=573152559261">
+                                                                    href={whatsappLink}>
                                                                     <div className="row">
                                                                         <div className="card-state-properties-home nav-link active text-navbar-options">
                                                                             <div className="card-body col-1  img-state-propety">

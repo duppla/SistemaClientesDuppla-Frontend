@@ -166,7 +166,7 @@ const Navbar = () => {
                                     mt: 1,
                                 }}>
                                     <p className="text-name-space" >{data.nombre && <p className="text-name-home">{convertirAMinusculas(data.nombre)}</p>}</p>
-                                    <p className="text-orange">{fecha}</p>
+                                   {/*  <p className="text-orange">{fecha}</p> */}
                                 </Typography>
                             </Grid>
 
