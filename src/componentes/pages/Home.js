@@ -14,8 +14,10 @@ import Istaten from "../../img/Istaten.png"
 import Istatem from "../../img/Istatem.png"
 import Istatev from "../../img/Istatev.svg"
 import Istater from "../../img/Istater.svg"
+
 import Istatea from "../../img/Istatea.svg"
 import Istateblue from "../../img/Istateblue.svg"
+import IconDocs from "../../img/folderDocs.svg"
 
 import Idupplanaranja from "../../img/Idupplanaranja.png"
 import Vperfil from "../../img/vperfil.svg"
@@ -231,19 +233,19 @@ function Home() {
       case "No evaluado":
         return <Container maxWidth='xl' className="container-inm-home-grid">
           <Grid container className="card-seccion" sx={{
+            
           }}>
             <Grid item xs={10} md={10} lg={10}>
-
               <Grid container maxWidth="xl" spacing={2} sx={{
-                mt: 2,
+              
               }}>
                 <Grid item xs={2} md={2} lg={2}>
-                  <div className="col-1">
+                  <div className="">
                     <img src={Iconinm} className="img-icono-card-inm" alt="" />
                   </div>
                 </Grid>
                 <Grid item xs={8} md={8} lg={8}>
-                  <div className="col-4 card-home-offer">
+                  <div className=" card-home-offer">
                     <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
                     < p className="link-style">Abrir</p>
                   </div>
@@ -254,11 +256,11 @@ function Home() {
 
                   }}>
                     <Grid item xs={3} md={3} lg={3}>
-                      <div className="col-1">
+                      <div className="">
                         <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
                       </div>
                     </Grid>
-                    <Grid item xs={7} md={7} lg={7}>
+                    <Grid item xs={7} md={7} lg={7} >
                       <div className="">
                         <p className="card-text-grid">03/03/2023</p>
                         <p className="card-text-aprov-grid">No evaluado</p>
@@ -273,19 +275,19 @@ function Home() {
       case "Evaluado":
         return <Container maxWidth='xl' className="container-inm-home-grid">
           <Grid container className="card-seccion" sx={{
+            
           }}>
             <Grid item xs={10} md={10} lg={10}>
-
               <Grid container maxWidth="xl" spacing={2} sx={{
-                mt: 2,
+              
               }}>
                 <Grid item xs={2} md={2} lg={2}>
-                  <div className="col-1">
+                  <div className="">
                     <img src={Iconinm} className="img-icono-card-inm" alt="" />
                   </div>
                 </Grid>
                 <Grid item xs={8} md={8} lg={8}>
-                  <div className="col-4 card-home-offer">
+                  <div className=" card-home-offer">
                     <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
                     < p className="link-style">Abrir</p>
                   </div>
@@ -296,7 +298,7 @@ function Home() {
 
                   }}>
                     <Grid item xs={3} md={3} lg={3}>
-                      <div className="col-1">
+                      <div className="">
                         <img src={Istateblue} className="btn-state-home-grid" alt="" height='14px' width='14px' />
                       </div>
                     </Grid>
@@ -315,19 +317,20 @@ function Home() {
       case "Aprobado":
         return <Container maxWidth='xl' className="container-inm-home-grid">
           <Grid container className="card-seccion" sx={{
+          
           }}>
             <Grid item xs={10} md={10} lg={10}>
 
               <Grid container maxWidth="xl" spacing={2} sx={{
-                mt: 2,
+                
               }}>
                 <Grid item xs={2} md={2} lg={2}>
-                  <div className="col-1">
+                  <div className="">
                     <img src={Iconinm} className="img-icono-card-inm" alt="" />
                   </div>
                 </Grid>
                 <Grid item xs={8} md={8} lg={8}>
-                  <div className="col-4 card-home-offer">
+                  <div className=" card-home-offer">
                     <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
                     < p className="link-style">Abrir</p>
                   </div>
@@ -336,7 +339,7 @@ function Home() {
                   <Grid container maxWidth="xl" spacing={1} sx={{
                   }}>
                     <Grid item xs={3} md={3} lg={3}>
-                      <div className="col-1">
+                      <div className="">
                         <img src={Istatev} className="btn-state-home-grid" alt="" height='14px' width='14px' />
                       </div>
                     </Grid>
@@ -352,23 +355,23 @@ function Home() {
             </Grid>
           </Grid>
         </Container>
-
       case "Rechazado":
         return <Container maxWidth='xl' className="container-inm-home-grid">
           <Grid container className="card-seccion" sx={{
+          
           }}>
             <Grid item xs={10} md={10} lg={10}>
 
               <Grid container maxWidth="xl" spacing={2} sx={{
-                mt: 2,
+                
               }}>
                 <Grid item xs={2} md={2} lg={2}>
-                  <div className="col-1">
+                  <div className="">
                     <img src={Iconinm} className="img-icono-card-inm" alt="" />
                   </div>
                 </Grid>
                 <Grid item xs={8} md={8} lg={8}>
-                  <div className="col-4 card-home-offer">
+                  <div className=" card-home-offer">
                     <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
                     < p className="link-style">Abrir</p>
                   </div>
@@ -379,7 +382,7 @@ function Home() {
 
                   }}>
                     <Grid item xs={3} md={3} lg={3}>
-                      <div className="col-1">
+                      <div className="">
                         <img src={Istater} className="btn-state-home-grid" alt="" height='14px' width='14px' />
                       </div>
                     </Grid>
@@ -395,22 +398,22 @@ function Home() {
             </Grid>
           </Grid>
         </Container>
-
       default: return <Container maxWidth='xl' className="container-inm-home-grid">
         <Grid container className="card-seccion" sx={{
+        
         }}>
           <Grid item xs={10} md={10} lg={10}>
 
             <Grid container maxWidth="xl" spacing={2} sx={{
-              mt: 2,
+              
             }}>
               <Grid item xs={2} md={2} lg={2}>
-                <div className="col-1">
+                <div className="">
                   <img src={Iconinm} className="img-icono-card-inm" alt="" />
                 </div>
               </Grid>
               <Grid item xs={8} md={8} lg={8}>
-                <div className="col-4 card-home-offer">
+                <div className=" card-home-offer">
                   <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
                   < p className="link-style">Abrir</p>
                 </div>
@@ -421,7 +424,7 @@ function Home() {
 
                 }}>
                   <Grid item xs={3} md={3} lg={3}>
-                    <div className="col-1">
+                    <div className="">
                       <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
                     </div>
                   </Grid>
@@ -476,13 +479,12 @@ function Home() {
           <CssBaseline />
           <div className="container-sm">
             {/*Contenedor de Propuesta Comercial */}
-
             <div className="Container-cards-seccion-m centrado " id="cardComponet">
               <Link to='/offer' className="link-style">
                 <Grid container className="card-seccion" sx={{
+                  ml: 1
                 }}>
                   <Grid item xs={10} md={10} lg={10}>
-
                     <Grid container maxWidth="xl" spacing={2} sx={{
                       mt: 2,
                     }}>
@@ -498,9 +500,7 @@ function Home() {
                         </div>
                       </Grid>
                       <Grid item xs={2} md={2} lg={2}>
-
                         <Grid container maxWidth="xl" spacing={1} sx={{
-
                         }}>
                           <Grid item xs={3} md={3} lg={3}>
                             <div className="col-1">
@@ -528,28 +528,39 @@ function Home() {
             </div>
 
             {/*Menú documentos*/}
-            <div className="Container-cards-seccion-mui" >
-              <Link to='/documents' className="links text-black ">
-                <Grid container maxWidth="xl" spacing={1} sx={{
-                  alignItems: 'center',
-                  alignContent: 'center',
-                  textAlign: 'center',
-                  mt: 2
+            <div className="Container-cards-seccion-m centrado " id="cardComponet">
+              <Link to='/documents' className="links text-black">
+                <Grid container className="card-seccion" sx={{
+                  ml: 3
                 }}>
-                  <Grid item xs={8} md={8} lg={8}>
-                    <div className=" ">
-                      <b>Menú documentos</b>
-                    </div>
-                  </Grid>
-                  <Grid item xs={4} md={4} lg={4}>
-                    <div className="">
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                        className="arrow-menu" />
-                    </div>
+                  <Grid item xs={10} md={10} lg={10}>
+                    <Grid container maxWidth="xl" spacing={2} sx={{
+                      mt: 2,
+                    }}>
+                      <Grid item xs={2} md={2} lg={2}>
+                        <div className="col-1">
+                          <img src={IconDocs} className="img-icono-card-grid-folder" alt="" />
+                        </div>
+                      </Grid>
+                      <Grid item xs={8} md={8} lg={8}>
+                        <div className="col-4 space-title-docs-home">
+                          <b>Menú documentos</b>
+
+                        </div>
+                      </Grid>
+                      <Grid item xs={2} md={2} lg={2}>
+
+                        <div className="">
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+                            className="arrow-menu-home-mui" />
+                        </div>
+                      </Grid>
+                    </Grid>
                   </Grid>
                 </Grid>
               </Link>
             </div>
+
 
 
             {/*componente de estados*/}
@@ -563,22 +574,22 @@ function Home() {
             {/*componente de estados*/}
 
             <div className="borde-card-mui" >
-            <Grid container maxWidth="xl" spacing={1} sx={{
-              alignItems: 'center',
-              alignContent: 'center',
-              textAlign: 'start',
-              mt: 2
-            }}>
-              <Grid sx={12} sm={10} md={10} lg={10} >
-                <div>
-                  <div className=" text-mui-home ">
-                    <h6>Estado:</h6>
-                    {/* */}
-                    <b> {mensajeSf()} </b>
+              <Grid container maxWidth="xl" spacing={1} sx={{
+                alignItems: 'center',
+                alignContent: 'center',
+                textAlign: 'start',
+                mt: 2
+              }}>
+                <Grid sx={12} sm={10} md={10} lg={10} >
+                  <div>
+                    <div className=" text-mui-home ">
+                      <h6>Estado:</h6>
+                      {/* */}
+                      <b> {mensajeSf()} </b>
+                    </div>
                   </div>
-                </div>
+                </Grid>
               </Grid>
-            </Grid>
             </div>
 
             <Container maxWidth="xl" sx={{

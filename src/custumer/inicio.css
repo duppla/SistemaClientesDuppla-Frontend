@@ -532,7 +532,23 @@ code {
 .space-title-p {
     width: 80px;
 }
+.space-title-prueba-mui{
+    margin-left: -60px !important;
+}
 
+.space-title-docs-home {
+    width: 240px;
+    margin-top: -6px !important;
+    margin-left: 29px;
+    
+}
+
+.space-title-docs-home-mui {
+    width: 240px;
+    margin-top: -6px !important;
+    margin-left: 60px !important;
+    
+}
 .acordion-item-border {
     border: none !important;
     margin-top: -10px !important;
@@ -589,11 +605,9 @@ code {
 
     width: 374px;
     height: 540px;
-
     margin-right: 74px;
     margin-left: 30px;
     margin-bottom: 10px;
-
     background: #ffffff;
     /* Stroke Color */
 
@@ -603,11 +617,9 @@ code {
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     z-index: 1;
-
 }
 
 .text-inicio-gra {
-
 
     font-family: 'Roboto';
     font-style: normal;
@@ -715,6 +727,12 @@ code {
     font-size: 14px;
     opacity: 1;
     box-shadow: 0px 0px 10px rgba(115, 113, 113, 0.15);
+}
+
+
+.space-tooltip-mui{
+    margin-top: 14px !important;
+    margin-left: -8px;
 }
 
 .tooltip-grafict {
