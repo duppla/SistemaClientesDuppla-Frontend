@@ -361,17 +361,17 @@ function Payment() {
                                                 </Grid>
                                             </Grid>
                                         </Grid>
-                                        <Grid item sx={12} sm={12} md={10} lg={10} >
+                                        <Grid item xs={12} sm={12} md={10} lg={10} >
                                             <Grid container
                                                 className={` Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
-                                                    mt: 4,
+                                                   /*  mt: 4, */
                                                     
                                                 }}>
                                                 {/* /* Container-cards-payment-c  */}
                                                 <Grid item xs={6} sm={6} md={6} lg={6} >
-                                                    <Grid container
+                                                    <Grid container  className='margin-box-mui-payment'
                                                         sx={{
-                                                           ml:4
+                                                      /*      ml:4 */
                                                         }}>
                                                         <Grid item sx={4} sm={4} md={4} lg={4} >
                                                             <FormControlLabel

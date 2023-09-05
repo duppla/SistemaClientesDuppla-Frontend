@@ -17,16 +17,23 @@ function Offer() {
   const [progress, setProgress] = useState(false);
 
   useEffect(() => {
-    const email = localStorage.getItem('email');
+    /* Trae el email del logueo */
+    const emailWithQuotes = localStorage.getItem('email');
+
+    if (emailWithQuotes) {
+        // Eliminar las comillas alrededor del correo electrónico
+        const email = emailWithQuotes.replace(/"/g, '');
+    
+
     const getOferta = async () => {
       const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: '{ "email": ' + email + '}'
+        method: 'GET',
+       /*  headers: { 'Content-Type': 'application/json' },
+        body: '{ "email": ' + email + '}' */
       };
 
       try {
-        const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/getOferta', options);
+        const response = await fetch(`https://salesforce-gdrive-conn.herokuapp.com/getOferta?email=${email}`, options);
         const data = await response.json();
         setOferta(data);
         setIsButtonDisabled(data.estadoOferta__c);
@@ -37,7 +44,9 @@ function Offer() {
       }
 
     };
+    
     getOferta();
+  }
    // console.log('mensaje validación' + isButtonDisabled)
   }, []);
 
@@ -69,7 +78,7 @@ function Offer() {
     });
   };
 
-  const offerUrl = oferta.Oferta_URL__c;
+  const offerUrl = oferta.file_url;
 
 
 
