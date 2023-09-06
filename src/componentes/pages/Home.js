@@ -32,6 +32,8 @@ import Igo from "../../img/go.png"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import Navbar from "../../Components/Navbar";
+import Lottie from 'lottie-react';
+import animationData from '../../Components/loanding.json';
 import { Box, Button, Container, CssBaseline, Grid, ThemeProvider, createTheme } from "@mui/material";
 
 
@@ -67,8 +69,11 @@ function Home() {
   //Datos del usuario
   const [data, setData] = useState({});
   const [state, setState] = useState({});
-  const estado = localStorage.getItem('estado');
+  const estado = localStorage.getItem('estado');  
   const [stateInmu, setStateInmu] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  
   //console.log(estado);
 
   useEffect(() => {
@@ -86,9 +91,11 @@ function Home() {
       const data = await response.json();
       setData(data)
       setState(estado);
+      setLoading(false);
     }
 
     async function handleProgress() {
+
       const email = localStorage.getItem('email');
 
       const options = {
@@ -224,7 +231,6 @@ function Home() {
     // console.log(stateChangeInm);
     stateChangeAprovacioninm(stateChangeInm);
   }, [stateInmu]);
-
 
   {/*Cambio en estado inmueble */ }
   const stateChangeAprovacioninm = () => {
@@ -469,6 +475,31 @@ function Home() {
     <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
       <div className="  ">
         <Navbar />
+
+
+
+        {loading ? (  <div className='loanding '>
+                <div className='loanding-container'>
+                    <h2 className='text-loandig '>Cargando...</h2>
+                    <div className='text-loandig '
+                    >
+                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                            <Lottie
+                                animationData={animationData}
+                                loop
+                                autoplay
+                            />
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>) : (
+
+
+
+
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -679,9 +710,8 @@ function Home() {
               </Grid>
             </Container>
           </div>
-
         </Box>
-
+            )}
       </div>
     </ThemeProvider>
 

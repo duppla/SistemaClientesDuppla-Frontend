@@ -992,8 +992,6 @@ a {
   height: 58px;
   margin-top: 8px;
   margin-bottom: 20px;
-
-
 }
 
 .btn-prueba-ingreso {
@@ -1076,7 +1074,6 @@ a {
 
 .text-btnloggout {
   margin: 0px 0px 0px 0px;
-  ;
   padding: 0px 0px 15px 0px;
   top: -50px;
 }
@@ -1115,7 +1112,6 @@ a {
   top: 210px;
   bottom: 100px;
 }
-
 .card-inm-value {
   display: grid;
   grid-template-columns: 1fr;
@@ -1128,48 +1124,35 @@ a {
   right: 25px;
   margin-top: 80px;
   bottom: 100px;
-
 }
-
 .card-body {
   padding-bottom: 5px;
   width: 280px;
   margin-left: -5px;
 }
-
-
 .card-body-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .card-body-docs {
   padding-bottom: 5px;
 
 }
-
-
 .card-perfil-datos {
   margin-top: -10px;
   margin-bottom: 15px;
-
 }
-
 .description-apt {
   margin: 16px 16px 16px 16px;
 }
-
 .btn-d-cancel {
   box-sizing: border-box;
-
   position: relative;
   width: 160px;
   height: 52px;
   margin-left: 10px;
-
   top: 24px;
-
   background: #81A1F8;
   color: var(--color-fondo);
   /* Neutral / Grey 800 */
@@ -1270,12 +1253,10 @@ a {
   margin-bottom: 20px;
 }
 
-
 /*Sección de oferta*/
 .container-offer {
-  height: 700px
+  height: 900px !important;  
 }
-
 .img-offer-conatiner {
   align-items: center;
   width: 360px;
@@ -1287,23 +1268,18 @@ a {
   margin-bottom: 50px;
 
 }
-
 .offer-container-link {
-
   margin-top: 30px;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 60px;
-
 }
-
 .text-offer-link {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: var(--color-cimiento-duppla);
 }
-
 .text-name-home {
 
   font-family: 'Roboto', sans-serif;
@@ -1322,12 +1298,10 @@ a {
 
   color: #FFFFFF;
 }
-
 .icon-navbar-home {
   margin-bottom: 29px;
   margin-left: -12px;
 }
-
 .navbar-move {
   height: 500px !important;
   border-radius: 12px 12px 0px 0px;
@@ -1392,7 +1366,6 @@ a {
     border-radius: 10px;
 
   }
-
   .btn-prueba {
     display: flex;
     flex-direction: column;
@@ -1411,7 +1384,6 @@ a {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
   }
-
   .btn-prueba-ingreso {
 
     gap: 8px;
@@ -1621,7 +1593,6 @@ a {
     border-radius: 12px;
 
   }
-
   .text-name-home {
 
     font-family: 'Roboto', sans-serif;
@@ -1657,9 +1628,35 @@ a {
   }
 
   .margin-box-mui-payment {
-
     margin-left: 32px !important;
+  }
 
+  .loanding {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+   /*  background-color: #F1FFEB; */
+    border-radius: 10px;
+  }
+
+  .loanding-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .text-loandig {
+    color: #0A3323;
+    margin-bottom: 20px;
+  }
+
+  .loanding-state-mui{
+    width: 140px;
+    height: 140px;    
   }
 
 
@@ -1847,6 +1844,11 @@ a {
     margin-left: 2px !important;
 
   }
+
+  .loanding-state-mui{
+    width: 200px;
+    height:200px;    
+  }
 }
 
 /* Dispositivos grandes (escritorios, 992px y más)*/
@@ -1920,6 +1922,11 @@ a {
 
     margin-left: 5px !important;
 
+  }
+
+  .loanding-state-mui{
+    width: 160px;
+    height:160px;    
   }
 }
 
@@ -1995,7 +2002,6 @@ a {
     border-radius: 12px;
 
   }
-
   .text-name-home {
 
     font-family: 'Roboto', sans-serif;
@@ -2034,6 +2040,11 @@ a {
 
     margin-left: 1px!important;
 
+  }
+
+  .loanding-state-mui{
+    width: 160px;
+    height:160px;    
   }
 }
 
@@ -2143,17 +2154,47 @@ a {
     display: flex;
     align-items: center;
     letter-spacing: -0.015em;
-
     color: #FFFFFF;
   }
 
   .margin-box-mui-payment{
-
     margin-left: 4px!important;
+  }
 
+  .loanding-state-mui{
+    margin-top: 24px !important;
+    width: 160px;
+    height:160px;    
   }
 
 
-}
 
-;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+};

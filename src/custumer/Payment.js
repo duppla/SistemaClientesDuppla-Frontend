@@ -7,6 +7,8 @@ import IconToolytip from "../../src/img/IconTooltip.svg";
 import swal from 'sweetalert';
 import { Box, Button, Container, CssBaseline, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
+import Lottie from 'lottie-react';
+import animationData from './../Components/loanding.json';
 
 
 
@@ -18,6 +20,8 @@ function Payment() {
     // Uso de estados para el endpoint de la API
     const [dataCustumer, setDataCustumer] = useState({});
     const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
+     /* Estado que maneja el loading generar */
+     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const email = localStorage.getItem('email');
@@ -32,9 +36,13 @@ function Payment() {
             .then(response => {
                 setDataCustumer(response)
                 setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
+                setLoading(false);
             })
 
-            .catch(err => console.error(err));
+            .catch(err => {
+                setLoading(false);
+                console.error(err);
+            });
     }, []);
 
     // Uso de estados para el endpoint de la API de manera global en el componente
@@ -283,7 +291,21 @@ function Payment() {
                 </h1>
             </Typography>
 
-
+            {loading ? (  <div className='loanding '>
+                <div className='loanding-container'>
+                    <h2 className='text-loandig '>Cargando...</h2>
+                    <div className='text-loandig '
+                    >
+                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                            <Lottie
+                                animationData={animationData}
+                                loop
+                                autoplay
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>) : (
 
             <Box sx={{
                 display: 'flex',
@@ -456,7 +478,6 @@ function Payment() {
                         </Grid>
                         <Grid item sx={10} sm={10} md={10} lg={10}>
                             <div className='centrado'>
-
                                 <div>
                                     <Button
                                         type="submit"
@@ -520,6 +541,9 @@ function Payment() {
 
                 </Container>
             </Box>
+            )}
+
+
         </div >
 
     )

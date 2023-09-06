@@ -5,10 +5,12 @@ import Icerrarsesion from "../../img/imgcerrarsesion.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import swal from 'sweetalert';
+import Lottie from 'lottie-react';
+import animationData from '../../Components/loanding.json';
+
+
 import { Box, Button, Container, CssBaseline, Grid } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
-
-
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -16,6 +18,7 @@ import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import SavingsIcon from '@mui/icons-material/Savings';
+
 
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -53,6 +56,7 @@ function profile() {
     // Consumo de datos desde el API
 
     const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
@@ -64,7 +68,10 @@ function profile() {
         };
         fetch('https://sistema-duppla-backend.herokuapp.com/users/perfil', options)
             .then(response => response.json())
-            .then(response => setData(response))
+            .then(response => {
+                setData(response)
+                setLoading(false)
+            })
             .catch(err => console.error(err));
 
 
@@ -133,6 +140,25 @@ function profile() {
                     <h1> <b>Perfil</b>
                     </h1>
                 </div>
+
+                {loading ? (  <div className='loanding '>
+                <div className='loanding-container'>
+                    <h2 className='text-loandig '>Cargando...</h2>
+                    <div className='text-loandig '
+                    >
+                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                            <Lottie
+                                animationData={animationData}
+                                loop
+                                autoplay
+                            />
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>) : (
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -415,6 +441,8 @@ function profile() {
                         </Grid>
                     </Container>
                 </Box>
+
+            )}
             </div>
         </ThemeProvider>
 

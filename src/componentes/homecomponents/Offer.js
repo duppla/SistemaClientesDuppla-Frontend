@@ -5,6 +5,8 @@ import Ioferta from "../../img/Ioferta.png";
 import Idefaultoffer from "../../img/Idefaultoffer.png";
 import swal from 'sweetalert';
 import { Box, CssBaseline } from '@mui/material';
+import Lottie from 'lottie-react';
+import animationData from '../../Components/loanding.json';
 
 
 
@@ -15,43 +17,52 @@ function Offer() {
   const [oferta, setOferta] = useState({});
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [progress, setProgress] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);/* estado del loading */
 
   useEffect(() => {
     /* Trae el email del logueo */
     const emailWithQuotes = localStorage.getItem('email');
 
     if (emailWithQuotes) {
-        // Eliminar las comillas alrededor del correo electrónico
-        const email = emailWithQuotes.replace(/"/g, '');
-    
 
-    const getOferta = async () => {
-      const options = {
-        method: 'GET',
-       /*  headers: { 'Content-Type': 'application/json' },
-        body: '{ "email": ' + email + '}' */
+      // Eliminar las comillas alrededor del correo electrónico
+      const email = emailWithQuotes.replace(/"/g, '');
+
+
+      const getOferta = async () => {
+        const options = {
+          method: 'GET',
+          /*  headers: { 'Content-Type': 'application/json' },
+           body: '{ "email": ' + email + '}' */
+        };
+
+        try {
+          const response = await fetch(`https://salesforce-gdrive-conn.herokuapp.com/getOferta?email=${email}`, options);
+          const data = await response.json();
+          setOferta(data);
+          setIsButtonDisabled(data.estadoOferta);
+          setLoading(false);
+        
+
+          //setIsButtonDisabled(data.estadoOferta__c !== null && data.estadoOferta__c !== '' && data.estadoOferta__c !== undefined);
+
+        } catch (err) {
+          console.error(err);
+
+          setLoading(false);
+        }
+
       };
 
-      try {
-        const response = await fetch(`https://salesforce-gdrive-conn.herokuapp.com/getOferta?email=${email}`, options);
-        const data = await response.json();
-        setOferta(data);
-        setIsButtonDisabled(data.estadoOferta__c);
-        //setIsButtonDisabled(data.estadoOferta__c !== null && data.estadoOferta__c !== '' && data.estadoOferta__c !== undefined);
-
-      } catch (err) {
-        console.error(err);
-      }
-
-    };
-    
-    getOferta();
-  }
-   // console.log('mensaje validación' + isButtonDisabled)
+      getOferta();
+    }
+    // console.log('mensaje validación' + isButtonDisabled)
   }, []);
 
   const handleProgress = async () => {
     const email = localStorage.getItem('email');
+
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -60,9 +71,9 @@ function Offer() {
 
     try {
       const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options);
-     if(response.status === 200){
-       setIsButtonDisabled(true);
-     }
+      if (response.status === 200) {
+        setIsButtonDisabled(true);
+      }
       //console.log('mensaje validación' + response.status)
     } catch (err) {
       console.error(err);
@@ -79,13 +90,15 @@ function Offer() {
   };
 
   const offerUrl = oferta.file_url;
+  
+
 
 
 
   return (
 
-    <div className="container-fluid">
-      <div className="container-offer">
+    <div className="container-offer">
+      <div className="">
         <div className="">
           <div className="arrow-return">
             <Link to='/home'>
@@ -99,64 +112,87 @@ function Offer() {
           <h1> <b>Propuesta comercial</b>
           </h1>
         </div>
-        {/* */}
+        {/* loading*/}
 
-
-        <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignContent: 'center',
-        alignItems: 'center',
-        textAlign: 'start',
-      }}>
-        <CssBaseline />
-        <div className='container-fluid '>
-          {offerUrl ?
-            <div className="  offer-container-link  " id="btnIniciarSesion">
-              <div>
-                <p className='text-offer-link'><b>Da clic en botón para ver la oferta</b></p>
+        {loading ? (<div className='loanding '>
+          <div className='loanding-container'>
+            <h2 className='text-loandig '>Cargando...</h2>
+            <div className='text-loandig '
+            >
+              <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                <Lottie
+                  animationData={animationData}
+                  loop
+                  autoplay
+                />
               </div>
-              <div className='centrado'>
-                <a className="links text-white"
-                  href={offerUrl} target="_blank"
-                >
-
-                  <button type="button" className="btn btn-prueba text-center links text-white " width="400px" height="46px" >
-                    Oferta
-                  </button>
-                </a>
-              </div>
-
-            </div> :      
-          
-            
-            <div className='img-offer-conatiner '>
-              <p>Todavía no tenemos tu propuesta comercial, te avisaremos cuando esté disponible</p>
-              <img src={Idefaultoffer} className="container fluid" alt="..." />
-            </div>}
-        </div>
-        <br />
-        <br />
-        {/*Sección botones oferta */}
-        <div className="d-flex justify-content-center align-items-center container-sm">
-          <div>
-            <Link to='/home'>
-              <button type="button"
-                className={` btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
-                disabled={isButtonDisabled}
-              >Rechazar</button>
-            </Link>
-          </div><br />
-          <div className="">
-            <button type="button"
-              id='btnAceptar'
-              className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
-              onClick={handleProgress}
-              disabled={isButtonDisabled}>Aceptar</button>
+            </div>
           </div>
-        </div>
 
-    </Box>
+        </div>) : (
+
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignContent: 'center',
+            alignItems: 'center',
+            textAlign: 'start',
+          
+          }}>
+            <CssBaseline />
+            <div className=' '>
+              {offerUrl ?
+                <div className="  offer-container-link  " id="btnIniciarSesion">
+                  <div>
+                    <p className='text-offer-link'><b>Da clic en botón para ver la oferta</b></p>
+                  </div>
+                  <div className='centrado'>
+                    <a className="links text-white"
+                      href={offerUrl} target="_blank"
+                    >
+
+                      <button type="button" className="btn btn-prueba text-center links text-white " width="400px" height="46px" >
+                        Oferta
+                      </button>
+                    </a>
+                  </div>
+
+                </div> :
+
+                <div className='centrado'>
+
+                  <div className=' img-offer-conatiner '>
+                    <p>Todavía no tenemos tu propuesta comercial, te avisaremos cuando esté disponible</p>
+                    <img src={Idefaultoffer} className="container fluid" alt="..." />
+                  </div>
+
+                </div>
+
+              }
+            </div>
+            <br />
+            <br />
+            {/*Sección botones oferta */}
+            <div className="d-flex justify-content-center align-items-center container-sm">
+              <div>
+                <Link to='/home'>
+                  <button type="button"
+                    className={` btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
+                    disabled={isButtonDisabled}
+                  >Rechazar</button>
+                </Link>
+              </div><br />
+              <div className="">
+                <button type="button"
+                  id='btnAceptar'
+                  className={`btn-d-cancel ${isButtonDisabled ? 'btn-disabled-offert' : ''}`}
+                  onClick={handleProgress}
+                  disabled={isButtonDisabled}>Aceptar</button>
+              </div>
+            </div>
+
+          </Box>
+        )}
 
       </div>
     </div>

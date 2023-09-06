@@ -4,6 +4,9 @@ import Istateg from "../../img/Istateg.png";
 import Istatev from "../../img/Istatev.png";
 import { Box, Container, CssBaseline, Grid, Typography, createTheme } from "@mui/material";
 import Idefaultoffer from "../../img/Idefaultoffer.png";
+
+import Lottie from 'lottie-react';
+import animationData from '../../Components/loanding.json';
 import swal from 'sweetalert';
 
 const themeLogin = createTheme({
@@ -27,8 +30,9 @@ function Docs() {
     // uso del localsotrage para traer estado del usuario
     const estado = localStorage.getItem('estado');
 
-
     const [docsBuyer, setDocsBuyer] = useState({});
+/* Estado que maneja el loading generar */
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const emailWithQuotes = localStorage.getItem('email');
@@ -48,9 +52,11 @@ function Docs() {
                 })
                 .then(response => {
                     setDocsBuyer(response);
+                    setLoading(false);
                 })
                 .catch(err => {
                     console.error('Fetch error:', err);
+                    setLoading(false);
                 });
         }
     }, []);
@@ -91,6 +97,23 @@ function Docs() {
                 </h1>
             </div>
 
+            {loading ? (  <div className='loanding '>
+                <div className='loanding-container'>
+                    <h2 className='text-loandig '>Cargando...</h2>
+                    <div className='text-loandig '
+                    >
+                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                            <Lottie
+                                animationData={animationData}
+                                loop
+                                autoplay
+                            />
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>) : (
 
             <Box sx={{
                 display: 'flex',
@@ -288,6 +311,8 @@ function Docs() {
 
                 )}
             </Box>
+
+            )}
         </div >/*Div de cierre*/
     );
 }
