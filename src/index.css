@@ -103,6 +103,12 @@ code {
   font-size: 16px;
 }
 
+.card-title-home-mui {
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
 .card-text {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -517,9 +523,9 @@ code {
 .img-icono-card-grid {
   width: 36px;
   height: 48px;
-  left: 27px;
+  
   /* margin-top: 25px; */
-  margin-right: 16px;
+ /*  margin-right: 16px; */
   bottom: 22px;
 }
 
@@ -527,7 +533,7 @@ code {
 .img-icono-card-grid-folder {
   width: 36px;
   height: 48px;
-  margin-top: -20px !important;
+  margin-top: 10px;
   margin-right: 16px;
   bottom: 22px;
 }
@@ -733,7 +739,7 @@ code {
   margin-top: 24px;
   margin-bottom: 5px;
 
-  height: 80px;
+  height: 120px;
   margin-left: 16px;
   margin-right: 16px;
   border-radius: 5px;
@@ -743,7 +749,6 @@ code {
   border-radius: 12px;
 
 }
-
 
 
 .borde-card-mui {
@@ -757,9 +762,18 @@ code {
   border-radius: 12px;
 }
 
+.borde-card-home-mui {
+
+  margin-top: 10px;
+  
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+}
+
 .text-mui-home {
   padding: 16px;
-
 }
 
 .text-black {
@@ -939,7 +953,7 @@ code {
 .arrow-menu-home-mui {
   width: 24px;
   height: 24px;
-  margin-top: -12px;
+  margin-top: 16px;
   margin-left: 10px;
 }
 

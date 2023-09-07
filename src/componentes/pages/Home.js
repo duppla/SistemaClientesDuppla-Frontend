@@ -69,11 +69,11 @@ function Home() {
   //Datos del usuario
   const [data, setData] = useState({});
   const [state, setState] = useState({});
-  const estado = localStorage.getItem('estado');  
+  const estado = localStorage.getItem('estado');
   const [stateInmu, setStateInmu] = useState({});
   const [loading, setLoading] = useState(true);
 
-  
+
   //console.log(estado);
 
   useEffect(() => {
@@ -237,217 +237,107 @@ function Home() {
     const stateChangeInm = stateInmu.estado;
     switch (stateChangeInm) {
       case "No evaluado":
-        return <Container maxWidth='xl' className="container-inm-home-grid">
-          <Grid container className="card-seccion" sx={{
-            
+        return <Grid item xs={2} md={2} lg={2}>
+          <Grid container maxWidth="xl" spacing={1} sx={{
           }}>
-            <Grid item xs={10} md={10} lg={10}>
-              <Grid container maxWidth="xl" spacing={2} sx={{
-              
-              }}>
-                <Grid item xs={2} md={2} lg={2}>
-                  <div className="">
-                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
-                  </div>
-                </Grid>
-                <Grid item xs={8} md={8} lg={8}>
-                  <div className=" card-home-offer">
-                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
-                    < p className="link-style">Abrir</p>
-                  </div>
-                </Grid>
-                <Grid item xs={2} md={2} lg={2}>
-
-                  <Grid container maxWidth="xl" spacing={1} sx={{
-
-                  }}>
-                    <Grid item xs={3} md={3} lg={3}>
-                      <div className="">
-                        <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
-                      </div>
-                    </Grid>
-                    <Grid item xs={7} md={7} lg={7} >
-                      <div className="">
-                        <p className="card-text-grid">03/03/2023</p>
-                        <p className="card-text-aprov-grid">No evaluado</p>
-                      </div>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
+            <Grid item xs={3} md={3} lg={3}>
+              <div className="">
+                <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+              </div>
             </Grid>
-          </Grid>
-        </Container>
-      case "Evaluado":
-        return <Container maxWidth='xl' className="container-inm-home-grid">
-          <Grid container className="card-seccion" sx={{
-            
-          }}>
-            <Grid item xs={10} md={10} lg={10}>
-              <Grid container maxWidth="xl" spacing={2} sx={{
-              
-              }}>
-                <Grid item xs={2} md={2} lg={2}>
-                  <div className="">
-                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
-                  </div>
-                </Grid>
-                <Grid item xs={8} md={8} lg={8}>
-                  <div className=" card-home-offer">
-                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
-                    < p className="link-style">Abrir</p>
-                  </div>
-                </Grid>
-                <Grid item xs={2} md={2} lg={2}>
+            <Grid item xs={7} md={7} lg={7}>
 
-                  <Grid container maxWidth="xl" spacing={1} sx={{
-
-                  }}>
-                    <Grid item xs={3} md={3} lg={3}>
-                      <div className="">
-                        <img src={Istateblue} className="btn-state-home-grid" alt="" height='14px' width='14px' />
-                      </div>
-                    </Grid>
-                    <Grid item xs={7} md={7} lg={7}>
-                      <div className="">
-                        <p className="card-text-grid">03/03/2023</p>
-                        <p className="card-text-aprov-grid">Evaluado</p>
-                      </div>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      case "Aprobado":
-        return <Container maxWidth='xl' className="container-inm-home-grid">
-          <Grid container className="card-seccion" sx={{
-          
-          }}>
-            <Grid item xs={10} md={10} lg={10}>
-
-              <Grid container maxWidth="xl" spacing={2} sx={{
-                
-              }}>
-                <Grid item xs={2} md={2} lg={2}>
-                  <div className="">
-                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
-                  </div>
-                </Grid>
-                <Grid item xs={8} md={8} lg={8}>
-                  <div className=" card-home-offer">
-                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
-                    < p className="link-style">Abrir</p>
-                  </div>
-                </Grid>
-                <Grid item xs={2} md={2} lg={2}>
-                  <Grid container maxWidth="xl" spacing={1} sx={{
-                  }}>
-                    <Grid item xs={3} md={3} lg={3}>
-                      <div className="">
-                        <img src={Istatev} className="btn-state-home-grid" alt="" height='14px' width='14px' />
-                      </div>
-                    </Grid>
-                    <Grid item xs={7} md={7} lg={7}>
-                      <div className="">
-                        <p className="card-text-grid">03/03/2023</p>
-                        <p className="card-text-aprov-grid">Aprobado</p>
-                      </div>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      case "Rechazado":
-        return <Container maxWidth='xl' className="container-inm-home-grid">
-          <Grid container className="card-seccion" sx={{
-          
-          }}>
-            <Grid item xs={10} md={10} lg={10}>
-
-              <Grid container maxWidth="xl" spacing={2} sx={{
-                
-              }}>
-                <Grid item xs={2} md={2} lg={2}>
-                  <div className="">
-                    <img src={Iconinm} className="img-icono-card-inm" alt="" />
-                  </div>
-                </Grid>
-                <Grid item xs={8} md={8} lg={8}>
-                  <div className=" card-home-offer">
-                    <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
-                    < p className="link-style">Abrir</p>
-                  </div>
-                </Grid>
-                <Grid item xs={2} md={2} lg={2}>
-
-                  <Grid container maxWidth="xl" spacing={1} sx={{
-
-                  }}>
-                    <Grid item xs={3} md={3} lg={3}>
-                      <div className="">
-                        <img src={Istater} className="btn-state-home-grid" alt="" height='14px' width='14px' />
-                      </div>
-                    </Grid>
-                    <Grid item xs={7} md={7} lg={7}>
-                      <div className="">
-                        <p className="card-text-grid">03/03/2023</p>
-                        <p className="card-text-aprov-grid">Rechazado</p>
-                      </div>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      default: return <Container maxWidth='xl' className="container-inm-home-grid">
-        <Grid container className="card-seccion" sx={{
-        
-        }}>
-          <Grid item xs={10} md={10} lg={10}>
-
-            <Grid container maxWidth="xl" spacing={2} sx={{
-              
-            }}>
-              <Grid item xs={2} md={2} lg={2}>
-                <div className="">
-                  <img src={Iconinm} className="img-icono-card-inm" alt="" />
-                </div>
-              </Grid>
-              <Grid item xs={8} md={8} lg={8}>
-                <div className=" card-home-offer">
-                  <h4 className="card-title-home card-top-grid"><b>Inmueble</b></h4>
-                  < p className="link-style">Abrir</p>
-                </div>
-              </Grid>
-              <Grid item xs={2} md={2} lg={2}>
-
-                <Grid container maxWidth="xl" spacing={1} sx={{
-
-                }}>
-                  <Grid item xs={3} md={3} lg={3}>
-                    <div className="">
-                      <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
-                    </div>
-                  </Grid>
-                  <Grid item xs={7} md={7} lg={7}>
-                    <div className="">
-                      <p className="card-text-grid">03/03/2023</p>
-                      <p className="card-text-aprov-grid">No evaluado</p>
-                    </div>
-                  </Grid>
-                </Grid>
-              </Grid>
+              {/* card-text-grid  card-text-aprov-grid */}
+              <div className="">
+                <p className="">03/03/2023</p>
+                <p className="">No evaluado</p>
+              </div>
             </Grid>
           </Grid>
         </Grid>
-      </Container>
+
+      case "Evaluado":
+        return <Grid item xs={2} md={2} lg={2}>
+          <Grid container maxWidth="xl" spacing={1} sx={{
+
+          }}>
+            <Grid item xs={3} md={3} lg={3}>
+              <div className="">
+                <img src={Istateblue} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+              </div>
+            </Grid>
+            <Grid item xs={7} md={7} lg={7}>
+              <div className="">
+                <p className="card-text-grid">03/03/2023</p>
+                <p className="card-text-aprov-grid">Evaluado</p>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+      case "Aprobado":
+        return <Grid item xs={2} md={2} lg={2}>
+          <Grid container maxWidth="xl" spacing={1} sx={{
+          }}>
+            <Grid item xs={3} md={3} lg={3}>
+              <div className="">
+                <img src={Istatev} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+              </div>
+            </Grid>
+            <Grid item xs={7} md={7} lg={7}>
+
+              {/* card-text-grid  card-text-aprov-grid */}
+              <div className="">
+                <p className="">03/03/2023</p>
+                <p className="">Aprobado</p>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+      case "Rechazado":
+        return <Grid item xs={2} md={2} lg={2}>
+          <Grid container maxWidth="xl" spacing={1} sx={{
+          }}>
+            <Grid item xs={3} md={3} lg={3}>
+              <div className="">
+                <img src={Istater} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+              </div>
+            </Grid>
+            <Grid item xs={7} md={7} lg={7}>
+
+              {/* card-text-grid  card-text-aprov-grid */}
+              <div className="">
+                <p className="">03/03/2023</p>
+                <p className="">Rechazado</p>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+
+      default: return <Grid item xs={2} md={2} lg={2}>
+        <Grid container maxWidth="xl" spacing={1} sx={{
+        }}>
+          <Grid item xs={3} md={3} lg={3}>
+            <div className="">
+              <img src={Istateblue} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+            </div>
+          </Grid>
+          <Grid item xs={7} md={7} lg={7}>
+
+            {/* card-text-grid  card-text-aprov-grid */}
+            <div className="">
+              <p className="">03/03/2023</p>
+              <p className="">No evaluado</p>
+            </div>
+          </Grid>
+        </Grid>
+      </Grid>
+
     }
   }
+
+
   {/** consicional mostrar mensaje desde legal o ventasm  */ }
   function mensajeSf() {
 
@@ -478,240 +368,272 @@ function Home() {
 
 
 
-        {loading ? (  <div className='loanding '>
-                <div className='loanding-container'>
-                    <h2 className='text-loandig '>Cargando...</h2>
-                    <div className='text-loandig '
-                    >
-                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
-                            <Lottie
-                                animationData={animationData}
-                                loop
-                                autoplay
-                            />
-                        </div>
-                    </div>
+        {loading ? (<div className='loanding '>
+          <div className='loanding-container'>
+            <h2 className='text-loandig '>Cargando...</h2>
+            <div className='text-loandig '
+            >
+              <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                <Lottie
+                  animationData={animationData}
+                  loop
+                  autoplay
+                />
+              </div>
+            </div>
+          </div>
+        </div>) : (
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignContent: 'center',
+            alignItems: 'center',
+            textAlign: 'start',
+          }}>
+            <CssBaseline />
 
-                </div>
+
+            <div className="">
+              {/*Contenedor de Propuesta Comercial  container-sm  Container-cards-seccion-m centrado card-seccion" */}
 
 
-            </div>) : (
-
-
-
-
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignContent: 'center',
-          alignItems: 'center',
-          textAlign: 'start',
-        }}>
-          <CssBaseline />
-          <div className="container-sm">
-            {/*Contenedor de Propuesta Comercial */}
-            <div className="Container-cards-seccion-m centrado " id="cardComponet">
-              <Link to='/offer' className="link-style">
-                <Grid container className="card-seccion" sx={{
-                  ml: 1
-                }}>
-                  <Grid item xs={10} md={10} lg={10}>
-                    <Grid container maxWidth="xl" spacing={2} sx={{
-                      mt: 2,
+              <div className=" Container-cards-seccion-mui" id="cardComponet">
+                <Link to='/offer' className="link-style">
+                  <Container maxWidth='xl' className="">
+                    <Grid container className="" sx={{
+                      ml: 1
                     }}>
-                      <Grid item xs={2} md={2} lg={2}>
-                        <div className="col-1">
-                          <img src={Idocumento} className="img-icono-card-grid" alt="" />
-                        </div>
-                      </Grid>
-                      <Grid item xs={8} md={8} lg={8}>
-                        <div className="col-4 card-home-offer">
-                          <h4 className="card-title-home card-top-grid"><b>Propuesta Comercial</b></h4>
-                          < p className="link-style">Abrir</p>
-                        </div>
-                      </Grid>
-                      <Grid item xs={2} md={2} lg={2}>
-                        <Grid container maxWidth="xl" spacing={1} sx={{
+                      <Grid item xs={10} md={10} lg={10}>
+                        <Grid container maxWidth="xl" spacing={2} sx={{
+                          mt: 2,
                         }}>
-                          <Grid item xs={3} md={3} lg={3}>
-                            <div className="col-1">
-                              {testOffer(stateOffer)}
+                          <Grid item xs={2} md={2} lg={2}>
+                            <div className="">
+                              <img src={Idocumento} className="img-icono-card-grid" alt="" />
                             </div>
                           </Grid>
-                          <Grid item xs={7} md={7} lg={7}>
+                          <Grid item xs={8} md={8} lg={8}>
+                            {/*card-home-offer   card-title-home card-top-grid */}
                             <div className="">
-                              <p className="card-text-grid">03/03/2023</p>
-                              <p className="card-text-aprov-grid">{stateOffer ? "Aceptado" : "Pendiente"}</p>
+                              <h4 className="card-title-home"><b>Propuesta Comercial</b></h4>
+                              < p className="link-style">Abrir</p>
                             </div>
+                          </Grid>
+                          <Grid item xs={2} md={2} lg={2}>
+                            <Grid container maxWidth="xl" spacing={1} sx={{
+                            }}>
+                              <Grid item xs={3} md={3} lg={3}>
+                                <div className="">
+                                  {testOffer(stateOffer)}
+                                </div>
+                              </Grid>
+                              <Grid item xs={7} md={7} lg={7}>
+
+                                {/* card-text-grid  card-text-aprov-grid */}
+                                <div className="">
+                                  <p className="card-text-grid">03/03/2023</p>
+                                  <p className="card-text-aprov-grid ">{stateOffer ? "Aceptado" : "Pendiente"}</p>
+                                </div>
+                              </Grid>
+                            </Grid>
                           </Grid>
                         </Grid>
                       </Grid>
                     </Grid>
-                  </Grid>
-                </Grid>
-              </Link>
-            </div>
-            {/*Contenedor de inmueble */}
-            <div className="Container-cards-seccion-m centrado " id="cardComponet">
-              <Link to='/property' className="link-style">
-                {stateChangeAprovacioninm(stateInmu)}
-              </Link>
-            </div>
-
-            {/*Menú documentos*/}
-            <div className="Container-cards-seccion-m centrado " id="cardComponet">
-              <Link to='/documents' className="links text-black">
-                <Grid container className="card-seccion" sx={{
-                  ml: 3
-                }}>
-                  <Grid item xs={10} md={10} lg={10}>
-                    <Grid container maxWidth="xl" spacing={2} sx={{
-                      mt: 2,
+                  </Container>
+                </Link>
+              </div>
+              {/*Contenedor de inmueble */}
+              {/* Container-cards-seccion-m centrado */}
+              <div className=" Container-cards-seccion-mui" id="cardComponet">
+                <Link to='/property' className="link-style">
+                  <Container maxWidth='xl' className="">
+                    <Grid container className="" sx={{
+                      ml: 1
                     }}>
-                      <Grid item xs={2} md={2} lg={2}>
-                        <div className="col-1">
-                          <img src={IconDocs} className="img-icono-card-grid-folder" alt="" />
-                        </div>
-                      </Grid>
-                      <Grid item xs={8} md={8} lg={8}>
-                        <div className="col-4 space-title-docs-home">
-                          <b>Menú documentos</b>
-
-                        </div>
-                      </Grid>
-                      <Grid item xs={2} md={2} lg={2}>
-
-                        <div className="">
-                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                            className="arrow-menu-home-mui" />
-                        </div>
+                      <Grid item xs={10} md={10} lg={10}>
+                        <Grid container maxWidth="xl" spacing={2} sx={{
+                          mt: 2,
+                        }}>
+                          <Grid item xs={2} md={2} lg={2}>
+                            <div className="">
+                              <img src={Iinmueble} className="img-icono-card-grid" alt="" />
+                            </div>
+                          </Grid>
+                          <Grid item xs={8} md={8} lg={8}>
+                            {/*card-home-offer   card-title-home card-top-grid */}
+                            <div className="">
+                              <h4 className="card-title-home"><b>Inmueble</b></h4>
+                              < p className="link-style">Abrir</p>
+                            </div>
+                          </Grid>
+                          {stateChangeAprovacioninm(stateInmu)}
+                        </Grid>
                       </Grid>
                     </Grid>
+                  </Container>
+                </Link>
+              </div>
+
+
+              {/*Menú documentos*/}
+              <div className="Container-cards-seccion-mui " id="cardComponet">
+                <Link to='/documents' className="links text-black">
+                  <Container maxWidth='xl' className="">
+                    <Grid container className="" sx={{
+                      ml: 1
+                    }}>
+                      <Grid item xs={10} md={10} lg={10}>
+                        <Grid container className="centrado" maxWidth="xl" spacing={2} sx={{
+                          mt: 2,
+                        }}>
+                          <Grid item xs={2} md={2} lg={2}>
+                            <div className="">
+                              <img src={IconDocs} className="img-icono-card-grid-folder" alt="" />
+
+                            </div>
+                          </Grid>
+                          <Grid item xs={8} md={8} lg={8}>
+                            {/*card-home-offer   card-title-home card-top-grid */}
+                            <div className="">
+                              <h4 className="card-title-home-mui"><b>Menú documentos</b></h4>
+
+                            </div>
+                          </Grid>
+                          <Grid item xs={2} md={2} lg={2}>
+                          <div className="">
+                                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+                                    className="arrow-menu-home-mui" />
+                                </div>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Container>
+               
+                </Link>
+              </div>
+
+
+
+              {/*componente de estados*/}
+              <div className="centrado space-docs-home container-fluid">
+                <div className="row ">
+                  {stateChange(stateUser)}
+                </div>
+              </div>
+
+
+              {/*componente de estados*/}
+
+              <div className="borde-card-mui" >
+                <Grid container maxWidth="xl" spacing={1} sx={{
+                  alignItems: 'center',
+                  alignContent: 'center',
+                  textAlign: 'start',
+                  mt: 2
+                }}>
+                  <Grid sx={12} sm={10} md={10} lg={10} >
+                    <div>
+                      <div className=" text-mui-home ">
+                        <h6>Estado:</h6>
+                        {/* */}
+                        <b> {mensajeSf()} </b>
+                      </div>
+                    </div>
                   </Grid>
                 </Grid>
-              </Link>
-            </div>
-
-
-
-            {/*componente de estados*/}
-            <div className="centrado space-docs-home container-fluid">
-              <div className="row ">
-                {stateChange(stateUser)}
               </div>
-            </div>
 
-
-            {/*componente de estados*/}
-
-            <div className="borde-card-mui" >
-              <Grid container maxWidth="xl" spacing={1} sx={{
-                alignItems: 'center',
+              <Container maxWidth="xl" sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 alignContent: 'center',
-                textAlign: 'start',
-                mt: 2
-              }}>
-                <Grid sx={12} sm={10} md={10} lg={10} >
-                  <div>
-                    <div className=" text-mui-home ">
-                      <h6>Estado:</h6>
-                      {/* */}
-                      <b> {mensajeSf()} </b>
+                alignItems: 'center',
+                mb: 2,
+                mt: 4,
+              }}
+                className=''>
+                <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
+                }}>
+
+                  <Grid item sx={12} sm={12} md={12} lg={12} >
+                    <div className="">
+                      <a className="links" href="https://calendly.com/agendadaniel">
+                        <Button
+                          fullWidth
+                          variant="contained"
+                          sx={{
+                            marginTop: '10px',
+                            mb: 3,
+                            background: '#81A1F8',
+                            borderRadius: '10px',
+                            color: '#ffffff',
+
+                            textTransform: 'none',
+                            border: '1px solid #81A1F8',
+                            height: '58px',
+
+                            fontFamily: 'Helvetica',
+                            fontSize: '18px',
+
+                            maxWidth: '430px', // Utiliza maxWidth en lugar de width
+                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                            margin: '0 auto', // Centrar horizontalmente
+                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                            alignItems: 'center', // Centrar verticalmente el contenido
+                            minWidth: '300px',
+                          }}
+                        >
+                          Agendar una cita
+                        </Button>
+                      </a>
                     </div>
-                  </div>
+
+                  </Grid>
+                  <Grid item sx={12} sm={12} md={12} lg={12} >
+                    <div className="">
+                      <a className="links" href={whatsappLink}>
+                        <Button
+                          fullWidth
+                          variant="contained"
+
+                          sx={{
+
+                            marginTop: '10px',
+                            mb: 3,
+                            background: '#ffffff',
+                            borderRadius: '10px',
+                            color: '#6C9FFF',
+
+                            textTransform: 'none',
+                            border: '1px solid #6C9FFF',
+                            height: '58px',
+
+                            fontFamily: 'Helvetica',
+                            fontSize: '18px',
+
+                            maxWidth: '430px', // Utiliza maxWidth en lugar de width
+                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                            margin: '0 auto', // Centrar horizontalmente
+                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                            alignItems: 'center', // Centrar verticalmente el contenido
+                            minWidth: '300px',
+                          }}
+                        >
+                          Tengo algún problema
+                        </Button>
+                      </a>
+                    </div>
+                  </Grid>
                 </Grid>
-              </Grid>
+              </Container>
             </div>
-
-            <Container maxWidth="xl" sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignContent: 'center',
-              alignItems: 'center',
-              mb: 2,
-              mt: 4,
-            }}
-              className=''>
-              <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
-              }}>
-
-                <Grid item sx={12} sm={12} md={12} lg={12} >
-                  <div className="">
-                    <a className="links" href="https://calendly.com/agendadaniel">
-                      <Button
-                        fullWidth
-                        variant="contained"
-                        sx={{
-                          marginTop: '10px',
-                          mb: 3,
-                          background: '#81A1F8',
-                          borderRadius: '10px',
-                          color: '#ffffff',
-
-                          textTransform: 'none',
-                          border: '1px solid #81A1F8',
-                          height: '58px',
-
-                          fontFamily: 'Helvetica',
-                          fontSize: '18px',
-
-                          maxWidth: '430px', // Utiliza maxWidth en lugar de width
-                          width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                          margin: '0 auto', // Centrar horizontalmente
-                          display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                          justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                          alignItems: 'center', // Centrar verticalmente el contenido
-                          minWidth: '300px',
-                        }}
-                      >
-                        Agendar una cita
-                      </Button>
-                    </a>
-                  </div>
-
-                </Grid>
-                <Grid item sx={12} sm={12} md={12} lg={12} >
-                  <div className="">
-                    <a className="links" href={whatsappLink}>
-                      <Button
-                        fullWidth
-                        variant="contained"
-
-                        sx={{
-
-                          marginTop: '10px',
-                          mb: 3,
-                          background: '#ffffff',
-                          borderRadius: '10px',
-                          color: '#6C9FFF',
-
-                          textTransform: 'none',
-                          border: '1px solid #6C9FFF',
-                          height: '58px',
-
-                          fontFamily: 'Helvetica',
-                          fontSize: '18px',
-
-                          maxWidth: '430px', // Utiliza maxWidth en lugar de width
-                          width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                          margin: '0 auto', // Centrar horizontalmente
-                          display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                          justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                          alignItems: 'center', // Centrar verticalmente el contenido
-                          minWidth: '300px',
-                        }}
-                      >
-                        Tengo algún problema
-                      </Button>
-                    </a>
-                  </div>
-                </Grid>
-              </Grid>
-            </Container>
-          </div>
-        </Box>
-            )}
+          </Box>
+        )}
       </div>
     </ThemeProvider>
 
