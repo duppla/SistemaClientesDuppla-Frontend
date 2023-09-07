@@ -154,10 +154,7 @@ function profile() {
                             />
                         </div>
                     </div>
-
                 </div>
-
-
             </div>) : (
                 <Box sx={{
                     display: 'flex',
