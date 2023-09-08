@@ -17,6 +17,22 @@ function Annual() {
     let mes = monthNames[d.getMonth()];
 
 
+    const monthMapping = {
+        enero: 0,
+        febrero: 1,
+        marzo: 2,
+        abril: 3,
+        mayo: 4,
+        junio: 5,
+        julio: 6,
+        agosto: 7,
+        septiembre: 8,
+        octubre: 9,
+        noviembre: 10,
+        diciembre: 11,
+      };
+
+
     // uso del localsotrage para traer estado del usuario
     const estado = localStorage.getItem('estado');
 
@@ -38,15 +54,20 @@ function Annual() {
         fetch('https://sistema-duppla-backend.herokuapp.com/pagos/sigo', options)
             .then(response => response.json())
             .then(jsonData => {
+                const extractedData = jsonData.map(item => {
+                  const billingPeriodWords = item.billingPeriod.split(' ');
+                  const monthName = billingPeriodWords[0].toLowerCase();
+                  const month = monthMapping[monthName];
+        
+                  return {
+                    billingPeriod: item.billingPeriod,
+                    paymentDate: item.paymentDate,
+                    payment: item.total,
+                    month: month,
+                  };
+                });
 
-                const extractedData = jsonData.map(item => ({
-                    id: item.id,
-                    daterc: item.date,
-                    date: item.items[0].due.date,
-                    payment: item.payment,
-                }));
-
-                setDataPago(extractedData)
+                setDataPago(extractedData)       
                 setLoading(false);
                 //console.log(extractedData);
             })
@@ -127,20 +148,18 @@ function Annual() {
                     alignItems: 'center',
                     mb: 4,
                 }}>
-
-
                     {dataPago.length > 0 ? (
                         <div className="size-margin-mui-cards-anual ">
                             {dataPago.map((item, index) => (
-                                <div key={item.id} >
-                                    <div className=" accordion accordion-h-payment " id={`accordionExample-${index}`}>
+                                <div key={item} >
+                                    <div className="accordion accordion-h-payment" id={`accordionExample-${index}`}>
                                         <div className="accordion-item   ">
                                             <h2 className="accordion-header" id={`headingTwo-${index}`}>
                                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-${index}`} aria-expanded="false" aria-controls={`mesDos-${index}`}>
                                                     <div className="text-start text-blue " id="basic-addon4"><h4>
                                                         {(() => {
-                                                            const month = new Date(item.date).getMonth();
-                                                            switch (month) {
+                                                            /* const month = new Date(item.billingPeriod).getMonth(); */
+                                                            switch (item.month) {
                                                                 case 0:
                                                                     return 'Enero';
                                                                 case 1:
@@ -182,11 +201,14 @@ function Annual() {
                                                         <div className='notice-up-to-date '>
                                                             <br />
                                                             <div className='text-notice-date-two centrado'>
-                                                                <h5><b>Pagaste: ${item.payment.value.toLocaleString()}</b></h5>
+                                                                {/*  <h5><b>Pagaste: ${item.total.toLocaleString()}</b></h5>  */}
+                                                                <h5><b>Pagaste: ${item.payment ? item.payment.toLocaleString() : 'N/A'}</b></h5>
+
+                                                                {/* <p>{item.payment}</p> */}
                                                             </div>
                                                             <br />
                                                             <div className='text-notice-second centrado '>
-                                                                <p>Fecha de pago:{item.daterc}</p>
+                                                                <p>Fecha de pago:{item.paymentDate}</p>
                                                             </div>
                                                             {/*<div className='text-notice-second-s centrado '>
                                                             <p>Periodo de facturado:{item.date}</p>
