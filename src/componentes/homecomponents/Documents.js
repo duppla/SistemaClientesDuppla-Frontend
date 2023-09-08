@@ -131,7 +131,7 @@ function Docs() {
                         mb: 4,
                     }}
                         className=''>
-                        <Typography component="h1" variant="" sx={{
+                      {/*   <Typography component="h1" variant="" sx={{
                             ml: -1,
                             fontFamily: 'Rustica',
                             fontStyle: 'normal',
@@ -141,7 +141,7 @@ function Docs() {
                             lineHeight: '20px',
                         }}>
                             <h5>Documentos</h5>
-                        </Typography>
+                        </Typography> */}
 
 
                         {(docsBuyer.signed_files || []).map((file, index) => (
@@ -247,7 +247,22 @@ function Docs() {
                         mb: 4,
                     }}>
                         <div className='img-offer-conatiner '>
-                            <p>No cuenta con documentos</p>
+                        <Typography component="h1" variant="" sx={{
+                           /*  ml: 2, */
+                            fontFamily: 'Rustica',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            fontSize: '18px',
+                            color: '#0A3323',
+                            lineHeight: '20px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            mb: 4,
+                        }}>
+                            <h4>No cuenta con documentos</h4>
+                        </Typography>
+                            {/* <p>No cuenta con documentos</p> */}
                             <img src={Idefaultoffer} className="container fluid" alt="..." />
                         </div>
                     </Container>
