@@ -203,11 +203,11 @@ function Annual() {
                                                                 <br />
                                                                 <div className='text-notice-date-two centrado'>
                                                                     {/*  <h5><b>Pagaste: ${item.total.toLocaleString()}</b></h5>  */}
-                                                                    <h5><b>Valor pagado: ${item.payment ? item.payment.toLocaleString() : 'N/A'}</b></h5>
+                                                                    <h5><b>Valor pagado: $ {item.payment ? item.payment.toLocaleString() : 'N/A'}</b></h5>
                                                                     {/* <p>{item.payment}</p> */}
                                                                 </div>
                                                                 <div className='text-notice-second-s centrado '>
-                                                                    <p>Saldo pendiente:{item.balance}</p>
+                                                                    <p>Saldo pendiente:$ {item.balance ? item.balance.toLocaleString() : '0'}</p>
                                                                 </div>
                                                                 <div className='text-notice-second centrado '>
                                                                     <p>Fecha de pago:{item.paymentDate}</p>
