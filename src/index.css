@@ -562,6 +562,17 @@ code {
 
 }
 
+.btn-state-home-grid-gris {
+  margin-top: 52px;
+  margin-left: -8px;
+
+}
+
+.text-inm-home-width{
+  margin-top: -10px !important;
+  width: 180px !important;
+}
+
 .card-top {
   margin-top: 25px;
   margin-bottom: 4px;
@@ -578,7 +589,8 @@ code {
 }
 
 .text-white {
-  color: var(--color-fondo);
+  color: var(--color-fondo) !important;
+
 }
 
 

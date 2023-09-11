@@ -181,7 +181,7 @@ function Home() {
     {/*true-false verificar si esta */ }
     const testOne = stateOffer;
     if (testOne === null || testOne === false) {
-      return <img src={Istateg} className="btn-state-home-grid" alt="" height='12px' width='12px' />
+      return <img src={Istateg} className="btn-state-home-grid-gris" alt="" height='12px' width='12px' />
     }
     else {
       return <img src={Istatev} className="btn-state-home-grid" alt="" height='12px' width='12px' />
@@ -242,15 +242,15 @@ function Home() {
           }}>
             <Grid item xs={3} md={3} lg={3}>
               <div className="">
-                <img src={Istateg} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+                <img src={Istateg} className="btn-state-home-grid-gris" alt="" height='14px' width='14px' />
               </div>
             </Grid>
             <Grid item xs={7} md={7} lg={7}>
 
               {/* card-text-grid  card-text-aprov-grid */}
               <div className="">
-                <p className="">03/03/2023</p>
-                <p className="">No evaluado</p>
+                <p className="">{funcionFechaInm()}</p>
+                <p className="text-inm-home-width">No evaluado</p>
               </div>
             </Grid>
           </Grid>
@@ -268,7 +268,7 @@ function Home() {
             </Grid>
             <Grid item xs={7} md={7} lg={7}>
               <div className="">
-                <p className="card-text-grid">03/03/2023</p>
+                <p className="card-text-grid">{funcionFechaInm()}</p>
                 <p className="card-text-aprov-grid">Evaluado</p>
               </div>
             </Grid>
@@ -288,7 +288,7 @@ function Home() {
 
               {/* card-text-grid  card-text-aprov-grid */}
               <div className="">
-                <p className="">03/03/2023</p>
+                <p className="">{funcionFechaInm()}</p>
                 <p className="">Aprobado</p>
               </div>
             </Grid>
@@ -308,7 +308,7 @@ function Home() {
 
               {/* card-text-grid  card-text-aprov-grid */}
               <div className="">
-                <p className="">03/03/2023</p>
+                <p className="">{funcionFechaInm()}</p>
                 <p className="">Rechazado</p>
               </div>
             </Grid>
@@ -320,15 +320,15 @@ function Home() {
         }}>
           <Grid item xs={3} md={3} lg={3}>
             <div className="">
-              <img src={Istateblue} className="btn-state-home-grid" alt="" height='14px' width='14px' />
+              <img src={Istateblue} className="btn-state-home-grid-gris" alt="" height='14px' width='14px' />
             </div>
           </Grid>
           <Grid item xs={7} md={7} lg={7}>
 
             {/* card-text-grid  card-text-aprov-grid */}
             <div className="">
-              <p className="">03/03/2023</p>
-              <p className="">No evaluado</p>
+              <p className="">{funcionFechaInm()}</p>
+              <p className="text-inm-home-width">No evaluado</p>
             </div>
           </Grid>
         </Grid>
@@ -336,7 +336,6 @@ function Home() {
 
     }
   }
-
 
   {/** consicional mostrar mensaje desde legal o ventasm  */ }
   function mensajeSf() {
@@ -360,6 +359,50 @@ function Home() {
     }
 
   }
+
+  function funcionFecha() {
+    if (data && data.fecha_ofer) {
+      const fechaOriginal = data.fecha_ofer;
+      const fechaPartes = fechaOriginal.split('T')[0].split('-'); // Dividir la fecha en partes
+      const fechaFormateada = `${fechaPartes[2]}/${fechaPartes[1]}/${fechaPartes[0]}`;
+  
+      return (
+        <div>
+          <p> {fechaFormateada}</p>
+        </div>
+      );
+    } else {
+      // Manejo de casos en los que data.fecha_ofer no está definida o es nula
+      return (
+        <div>
+          <p className="text-white">Sin fecha </p>
+        </div>
+      );
+    }
+  }
+  /* Función que cambia el formato de fecha en la aprovación del inmueble */
+  function funcionFechaInm() {
+    if (data && data.fecha_inm) {
+      const fechaOriginal = data.fecha_inm;
+      const fechaPartes = fechaOriginal.split('T')[0].split('-'); // Dividir la fecha en partes
+      const fechaFormateada = `${fechaPartes[2]}/${fechaPartes[1]}/${fechaPartes[0]}`;
+  
+      return (
+        <div>
+          <p> {fechaFormateada}</p>
+        </div>
+      );
+    } else {
+      // Manejo de casos en los que data.fecha_ofer no está definida o es nula
+      return (
+        <div>
+          <p className="text-white">Sin fecha </p>
+        </div>
+      );
+    }
+  }
+  
+
 
   return (
     <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
@@ -431,7 +474,7 @@ function Home() {
 
                                 {/* card-text-grid  card-text-aprov-grid */}
                                 <div className="">
-                                  <p className="card-text-grid">03/03/2023</p>
+                                  <p className="card-text-grid">{funcionFecha()}</p>
                                   <p className="card-text-aprov-grid ">{stateOffer ? "Aceptado" : "Pendiente"}</p>
                                 </div>
                               </Grid>
