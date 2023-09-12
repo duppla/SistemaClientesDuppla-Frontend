@@ -13,6 +13,12 @@ import '@fontsource/roboto/700.css';
 
 import App from './App';
 
+import ReactGA from 'react-ga';
+
+// Inicializa Google Analytics con tu ID de seguimiento
+ReactGA.initialize('G-RL7T47WB31');
+
+
 
 
 

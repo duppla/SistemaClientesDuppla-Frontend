@@ -75,7 +75,6 @@ function Annual() {
             .catch(err => {
                 console.error(err);
                 setLoading(false);
-
             });
 
     }, []);

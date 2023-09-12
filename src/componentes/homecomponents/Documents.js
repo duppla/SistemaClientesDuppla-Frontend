@@ -8,6 +8,7 @@ import Idefaultoffer from "../../img/Idefaultoffer.png";
 import Lottie from 'lottie-react';
 import animationData from '../../Components/loanding.json';
 import swal from 'sweetalert';
+import ReactGA from 'react-ga';
 
 const themeLogin = createTheme({
     status: {
@@ -27,6 +28,15 @@ const themeLogin = createTheme({
 
 
 function Docs() {
+
+    useEffect(() => {
+        // Envía un evento cuando el componente Docs se monta (se renderiza).
+        ReactGA.event({
+          category: 'Component Interaction',
+          action: 'Entered Docs Component',
+        });
+      }, []);
+      
     // uso del localsotrage para traer estado del usuario
     const estado = localStorage.getItem('estado');
 
@@ -86,6 +96,17 @@ function Docs() {
         }
 
     }
+
+    const handleDocumentLinkClick = (file) => {
+        // Envía un evento cuando se hace clic en un enlace de documento.
+        ReactGA.event({
+          category: 'Document Interaction',
+          action: `Clicked on Document Link: ${file.name}`,
+        });
+    
+        // Tu lógica para abrir el enlace del documento.
+        window.open(file.drive_url, '_blank'); // Abre el enlace en una nueva pestaña.
+      };
 
 
     return (
@@ -173,7 +194,11 @@ function Docs() {
                                                             color: '#0A3323',
                                                             lineHeight: '20px',
                                                             width: '180px',
-                                                        }}>
+                                                        }}
+                                                        onClick={() => handleDocumentLinkClick(file)} // Llama a la función al hacer clic en el enlace.
+                                                        >
+                                                        
+                                                        
                                                             {file.name}
                                                         </Typography>
                                                     </Grid>

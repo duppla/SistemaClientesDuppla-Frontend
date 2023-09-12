@@ -12,6 +12,7 @@ import Imgdefault from "../../img/Imgdefault.png"
 import Idefaultproperty from "../../img/Idefaultproperty.png";
 import Lottie from 'lottie-react';
 import animationData from '../../Components/loanding.json';
+import ReactGA from 'react-ga';
 
 import { Box, Button, Container, CssBaseline, Grid, ThemeProvider, createTheme } from "@mui/material";
 
@@ -352,6 +353,15 @@ function Property() {
 
     }
 
+    const handleButtonClickGA = () => {
+        // Envía un evento personalizado a Google Analytics cuando se hace clic en el botón.
+        ReactGA.event({
+          category: 'Boton de dudas WhatsApp',
+          action: 'Button Clicked in MyComponent',
+        });
+    
+       
+      };
 
 
 
@@ -624,6 +634,7 @@ function Property() {
                                                 <Button
                                                     fullWidth
                                                     variant="contained"
+                                                    onClick={handleButtonClickGA}
                                                     sx={{
                                                         marginTop: '10px',
                                                         mb: 3,
