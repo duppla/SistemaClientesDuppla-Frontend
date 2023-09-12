@@ -9,6 +9,7 @@ import { Box, Button, Container, CssBaseline, FormControl, FormControlLabel, For
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import Lottie from 'lottie-react';
 import animationData from './../Components/loanding.json';
+import ReactGA from 'react-ga';
 
 
 

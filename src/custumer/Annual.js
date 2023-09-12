@@ -5,8 +5,19 @@ import Idefaultoffer from "./../img/Idefaultoffer.png";
 import { Box, Container, CssBaseline } from '@mui/material';
 import Lottie from 'lottie-react';
 import animationData from './../Components/loanding.json';
+import ReactGA from 'react-ga';
 
 function Annual() {
+
+
+    
+   useEffect(() => {
+      // Envía un evento cuando el componente Docs se monta (se renderiza).
+      ReactGA.event({
+        category: 'Component Interaction',
+        action: 'Entered Facturas Component',
+      });
+    }, []);
 
     // Función fecha del mes actual
     const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",

@@ -97,6 +97,8 @@ function Docs() {
 
     }
 
+    // envia la data recolectada de los documentos a google analytics
+
     const handleDocumentLinkClick = (file) => {
         // Envía un evento cuando se hace clic en un enlace de documento.
         ReactGA.event({

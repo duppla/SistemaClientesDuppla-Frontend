@@ -34,6 +34,7 @@ import { AuthContext } from "../../context/Contextauth";
 import Navbar from "../../Components/Navbar";
 import Lottie from 'lottie-react';
 import animationData from '../../Components/loanding.json';
+import ReactGA from 'react-ga';
 import { Box, Button, Container, CssBaseline, Grid, ThemeProvider, createTheme } from "@mui/material";
 
 
@@ -55,6 +56,14 @@ const themeLogin = createTheme({
 });
 
 function Home() {
+
+  useEffect(() => {
+    // Envía un evento cuando el componente Docs se monta (se renderiza).
+    ReactGA.event({
+      category: 'Component Interaction',
+      action: 'Entered Home Prospecto Component',
+    });
+  }, []);
 
   // Función fecha del día actual
 

@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { Link, useNavigate } from 'react-router-dom'
 import { Box, CssBaseline, Button, TextField, Select, MenuItem, FormControl, InputLabel, TextareaAutosize, Grid, Container, Typography, createTheme, ThemeProvider } from '@mui/material';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ReactGA from 'react-ga';
 
 
 
@@ -27,6 +28,14 @@ const themeFormMantenimiento = createTheme({
 
 
 const FormMentenimiento = () => {
+
+  useEffect(() => {
+    // Envía un evento cuando el componente Docs se monta (se renderiza).
+    ReactGA.event({
+      category: 'Component Interaction',
+      action: 'Entered formulario Mantenimiento Component',
+    });
+  }, []);
 
   const estado = localStorage.getItem('estado');
   /*  const email = localStorage.getItem('email'); */

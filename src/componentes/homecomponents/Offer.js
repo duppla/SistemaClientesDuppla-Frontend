@@ -7,11 +7,21 @@ import swal from 'sweetalert';
 import { Box, CssBaseline } from '@mui/material';
 import Lottie from 'lottie-react';
 import animationData from '../../Components/loanding.json';
+import ReactGA from 'react-ga';
 
 
 
 
 function Offer() {
+
+  useEffect(() => {
+    // Envía un evento cuando el componente Docs se monta (se renderiza).
+    ReactGA.event({
+      category: 'Component Interaction',
+      action: 'Entered Prouesta comercial Component',
+    });
+  }, []);
+
   const navigate = useNavigate();
 
   const [oferta, setOferta] = useState({});

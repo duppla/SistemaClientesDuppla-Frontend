@@ -18,6 +18,8 @@ import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import SavingsIcon from '@mui/icons-material/Savings';
+import ReactGA from 'react-ga';
+
 
 
 
@@ -43,6 +45,16 @@ const themeLogin = createTheme({
 
 
 function profile() {
+
+    
+
+    useEffect(() => {
+      // Envía un evento cuando el componente Docs se monta (se renderiza).
+      ReactGA.event({
+        category: 'Component Interaction',
+        action: 'Entered Perfil Component',
+      });
+    }, []);
 
     const estado = localStorage.getItem('estado');
 

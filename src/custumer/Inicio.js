@@ -36,11 +36,20 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import { Button, Container, Grid } from "@mui/material";
 import Lottie from 'lottie-react';
 import animationData from './../Components/loanding.json';
+import ReactGA from 'react-ga';
 
 
 
 
 function Inicio() {
+
+    useEffect(() => {
+        // Envía un evento cuando el componente Docs se monta (se renderiza).
+        ReactGA.event({
+          category: 'Component Interaction',
+          action: 'Entered Customer Component',
+        });
+      }, []);
 
     const navigate = useNavigate();
 

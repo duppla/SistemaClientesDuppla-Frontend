@@ -37,7 +37,15 @@ const themeLogin = createTheme({
 
 
 function Property() {
+    
 
+    useEffect(() => {
+      // Envía un evento cuando el componente Docs se monta (se renderiza).
+      ReactGA.event({
+        category: 'Component Interaction',
+        action: 'Entered Inmueble Component',
+      });
+    }, []);
 
     const estado = localStorage.getItem('estado');
 
