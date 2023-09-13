@@ -31,7 +31,7 @@ function Docs() {
 
     useEffect(() => {
         // Envía un evento cuando el componente Docs se monta (se renderiza).
-        ReactGA.pageview(window.location.pathname);
+        ReactGA.pageview('/documents');
       }, []);
       
     // uso del localsotrage para traer estado del usuario

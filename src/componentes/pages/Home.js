@@ -56,13 +56,9 @@ const themeLogin = createTheme({
 });
 
 function Home() {
-
   useEffect(() => {
-    // Envía un evento cuando el componente  se monta (se renderiza).
-    ReactGA.event({
-      category: 'Component Interaction',
-      action: 'Entered Home Prospecto Component',
-    });
+    // Envía un evento cuando el componente Docs se monta (se renderiza).
+    ReactGA.pageview('/home');
   }, []);
 
   // Función fecha del día actual
