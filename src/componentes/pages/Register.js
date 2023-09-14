@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 /*import { serialize } from 'cookie';*/
@@ -8,7 +8,7 @@ import Iduppla from "../../img/Iduppla.png"
 import { Button, Container, CssBaseline, TextField, Typography, Box, createTheme, ThemeProvider } from '@mui/material';
 
 
-
+import ReactGA from 'react-ga';
 
 const themeLogin = createTheme({
     status: {
@@ -27,6 +27,10 @@ const themeLogin = createTheme({
 });
 
 function Register() {
+    useEffect(() => {
+        // Envía un evento cuando el componente Docs se monta (se renderiza).
+      ReactGA.pageview(window.location.pathname);
+      }, []);
     // estados 
 
     const [showMessage, setShowMessage] = useState(false);

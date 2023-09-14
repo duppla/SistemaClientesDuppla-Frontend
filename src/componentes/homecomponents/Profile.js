@@ -49,12 +49,9 @@ function profile() {
     
 
     useEffect(() => {
-      // Envía un evento cuando el componente Docs se monta (se renderiza).
-      ReactGA.event({
-        category: 'Component Interaction',
-        action: 'Entered Perfil Component',
-      });
-    }, []);
+        // Envía un evento cuando el componente Docs se monta (se renderiza).
+      ReactGA.pageview(window.location.pathname);
+      }, []);
 
     const estado = localStorage.getItem('estado');
 

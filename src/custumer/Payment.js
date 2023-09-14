@@ -17,6 +17,10 @@ import ReactGA from 'react-ga';
 
 function Payment() {
 
+    useEffect(() => {
+        // Envía un evento cuando el componente Docs se monta (se renderiza).
+      ReactGA.pageview(window.location.pathname);
+      }, []);
 
     // Uso de estados para el endpoint de la API
     const [dataCustumer, setDataCustumer] = useState({});

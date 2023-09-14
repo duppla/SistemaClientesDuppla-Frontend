@@ -16,10 +16,7 @@ function Offer() {
 
   useEffect(() => {
     // Envía un evento cuando el componente Docs se monta (se renderiza).
-    ReactGA.event({
-      category: 'Component Interaction',
-      action: 'Entered Prouesta comercial Component',
-    });
+  ReactGA.pageview(window.location.pathname);
   }, []);
 
   const navigate = useNavigate();

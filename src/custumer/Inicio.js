@@ -45,10 +45,7 @@ function Inicio() {
 
     useEffect(() => {
         // Envía un evento cuando el componente Docs se monta (se renderiza).
-        ReactGA.event({
-          category: 'Component Interaction',
-          action: 'Entered Customer Component',
-        });
+      ReactGA.pageview(window.location.pathname);
       }, []);
 
     const navigate = useNavigate();

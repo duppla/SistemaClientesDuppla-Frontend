@@ -13,10 +13,12 @@ function Annual() {
     
    useEffect(() => {
       // Envía un evento cuando el componente Docs se monta (se renderiza).
-      ReactGA.event({
+    /*   ReactGA.event({
         category: 'Component Interaction',
         action: 'Entered Facturas Component',
-      });
+    }); */
+    ReactGA.pageview(window.location.pathname);
+     
     }, []);
 
     // Función fecha del mes actual
