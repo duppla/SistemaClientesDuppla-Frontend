@@ -409,6 +409,22 @@ function Home() {
   }
   
 
+ function handleHometLinkClick() {
+    // Envía un evento cuando se hace clic en un enlace de documento.
+    ReactGA.event({
+
+   'category': 'clic',
+     'action': `Clicked on button`,
+     'label': 'Botón cards',
+    
+
+    });
+   
+
+  };
+
+  
+
 
   return (
     <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
@@ -446,7 +462,7 @@ function Home() {
               {/*Contenedor de Propuesta Comercial  container-sm  Container-cards-seccion-m centrado card-seccion" */}
 
 
-              <div className=" Container-cards-seccion-mui" id="cardComponet">
+              <div className=" Container-cards-seccion-mui" onClick={handleHometLinkClick()}   id="cardComponet">
                 <Link to='/offer' className="link-style">
                   <Container maxWidth='xl' className="">
                     <Grid container className="" sx={{
@@ -494,7 +510,7 @@ function Home() {
               </div>
               {/*Contenedor de inmueble */}
               {/* Container-cards-seccion-m centrado */}
-              <div className=" Container-cards-seccion-mui" id="cardComponet">
+              <div className=" Container-cards-seccion-mui" onClick={handleHometLinkClick()} id="cardComponet">
                 <Link to='/property' className="link-style">
                   <Container maxWidth='xl' className="">
                     <Grid container className="" sx={{
@@ -613,6 +629,7 @@ function Home() {
                         <Button
                           fullWidth
                           variant="contained"
+                          onClick={handleHometLinkClick()}
                           sx={{
                             marginTop: '10px',
                             mb: 3,
@@ -648,6 +665,7 @@ function Home() {
                         <Button
                           fullWidth
                           variant="contained"
+                          onClick={handleHometLinkClick()}
 
                           sx={{
 
