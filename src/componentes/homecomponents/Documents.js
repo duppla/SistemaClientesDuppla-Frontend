@@ -103,12 +103,14 @@ function Docs() {
        'category': 'Document Interaction',
          'action': `Clicked on Document Link: ${file.name}`,
          'label': 'Botón generar documento',
+        
 
         });
        
     
         // Tu lógica para abrir el enlace del documento.
         window.open(file.drive_url, '_blank'); // Abre el enlace en una nueva pestaña.
+       /*  console.log(file.drive_url + 'prueba del documento'); */
       };
 
 
