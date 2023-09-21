@@ -30,8 +30,8 @@ const themeFormMantenimiento = createTheme({
 const FormMentenimiento = () => {
 
   useEffect(() => {
-    // Envía un evento cuando el componente Docs se monta (se renderiza).
-    ReactGA.event({
+    // Envía un evento cuando el componente Mantenimiento se monta (se renderiza).
+     ReactGA.event({
       category: 'Component Interaction',
       action: 'Entered formulario Mantenimiento Component',
     });
@@ -277,12 +277,12 @@ const FormMentenimiento = () => {
                             onChange={handleInputChange}
                             label="Tipo de Reclamación / Garantía">
                             <MenuItem value="mantenimientoReparacion">Mantenimiento/Reparación</MenuItem>
-                            <MenuItem value="administraciones">Administraciones</MenuItem>
+                            <MenuItem value="administraciones_">Administraciones</MenuItem>
                             <MenuItem value="cuponClavePSE">Cupón o Clave PSE</MenuItem>
                             <MenuItem value="entregaInmueble">Entrega del Inmueble</MenuItem>
                             <MenuItem value="estadoCuentaPropietarios">Estado de Cuenta Propietarios</MenuItem>
                             <MenuItem value="negociacionCanon">Negociación Canon</MenuItem>
-                            <MenuItem value="reclamaciones">Reclamaciones</MenuItem>
+                            <MenuItem value="reclamaciones_">Reclamaciones</MenuItem>
                             <MenuItem value="semilleroPropietarios">Semillero de Propietarios</MenuItem>
                             <MenuItem value="serviciosPublicos">Servicios Públicos</MenuItem>
                             <MenuItem value="terminacionesProrrogas">Terminaciones o Prórrogas</MenuItem>
@@ -301,12 +301,12 @@ const FormMentenimiento = () => {
                             value={formData.tipo_afectacion}
 
                             label="Tipo de Afectación">
-                            <MenuItem value="electricidad">Electricidad</MenuItem>
+                            <MenuItem value="electricidad_">Electricidad</MenuItem>
                             <MenuItem value="plomeria">Plomería</MenuItem>
                             <MenuItem value="climatizacion">Calefacción/Ventilación/Aire Acondicionado</MenuItem>
                             <MenuItem value="electrodomesticos">Electrodomésticos</MenuItem>
                             <MenuItem value="pintura">Pintura/Reparaciones en Paredes</MenuItem>
-                            <MenuItem value="mobiliario">Mobiliario</MenuItem>
+                            <MenuItem value="mobiliario_">Mobiliario</MenuItem>
                             <MenuItem value="seguridad">Seguridad/Cerraduras</MenuItem>
                             <MenuItem value="iluminacion">Iluminación</MenuItem>
                             <MenuItem value="suelos">Suelos/Revestimientos</MenuItem>

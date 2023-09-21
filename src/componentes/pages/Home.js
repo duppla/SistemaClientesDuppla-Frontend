@@ -412,14 +412,11 @@ function Home() {
  function handleHometLinkClick() {
     // Envía un evento cuando se hace clic en un enlace de documento.
     ReactGA.event({
-
    'category': 'clic',
      'action': `Clicked on button`,
      'label': 'Botón cards',
     
-
-    });
-   
+    });  
 
   };
 
