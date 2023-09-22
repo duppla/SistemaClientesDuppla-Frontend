@@ -8,6 +8,9 @@ import { Box, CssBaseline, Button, TextField, Select, MenuItem, FormControl, Inp
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ReactGA from 'react-ga';
 
+import Lottie from 'lottie-react';
+import animationData from './../Components/loanding.json';
+
 
 
 const themeFormMantenimiento = createTheme({
@@ -31,12 +34,13 @@ const FormMentenimiento = () => {
 
   useEffect(() => {
     // Envía un evento cuando el componente Mantenimiento se monta (se renderiza).
-     ReactGA.event({
+    ReactGA.event({
       category: 'Component Interaction',
       action: 'Entered formulario Mantenimiento Component',
     });
   }, []);
 
+  const [isLoading, setIsLoading] = useState(false);
   const estado = localStorage.getItem('estado');
   /*  const email = localStorage.getItem('email'); */
   const emailWithQuotes = localStorage.getItem('email');
@@ -71,30 +75,9 @@ const FormMentenimiento = () => {
     };
 
 
-
-    /*   const handleSubmit = (event) => {
-        event.preventDefault();
-    
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-    
-          },
-          body: JSON.stringify(formData)
-        };
-        fetch('https://salesforce-gdrive-conn.herokuapp.com/cases_app_clientes', options)
-          .then(response => response.json())
-          .then(responseData => {
-            console.log(responseData + "Prueba de envio 1"); // Manejar la respuesta del servidor
-          })
-          .catch(error => {
-            console.error('Error al enviar la solicitud', error);
-          });
-      }; */
-
     const handleSubmit = async (e) => {
       e.preventDefault();
+      setIsLoading(true); // Mostrar la animación de carga
 
       const options = {
         method: 'POST',
@@ -113,22 +96,29 @@ const FormMentenimiento = () => {
         // Si la respuesta es exitosa, marca que se ha enviado la solicitud
         if (response.status === 200) {
           setIsSubmitted(true);
-          // Luego de un tiempo (por ejemplo, 3 segundos), redirige al usuario al componente de inicio
-          setTimeout(() => {
-            swal({
 
-              text: "Solicitud enviada correctamente, se enviara copia a:",
+
+          // Luego de un tiempo (por ejemplo, 3 segundos), redirige al usuario al componente de inicio
+          
+            setIsLoading(false); // Ocultar la animación de carga
+            swal({
+              text: "Tu requerimiento ha sido creado con éxito, recibirás una confirmación en tu correo",
               icon: "success",
-              button: "ok",
+              button: "Ok",
               timer: 5000,
             });
             navigate(`/inicio`);
-          }, 8000);
+         
         } else {
+          setIsLoading(false);
           alert("Solicitud no enviada");
         }
       } catch (error) {
+        setIsLoading(false);
         console.error('Error al enviar la solicitud', error);
+      }
+      finally {
+        setIsLoading(false); // Ocultar la animación de carga independientemente del resultado de la solicitud
       }
     };
 
@@ -161,23 +151,25 @@ const FormMentenimiento = () => {
 
     return (
       <ThemeProvider theme={themeFormMantenimiento} sx={{ m: 0, p: 0, }}>
-          {testRedireccion(estado)}
-          <div className="title-register ">
-            <h1> <b></b>
-            </h1>
+        {testRedireccion(estado)}
+        <div className="title-register ">
+          <h1> <b></b>
+          </h1>
+        </div>
+        {isLoading ? (
+          <div className='loading'>
+            <div className='loading-container'>
+              <h2 className='text-loading'>Cargando...</h2>
+              <div className='text-loading'>
+                <div className='loading-state-mui'>
+                  {/* Agrega tu animación de carga aquí */}
+                  <Lottie animationData={animationData} loop autoplay />
+                </div>
+              </div>
+            </div>
           </div>
-
-        <div className="element-container">
-
-          {/*    <div class="profile-form ">
-          <button class="back-button">
-            <Link to='/inicio'>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"></path>
-              </svg>
-            </Link>
-          </button>
-        </div> */}
+        ) : (
+          <div className="element-container">
 
           <Box sx={{
             display: 'flex',
@@ -185,7 +177,7 @@ const FormMentenimiento = () => {
             alignContent: 'center',
             alignItems: 'center',
             textAlign: 'start',
-            marginTop:'-60px',
+            marginTop: '-60px',
 
           }}>
             <CssBaseline />
@@ -202,7 +194,7 @@ const FormMentenimiento = () => {
             }}
               className=''>
               <Typography component="h1" variant="" sx={{
-                
+
                 fontFamily: 'Rustica',
                 fontStyle: 'normal',
                 fontWeight: '500',
@@ -215,53 +207,6 @@ const FormMentenimiento = () => {
                 </h3>
               </Typography>
               <form className='' onSubmit={handleSubmit}>
-
-                {/*   <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
-              }}>
-
-                <Grid item sx={12} sm={12} md={12} lg={12} >
-                  <div className="card-body-form">
-                    <div className="">
-
-                      <TextField
-                        label="Correo:"
-                        variant="outlined"
-                        name="email" // Asegura que el name sea correcto
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        fullWidth
-                        sx={{ mt: 2 }} />
-                    </div>
-                    <div className="form-group">
-
-                      <FormControl variant="outlined" fullWidth sx={{ mt: 2 }}>
-                        <InputLabel id="inmueble-label">Inmueble</InputLabel>
-                        <Select labelId="inmueble-label"
-
-                          label="Inmueble"
-                        >
-                          <MenuItem value="casa">Casa</MenuItem>
-                          <MenuItem value="apartamento">Apartamento</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </div>
-                  </div>
-                </Grid>
-              </Grid> */}
-
-                {/*      <Typography component="h1" variant="" sx={{
-                ml: -1,
-                fontFamily: 'Rustica',
-                fontStyle: 'normal',
-                fontWeight: '500',
-                fontSize: '18px',
-                color: '#42723f',
-                lineHeight: '20px',
-              }}>
-                <h4>Información del inmueble
-                </h4>
-              </Typography> */}
-
                 <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
                   mt: 4
                 }}>
@@ -269,9 +214,9 @@ const FormMentenimiento = () => {
                   <Grid item sx={12} sm={12} md={12} lg={12} >
                     <div className="card-body-form">
                       <div className="">
-                        <FormControl variant="outlined" fullWidth sx={{ mt: 2 }}>
+                        <FormControl required variant="outlined" fullWidth sx={{ mt: 2 }}>
                           <InputLabel id="tipoReclamacion-label">Tipo de Reclamación / Garantía</InputLabel>
-                          <Select labelId="tipoReclamacion-label"
+                          <Select required labelId="tipoReclamacion-label"
                             name="tipo_reclamacion_garantia" // 
                             value={formData.tipo_reclamacion_garantia}
                             onChange={handleInputChange}
@@ -295,7 +240,7 @@ const FormMentenimiento = () => {
 
                         <FormControl variant="outlined" fullWidth sx={{ mt: 2 }}>
                           <InputLabel id="tipoAfectacion-label">Tipo de Afectación</InputLabel>
-                          <Select labelId="tipoAfectacion-label"
+                          <Select required labelId="tipoAfectacion-label"
                             onChange={handleInputChange}
                             name="tipo_afectacion" // Asegura que el name sea correcto
                             value={formData.tipo_afectacion}
@@ -318,9 +263,9 @@ const FormMentenimiento = () => {
 
                       </div>
                       <div className="form-group">
-                        <FormControl variant="outlined" fullWidth sx={{ mt: 2 }}>
+                        <FormControl required variant="outlined" fullWidth sx={{ mt: 2 }}>
                           <InputLabel id="subtipoAfectacion-label">Subtipo de Afectación</InputLabel>
-                          <Select labelId="subtipoAfectacion-label"
+                          <Select  required labelId="subtipoAfectacion-label"
                             onChange={handleInputChange}
                             name="subtipo_afectacion" // Asegura que el name sea correcto
                             value={formData.subtipo_afectacion}
@@ -347,9 +292,9 @@ const FormMentenimiento = () => {
                       </div>
 
                       <div className="form-group">
-                        <FormControl variant="outlined" fullWidth sx={{ mt: 2 }}>
+                        <FormControl required variant="outlined" fullWidth sx={{ mt: 2 }}>
                           <InputLabel id="ubicacionMantenimiento-label">Ubicación del Mantenimiento</InputLabel>
-                          <Select labelId="ubicacionMantenimiento-label"
+                          <Select required labelId="ubicacionMantenimiento-label"
                             onChange={handleInputChange}
                             name="ubicacion_mmto" // Asegura que el name sea correcto
                             value={formData.ubicacion_mmto}
@@ -435,9 +380,14 @@ const FormMentenimiento = () => {
             <br />
           </Box>
         </div>
+
+        )
+        
+        }
+       
       </ThemeProvider>
     )
   }
 }
 
-  export default FormMentenimiento
+export default FormMentenimiento
