@@ -107,6 +107,16 @@ function Register() {
         });
     };
 
+    const handleButtonClickGA = () => {
+        // Envía un evento personalizado a Google Analytics cuando se hace clic en el botón.
+        ReactGA.event({
+         'category': 'Button',
+          'action': 'Button Clicked Login',
+        });
+    
+       
+      };
+
     return (
         <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
             <div className="container-fluid" id="formAuthLogin">
@@ -211,6 +221,8 @@ function Register() {
 
                                 }}
                                 onSubmit={handleSubmit}
+                                onClick={handleButtonClickGA}
+
                             >
                                 Siguiente
                             </Button>

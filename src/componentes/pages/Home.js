@@ -59,7 +59,7 @@ function Home() {
 
   useEffect(() => {
     // Envía un evento cuando el componente Docs se monta (se renderiza).
-  ReactGA.pageview(window.location.pathname);
+    ReactGA.pageview(window.location.pathname);
   }, []);
 
   // Función fecha del día actual
@@ -371,7 +371,7 @@ function Home() {
       const fechaOriginal = data.fecha_ofer;
       const fechaPartes = fechaOriginal.split('T')[0].split('-'); // Dividir la fecha en partes
       const fechaFormateada = `${fechaPartes[2]}/${fechaPartes[1]}/${fechaPartes[0]}`;
-  
+
       return (
         <div>
           <p> {fechaFormateada}</p>
@@ -392,7 +392,7 @@ function Home() {
       const fechaOriginal = data.fecha_inm;
       const fechaPartes = fechaOriginal.split('T')[0].split('-'); // Dividir la fecha en partes
       const fechaFormateada = `${fechaPartes[2]}/${fechaPartes[1]}/${fechaPartes[0]}`;
-  
+
       return (
         <div>
           <p> {fechaFormateada}</p>
@@ -407,29 +407,45 @@ function Home() {
       );
     }
   }
-  
 
- function handleHometLinkClick() {
+
+  function handleHometLinkClick() {
     // Envía un evento cuando se hace clic en un enlace de documento.
     ReactGA.event({
-   'category': 'clic',
-     'action': `Clicked on button`,
-     'label': 'Botón cards',
-    
-    });  
+      'category': 'clic',
+      'action': `Clicked on button`,
+      'label': 'Botón cards',
+
+    });
+
+  };
+  function handleHometLinkClickWhasApp() {
+    // Envía un evento cuando se hace clic en un enlace de documento.
+    ReactGA.event({
+      'category': 'clic',
+      'action': `Clicked on button WhatsApp`,
+      'label': 'Button WhatsApp',
+
+    });
 
   };
 
-  
+  function handleHometLinkClickCalendly() {
+    // Envía un evento cuando se hace clic en un enlace de documento.
+    ReactGA.event({
+      'category': 'clic',
+      'action': `Clicked on button Calendly`,
+      'label': 'Button Calendly',
+
+    });
+
+  };
 
 
   return (
     <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
       <div className="  ">
         <Navbar />
-
-
-
         {loading ? (<div className='loanding '>
           <div className='loanding-container'>
             <h2 className='text-loandig '>Cargando...</h2>
@@ -459,7 +475,7 @@ function Home() {
               {/*Contenedor de Propuesta Comercial  container-sm  Container-cards-seccion-m centrado card-seccion" */}
 
 
-              <div className=" Container-cards-seccion-mui" onClick={handleHometLinkClick()}   id="cardComponet">
+              <div className=" Container-cards-seccion-mui" onClick={handleHometLinkClick()} id="cardComponet">
                 <Link to='/offer' className="link-style">
                   <Container maxWidth='xl' className="">
                     <Grid container className="" sx={{
@@ -563,16 +579,16 @@ function Home() {
                             </div>
                           </Grid>
                           <Grid item xs={2} md={2} lg={2}>
-                          <div className="">
-                                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                    className="arrow-menu-home-mui" />
-                                </div>
+                            <div className="">
+                              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
+                                className="arrow-menu-home-mui" />
+                            </div>
                           </Grid>
                         </Grid>
                       </Grid>
                     </Grid>
                   </Container>
-               
+
                 </Link>
               </div>
 
@@ -626,7 +642,7 @@ function Home() {
                         <Button
                           fullWidth
                           variant="contained"
-                          onClick={handleHometLinkClick()}
+                          onClick={handleHometLinkClickCalendly}
                           sx={{
                             marginTop: '10px',
                             mb: 3,
@@ -662,7 +678,7 @@ function Home() {
                         <Button
                           fullWidth
                           variant="contained"
-                          onClick={handleHometLinkClick()}
+                          onClick={handleHometLinkClickWhasApp}
 
                           sx={{
 

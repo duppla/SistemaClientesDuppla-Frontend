@@ -14,6 +14,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import FacebookIcon from '@mui/icons-material/Facebook';
 /*import { googleLogout } from "@react-oauth/google";*/
 /*import FacebookLogin from 'react-facebook-login';*/
+import ReactGA from 'react-ga';
 
 
 const themeLogin = createTheme({
@@ -43,45 +44,68 @@ function login() {
         alert("evento de clik")
     };*/
 
+    const handleButtonClickGAGoogle = () => {
+        // Envía un evento personalizado a Google Analytics cuando se hace clic en el botón.
+        ReactGA.event({
+            'category': 'Button',
+            'action': 'Button Clicked in Sing in Google',
+        });
+
+
+    };
+
+    const handleButtonClickGASingin = () => {
+        // Envía un evento personalizado a Google Analytics cuando se hace clic en el botón.
+        ReactGA.event({
+            'category': 'Button',
+            'action': 'Button Clicked Sing in',
+        });
+
+
+    };
+
+
+
+
     return (
         <ThemeProvider theme={themeLogin} sx={{ m: 0, p: 0, }}>
-        <div className="container-fluid">   
-            <Container className='cetrado' component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        mt: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignContent: 'center',
-                        alignItems: 'center',
-                        textAlign: 'start',
+            <div className="container-fluid">
+                <Container className='cetrado' component="main" maxWidth="xs">
+                    <CssBaseline />
+                    <Box
+                        sx={{
+                            mt: 4,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                            textAlign: 'start',
 
-                    }}
-                >
-                    <div >
-                        <img src={Iduppla} alt="" style={{
-                            width: '327px',
-                            height: '269px',
-                        }} />
-                    </div>
-                    <Typography component="h1" variant="" sx={{
-                        mt: 3,
+                        }}
+                    >
+                        <div >
+                            <img src={Iduppla} alt="" style={{
+                                width: '327px',
+                                height: '269px',
+                            }} />
+                        </div>
+                        <Typography component="h1" variant="" sx={{
+                            mt: 3,
 
-                        textAlign: 'center',
-                        fontFamily: 'Rustica',
-                        fontStyle: 'normal',
-                        fontWeight: '400',
-                        fontSize: '20px',
-                        color: '#0A3323',
-                        lineHeight: '20px',
-                    }}>
-                        <h1>Sistema Clientes
-                        </h1>
-                    </Typography>
+                            textAlign: 'center',
+                            fontFamily: 'Rustica',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            fontSize: '20px',
+                            color: '#0A3323',
+                            lineHeight: '20px',
+                        }}>
+                            <h1>Sistema Clientes
+                            </h1>
+                        </Typography>
 
-                    <Box component="form" noValidate sx={{ marginTop: '24px', alignItems: 'center', }}>
-                        {/*  <TextField
+                        <Box component="form" noValidate sx={{ marginTop: '24px', alignItems: 'center', }}>
+                            {/*  <TextField
                             margin="normal"
                             required
                             fullWidth
@@ -93,50 +117,50 @@ function login() {
                             autoFocus
                         /> */}
 
-                        <Link to='/login' className="btn-decoration">
-                            <Button
+                            <Link to='/login' className="btn-decoration">
+                                <Button
+                                    onClick={handleButtonClickGASingin}
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{
+                                        marginTop: '30px',
+                                        mb: 1,
+                                        background: '#81A1F8',
+                                        borderRadius: '10px',
+                                        color: '#FFFFFF',
+                                        borderRadius: '10px',
+                                        height: '56px',
+                                        textTransform: 'none',
+                                        fontSize: '18px',
+                                        alignItems: 'center',
+                                        width: '100',
 
+                                    }}
+                                >
+                                    Iniciar Sesión
+                                </Button>
+                            </Link>
+                            <Button
                                 fullWidth
                                 variant="contained"
+                                onClick={handleButtonClickGAGoogle}
+                                startIcon={<GoogleIcon style={{ color: '#4285F4', width: '32px', height: '32px' }} />}
                                 sx={{
-                                    marginTop: '30px',
+                                    marginTop: '10px',
                                     mb: 1,
-                                    background: '#81A1F8',
+                                    background: '#ffffff',
                                     borderRadius: '10px',
-                                    color: '#FFFFFF',
+                                    color: '#0A3323',
                                     borderRadius: '10px',
                                     height: '56px',
                                     textTransform: 'none',
-                                    fontSize: '18px',
-                                    alignItems: 'center',
-                                    width: '100',
+                                    borderColor: '#81A1F8',
 
                                 }}
                             >
-                                Iniciar Sesión
+                                Sign in with Google
                             </Button>
-                        </Link>
-                        <Button
-
-                            fullWidth
-                            variant="contained"
-                            startIcon={<GoogleIcon style={{ color: '#4285F4', width: '32px', height: '32px' }} />}
-                            sx={{
-                                marginTop: '10px',
-                                mb: 1,
-                                background: '#ffffff',
-                                borderRadius: '10px',
-                                color: '#0A3323',
-                                borderRadius: '10px',
-                                height: '56px',
-                                textTransform: 'none',
-                                borderColor: '#81A1F8',
-
-                            }}
-                        >
-                            Sign in with Google
-                        </Button>
-                      {/*   <Button
+                            {/*   <Button
 
                             fullWidth
                             variant="contained"
@@ -158,22 +182,22 @@ function login() {
                             Sign in with Facebook
                         </Button> */}
 
-                     {/*    <div className="centrado">
+                            {/*    <div className="centrado">
                             <Link to='/password' className="links">Registro de contraseña</Link>
 
                         </div> */}
 
 
+                        </Box>
                     </Box>
-                </Box>
 
-            </Container>
-
-
-        </div >
+                </Container>
 
 
-</ThemeProvider>
+            </div >
+
+
+        </ThemeProvider>
 
     );
 

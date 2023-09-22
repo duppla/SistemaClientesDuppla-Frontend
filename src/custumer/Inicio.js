@@ -45,8 +45,8 @@ function Inicio() {
 
     useEffect(() => {
         // Envía un evento cuando el componente Docs se monta (se renderiza).
-      ReactGA.pageview(window.location.pathname);
-      }, []);
+        ReactGA.pageview(window.location.pathname);
+    }, []);
 
     const navigate = useNavigate();
 
@@ -176,6 +176,12 @@ function Inicio() {
         setTooltips((prevState) => {
             const updatedTooltips = [...prevState];
             updatedTooltips[index] = true;
+            ReactGA.event({
+                'category': 'Clic',
+                'action': `Clicked on tooltip `,
+                'label': 'Tooltip',
+            });
+
             return updatedTooltips;
         });
     };
@@ -183,6 +189,11 @@ function Inicio() {
         setTooltips((prevState) => {
             const updatedTooltips = [...prevState];
             updatedTooltips[index] = false;
+            ReactGA.event({
+                'category': 'Clic',
+                'action': `Clicked on tooltip `,
+                'label': 'Tooltip',
+            });
             return updatedTooltips;
         });
     }
@@ -245,12 +256,38 @@ function Inicio() {
 
     // console.log(dataCustumer.participacionInicial +'prueba')
 
+    const handleLinkClickPago = () => {
+        // Envía un evento cuando se hace clic en un enlace de documento.
+        ReactGA.event({
+            'category': 'Clic',
+            'action': `Clicked on Button Link: Pagos `,
+            'label': 'Button',
+        });
+    };
+    const handleLinkClickMenuMAH = () => {
+        // Envía un evento cuando se hace clic en un enlace de documento.
+        ReactGA.event({
+            'category': 'Clic',
+            'action': `Clicked on Button Link: Mantenimiento, Ayuda y Historial `,
+            'label': 'Button',
+        });
+    };
+    
+    function NavbarClickMenu (){     
+        // Envía un evento cuando el componente Navbar se renderiza.
+         ReactGA.event({
+          'category': 'Component Interaction',
+          'action': 'Item menu',
+        });
+     
+}
+
 
     return (
         <div className=" container-fluid ">
             <NavbarCustomer />
 
-            {loading ? (  <div className='loanding '>
+            {loading ? (<div className='loanding '>
                 <div className='loanding-container'>
                     <h2 className='text-loandig '>Cargando...</h2>
                     <div className='text-loandig '
@@ -266,136 +303,136 @@ function Inicio() {
                 </div>
             </div>) : (
 
-            <div>
-                {/*Sección grafica- semi-donut*/}
-                <div className=" container-inicio-graph container-fluid ">
-                    <div className='grafict-container-inicio-one  '>
-                        <div className='title-init'>
-                            <b><p className='title-init-progressbar'>Actividad periodo</p></b>
-                        </div>
-                        <div className='centrado'>
-                            <GrafictHome />
-                        </div>
-                        <div className='sobrepuesto'>
-                            <div>
-                                <h1 className="d-flex-justify-content-center">{GrafictPie()}%</h1>
+                <div>
+                    {/*Sección grafica- semi-donut*/}
+                    <div className=" container-inicio-graph container-fluid ">
+                        <div className='grafict-container-inicio-one  '>
+                            <div className='title-init'>
+                                <b><p className='title-init-progressbar'>Actividad periodo</p></b>
                             </div>
-                            <div>
-                                <p className="d-flex-justify-content-center">
-                                    Meta periodo
-                                </p>
+                            <div className='centrado'>
+                                <GrafictHome />
                             </div>
-                        </div>
-                        <div className="card-docs-grafic  ">
-                            <div className="col-6 row prueba-inicio-espacio-u">
-                                <div className="col-2 prueba-espacio-img-verde">
-                                    <img src={Istatec} className="" alt="" height='12px' width='12px' />
+                            <div className='sobrepuesto'>
+                                <div>
+                                    <h1 className="d-flex-justify-content-center">{GrafictPie()}%</h1>
                                 </div>
-                                <div className="col-4 ">
-                                    <p className="text-inicio-gra">Participación inicial</p>
+                                <div>
+                                    <p className="d-flex-justify-content-center">
+                                        Meta periodo
+                                    </p>
                                 </div>
-                            </div >
-                            <div className="col-4 row prueba-inicio-espacio-u">
-                                <div className="col-2">
-                                    <div
-                                        className="tooltip-container"
-                                        onMouseEnter={() => handleMouseEnter(4)}
-                                        onMouseLeave={() => handleMouseLeave(4)}
-                                    >
-                                        <img src={IconToolytip} className="warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
-                                        {tooltips[4] && <div className="tooltip-grafict-custumer tooltip-text-c"> Participación a inicio de periodo</div>}
+                            </div>
+                            <div className="card-docs-grafic  ">
+                                <div className="col-6 row prueba-inicio-espacio-u">
+                                    <div className="col-2 prueba-espacio-img-verde">
+                                        <img src={Istatec} className="" alt="" height='12px' width='12px' />
                                     </div>
-                                </div>
-                                <div className="col-2 ">
-                                </div>
-                            </div >
-                            <div className="col-6 row prueba-inicio-espacio-u">
-                                <div className="col-2 ">
-                                </div>
-                                <div className="col-4 ">
-                                    <p className="text-inicio-gra ">{dataCustumer.participacionInicial}% </p>
-                                </div>
-                            </div >
-                        </div>
-                        <div className="card-docs-grafic-two">
-                            <div className="col-6 row prueba-inicio-espacio-u">
-                                <div className="col-2 prueba-espacio-img-verde">
-                                    <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                </div>
-                                <div className="col-4 ">
-                                    <p className="text-inicio-gra">Has comprado</p>
-                                </div>
-                            </div >
-                            <div className="col-4 row prueba-inicio-espacio-u">
-                                <div className="col-2 ">
-                                    <div
-                                        className="tooltip-container"
-                                        onMouseEnter={() => handleMouseEnter(5)}
-                                        onMouseLeave={() => handleMouseLeave(5)}
-                                    >
-                                        <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict" alt="" height='16px' width='16px' />
-                                        {tooltips[5] && <div className="tooltip-grafict-custumer tooltip-text-c"> Esta es la compra que llevas en el periodo actual</div>}
+                                    <div className="col-4 ">
+                                        <p className="text-inicio-gra">Participación inicial</p>
                                     </div>
+                                </div >
+                                <div className="col-4 row prueba-inicio-espacio-u">
+                                    <div className="col-2">
+                                        <div
+                                            className="tooltip-container"
+                                            onMouseEnter={() => handleMouseEnter(4)}
+                                            onMouseLeave={() => handleMouseLeave(4)}
+                                        >
+                                            <img src={IconToolytip} className="warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
+                                            {tooltips[4] && <div className="tooltip-grafict-custumer tooltip-text-c"> Participación a inicio de periodo</div>}
+                                        </div>
+                                    </div>
+                                    <div className="col-2 ">
+                                    </div>
+                                </div >
+                                <div className="col-6 row prueba-inicio-espacio-u">
+                                    <div className="col-2 ">
+                                    </div>
+                                    <div className="col-4 ">
+                                        <p className="text-inicio-gra ">{dataCustumer.participacionInicial}% </p>
+                                    </div>
+                                </div >
+                            </div>
+                            <div className="card-docs-grafic-two">
+                                <div className="col-6 row prueba-inicio-espacio-u">
+                                    <div className="col-2 prueba-espacio-img-verde">
+                                        <img src={Istateb} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                    </div>
+                                    <div className="col-4 ">
+                                        <p className="text-inicio-gra">Has comprado</p>
+                                    </div>
+                                </div >
+                                <div className="col-4 row prueba-inicio-espacio-u">
+                                    <div className="col-2 ">
+                                        <div
+                                            className="tooltip-container"
+                                            onMouseEnter={() => handleMouseEnter(5)}
+                                            onMouseLeave={() => handleMouseLeave(5)}
+                                        >
+                                            <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict" alt="" height='16px' width='16px' />
+                                            {tooltips[5] && <div className="tooltip-grafict-custumer tooltip-text-c"> Esta es la compra que llevas en el periodo actual</div>}
+                                        </div>
 
-                                </div>
-                                <div className="col-2 ">
-                                </div>
-                            </div >
-                            <div className="col-6 row prueba-inicio-espacio-u">
-                                <div className="col-2 ">
-                                </div>
-                                <div className="col-4 ">
-                                    <p className="text-inicio-gra ">{dataGrafictT()}%</p>
-                                </div>
-                            </div >
-                        </div>
-                        <div className="card-docs-grafic-two">
-                            <div className="col-6 row prueba-inicio-espacio-u">
-                                <div className="col-2 prueba-espacio-img-verde">
-                                    <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                </div>
-                                <div className="col-4 ">
-                                    <p className="text-inicio-gra">Faltante meta</p>
-                                </div>
-                            </div >
-                            <div className="col-4 row prueba-inicio-espacio-u">
-                                <div className="col-2">
-                                    <div
-                                        className="tooltip-container"
-                                        onMouseEnter={() => handleMouseEnter(6)}
-                                        onMouseLeave={() => handleMouseLeave(6)}
-                                    >
-                                        <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
-                                        {tooltips[6] && <div className="tooltip-grafict-custumer tooltip-text-c ">Esta es la meta para comprar el % en el periodo actual</div>}
                                     </div>
-                                </div>
-                                <div className="col-2 ">
-                                </div>
-                            </div >
-                            <div className="col-6 row prueba-inicio-espacio-u">
-                                <div className="col-2 ">
-                                </div>
-                                <div className="col-4 ">
-                                    <p className="text-inicio-gra ">{GrafictMeta()}%</p>
-                                </div>
-                            </div >
-                        </div>
-                        <br />
-                        <div className='horizontal-line'>
-                        </div>
-                        <br />
-                        <div className="card-docs-init-customer ">
-                            <div className="card-body-docs col-6">
-                                <p>Pago mínimo</p>
+                                    <div className="col-2 ">
+                                    </div>
+                                </div >
+                                <div className="col-6 row prueba-inicio-espacio-u">
+                                    <div className="col-2 ">
+                                    </div>
+                                    <div className="col-4 ">
+                                        <p className="text-inicio-gra ">{dataGrafictT()}%</p>
+                                    </div>
+                                </div >
                             </div>
-                            <div className="col-6 outline text-dropdown-right">
-                                <p className='text-end text-space-goal-data '>${formatterPagoMinimo}</p>
+                            <div className="card-docs-grafic-two">
+                                <div className="col-6 row prueba-inicio-espacio-u">
+                                    <div className="col-2 prueba-espacio-img-verde">
+                                        <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
+                                    </div>
+                                    <div className="col-4 ">
+                                        <p className="text-inicio-gra">Faltante meta</p>
+                                    </div>
+                                </div >
+                                <div className="col-4 row prueba-inicio-espacio-u">
+                                    <div className="col-2">
+                                        <div
+                                            className="tooltip-container"
+                                            onMouseEnter={() => handleMouseEnter(6)}
+                                            onMouseLeave={() => handleMouseLeave(6)}
+                                        >
+                                            <img src={IconToolytip} className="  warning font-medium-2 mr-2 tooltip-grafict " alt="" height='16px' width='16px' />
+                                            {tooltips[6] && <div className="tooltip-grafict-custumer tooltip-text-c ">Esta es la meta para comprar el % en el periodo actual</div>}
+                                        </div>
+                                    </div>
+                                    <div className="col-2 ">
+                                    </div>
+                                </div >
+                                <div className="col-6 row prueba-inicio-espacio-u">
+                                    <div className="col-2 ">
+                                    </div>
+                                    <div className="col-4 ">
+                                        <p className="text-inicio-gra ">{GrafictMeta()}%</p>
+                                    </div>
+                                </div >
                             </div>
                             <br />
+                            <div className='horizontal-line'>
+                            </div>
+                            <br />
+                            <div className="card-docs-init-customer ">
+                                <div className="card-body-docs col-6">
+                                    <p>Pago mínimo</p>
+                                </div>
+                                <div className="col-6 outline text-dropdown-right">
+                                    <p className='text-end text-space-goal-data '>${formatterPagoMinimo}</p>
+                                </div>
+                                <br />
+                            </div>
                         </div>
                     </div>
-                </div>
-                {/*Meta mensual 
+                    {/*Meta mensual 
                     <div className="card-docs-init-customer  ">
                         <div className="card-body-docs col-1">
                             <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
@@ -410,201 +447,202 @@ function Inicio() {
 
 
 
-                {/*Sección dropdown Mes*/}
-                <div className="accordion container-form-centrado-customer-card  " id="accordionExample">
-                    <div className="accordion-item  accordion-item-mui">
-                        <h2 className="accordion-header" id="headingTwo">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <div className=" text-start " id="basic-addon4"><h5>{mes}</h5></div>
-                                <div className="form-text text-end text-space-custumer" id="basic-addon4">Fecha de corte: {date}</div>
-                            </button>
-                        </h2>
-                        {/*---------------------------------------------------------------------------------------------------------------------------------*/}
-                        <div className="card-payment-home-custumer ">
-                            <div className="collapse" id="collapseExample">
-                                <div className="card ">
-                                    <div className="card card-new" >
-                                        <div className="d-grid">
-                                            <br />
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs-c  row col-6">
-                                                    <div className=" col-5">
-                                                        <p className="space-title-dop">Arrendamiento</p>
-                                                    </div>
-                                                    <div className="col-2 tooltip-customer">
-                                                        <div
-                                                            className="tooltip-container"
-                                                            onMouseEnter={() => handleMouseEnter(0)}
-                                                            onMouseLeave={() => handleMouseLeave(0)}
-                                                        >
-                                                            <img src={IconToolytip} className="warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                            {tooltips[0] && <div className="tooltip ">Pago mensual que realizas por el uso del inmueble</div>}
+                    {/*Sección dropdown Mes*/}
+                    <div className="accordion container-form-centrado-customer-card  " id="accordionExample">
+                        <div className="accordion-item  accordion-item-mui">
+                            <h2 className="accordion-header" id="headingTwo">
+                                <button onClick={NavbarClickMenu} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    <div className=" text-start " id="basic-addon4"><h5>{mes}</h5></div>
+                                    <div className="form-text text-end text-space-custumer" id="basic-addon4">Fecha de corte: {date}</div>
+                                </button>
+                            </h2>
+                            {/*---------------------------------------------------------------------------------------------------------------------------------*/}
+                            <div className="card-payment-home-custumer ">
+                                <div className="collapse" id="collapseExample">
+                                    <div className="card ">
+                                        <div className="card card-new" >
+                                            <div className="d-grid">
+                                                <br />
+                                                <div className="card-docs-init  ">
+                                                    <div className="card-body-docs-c  row col-6">
+                                                        <div className=" col-5">
+                                                            <p className="space-title-dop">Arrendamiento</p>
+                                                        </div>
+                                                        <div className="col-2 tooltip-customer">
+                                                            <div
+                                                                className="tooltip-container"
+                                                                onMouseEnter={() => handleMouseEnter(0)}
+                                                                onMouseLeave={() => handleMouseLeave(0)}
+                                                            >
+                                                                <img src={IconToolytip} className="warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
+                                                                {tooltips[0] && <div className="tooltip ">Pago mensual que realizas por el uso del inmueble</div>}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="col-6 outline text-dropdown-right">
-                                                    <p className='text-end text-space-card-c '>${formatterCannon}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs-c  row col-6">
-                                                    <div className=" col-5">
-                                                        <p className="space-title-dop">Gastos</p>
+                                                    <div className="col-6 outline text-dropdown-right">
+                                                        <p className='text-end text-space-card-c '>${formatterCannon}</p>
                                                     </div>
-                                                    <div className="col-2 tooltip-customer">
-                                                        <div
-                                                            className="tooltip-container"
-                                                            onMouseEnter={() => handleMouseEnter(1)}
-                                                            onMouseLeave={() => handleMouseLeave(1)}
-                                                        >
-                                                            <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                            {tooltips[1] && <div className="tooltip">Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.</div>}
+                                                </div>
+                                                <div className="card-docs-init  ">
+                                                    <div className="card-body-docs-c  row col-6">
+                                                        <div className=" col-5">
+                                                            <p className="space-title-dop">Gastos</p>
+                                                        </div>
+                                                        <div className="col-2 tooltip-customer">
+                                                            <div
+                                                                className="tooltip-container"
+                                                                onMouseEnter={() => handleMouseEnter(1)}
+                                                                onMouseLeave={() => handleMouseLeave(1)}
+                                                            >
+                                                                <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
+                                                                {tooltips[1] && <div className="tooltip">Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.</div>}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    <p className='text-end text-space-card-c '>${formatterGastos}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs-c row col-6">
-
-                                                    <div className=" col-5">
-                                                        <p className="space-title-dop">Reservas</p>
+                                                    <div className="col-6 outline">
+                                                        <p className='text-end text-space-card-c '>${formatterGastos}</p>
                                                     </div>
-                                                    <div className="col-2 tooltip-customer">
-                                                        <div
-                                                            className="tooltip-container"
-                                                            onMouseEnter={() => handleMouseEnter(2)}
-                                                            onMouseLeave={() => handleMouseLeave(2)}
-                                                        >
-                                                            <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                            {tooltips[2] && <div className="tooltip">Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.</div>}
+                                                </div>
+                                                <div className="card-docs-init  ">
+                                                    <div className="card-body-docs-c row col-6">
+
+                                                        <div className=" col-5">
+                                                            <p className="space-title-dop">Reservas</p>
+                                                        </div>
+                                                        <div className="col-2 tooltip-customer">
+                                                            <div
+                                                                className="tooltip-container"
+                                                                onMouseEnter={() => handleMouseEnter(2)}
+                                                                onMouseLeave={() => handleMouseLeave(2)}
+                                                            >
+                                                                <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
+                                                                {tooltips[2] && <div className="tooltip">Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.</div>}
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div className="col-6 outline">
+                                                        <p className='text-end text-space-card-c'>${formatterReservas}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="card-docs-init  ">
+                                                    <div className="card-body-docs-c row col-6">
+                                                        <div className=" col-5">
+                                                            <p className="space-title-dop">Administración</p>
+                                                        </div>
+                                                        <div className="col-2 tooltip-customer">
+                                                            <div
+                                                                className="tooltip-container"
+                                                                onMouseEnter={() => handleMouseEnter(3)}
+                                                                onMouseLeave={() => handleMouseLeave(3)}
+                                                            >
+                                                                <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
+                                                                {tooltips[3] && <div className="tooltip">Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.</div>}
+                                                            </div>
                                                         </div>
                                                     </div>
-
-
-                                                </div>
-                                                <div className="col-6 outline">
-                                                    <p className='text-end text-space-card-c'>${formatterReservas}</p>
-                                                </div>
-                                            </div>
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs-c row col-6">
-                                                    <div className=" col-5">
-                                                        <p className="space-title-dop">Administración</p>
-                                                    </div>
-                                                    <div className="col-2 tooltip-customer">
-                                                        <div
-                                                            className="tooltip-container"
-                                                            onMouseEnter={() => handleMouseEnter(3)}
-                                                            onMouseLeave={() => handleMouseLeave(3)}
-                                                        >
-                                                            <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                            {tooltips[3] && <div className="tooltip">Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.</div>}
-                                                        </div>
+                                                    <div className="col-6 outline">
+                                                        < p className='text-end text-space-card-c'>${formatterAdministracion}</p>
                                                     </div>
                                                 </div>
-                                                <div className="col-6 outline">
-                                                    < p className='text-end text-space-card-c'>${formatterAdministracion}</p>
-                                                </div>
-                                            </div>
 
-                                            <div className="card-docs-init  ">
-                                                <div className="card-body-docs-c col-6">
-                                                    <p className="text-blue"><b>Total</b></p>
+                                                <div className="card-docs-init  ">
+                                                    <div className="card-body-docs-c col-6">
+                                                        <p className="text-blue"><b>Total</b></p>
+                                                    </div>
+                                                    <div className="col-6 outline">
+                                                        < p className='text-end text-space-card-c text-blue'><b>${formatterPagoMinimo}</b></p>
+                                                    </div>
                                                 </div>
-                                                <div className="col-6 outline">
-                                                    < p className='text-end text-space-card-c text-blue'><b>${formatterPagoMinimo}</b></p>
-                                                </div>
-                                            </div>
-                                            {/*<div className="input  input-pago">
+                                                {/*<div className="input  input-pago">
                                             <span className="span-pago" id="inputPagos">Paga otro valor</span>
                                             <input type="number" className="form-control" placeholder="$" aria-label="Username" aria-describedby="basic-addon1" />
                 </div>*/}
-                                            <br />
+                                                <br />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {/*componente pago*/}
+                    {/*componente pago*/}
 
 
-                {/*componente botones cerrar sesión y whatsApp */}
-                <Container maxWidth="xl" sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                    alignItems: 'center',
-                    mb: 4,
-                    mt: 4,
-                }}
-                    className=''>
-                    <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
-                    }}>
+                    {/*componente botones cerrar sesión y whatsApp */}
+                    <Container maxWidth="xl" sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                        mt: 4,
+                    }}
+                        className=''>
+                        <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
+                        }}>
 
-                        <Grid item sx={12} sm={12} md={12} lg={12} >
-                            <div className="">
-                                <a className="links text-white"
-                                    href='/pagos' >
-                                    <Button
-                                        fullWidth
-                                        variant="contained"
-                                        startIcon={<MonetizationOnIcon style={{ color: '#ffffff', width: '32px', height: '32px' }} />}
-                                        sx={{
-                                            marginTop: '20px',
-                                            mb: 3,
-                                            background: '#81A1F8',
-                                            borderRadius: '10px',
-                                            color: '#ffffff',
+                            <Grid item sx={12} sm={12} md={12} lg={12} >
+                                <div className="">
+                                    <a className="links text-white"
+                                        href='/pagos' >
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            startIcon={<MonetizationOnIcon style={{ color: '#ffffff', width: '32px', height: '32px' }} />}
+                                            onClick={handleLinkClickPago}
+                                            sx={{
+                                                marginTop: '20px',
+                                                mb: 3,
+                                                background: '#81A1F8',
+                                                borderRadius: '10px',
+                                                color: '#ffffff',
 
-                                            textTransform: 'none',
-                                            border: '1px solid #81A1F8',
-                                            height: '58px',
+                                                textTransform: 'none',
+                                                border: '1px solid #81A1F8',
+                                                height: '58px',
 
-                                            fontFamily: 'Helvetica',
-                                            fontSize: '20px',
+                                                fontFamily: 'Helvetica',
+                                                fontSize: '20px',
 
-                                            maxWidth: '390px', // Utiliza maxWidth en lugar de width
-                                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                            margin: '0 auto', // Centrar horizontalmente
-                                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                            alignItems: 'center', // Centrar verticalmente el contenido
-                                            minWidth: '380px',
-                                        }}
-                                    >
-                                        <b>  Pagar</b>
-                                    </Button>
-                                </a>
-                            </div>
-                        </Grid>
-                    </Grid>
-                </Container>
-                {/*Linea de división */}
-                <div className='centrado'>
-                    <img src={Vline} className="line-custumer centrado" alt="" />
-                </div>
-                {/*componentes de menú deslizable*/}
-                <div className='container-fluid  centrado'>
-                    <div className='container-btn-wrapper'>
-                        <div className='space-btn-wrapper'>
-                            <Link to='/formulario'>
-                                <div className='btn-wrapper-one'>
-                                    <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
-                                    <br />
+                                                maxWidth: '390px', // Utiliza maxWidth en lugar de width
+                                                width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                                                margin: '0 auto', // Centrar horizontalmente
+                                                display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                                                justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                                                alignItems: 'center', // Centrar verticalmente el contenido
+                                                minWidth: '380px',
+                                            }}
+                                        >
+                                            <b>  Pagar</b>
+                                        </Button>
+                                    </a>
                                 </div>
-                            </Link>
-                            <div>
-                                <p className='text-btn-wrapper'>Mantenimiento </p>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                    {/*Linea de división */}
+                    <div className='centrado'>
+                        <img src={Vline} className="line-custumer centrado" alt="" />
+                    </div>
+                    {/*componentes de menú deslizable*/}
+                    <div className='container-fluid  centrado'>
+                        <div className='container-btn-wrapper'>
+                            <div  onClick={handleLinkClickMenuMAH} className='space-btn-wrapper'>
+                                <Link to='/formulario'>
+                                    <div className='btn-wrapper-one'>
+                                        <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                        <br />
+                                    </div>
+                                </Link>
+                                <div>
+                                    <p className='text-btn-wrapper'>Mantenimiento </p>
+                                </div>
                             </div>
-                        </div>
 
-                        {/*<div className='space-btn-wrapper'>
+                            {/*<div className='space-btn-wrapper'>
                         <a className="links text-white"
                             href="https://calendly.com/agendadaniel">
                             <div className='btn-wrapper'>
@@ -616,21 +654,21 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Agendar una cita </p>
                         </div>
                     </div>*/}
-                        <div className='space-btn-wrapper' >
-                            <a className="links"
-                                href={whatsappLink}>
-                                <div className='btn-wrapper'>
-                                    <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
-                                    <br />
+                            <div onClick={handleLinkClickMenuMAH} className='space-btn-wrapper' >
+                                <a className="links"
+                                    href={whatsappLink}>
+                                    <div className='btn-wrapper'>
+                                        <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
+                                        <br />
+                                    </div>
+                                </a>
+                                <div>
+                                    <p className='text-btn-wrapper'>Tengo un problema </p>
                                 </div>
-                            </a>
-                            <div>
-                                <p className='text-btn-wrapper'>Tengo un problema </p>
                             </div>
-                        </div>
 
 
-                        {/* <div className='space-btn-wrapper'>
+                            {/* <div className='space-btn-wrapper'>
                         <Link to='/Ajustemeta' className='links'>
                             <div className='btn-wrapper'>
                                 <img src={Iajustemeta} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
@@ -641,21 +679,21 @@ function Inicio() {
                             <p className='text-btn-wrapper'>Ajustar meta </p>
                         </div>
                     </div>*/}
-                        <div className='space-btn-wrapper'>
-                            <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
-                                <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
-                                <br />
+                            <div onClick={handleLinkClickMenuMAH} className='space-btn-wrapper'>
+                                <Link to='/consolidado' className='links'> <div className='btn-wrapper'>
+                                    <img src={Ihistorialpago} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='24px' width='24px' />
+                                    <br />
+                                </div>
+                                </Link>
+                                <div>
+                                    <p className='text-btn-wrapper links'>Historial de pago </p>
+                                </div>
                             </div>
-                            </Link>
-                            <div>
-                                <p className='text-btn-wrapper links'>Historial de pago </p>
-                            </div>
+
                         </div>
-
                     </div>
-                </div>
 
-            </div>
+                </div>
             )}
 
         </div >

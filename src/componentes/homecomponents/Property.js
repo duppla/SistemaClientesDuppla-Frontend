@@ -38,12 +38,10 @@ const themeLogin = createTheme({
 
 function Property() {
     
-
     useEffect(() => {
-        // Envía un evento cuando el componente Docs se monta (se renderiza).
+        // Envía un evento cuando el componente Inmueble se monta (se renderiza).
       ReactGA.pageview(window.location.pathname);
       }, []);
-
       
     const estado = localStorage.getItem('estado');
 
@@ -362,13 +360,20 @@ function Property() {
     const handleButtonClickGA = () => {
         // Envía un evento personalizado a Google Analytics cuando se hace clic en el botón.
         ReactGA.event({
-          category: 'Boton de dudas WhatsApp',
-          action: 'Button Clicked in MyComponent',
+          'category': 'Button WhatsApp',
+          'action': 'Button Clicked WhatsApp',
         });
     
        
       };
+      function ClickDropdown() {
+        // Envía un evento cuando el componente Mantenimiento se monta (se renderiza).
+        ReactGA.event({
+            'category': 'Component Interaction',
+            'action': 'Property Component dropdown',
+        });
 
+    }
 
 
     return (
@@ -478,7 +483,7 @@ function Property() {
                                 <div className="accordion accordion-property " id="accordionExample">
                                     <div className="accordion-item acordion-item-border">
                                         <h2 className="accordion-header" id="headingTwo">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                            <button  onClick={ClickDropdown} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                                 <div className=" text-blue space-title-p " id="basic-addon4"><h5>Ver más</h5></div>
                                                 <div className="  text-space-property" id="basic-addon4"></div>
                                             </button>

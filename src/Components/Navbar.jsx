@@ -13,6 +13,7 @@ import Vlogout from "./../img/vlogout.svg"
 import Vrectangulo from "./../img/vrectanguler.svg"
 import Iconinm from "./../img/Iconinm.png"
 import Igo from "./../img/go.png"
+import ReactGA from 'react-ga';
 
 
 
@@ -21,6 +22,24 @@ import Igo from "./../img/go.png"
 import { useState } from 'react'
 
 const Navbar = () => {
+
+    function NavbarClick() {
+        // Envía un evento cuando el componente Mantenimiento se monta (se renderiza).
+        ReactGA.event({
+            'category': 'Component Interaction',
+            'action': 'Profile Component',
+        });
+
+    }
+
+    function NavbarClickMenu() {
+        // Envía un evento cuando el componente Navbar se renderiza.
+        ReactGA.event({
+            'category': 'Component Interaction',
+            'action': 'Item menu',
+        });
+
+    }
 
 
     let today = new Date();
@@ -124,13 +143,15 @@ const Navbar = () => {
 
 
 
+
+
     return (
         <Box sx={{ display: 'flex' }} className='profile '>
 
 
             {/*-----------------------------------------------------------contendeor principal----------------------------------------------------- */}
 
-            <Container  maxWidth="xl" sx={{ mt: 4, mb: 4, }}
+            <Container maxWidth="xl" sx={{ mt: 4, mb: 4, }}
                 className=''>
                 <Grid container className='centrado' maxWidth="xl" spacing={1} sx={{
 
@@ -141,7 +162,7 @@ const Navbar = () => {
                             <Grid item className='centrado' xs={8} md={8} lg={12} sx={{ mt: -4 }}>
                                 <img src={Idupplanaranja} className="  img-duppla-naranja " alt="" />
                             </Grid>
-                            <Grid className='centrado' item xs={8} md={8} lg={12} sx={{ mt: 2 }}>
+                            <Grid onClick={NavbarClick} className='centrado' item xs={8} md={8} lg={12} sx={{ mt: 2 }}>
                                 <Link to='/profile' className="link-styles"> <img src={Iperfil}
                                     className="  img-user-mui"
                                     alt="perfil" />
@@ -166,7 +187,7 @@ const Navbar = () => {
                                     mt: 1,
                                 }}>
                                     <p className="text-name-space" >{data.nombre && <p className="text-name-home">{convertirAMinusculas(data.nombre)}</p>}</p>
-                                   {/*  <p className="text-orange">{fecha}</p> */}
+                                    {/*  <p className="text-orange">{fecha}</p> */}
                                 </Typography>
                             </Grid>
 
@@ -176,7 +197,7 @@ const Navbar = () => {
 
                     <Grid item xs={2} md={2} lg={2} className='centrado'>
 
-                        <nav className=" col-2 navbar ">
+                        <nav onClick={NavbarClickMenu} className=" col-2 navbar ">
                             <div className=" icon-navbar-home">
                                 <button className="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                                     <span className="navbar-toggler-icon navbar-dark"></span>
@@ -189,7 +210,7 @@ const Navbar = () => {
                                                 <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
                                             </div>
                                             <ul className="navbar-nav " >
-                                                <li className="nav-item ">
+                                                <li onClick={NavbarClickMenu} className="nav-item ">
                                                     <Link to="/profile">
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
@@ -226,7 +247,7 @@ const Navbar = () => {
                                                     </Link>
                                                 </li>
                                                 {testEstado(estado)}
-                                                <li className="nav-item">
+                                                <li onClick={NavbarClickMenu} className="nav-item">
                                                     <Link to="/property">
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
@@ -244,7 +265,7 @@ const Navbar = () => {
                                                         </div>
                                                     </Link>
                                                 </li>
-                                                <li className="">
+                                                <li onClick={NavbarClickMenu} className="">
                                                     <Link to="/documents">
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
@@ -262,7 +283,7 @@ const Navbar = () => {
                                                         </div>
                                                     </Link>
                                                 </li>
-                                                <li className="nav-item">
+                                                <li onClick={NavbarClickMenu} className="nav-item">
                                                     <Link to="">
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
@@ -287,7 +308,7 @@ const Navbar = () => {
                             </div>
                         </nav>
 
-                       
+
 
                     </Grid>
                 </Grid>

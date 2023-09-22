@@ -13,10 +13,7 @@ function Annual() {
     
    useEffect(() => {
       // Envía un evento cuando el componente Docs se monta (se renderiza).
-    /*   ReactGA.event({
-        category: 'Component Interaction',
-        action: 'Entered Facturas Component',
-    }); */
+   
     ReactGA.pageview(window.location.pathname);
      
     }, []);
@@ -55,7 +52,7 @@ function Annual() {
     const [dataPago, setDataPago] = useState([]);
 
 
-    useEffect(() => {
+     useEffect(() => {
         const email = localStorage.getItem('email');
 
         const options = {
@@ -90,8 +87,11 @@ function Annual() {
                 setLoading(false);
             });
 
-    }, []);
+    }, []); 
     // console.log(dataPago);
+
+  
+      
 
     // redireccionamiento dependiendo si el usuario es true o false
     function testRedireccion() {
@@ -116,7 +116,25 @@ function Annual() {
         }
     }
 
+    function ClickDropdown(event) {
+         ReactGA.event({
+        'category': 'Clic',
+        'action': 'Monthly invoice from Sigo ',
+    }); 
+    }
 
+ /*    function funcionFecha() {
+        if (dataPago && dataPago.paymentDate) {
+          const fechaOriginal = dataPago.paymentDate;
+          const fechaPartes = fechaOriginal.split('T')[0].split('-'); // Dividir la fecha en partes
+          const fechaFormateada = `${fechaPartes[2]}/${fechaPartes[1]}/${fechaPartes[0]}`;
+    
+          return fechaFormateada;
+        }
+      } */
+
+      
+      
     return (
         <div className='container-consolidated-annual container-fluid'>
             {testRedireccion()}
@@ -168,7 +186,7 @@ function Annual() {
                                         <div className="accordion accordion-h-payment" id={`accordionExample-${index}`}>
                                             <div className="accordion-item   ">
                                                 <h2 className="accordion-header" id={`headingTwo-${index}`}>
-                                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-${index}`} aria-expanded="false" aria-controls={`mesDos-${index}`}>
+                                                    <button  onClick={ClickDropdown} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-${index}`} aria-expanded="false" aria-controls={`mesDos-${index}`}>
                                                         <div className="text-start text-blue " id="basic-addon4"><h4>
                                                             {(() => {
                                                                 /* const month = new Date(item.billingPeriod).getMonth(); */
@@ -219,10 +237,10 @@ function Annual() {
                                                                     {/* <p>{item.payment}</p> */}
                                                                 </div>
                                                                 <div className='text-notice-second-s centrado '>
-                                                                    <p>Saldo pendiente:$ {item.balance ? item.balance.toLocaleString() : '0'}</p>
+                                                                    <p>Saldo pendiente: $ {item.balance ? item.balance.toLocaleString() : '0'}</p>
                                                                 </div>
                                                                 <div className='text-notice-second centrado '>
-                                                                    <p>Fecha de pago:{item.paymentDate}</p>
+                                                                    <p>Fecha de pago: {item.paymentDate}</p>
                                                                 </div>
                                                         </div>
                                                         </div>

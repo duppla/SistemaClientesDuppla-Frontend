@@ -19,7 +19,7 @@ import Vline from "./../img/Vline.svg";
 
 import Vayuda from "./../img/Vayudacus.svg";
 import Vmoney from "./../img/money.png";
-
+import ReactGA from 'react-ga';
 
 
 
@@ -27,7 +27,24 @@ import Vmoney from "./../img/money.png";
 import { useState } from 'react'
 
 const NavbarCustomer = () => {
+   
+    function NavbarClick (){     
+            // Envía un evento cuando el componente Navbar se renderiza.
+             ReactGA.event({
+              'category': 'Component Interaction',
+              'action': 'Profile Component',
+            });
+         
+    }
 
+    function NavbarClickMenu (){     
+        // Envía un evento cuando el componente Navbar se renderiza.
+         ReactGA.event({
+          'category': 'Component Interaction',
+          'action': 'Item menu',
+        });
+     
+}
 
     // Función fecha del día actual
     let today = new Date();
@@ -35,10 +52,6 @@ const NavbarCustomer = () => {
     let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
     let fecha = `${dd}/${mm}/${yyyy}`;
-
-
-
-
 
 
     // Trae los datos del API 
@@ -84,13 +97,6 @@ const NavbarCustomer = () => {
     const handleLogoutCustumer = () => {
         logout();
     };
-
-
-
-
-
-
-
 
     {/*Función que cambia el nobre de usurio a minuscula */ }
 
@@ -146,7 +152,7 @@ const NavbarCustomer = () => {
                             <Grid item className='centrado' xs={8} md={8} lg={12} sx={{ mt: -4 }}>
                                 <img src={Idupplanaranja} className="  img-duppla-naranja " alt="" />
                             </Grid>
-                            <Grid className='centrado' item xs={8} md={8} lg={12} sx={{ mt: 2 }}>
+                            <Grid  onClick={NavbarClick}  className='centrado' item xs={8} md={8} lg={12} sx={{ mt: 2 }}>
                                 <Link to='/profile' className="link-styles"> <img src={Iperfil}
                                     className="  img-user-mui"
                                     alt="perfil" />
@@ -215,7 +221,7 @@ mt:4
                                 </div> */}
                             </Grid>
                             <Grid item xs={10} md={10} lg={10} className='centrado'>
-                            <nav className=" col-2 navbar  " >
+                            <nav onClick={NavbarClickMenu} className=" col-2 navbar  " >
                                 <div className="icon-navbar-customer">
                                     <button className="navbar-toggler border-none"
                                         type="button"
@@ -232,7 +238,7 @@ mt:4
                                                     <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
                                                 </div>
                                                 <ul className="navbar-nav " >
-                                                    <li className="nav-item ">
+                                                    <li onClick={NavbarClickMenu}  className="nav-item ">
                                                         <Link to="/profile">
                                                             <div className="row ">
                                                                 <div className="col-8 outline ">
@@ -250,7 +256,7 @@ mt:4
                                                             </div>
                                                         </Link>
                                                     </li>
-                                                    <li className="nav-item  nav-section">
+                                                    <li onClick={NavbarClickMenu} className="nav-item  nav-section">
                                                         <Link to="/pagos" className="links text-white"
                                                         >
                                                             <div className="row ">
@@ -288,7 +294,7 @@ mt:4
                                                 </div>
                                             </Link>
                                         </li>*/}
-                                                    <li className="">
+                                                    <li onClick={NavbarClickMenu}  className="">
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
                                                                 <a className="links  "
@@ -307,7 +313,7 @@ mt:4
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li className="nav-item  nav-section">
+                                                    <li  onClick={NavbarClickMenu}  className="nav-item  nav-section">
                                                         <Link to="/documents">
                                                             <div className="row ">
                                                                 <div className="col-8 outline ">
@@ -325,7 +331,7 @@ mt:4
                                                             </div>
                                                         </Link>
                                                     </li>
-                                                    <li className="nav-item  nav-section">
+                                                    <li onClick={NavbarClickMenu}  className="nav-item  nav-section">
                                                         <Link to="/property">
                                                             <div className="row ">
                                                                 <div className="col-8 outline ">
@@ -343,7 +349,7 @@ mt:4
                                                             </div>
                                                         </Link>
                                                     </li>
-                                                    <li className="nav-item">
+                                                    <li onClick={NavbarClickMenu}  className="nav-item">
 
                                                         <div className="row ">
                                                             <div className="col-8 outline ">
