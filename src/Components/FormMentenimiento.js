@@ -157,15 +157,19 @@ const FormMentenimiento = () => {
           </h1>
         </div>
         {isLoading ? (
-          <div className='loading'>
-            <div className='loading-container'>
+          <div className='loading '>
+            <div className='loading-container '>
               <h2 className='text-loading'>Cargando...</h2>
-              <div className='text-loading'>
-                <div className='loading-state-mui' style={{ width: '150px', height: '150px', }} >
+              <div className='text-loading centrado '>
+                <div className='loading-state-mui' style={{ width: '160px', height: '160px', }} >
+                 <div>
+
                   {/* Agrega tu animación de carga aquí */}
                   <Lottie animationData={animationData} 
                   loop 
                   autoplay />
+
+                 </div>
                 </div>
               </div>
             </div>
