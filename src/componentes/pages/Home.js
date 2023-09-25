@@ -194,16 +194,7 @@ function Home() {
     }
   }
 
-  function testInm() {
-    const testTwo = stateInm;
-    if (testTwo === null) {
-      return <img src={Istateg} className="btn-state-home" alt="" height='12px' width='12px' />
-    }
-    else {
-      return <img src={Istatev} className="btn-state-home" alt="" height='12px' width='12px' />
-    }
 
-  }
   // muestra el boton de ir a custumer usando el estado del usuaruio
   function testEstado() {
     const estado = localStorage.getItem('estado');
@@ -326,7 +317,7 @@ function Home() {
         }}>
           <Grid item xs={3} md={3} lg={3}>
             <div className="">
-              <img src={Istateblue} className="btn-state-home-grid-gris" alt="" height='14px' width='14px' />
+              <img src={Istateblue} className="btn-state-home-grid-blue" alt="" height='14px' width='14px' />
             </div>
           </Grid>
           <Grid item xs={7} md={7} lg={7}>
@@ -604,24 +595,31 @@ function Home() {
 
               {/*componente de estados*/}
 
-              <div className="borde-card-mui" >
-                <Grid container maxWidth="xl" spacing={1} sx={{
-                  alignItems: 'center',
-                  alignContent: 'center',
-                  textAlign: 'start',
-                  mt: 2
-                }}>
-                  <Grid sx={12} sm={10} md={10} lg={10} >
-                    <div>
-                      <div className=" text-mui-home ">
-                        <h6>Estado:</h6>
-                        {/* */}
-                        <b> {mensajeSf()} </b>
-                      </div>
-                    </div>
+              <div className=" Container-cards-seccion-mui-mensajesalesforce" id="cardComponet">
+
+                <Container maxWidth='xl' className="">
+                  <Grid container className="" sx={{
+                    ml: 1,
+                   
+                  }}>
+                    <Grid item xs={10} md={10} lg={10}>
+                      <Grid container maxWidth="xl" spacing={2} sx={{
+                        mt: 2,                        
+                      }}>
+                        <Grid item xs={10} sm={10} md={12} lg={12} >
+                          <div className="">
+                            <h6>Estado:</h6>
+                            {/* */}
+                            <b> {mensajeSf()} </b>                            
+                          </div>
+                        </Grid>
+                      </Grid>
+                    </Grid>
                   </Grid>
-                </Grid>
+                </Container>
               </div>
+
+             
 
               <Container maxWidth="xl" sx={{
                 display: 'flex',

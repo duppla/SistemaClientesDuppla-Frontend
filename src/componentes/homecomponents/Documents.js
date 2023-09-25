@@ -191,7 +191,7 @@ function Docs() {
                                                     <Grid item sx={8} sm={6} md={6} lg={6} >
                                                         <Typography component="h1" variant="" sx={{
                                                             mt: 0,
-                                                            textAlign: 'center',
+                                                            textAlign: 'start',
                                                             fontFamily: 'Rustica',
                                                             fontStyle: 'normal',
                                                             fontWeight: '500',
@@ -236,21 +236,23 @@ function Docs() {
                                                     display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
                                                     justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
                                                     alignItems: 'center', // Centrar verticalmente el contenido
-                                                    minWidth: '300px',
+                                                    minWidth: '280px',
+                                                    
                                                 }}>
                                                     <Grid item sx={2} sm={2} md={3} lg={3} >
                                                         <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
                                                     </Grid>
                                                     <Grid item sx={8} sm={6} md={6} lg={6} >
                                                         <Typography component="h1" variant="" sx={{
-                                                            mt: 0,
-                                                            textAlign: 'center',
+                                                                                                                       mt: 0,
+                                                            textAlign: 'start',
                                                             fontFamily: 'Rustica',
                                                             fontStyle: 'normal',
                                                             fontWeight: '500',
                                                             fontSize: '18px',
                                                             color: '#0A3323',
                                                             lineHeight: '20px',
+                                                            width: '180px',
 
                                                         }}>
                                                             {file.name}

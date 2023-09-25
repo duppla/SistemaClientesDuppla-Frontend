@@ -563,9 +563,14 @@ code {
 }
 
 .btn-state-home-grid-gris {
-  margin-top: 52px;
+  margin-top: 32px;
   margin-left: -8px;
 
+}
+
+.btn-state-home-grid-blue{
+  margin-top: 52px;
+  margin-left: -8px;
 }
 
 .text-inm-home-width{
@@ -762,6 +767,21 @@ code {
 
 }
 
+.Container-cards-seccion-mui-mensajesalesforce {
+
+  margin-top: 24px;
+  margin-bottom: 5px;
+
+  height: 160px;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 5px;
+  background-color: var(--color-fondo);
+  border: 1px solid #E1EBF4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+
+}
 
 .borde-card-mui {
 
