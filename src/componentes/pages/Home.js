@@ -192,6 +192,7 @@ function Home() {
     else {
       return <img src={Istatev} className="btn-state-home-grid" alt="" height='12px' width='12px' />
     }
+    
   }
 
 
@@ -500,7 +501,7 @@ function Home() {
 
                                 {/* card-text-grid  card-text-aprov-grid */}
                                 <div className="">
-                                  <p className="card-text-grid">{funcionFecha()}</p>
+                                  <p className="card-text-grid-prc">{funcionFecha()}</p>
                                   <p className="card-text-aprov-grid ">{stateOffer ? "Aceptado" : "Pendiente"}</p>
                                 </div>
                               </Grid>
