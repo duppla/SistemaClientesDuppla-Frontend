@@ -29,8 +29,7 @@ const Navbar = () => {
             'category': 'Component Interaction',
             'action': 'Profile Component',
         });
-
-    }
+        }
 
     function NavbarClickMenu() {
         // Envía un evento cuando el componente Navbar se renderiza.
@@ -38,17 +37,12 @@ const Navbar = () => {
             'category': 'Component Interaction',
             'action': 'Item menu',
         });
-
     }
-
-
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
     let fecha = `${dd}/${mm}/${yyyy}`;
-
-
 
     //Datos del usuario
     const [data, setData] = useState({});
@@ -85,8 +79,7 @@ const Navbar = () => {
             const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
             const datos = await response.json();
             //console.log(datos);
-            setStateInmu(datos);
-            //console.log(datos);
+            setStateInmu(datos);           
 
         }
         fetchDatos();
@@ -138,12 +131,7 @@ const Navbar = () => {
         else {
             return null
         }
-
     }
-
-
-
-
 
     return (
         <Box sx={{ display: 'flex' }} className='profile '>
