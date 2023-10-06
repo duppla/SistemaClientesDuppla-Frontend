@@ -24,6 +24,7 @@ function Payment() {
 
     // Uso de estados para el endpoint de la API
     const [dataCustumer, setDataCustumer] = useState({});
+    const [balance, setBalance] = useState(0);
     const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
      /* Estado que maneja el loading generar */
      const [loading, setLoading] = useState(true);
@@ -41,13 +42,24 @@ function Payment() {
             .then(response => {
                 setDataCustumer(response)
                 setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
+
+                const options2 = {method: 'GET', headers: {'User-Agent': 'insomnia/2023.5.8'}};
+
+                fetch('https://salesforce-gdrive-conn.herokuapp.com/deuda?customer='+response.cedula, options2)
+                .then(response => response.json())
+                .then(response => {
+                    setBalance(response.balance)
+                })
+                .catch(err => console.error(err));
+
+
                 setLoading(false);
             })
 
             .catch(err => {
                 setLoading(false);
                 console.error(err);
-            });
+            });        
     }, []);
 
     // Uso de estados para el endpoint de la API de manera global en el componente
@@ -73,6 +85,7 @@ function Payment() {
     });
     const formatterPagoMinimo = formatter.format(pagoMinimo);
     const formatoSug = formatter.format(formatoSugerido);
+    const balanceformat = formatter.format(balance);
 
 
     {/* Función que crea el link de ago que redirecciona a Paloma*/ }
@@ -96,7 +109,11 @@ function Payment() {
         } else if (selectedOption === "option2") {
             precio = pagoMinimo + (pagoMinimo * 0.17);
             descripcion = dataCustumer.inmuebleName;
-        } else {
+        } else if (selectedOption === "option3") {
+            precio = balance;
+            descripcion = dataCustumer.inmuebleName;
+        }
+        else {
             // borrar los punto y comas cuando se ingresa el monto
             precio = paymentValue.replace(/[.,]/g, "");
             descripcion = dataCustumer.inmuebleName;
@@ -135,7 +152,7 @@ function Payment() {
     function handlePayment(e) {
         e.preventDefault();
         let enlace;
-        if (selectedOption === 'option1' || selectedOption === 'option2') {
+        if (selectedOption === 'option1' || selectedOption === 'option2' || selectedOption === 'option3') {
             const enlace = generarEnlace();
             window.location.href = enlace;
             /*   if (selectedOption === "option1") {
@@ -388,9 +405,28 @@ function Payment() {
                                                 </Grid>
                                             </Grid>
                                         </Grid>
+                                        <Grid item sx={12} sm={12} md={10} lg={10} >
+                                            <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
+                                                mt: 2,
+                                            }}>
+                                                <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                    <FormControlLabel
+                                                        value="option2"
+                                                        control={<Radio />}
+                                                        checked={selectedOption === "option3"}
+                                                        label="Pago Total"
+                                                    />
+                                                </Grid>
+                                                <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                    <div className=" space-value">
+                                                        <p className="card-text text-end more space-value">$ {balanceformat}</p>
+                                                    </div>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
                                         <Grid item xs={12} sm={12} md={10} lg={10} >
                                             <Grid container
-                                                className={` Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
+                                                className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
                                                    /*  mt: 4, */
                                                     
                                                 }}>
@@ -404,7 +440,7 @@ function Payment() {
                                                             <FormControlLabel
                                                                 value="option3"
                                                                 control={<Radio />}
-                                                                checked={selectedOption === "option3"}
+                                                                checked={selectedOption === "option4"}
                                                                 label="Otro valor"
                                                             />
                                                         </Grid>
