@@ -113,6 +113,7 @@ function Payment() {
             precio = balance;
             descripcion = dataCustumer.inmuebleName;
         }
+
         else {
             // borrar los punto y comas cuando se ingresa el monto
             precio = paymentValue.replace(/[.,]/g, "");
@@ -147,27 +148,26 @@ function Payment() {
         setSelectedOption(event.target.value);
         setIsButtonDisabled(false);
     }
+     
 
     // Función que controla el input del formulario
     function handlePayment(e) {
         e.preventDefault();
         let enlace;
-        if (selectedOption === 'option1' || selectedOption === 'option2' || selectedOption === 'option3') {
+       
+        if ( selectedOption === 'option1' || selectedOption === 'option2' || selectedOption === 'option3' ) {
             const enlace = generarEnlace();
-            window.location.href = enlace;
-            /*   if (selectedOption === "option1") {
-                  enlace = generarEnlace();
-                  window.location.href = paymentURL;
-              } else if (selectedOption === "option2") {
-                  enlace = generarEnlace(); */
-        } else {
+            window.location.href = enlace;  
+        }
+              
+         else {
             const valor = paymentValue.replace(/[.,]/g, "");
             const precio = parseFloat(valor);
 
             const sumaValores = gastos + administracion;
             const cambioValores = numeral(sumaValores).format('0,0')
             //validación de digitos 5, 6, 7, 8, 9
-            console.log('precio', precio);
+            console.log('precio prueba', precio);
             console.log('sumaValores', sumaValores);
             const mensajeAlert = "El valor mínimo a pagar es $" + cambioValores + "";
             if (precio <= sumaValores) {
@@ -183,9 +183,11 @@ function Payment() {
             // Aquí puedes realizar alguna acción con el enlace generado
             enlace = generarEnlace(precio);
         }
-    }
+    } 
 
 
+  
+      
     // cambio de icono de ubicación en la barra de pago
     const stateChangeU = () => {
         switch (selectedOption) {
@@ -411,7 +413,7 @@ function Payment() {
                                             }}>
                                                 <Grid item sx={6} sm={6} md={6} lg={6} >
                                                     <FormControlLabel
-                                                        value="option2"
+                                                        value="option3"
                                                         control={<Radio />}
                                                         checked={selectedOption === "option3"}
                                                         label="Pago Total"
@@ -438,7 +440,7 @@ function Payment() {
                                                         }}>
                                                         <Grid item sx={4} sm={4} md={4} lg={4} >
                                                             <FormControlLabel
-                                                                value="option3"
+                                                                value="option4"
                                                                 control={<Radio />}
                                                                 checked={selectedOption === "option4"}
                                                                 label="Otro valor"
@@ -460,7 +462,7 @@ function Payment() {
                                                     </Grid>
                                                 </Grid>
                                                 <Grid item xs={6} sm={5} md={6} lg={6} >
-                                                    {selectedOption === 'option3' && (
+                                                    {selectedOption === 'option4' && (
                                                         <TextField
                                                             id="paymentValue"
                                                             label="Ingrese otro valor"
@@ -523,7 +525,7 @@ function Payment() {
                                     <Button
                                         type="submit"
                                         variant="contained"
-                                        disabled={isButtonDisabled || (selectedOption === 'option3' && paymentValue === '')}
+                                        disabled={isButtonDisabled || (selectedOption === 'option4' && paymentValue === '')}
                                         className={`btn-payment-custumer  ${isButtonDisabled ? "disabled" : "enabled"}`}
                                         onClick={handlePayment}
                                         onChange={handleInputPrueba}
