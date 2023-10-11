@@ -19,15 +19,15 @@ function Payment() {
 
     useEffect(() => {
         // Envía un evento cuando el componente Docs se monta (se renderiza).
-      ReactGA.pageview(window.location.pathname);
-      }, []);
+        ReactGA.pageview(window.location.pathname);
+    }, []);
 
     // Uso de estados para el endpoint de la API
     const [dataCustumer, setDataCustumer] = useState({});
     const [balance, setBalance] = useState(0);
     const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
-     /* Estado que maneja el loading generar */
-     const [loading, setLoading] = useState(true);
+    /* Estado que maneja el loading generar */
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const email = localStorage.getItem('email');
@@ -43,14 +43,14 @@ function Payment() {
                 setDataCustumer(response)
                 setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
 
-                const options2 = {method: 'GET', headers: {'User-Agent': 'insomnia/2023.5.8'}};
+                const options2 = { method: 'GET', headers: { 'User-Agent': 'insomnia/2023.5.8' } };
 
-                fetch('https://salesforce-gdrive-conn.herokuapp.com/deuda?customer='+response.cedula, options2)
-                .then(response => response.json())
-                .then(response => {
-                    setBalance(response.balance)
-                })
-                .catch(err => console.error(err));
+                fetch('https://salesforce-gdrive-conn.herokuapp.com/deuda?customer=' + response.cedula, options2)
+                    .then(response => response.json())
+                    .then(response => {
+                        setBalance(response.balance)
+                    })
+                    .catch(err => console.error(err));
 
 
                 setLoading(false);
@@ -59,7 +59,7 @@ function Payment() {
             .catch(err => {
                 setLoading(false);
                 console.error(err);
-            });        
+            });
     }, []);
 
     // Uso de estados para el endpoint de la API de manera global en el componente
@@ -148,19 +148,19 @@ function Payment() {
         setSelectedOption(event.target.value);
         setIsButtonDisabled(false);
     }
-     
+
 
     // Función que controla el input del formulario
     function handlePayment(e) {
         e.preventDefault();
         let enlace;
-       
-        if ( selectedOption === 'option1' || selectedOption === 'option2' || selectedOption === 'option3' ) {
+
+        if (selectedOption === 'option1' || selectedOption === 'option2' || selectedOption === 'option3') {
             const enlace = generarEnlace();
-            window.location.href = enlace;  
+            window.location.href = enlace;
         }
-              
-         else {
+
+        else {
             const valor = paymentValue.replace(/[.,]/g, "");
             const precio = parseFloat(valor);
 
@@ -183,11 +183,11 @@ function Payment() {
             // Aquí puedes realizar alguna acción con el enlace generado
             enlace = generarEnlace(precio);
         }
-    } 
+    }
 
 
-  
-      
+
+
     // cambio de icono de ubicación en la barra de pago
     const stateChangeU = () => {
         switch (selectedOption) {
@@ -315,7 +315,7 @@ function Payment() {
                 </h1>
             </Typography>
 
-            {loading ? (  <div className='loanding '>
+            {loading ? (<div className='loanding '>
                 <div className='loanding-container'>
                     <h2 className='text-loandig '>Cargando...</h2>
                     <div className='text-loandig '
@@ -331,259 +331,228 @@ function Payment() {
                 </div>
             </div>) : (
 
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignContent: 'center',
-                alignItems: 'center',
-                textAlign: 'start',
-                marginTop: '-30px',
-            }}>
-                <CssBaseline />
-                <Container maxWidth="xl" sx={{
+                <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
                     alignContent: 'center',
                     alignItems: 'center',
-                    mb: 4,
-                }}
-                    className=''>
-                    <Grid container justifyContent="center" alignItems="center" sx={{
-                        mt: 1,
+                    textAlign: 'start',
+                    marginTop: '-30px',
+                }}>
+                    <CssBaseline />
+                    <Container maxWidth="xl" sx={{
                         display: 'flex',
+                        flexDirection: 'column',
                         justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        mb: 4,
+                    }}
+                        className=''>
+                        <Grid container justifyContent="center" alignItems="center" sx={{
+                            mt: 1,
+                            display: 'flex',
+                            justifyContent: 'center',
 
-                    }}>
-                        <Grid item sx={12} sm={12} md={12} lg={12} >
+                        }}>
+                            <Grid item sx={12} sm={12} md={12} lg={12} >
 
-                            <form onSubmit={handlePayment}>
-                                <RadioGroup
-                                    name="flexRadioDefault"
-                                    value={selectedOption}
-                                    onChange={handleOptionChange}
-                                >
+                                <form onSubmit={handlePayment}>
+                                    <RadioGroup
+                                        name="flexRadioDefault"
+                                        value={selectedOption}
+                                        onChange={handleOptionChange}
+                                    >
 
-                                    <Grid container justifyContent="center" alignItems="stretch" sx={{
-                                        mt: 2
-                                    }}>
-                                        <Grid item sx={12} sm={12} md={10} lg={10} >
-
-                                            <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option1' ? 'selected' : ''}`} sx={{
-                                                mt: 2,
-                                            }}>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <FormControlLabel
-                                                        value="option1"
-                                                        control={<Radio />}
-                                                        label="Pago mínimo"
-                                                        checked={selectedOption === "option1"}
-                                                    />
-                                                </Grid>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <div className=" space-value">
-                                                        <p className="card-text text-end more space-value">$ {formatterPagoMinimo}</p>
-                                                    </div>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-
-                                        <Grid item sx={12} sm={12} md={10} lg={10} >
-                                            <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option2' ? 'selected' : ''}`} sx={{
-                                                mt: 2,
-                                            }}>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <FormControlLabel
-                                                        value="option2"
-                                                        control={<Radio />}
-                                                        checked={selectedOption === "option2"}
-                                                        label="Pago sugerido"
-                                                    />
-                                                </Grid>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <div className=" space-value">
-                                                        <p className="card-text text-end more space-value">$ {formatoSug}</p>
-                                                    </div>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid item sx={12} sm={12} md={10} lg={10} >
-                                            <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
-                                                mt: 2,
-                                            }}>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <FormControlLabel
-                                                        value="option3"
-                                                        control={<Radio />}
-                                                        checked={selectedOption === "option3"}
-                                                        label="Pago Total"
-                                                    />
-                                                </Grid>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <div className=" space-value">
-                                                        <p className="card-text text-end more space-value">$ {balanceformat}</p>
-                                                    </div>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                        <Grid item xs={12} sm={12} md={10} lg={10} >
-                                            <Grid container
-                                                className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
-                                                   /*  mt: 4, */
-                                                    
+                                        <Grid container justifyContent="center" alignItems="stretch" sx={{
+                                            mt: 2
+                                        }}>
+                                            <Grid item sx={12} sm={12} md={10} lg={10} >
+                                                <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
+                                                    mt: 2,
                                                 }}>
-                                                {/* /* Container-cards-payment-c  */}
-                                                <Grid item xs={6} sm={6} md={6} lg={6} >
-                                                    <Grid container  className='margin-box-mui-payment'
-                                                        sx={{
-                                                      /*      ml:4 */
-                                                        }}>
-                                                        <Grid item sx={4} sm={4} md={4} lg={4} >
-                                                            <FormControlLabel
-                                                                value="option4"
-                                                                control={<Radio />}
-                                                                checked={selectedOption === "option4"}
-                                                                label="Otro valor"
-                                                            />
-                                                        </Grid>
-
-                                                        <Grid item sx={1} sm={1} md={1} lg={1} >
-
-                                                            <div
-                                                                className="tooltip-container"
-                                                                onMouseEnter={() => handleMouseEnter(0)}
-                                                                onMouseLeave={() => handleMouseLeave(0)}
-                                                            >
-                                                                <img src={IconToolytip} className="space-tooltip-mui" alt="" height='14px' width='14px' />
-                                                                {tooltips[0] && <div className="tooltip-payment-mui ">Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonará a tu participación.</div>}
-                                                            </div>
-
-                                                        </Grid>
+                                                    {/* Radio button opción 3 */}
+                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                        <FormControlLabel
+                                                            value="option3"
+                                                            control={<Radio />}
+                                                            label="Pago total"
+                                                            checked={selectedOption === "option3"}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                        <div className=" space-value">
+                                                            <p className="card-text text-end more space-value"> $ {balanceformat}</p>
+                                                        </div>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid item xs={6} sm={5} md={6} lg={6} >
-                                                    {selectedOption === 'option4' && (
-                                                        <TextField
-                                                            id="paymentValue"
-                                                            label="Ingrese otro valor"
-                                                            name="otrovalornumero"
-                                                            value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
-                                                            placeholder="$"
-                                                            maxLength={11}
-                                                            onChange={(event) => setPaymentValue(event.target.value)}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mb: 1
-                                                            }}
+                                            </Grid>
+                                            {/* Radio button opción 1 */}
+                                            <Grid item sx={12} sm={12} md={10} lg={10} >
+
+                                                <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option1' ? 'selected' : ''}`} sx={{
+                                                    mt: 2,
+                                                }}>
+                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                        <FormControlLabel
+                                                            value="option1"
+                                                            control={<Radio />}
+                                                            label="Pago mínimo"
+                                                            checked={selectedOption === "option1"}
                                                         />
-                                                    )}
+                                                    </Grid>
+                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                        <div className=" space-value">
+                                                            <p className="card-text text-end more space-value">$ {formatterPagoMinimo}</p>
+                                                        </div>
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
+                                            {/* Radio button opción 2 */}
+                                            <Grid item sx={12} sm={12} md={10} lg={10} >
+                                                <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option2' ? 'selected' : ''}`} sx={{
+                                                    mt: 2,
+                                                }}>
+                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                        <FormControlLabel
+                                                            value="option2"
+                                                            control={<Radio />}
+                                                            checked={selectedOption === "option2"}
+                                                            label="Pago sugerido"
+                                                        />
+                                                    </Grid>
+                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                        <div className=" space-value">
+                                                            <p className="card-text text-end more space-value">$ {formatoSug}</p>
+                                                        </div>
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                            {/* Radio button opción 4 */}
+                                            <Grid item xs={12} sm={12} md={10} lg={10} >
+                                                <Grid container
+                                                    className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
+                                                        /*  mt: 4, */
+
+                                                    }}>
+                                                    {/* /* Container-cards-payment-c  */}
+                                                    <Grid item xs={6} sm={6} md={6} lg={6} >
+                                                        <Grid container className='margin-box-mui-payment'
+                                                            sx={{
+                                                                /*      ml:4 */
+                                                            }}>
+                                                            <Grid item sx={4} sm={4} md={4} lg={4} >
+                                                                <FormControlLabel
+                                                                    value="option4"
+                                                                    control={<Radio />}
+                                                                    checked={selectedOption === "option4"}
+                                                                    label="Otro valor"
+                                                                />
+                                                            </Grid>
+
+                                                            <Grid item sx={1} sm={1} md={1} lg={1} >
+
+                                                                <div
+                                                                    className="tooltip-container"
+                                                                    onMouseEnter={() => handleMouseEnter(0)}
+                                                                    onMouseLeave={() => handleMouseLeave(0)}
+                                                                >
+                                                                    <img src={IconToolytip} className="space-tooltip-mui" alt="" height='14px' width='14px' />
+                                                                    {tooltips[0] && <div className="tooltip-payment-mui ">Este valor abonará a tu cuenta, si el valor a pagar es mayor al pago mínimo, el excedente se abonará a tu participación.</div>}
+                                                                </div>
+
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                    <Grid item xs={6} sm={5} md={6} lg={6} >
+                                                        {selectedOption === 'option4' && (
+                                                            <TextField
+                                                                id="paymentValue"
+                                                                label="Ingrese otro valor"
+                                                                name="otrovalornumero"
+                                                                value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
+                                                                placeholder="$"
+                                                                maxLength={11}
+                                                                onChange={(event) => setPaymentValue(event.target.value)}
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mb: 1
+                                                                }}
+                                                            />
+                                                        )}
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+
                                         </Grid>
-                                       {/*  <Grid item sx={12} sm={12} md={10} lg={10} >
+                                    </RadioGroup>
+                                </form>
+                            </Grid>
+                            <Grid item sx={10} sm={10} md={10} lg={10}>
+                                <div className='centrado'>
+                                    <div>
+                                        <Button
+                                            type="submit"
+                                            variant="contained"
+                                            disabled={isButtonDisabled || (selectedOption === 'option4' && paymentValue === '')}
+                                            className={`btn-payment-custumer  ${isButtonDisabled ? "disabled" : "enabled"}`}
+                                            onClick={handlePayment}
+                                            onChange={handleInputPrueba}
+                                            sx={{
+                                                mt: 2
+                                            }}
+                                        >
+                                            Continuar
+                                        </Button>
 
-                                            <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option1' ? 'selected' : ''}`} sx={{
-                                                mt: 2,
-                                            }}>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                    <FormControlLabel
-                                                        value="option1"
-                                                        control={<Radio />}
-                                                        label="Pago mínimo"
-                                                        checked={selectedOption === "option1"}
-                                                    />
-                                                </Grid>
-                                                <Grid item sx={6} sm={6} md={6} lg={6} >
-                                                  
-                                                    {selectedOption === 'option3' && (
-                                                        <TextField
-                                                            id="paymentValue"
-                                                            label="Ingrese otro valor"
-                                                            name="otrovalornumero"
-                                                            value={numeral(paymentValue).format('0,0')}// Vincula el valor del input text al estado paymentValue
-                                                            placeholder="$"
-                                                            maxLength={11}
-                                                            onChange={(event) => setPaymentValue(event.target.value)}
-                                                            sx={{
-                                                                
-                                                                mb: 1
-
-                                                            }}
-                                                        />
-                                                    )}
-                                                   
-                                                </Grid>
-                                            </Grid>
-                                        </Grid> */}
-                                    </Grid>
-                                </RadioGroup>
-                            </form>
-                        </Grid>
-                        <Grid item sx={10} sm={10} md={10} lg={10}>
-                            <div className='centrado'>
-                                <div>
-                                    <Button
-                                        type="submit"
-                                        variant="contained"
-                                        disabled={isButtonDisabled || (selectedOption === 'option4' && paymentValue === '')}
-                                        className={`btn-payment-custumer  ${isButtonDisabled ? "disabled" : "enabled"}`}
-                                        onClick={handlePayment}
-                                        onChange={handleInputPrueba}
-                                        sx={{
-                                            mt: 2
-                                        }}
-                                    >
-                                        Continuar
-                                    </Button>
-
+                                    </div>
                                 </div>
-                            </div>
+                            </Grid>
+
+
                         </Grid>
 
+                        <div className='d-grid  Container-cards-payment-bar '>
+                            {/*Sección viñeta de ubicación en la barra */}
+                            {stateChangeU()}
 
-                    </Grid>
-
-                    <div className='d-grid  Container-cards-payment-bar '>
-                        {/*Sección viñeta de ubicación en la barra */}
-                        {stateChangeU()}
-
-                        {/*Sección de colores de la barra */}
-                        <div className="card-docs-grafic-payment ">
-                            <div className="col-3 row prueba-inicio-espacio-uno cimiento">
-                                <div className="col-3 ">
-                                    <p className="cimiento"></p>
-                                </div>
-                            </div >
-                            <div className="col-6 row prueba-inicio-espacio-dos verde">
-                                <div className="col-3">
-                                </div>
-                            </div >
-                            <div className="col-3 row prueba-inicio-espacio-tres azul">
-                                <div className="col-3">
-                                </div>
-                            </div >
-                        </div>
-                        <div className="col-12 row">
-                            <div className=' col-3 row text-range-one'>
-                                <p className='number-range-payment-grafic'>15%</p>
+                            {/*Sección de colores de la barra */}
+                            <div className="card-docs-grafic-payment ">
+                                <div className="col-3 row prueba-inicio-espacio-uno cimiento">
+                                    <div className="col-3 ">
+                                        <p className="cimiento"></p>
+                                    </div>
+                                </div >
+                                <div className="col-6 row prueba-inicio-espacio-dos verde">
+                                    <div className="col-3">
+                                    </div>
+                                </div >
+                                <div className="col-3 row prueba-inicio-espacio-tres azul">
+                                    <div className="col-3">
+                                    </div>
+                                </div >
                             </div>
-                            <div className=' col-3 row text-range-two'>
-                                <p className='number-range-payment-grafic'>30%</p>
+                            <div className="col-12 row">
+                                <div className=' col-3 row text-range-one'>
+                                    <p className='number-range-payment-grafic'>15%</p>
+                                </div>
+                                <div className=' col-3 row text-range-two'>
+                                    <p className='number-range-payment-grafic'>30%</p>
+                                </div>
+                                <div className=' col-3 row text-range-tree'>
+                                    <p className='number-range-payment-grafic'>+30%</p>
+                                </div>
                             </div>
-                            <div className=' col-3 row text-range-tree'>
-                                <p className='number-range-payment-grafic'>+30%</p>
+
+                            <div className="msj-payment ">
+                                <p className='font-text-payment '>
+                                    Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.
+                                </p>
                             </div>
                         </div>
 
-                        <div className="msj-payment ">
-                            <p className='font-text-payment '>
-                                Este porcentaje está pensado a una proyección de 5 años de acuerdo con el modelo de negocio.
-                            </p>
-                        </div>
-                    </div>
-
-                </Container>
-            </Box>
+                    </Container>
+                </Box>
             )}
 
 
