@@ -178,8 +178,14 @@ function Payment() {
                     timer: 5000,
                 });
                 return;
+            } else if (precio >= 12000001) {
+                swal({
+                    text: "El valor máximo a pagar es $12.000.000",
+                    icon: "info",
+                    button: "Cerrar",
+                    timer: 5000,
+                });
             }
-
             // Aquí puedes realizar alguna acción con el enlace generado
             enlace = generarEnlace(precio);
         }
