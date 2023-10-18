@@ -51,11 +51,8 @@ function Payment() {
                         setBalance(response.balance)
                     })
                     .catch(err => console.error(err));
-
-
                 setLoading(false);
             })
-
             .catch(err => {
                 setLoading(false);
                 console.error(err);
@@ -113,17 +110,14 @@ function Payment() {
             precio = balance;
             descripcion = dataCustumer.inmuebleName;
         }
-
         else {
             // borrar los punto y comas cuando se ingresa el monto
             precio = paymentValue.replace(/[.,]/g, "");
             descripcion = dataCustumer.inmuebleName;
         }
-
         const enlaceModificado = `${enlaceBase}comercio=${comercio}&precio=${precio}&descripcion=${descripcion}`;
         setValoresApi({ comercio, precio, descripcion });
         setPaymentURL(enlaceModificado);
-
         return enlaceModificado;
     };
 
@@ -167,8 +161,8 @@ function Payment() {
             const sumaValores = gastos + administracion;
             const cambioValores = numeral(sumaValores).format('0,0')
             //validación de digitos 5, 6, 7, 8, 9
-          /*   console.log('precio prueba', precio);
-            console.log('sumaValores', sumaValores); */
+            /*   console.log('precio prueba', precio);
+              console.log('sumaValores', sumaValores); */
             if (precio <= sumaValores) {
                 const mensajeAlert = "El valor mínimo a pagar es $" + cambioValores + "";
                 swal({
@@ -179,7 +173,7 @@ function Payment() {
                 });
                 return;
             } else if (precio >= 12000001) {
-                const mensajeAlert ="El valor máximo de pago que permite la plataforma es de 12 millones de pesos. Si desea realizar un pago mayor, por favor, póngase en contacto con el asesor";
+                const mensajeAlert = "El valor máximo de pago que permite la plataforma es de 12 millones de pesos. Si desea realizar un pago mayor, por favor, póngase en contacto con el asesor";
                 swal({
                     text: mensajeAlert,
                     icon: "info",
@@ -187,7 +181,7 @@ function Payment() {
                     timer: 7000,
                 });
             }
-            else{
+            else {
 
                 // Aquí puedes realizar alguna acción con el enlace generado
                 enlace = generarEnlace(precio);
