@@ -4,7 +4,7 @@ import Istateg from "../../img/Istateg.png";
 import Istatev from "../../img/Istatev.png";
 import { Box, Button, Card, CardActions, CardContent, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography, createTheme } from "@mui/material";
 import Idefaultoffer from "../../img/Idefaultoffer.png";
-
+import VideoPlayer from './VideoPlayer';
 import Lottie from 'lottie-react';
 import animationData from '../../Components/loanding.json';
 import swal from 'sweetalert';
@@ -273,6 +273,10 @@ function Docs() {
 
 
                                                                 {/* Aqui deberia ir el reproductor de video para documentos firmados */}
+                                                                <div className="App">
+                                                                    <h1>Reproductor de Video</h1>
+                                                                    <VideoPlayer src="https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-" />
+                                                                </div>
 
 
 
