@@ -1712,6 +1712,12 @@ a {
     height: 140px;    
   }
 
+  .video-docs{
+    height: 300px;
+    width: 300px;
+
+  }
+
 
 }
 
@@ -1868,6 +1874,11 @@ a {
     margin-left: 3px !important;
 
   }
+  .video-docs{
+    height: 360px;
+    width: 400px;
+
+  }
 
 }
 
@@ -1901,6 +1912,11 @@ a {
   .loanding-state-mui{
     width: 200px;
     height:200px;    
+  }
+  .video-docs{
+    height: 360px;
+    width: 640px;
+
   }
 }
 
@@ -2099,6 +2115,12 @@ a {
     width: 160px;
     height:160px;    
   }
+
+  .video-docs{
+    height: 360px;
+    width: 640px;
+
+  }
 }
 
 /* Dispositivos XX-Large (escritorios más grandes, 1400px y más)*/
@@ -2220,6 +2242,12 @@ a {
     height:160px;    
   }
 
+
+  .video-docs{
+    height: 460px;
+    width: 840px;
+
+  }
 
 
 

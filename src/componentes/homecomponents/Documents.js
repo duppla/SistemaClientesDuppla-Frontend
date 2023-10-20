@@ -126,7 +126,7 @@ function Docs() {
 
         switch (documentName) {
             case "Promesa compra venta cliente":
-                return "https://www.youtube.com/embed/FtPnAfYpI-o?si=D4bhYVT9Ltf8S_5h&showinfo=0&controls=0&autohide=1";
+                return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
             case "Anexo 1":
                 return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
             case "Contrato Arriendo":
@@ -245,7 +245,7 @@ function Docs() {
                                                         {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
                                                             <div className='notice-up-to-date '>
 
-                                                                {/*   <div className='text-notice-date-two '>
+                                                                  <div className='text-notice-date-two '>
                                                                     <Typography component="h1" variant="" sx={{
                                                                         mt: 0,
                                                                         textAlign: 'start',
@@ -261,44 +261,36 @@ function Docs() {
                                                                     >
                                                                         Video informativo:
                                                                     </Typography>
-                                                                </div> */}
+                                                                </div> 
                                                                 {/* Titulo de la sección de video */}
-                                                                {/* <div className='  '>
+                                                                <div className='  '>
                                                                     <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p>
                                                                 </div>
-                                                                <br /> */}
+                                                                <br />
 
 
 
 
 
                                                                 {/* Aqui deberia ir el reproductor de video para documentos firmados */}
-                                                                <div className="App">
+                                                               {/*  <div className="App">
                                                                     <h1>Reproductor de Video</h1>
                                                                     <VideoPlayer src="https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-" />
-                                                                </div>
+                                                                </div> */}
 
-
-
-
-
-
-
-
-
-
-                                                                {/*  <div className=' centrado '>
-                                                                    <iframe
+                                                                  <div className=' centrado '>
+                                                                   {/*  <iframe
                                                                         controls
                                                                         width="60%"
                                                                         height="380"
                                                                         src={getVideoUrl(file.name)}
                                                                     >
-                                                                    </iframe>
-                                                                </div */}
+                                                                    </iframe> */}
+                                                                    <VideoPlayer src={getVideoUrl(file.name)} />
+                                                                </div >
 
-                                                                {/* <CardActions className='centrado'>
-                                                                    <FormControlLabel control={<Checkbox />} />
+                                                                 <CardActions className='centrado'>
+                                                                    {/* <FormControlLabel control={<Checkbox />} /> */}
                                                                     <FormControlLabel
                                                                         control={<Checkbox checked={documentStates[file.name]} onChange={() => handleCheckboxChange(file.name)} />}
                                                                     />
@@ -307,7 +299,7 @@ function Docs() {
                                                                     </Typography>
                                                                 </CardActions>
 
-                                                                <br /> */}
+                                                                <br /> 
                                                             </div>
                                                         ) : null}
                                                         <br />
@@ -342,9 +334,9 @@ function Docs() {
 
 
                                                                             }}
-                                                                        /*  disabled={!documentStates[file.name]}
+                                                                           //disabled={!documentStates[file.name] }
  
-                                                                         onClick={() => handleDocumentLinkClickk(documentStates[file.drive_url])} */
+                                                                        /* onClick={() => handleDocumentLinkClickk(documentStates[file.drive_url])} */
                                                                         >
                                                                             <b> Leer documento</b>
                                                                         </Button>
