@@ -44,6 +44,7 @@ function Docs() {
 
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [documentStates, setDocumentStates] = useState({});
+    const [documentUrls, setDocumentUrls] = useState({});
 
 
     useEffect(() => {
@@ -64,6 +65,7 @@ function Docs() {
                 })
                 .then(response => {
                     setDocsBuyer(response);
+                    console.log(response);
                     setLoading(false);
                 })
                 .catch(err => {
@@ -108,8 +110,6 @@ function Docs() {
             'category': 'Document Interaction',
             'action': `Clicked on Document Link: ${file.name}`,
             'label': 'Botón generar documento',
-
-
         });
 
 
@@ -127,11 +127,11 @@ function Docs() {
         switch (documentName) {
             case "Promesa compra venta cliente":
                 return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
-            case "Anexo 1":
-                return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
-            case "Contrato Arriendo":
-                return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
-            default:
+                /*   case "Anexo 1":
+                      return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
+                  case "Contrato Arriendo":
+                      return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
+                  default: */
                 return ""; // Si no coincide con ninguno, devolver una URL vacía o la URL por defecto
         }
     }
@@ -139,14 +139,21 @@ function Docs() {
     /*  <iframe width="560" height="315" https://www.youtube.com/watch?v=FtPnAfYpI-o src="https://www.youtube.com/embed/FtPnAfYpI-o?si=D4bhYVT9Ltf8S_5h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */
 
 
+    /*   const handleCheckboxChange = (documentName) => {
+          setDocumentStates((prevDocumentStates) => ({
+              ...prevDocumentStates,
+              [documentName]: !prevDocumentStates[documentName], // Cambiar el estado del documento
+          }));
+      }; */
+
     const handleCheckboxChange = (documentName) => {
-        setDocumentStates((prevDocumentStates) => ({
-            ...prevDocumentStates,
-            [documentName]: !prevDocumentStates[documentName], // Cambiar el estado del documento
+        setDocumentUrls((prevDocumentUrls) => ({
+            ...prevDocumentUrls,
+            [documentName]: documentName.drive_url,
         }));
     };
 
-    const handleDocumentLinkClickk = (file) => {
+    const handleDocumentLinkClickBtn = (file) => {
         window.open(file.drive_url, '_blank'); // Abre el enlace en una nueva pestaña o ventana del navegador
     };
 
@@ -242,10 +249,10 @@ function Docs() {
                                             <div className=" ">
                                                 <div className="collapse" id={`mesDos-${index}`}>
                                                     <div className=''>
-                                                        {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
+                                                        {file.name === "Promesa compra venta cliente" /* || file.name === "Anexo 1" || file.name === "Contrato Arriendo" */ ? (
                                                             <div className='notice-up-to-date '>
 
-                                                                  <div className='text-notice-date-two '>
+                                                                <div className='text-notice-date-two '>
                                                                     <Typography component="h1" variant="" sx={{
                                                                         mt: 0,
                                                                         textAlign: 'start',
@@ -261,35 +268,19 @@ function Docs() {
                                                                     >
                                                                         Video informativo:
                                                                     </Typography>
-                                                                </div> 
+                                                                </div>
                                                                 {/* Titulo de la sección de video */}
                                                                 <div className='  '>
                                                                     <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p>
                                                                 </div>
                                                                 <br />
 
+                                                                <div className=' centrado '>
 
-
-
-
-                                                                {/* Aqui deberia ir el reproductor de video para documentos firmados */}
-                                                               {/*  <div className="App">
-                                                                    <h1>Reproductor de Video</h1>
-                                                                    <VideoPlayer src="https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-" />
-                                                                </div> */}
-
-                                                                  <div className=' centrado '>
-                                                                   {/*  <iframe
-                                                                        controls
-                                                                        width="60%"
-                                                                        height="380"
-                                                                        src={getVideoUrl(file.name)}
-                                                                    >
-                                                                    </iframe> */}
                                                                     <VideoPlayer src={getVideoUrl(file.name)} />
                                                                 </div >
 
-                                                                 <CardActions className='centrado'>
+                                                                <CardActions className='centrado'>
                                                                     {/* <FormControlLabel control={<Checkbox />} /> */}
                                                                     <FormControlLabel
                                                                         control={<Checkbox checked={documentStates[file.name]} onChange={() => handleCheckboxChange(file.name)} />}
@@ -299,7 +290,7 @@ function Docs() {
                                                                     </Typography>
                                                                 </CardActions>
 
-                                                                <br /> 
+                                                                <br />
                                                             </div>
                                                         ) : null}
                                                         <br />
@@ -334,9 +325,11 @@ function Docs() {
 
 
                                                                             }}
-                                                                           //disabled={!documentStates[file.name] }
- 
-                                                                        /* onClick={() => handleDocumentLinkClickk(documentStates[file.drive_url])} */
+                                                                            //disabled={!documentStates[file.name] }
+
+                                                                            /* onClick={() => handleDocumentLinkClickk(documentStates[file.drive_url])} */
+                                                                            disabled={documentStates[file.name]}
+                                                                            onClick={() => handleDocumentLinkClickBtn(file.drive_url)}
                                                                         >
                                                                             <b> Leer documento</b>
                                                                         </Button>
@@ -354,54 +347,6 @@ function Docs() {
                             ))}
 
                             {(docsBuyer.unsigned_files || []).map((file, index) => (
-                                /*  <div key={index} className="card-docs-grid-mui ">
- 
-                                     <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
-                                     }}>
- 
-                                         <Grid item sx={12} sm={12} md={12} lg={12} >
-                                             <a href={file.drive_url} target="_blank" rel="noopener noreferrer">
-                                                 <Grid container spacing={2} sx={{
-                                                     maxWidth: '600px', // Utiliza maxWidth en lugar de width
-                                                     width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                                     margin: '0 auto', // Centrar horizontalmente
-                                                     display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                                     justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                                     alignItems: 'center', // Centrar verticalmente el contenido
-                                                     minWidth: '280px',
- 
-                                                 }}>
-                                                     <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                         <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                                     </Grid>
-                                                     <Grid item sx={8} sm={6} md={6} lg={6} >
-                                                         <Typography component="h1" variant="" sx={{
-                                                             mt: 0,
-                                                             textAlign: 'start',
-                                                             fontFamily: 'Rustica',
-                                                             fontStyle: 'normal',
-                                                             fontWeight: '500',
-                                                             fontSize: '18px',
-                                                             color: '#0A3323',
-                                                             lineHeight: '20px',
-                                                             width: '180px',
- 
-                                                         }}>
-                                                             {file.name}
- 
-                                                         </Typography>
-                                                     </Grid>
-                                                     <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                         <a href={file.drive_url} target="_blank" rel="noopener noreferrer">
-                                                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAgFJREFUeF7t2z1KxEAYxvH/XkAQPIKgYGMvinoiSys/Kks7jyOK1hZroeARRMUbyMAGRNzsJEPeeQae1BOS/OaZN5PZ2Rk+egVm9ukXMNCKhBjIQGVFxAlygpygMgEnqMzPNcgJcoLKBJygMj/XIOEErQNfZf07/dm1EnQDHAEHwPv0jzn+CjWAroGTxS2/qiNFA10Bp3/6UxopEugcuFgSdlmkKKCUmpSevkMSKQIo1ZtUd3IOOaQIoBdgO0dn0Wa+eMN9DjhnsqYRQBvAI7A14CmegUOgOlIEUHJpFikKqFmkSKAmkaKBmkOqAdQh3QE76oW7FlBySV/zD+pINYFKkPaB7wHpG920NtBYpCfgOAJJAUgaSQVIFkkJSBJJDUgOSRGoQ7oFdge8fiYp3KpAa8C9gf6PhwxOuj21BKXZtcTQ6vpOCWjMp8ckded3sFWAJHFUhtgYnLQkG/I9VjtBY3HC1qtrAsnj1BxiaRHfC2ZLZsFN/cIRPcSawokeYs3hRAI1iRMF1CxOFNAbsDlg2SJNAtP2vI8B50zWNKJID93+sqewaSH6YzUHSW5vUNQQ6zrjDLhcMhYkcaKB0vW8iTOjWnobcAaSN5JnIPmvCBlI8k0i5kHyCH03aKAV3WcgA5WNcCfICXKCygScoDI/1yAnyAkqE3CCyvxcg1b4/QBf035JQzfVwQAAAABJRU5ErkJggg=="
-                                                                 className="arrow-menu" /></a>
-                                                     </Grid>
-                                                 </Grid>
-                                             </a>
-                                         </Grid>
-                                     </Grid>
- 
-                                 </div> */
                                 <div key={index} className="card-docs-grid-mui ">
 
                                     <div className="accordion " id={`accordionExample-${index}`}>
@@ -450,10 +395,10 @@ function Docs() {
                                             <div className=" ">
                                                 <div className="collapse" id={`mesDos-${index}`}>
                                                     <div className=''>
-                                                        {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
+                                                        {file.name === "Promesa compra venta cliente" /* || file.name === "Anexo 1" || file.name === "Contrato Arriendo" */ ? (
                                                             <div className='notice-up-to-date '>
 
-                                                                {/*   <div className='text-notice-date-two '>
+                                                                <div className='text-notice-date-two '>
                                                                     <Typography component="h1" variant="" sx={{
                                                                         mt: 0,
                                                                         textAlign: 'start',
@@ -475,19 +420,15 @@ function Docs() {
                                                                 </div>
                                                                 <br />
                                                                 <div className=' centrado '>
-                                                                    <video
-                                                                        controls
-                                                                        width="80%"
-                                                                        src={getVideoUrl(file.name)}
-                                                                    />
-                                                                </div>
+                                                                    <VideoPlayer src={getVideoUrl(file.name)} />
+                                                                </div >
 
                                                                 <CardActions className='centrado'>
                                                                     <FormControlLabel control={<Checkbox />} />
                                                                     <Typography className='text-autorizacion-form'>
                                                                         Confirmo que he visto y comprendido la explicación del documento que se muestra en el video.
                                                                     </Typography>
-                                                                </CardActions> */}
+                                                                </CardActions>
 
                                                                 <br />
                                                             </div>
@@ -569,8 +510,9 @@ function Docs() {
                                 <img src={Idefaultoffer} className="container fluid" alt="..." />
                             </div>
                         </Container>
-                    )}
-                </Box>
+                    )
+                    }
+                </Box >
             )}
         </div >
     );
