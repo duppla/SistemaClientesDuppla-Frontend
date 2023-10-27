@@ -45,11 +45,17 @@ function Docs() {
     const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
     const [documentStates, setDocumentStates] = useState({});
     const [documentUrls, setDocumentUrls] = useState({});
+    const [documentTypes, setDocumentTypes] = useState({}); /* UseState get estado actual d elos campos de video en sF */
+    const [elementos, setElementos] = useState([
+        { id: 'anexo_c', nombre: 'compraventa_c', showCheckbox: true, isChecked: false },
+        { id: 'compraventa_c', nombre: 'compraventa_c', showCheckbox: true, isChecked: false },
+        { id: 'carriendo_c', nombre: 'carriendo_c', showCheckbox: true, isChecked: false },
+        // ... otros elementos
+    ]);
 
-
+    /*Consulta al primer enpoint de documentos formados y no  */
     useEffect(() => {
         const emailWithQuotes = localStorage.getItem('email');
-
         if (emailWithQuotes) {
             // Eliminar las comillas alrededor del correo electrónico
             const email = emailWithQuotes.replace(/"/g, '');
@@ -65,8 +71,15 @@ function Docs() {
                 })
                 .then(response => {
                     setDocsBuyer(response);
-                    console.log(response);
+                    /* console.log(response); */
                     setLoading(false);
+                })
+
+            fetch(`https://salesforce-gdrive-conn.herokuapp.com/consultar/estado/videos?email=${email}`, options)
+                .then(response => response.json())
+                .then(response => {
+                    setDocumentTypes(response);
+                    /* console.log(setDocumentTypes + 'prueba estado campos'); */
                 })
                 .catch(err => {
                     console.error('Fetch error:', err);
@@ -74,6 +87,13 @@ function Docs() {
                 });
         }
     }, []);
+
+    /* Campos de los checkbox en sf */
+    const anexo_c = documentTypes.Check_video_Anexo1__c;
+    const compraventa_c = documentTypes.Check_video_Promesa_C__c;
+    const carriendo_c = documentTypes.Check_video_Contrato_Arrendamiento__c;
+
+    /* console.log(anexo_c + 'prueba estado campos anexo' + compraventa_c + 'videos' + carriendo_c); */
 
 
     /* Función que según el estado general direcciona a inicio de prospecto o customer */
@@ -100,7 +120,6 @@ function Docs() {
         }
 
     }
-
     // envia la data recolectada de los documentos a google analytics
 
     const handleDocumentLinkClick = (file) => {
@@ -121,41 +140,97 @@ function Docs() {
 
     /* Función condicional video */
     function getVideoUrl(documentName) {
-        /*  const videoId = "FtPnAfYpI-o"; // Reemplaza con el ID de tu video
-         const videoUrl = `https://www.youtube.com/embed/${videoId}`; */
 
         switch (documentName) {
             case "Promesa compra venta cliente":
-                return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
-                /*   case "Anexo 1":
-                      return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
-                  case "Contrato Arriendo":
-                      return "https://drive.google.com/uc?id=1ybtMVxOkVa6w-9SlsEB79XaDI2Veuoo-";
-                  default: */
+                return "https://drive.google.com/uc?id=1QcaNa3XnwxSZVXv7TvxT9WWmDvjYfc8l";
+            case "Anexo 1":
+                return "https://drive.google.com/uc?id=1fNpzCTnjlPYvyjyIMVzBzEtSB8CA2AgX";
+            case "Contrato Arriendo":
+                return "https://drive.google.com/uc?id=1POkkzfbbIKsX21znufG3314CfBYHgudu";
+            default:
                 return ""; // Si no coincide con ninguno, devolver una URL vacía o la URL por defecto
         }
     }
 
-    /*  <iframe width="560" height="315" https://www.youtube.com/watch?v=FtPnAfYpI-o src="https://www.youtube.com/embed/FtPnAfYpI-o?si=D4bhYVT9Ltf8S_5h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */
+    /* Camvio de texto según video <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p> */
+
+    function textVideoUrl(documentNameText) {
+        switch (documentNameText) {
+            case "Promesa compra venta cliente":
+                return <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p>;
+            case "Anexo 1":
+                return <p>Todo lo que necesitas saber sobre el anexo 1: Pagos Anticipados, explicado en menos de 5 minutos.</p>;
+            case "Contrato Arriendo":
+                return <p>Todo lo que necesitas saber sobre el contrato de arrendamiento, explicado en menos de 5 minutos.</p>;
+            default:
+                return ""; // Si no coincide con ninguno, devolver una URL vacía o la URL por defecto
+        }
+
+    }
 
 
-    /*   const handleCheckboxChange = (documentName) => {
-          setDocumentStates((prevDocumentStates) => ({
-              ...prevDocumentStates,
-              [documentName]: !prevDocumentStates[documentName], // Cambiar el estado del documento
+/* 
+    const handleCheckboxChange = (event) => {
+        setDocumentStates(event.target);
+    }; */
+
+    const handleCheckboxChangePrueba = () => {
+        const email = localStorage.getItem('email');
+
+        // Verifica si los tres checkboxes están marcados
+        if (elementos.some((elemento) => elemento.isChecked)) {
+            const dataToUpdate = {
+                email: email,
+                anexo_c: true,
+                compraventa_c: true,
+                carriendo_c: true,
+            };
+
+            console.log(dataToUpdate + 'data a actualizar');
+
+            // Realiza una solicitud al servidor para actualizar los tres campos en Salesforce
+            fetch(`https://salesforce-gdrive-conn.herokuapp.com/actualizar/video`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToUpdate),
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        // Actualiza el estado local si es necesario
+                        // Puedes actualizar el estado local aquí si lo deseas
+                        // setDocumentStates();
+                        swal({
+                            title: "¡Documento firmado!",
+                            text: "Los documentos se han firmado correctamente.",
+                            icon: "success",
+                            button: "Aceptar",
+                        });
+                    } else {
+                        // Manejo de errores si la respuesta del servidor no es exitosa
+                        throw new Error("La solicitud de actualización no fue exitosa");
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    // Puedes manejar los errores aquí según tus necesidades
+                });
+        }
+
+        // Abre el enlace de los documentos en una nueva pestaña si es necesario
+        // window.open(file.drive_url, '_blank');
+    };
+
+
+    /*   const handleCheckboxChangeee = (documentName) => {
+          setDocumentUrls((prevDocumentUrls) => ({
+              ...prevDocumentUrls,
+              [documentName]: documentName.drive_url,
           }));
       }; */
 
-    const handleCheckboxChange = (documentName) => {
-        setDocumentUrls((prevDocumentUrls) => ({
-            ...prevDocumentUrls,
-            [documentName]: documentName.drive_url,
-        }));
-    };
-
-    const handleDocumentLinkClickBtn = (file) => {
-        window.open(file.drive_url, '_blank'); // Abre el enlace en una nueva pestaña o ventana del navegador
-    };
 
     return (
         <div className="Documents container-fluid">
@@ -249,9 +324,8 @@ function Docs() {
                                             <div className=" ">
                                                 <div className="collapse" id={`mesDos-${index}`}>
                                                     <div className=''>
-                                                        {file.name === "Promesa compra venta cliente" /* || file.name === "Anexo 1" || file.name === "Contrato Arriendo" */ ? (
+                                                        {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
                                                             <div className='notice-up-to-date '>
-
                                                                 <div className='text-notice-date-two '>
                                                                     <Typography component="h1" variant="" sx={{
                                                                         mt: 0,
@@ -269,27 +343,36 @@ function Docs() {
                                                                         Video informativo:
                                                                     </Typography>
                                                                 </div>
-                                                                {/* Titulo de la sección de video */}
+                                                                {/* Titulo y texto de la sección de video dependiendo el documento seleccionado*/}
                                                                 <div className='  '>
-                                                                    <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p>
+                                                                    {textVideoUrl(file.name)}
                                                                 </div>
                                                                 <br />
-
+                                                                {/* Reproductor de video */}
                                                                 <div className=' centrado '>
-
                                                                     <VideoPlayer src={getVideoUrl(file.name)} />
                                                                 </div >
-
-                                                                <CardActions className='centrado'>
-                                                                    {/* <FormControlLabel control={<Checkbox />} /> */}
+                                                                {/* sección checkbox */}
+                                                                <br />
+                                                                <CardActions>
                                                                     <FormControlLabel
-                                                                        control={<Checkbox checked={documentStates[file.name]} onChange={() => handleCheckboxChange(file.name)} />}
+                                                                        control={
+                                                                            <Checkbox checked={documentStates[file.name]}
+                                                                                /* onChange={() => {
+handleCheckboxChange(file.name);
+                                                                                }} */
+                                                                                value={anexo_c} // Asocia el valor del Checkbox al valor de la API
+                                                                                name={file.name}
+                                                                                id="checkAnexo"
+                                                                            />
+                                                                        }
                                                                     />
-                                                                    <Typography className='text-autorizacion-form'>
-                                                                        Confirmo que he visto y comprendido la explicación del documento que se muestra en el video.
-                                                                    </Typography>
-                                                                </CardActions>
 
+
+                                                                <Typography className='text-autorizacion-form'>
+                                                                    Confirmo que he visto y comprendido la explicación del documento que se muestra en el video.
+                                                                </Typography>
+                                                                </CardActions>
                                                                 <br />
                                                             </div>
                                                         ) : null}
@@ -297,44 +380,48 @@ function Docs() {
                                                         <div className=' centrado '>
                                                             <Grid item sx={12} sm={12} md={12} lg={12} >
                                                                 <div className="">
-                                                                    <a href={file.drive_url} target="_blank" rel="noopener noreferrer">
-                                                                        <Button
-                                                                            fullWidth
-                                                                            variant="contained"
+                                                                 <a href={file.drive_url} target="_blank" rel="noopener noreferrer"> 
+                                                                    <Button
+                                                                        fullWidth
+                                                                        variant="contained"
 
-                                                                            sx={{
-                                                                                marginTop: '20px',
-                                                                                mb: 3,
-                                                                                background: '#81A1F8',
-                                                                                borderRadius: '10px',
-                                                                                color: '#ffffff',
+                                                                        sx={{
+                                                                            marginTop: '20px',
+                                                                            mb: 3,
+                                                                            background: '#81A1F8',
+                                                                            borderRadius: '10px',
+                                                                            color: '#ffffff',
 
-                                                                                textTransform: 'none',
-                                                                                border: '1px solid #81A1F8',
-                                                                                height: '58px',
+                                                                            textTransform: 'none',
+                                                                            border: '1px solid #81A1F8',
+                                                                            height: '58px',
 
-                                                                                fontFamily: 'Helvetica',
-                                                                                fontSize: '20px',
-                                                                                width: '100%',
-                                                                                //maxWidth: '390px', // Utiliza maxWidth en lugar de width
-                                                                                // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                                                                margin: '0 auto', // Centrar horizontalmente
-                                                                                display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                                                                justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                                                                alignItems: 'center', // Centrar verticalmente el contenido
+                                                                            fontFamily: 'Helvetica',
+                                                                            fontSize: '20px',
+                                                                            width: '100%',
+                                                                            //maxWidth: '390px', // Utiliza maxWidth en lugar de width
+                                                                            // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
+                                                                            margin: '0 auto', // Centrar horizontalmente
+                                                                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
+                                                                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
+                                                                            alignItems: 'center', // Centrar verticalmente el contenido
 
 
-                                                                            }}
-                                                                            //disabled={!documentStates[file.name] }
+                                                                        }}
+                                                                        //disabled={!documentStates[file.name] }
 
-                                                                            /* onClick={() => handleDocumentLinkClickk(documentStates[file.drive_url])} */
-                                                                            disabled={documentStates[file.name]}
-                                                                            onClick={() => handleDocumentLinkClickBtn(file.drive_url)}
-                                                                        >
-                                                                            <b> Leer documento</b>
-                                                                        </Button>
-                                                                        <br />
-                                                                    </a>
+                                                                        /* onClick={() => handleDocumentLinkClickk(documentStates[file.drive_url])} */
+                                                                        disabled={documentStates[file.name]}
+                                                                    /* 
+                                                                                                                                            onChange={() => {
+                                                                                                                                                handleDocumentLinkClickBtn(file.name);
+                                                                    
+                                                                                                                                            }} */
+                                                                    >
+                                                                        <b> Leer documento</b>
+                                                                    </Button>
+                                                                    <br />
+                                                                  </a> 
                                                                 </div>
                                                             </Grid>
                                                         </div>
@@ -395,7 +482,7 @@ function Docs() {
                                             <div className=" ">
                                                 <div className="collapse" id={`mesDos-${index}`}>
                                                     <div className=''>
-                                                        {file.name === "Promesa compra venta cliente" /* || file.name === "Anexo 1" || file.name === "Contrato Arriendo" */ ? (
+                                                        {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
                                                             <div className='notice-up-to-date '>
 
                                                                 <div className='text-notice-date-two '>
@@ -415,8 +502,9 @@ function Docs() {
                                                                         Video informativo:
                                                                     </Typography>
                                                                 </div>
+                                                                {/* Titulo y texto de la sección de video dependiendo el documento seleccionado*/}
                                                                 <div className='  '>
-                                                                    <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p>
+                                                                    {textVideoUrl(file.name)}
                                                                 </div>
                                                                 <br />
                                                                 <div className=' centrado '>
