@@ -1717,6 +1717,10 @@ a {
     width: 300px;
 
   }
+  .video-docs-text-date{
+    height: auto;
+    width: 300px;
+  }
 
 
 }
@@ -1879,6 +1883,10 @@ a {
     width: 400px;
 
   }
+  .video-docs-text-date{
+    height: auto;
+    width: 1040px;
+  }
 
 }
 
@@ -1917,6 +1925,10 @@ a {
     height: 360px;
     width: 640px;
 
+  }
+  .video-docs-text-date{
+    height: auto;
+    width: 640px;
   }
 }
 
@@ -2117,9 +2129,13 @@ a {
   }
 
   .video-docs{
-    height: 360px;
-    width: 640px;
+    height: 560px;
+    width: 1040px;
 
+  }
+  .video-docs-text-date{
+    height: auto;
+    width: 1040px;
   }
 }
 
@@ -2244,9 +2260,14 @@ a {
 
 
   .video-docs{
-    height: 460px;
-    width: 840px;
+    height: 560px;
+    width: 1040px;
 
+  }
+
+  .video-docs-text-date{
+    height: auto;
+    width: 1040px;
   }
 
 
