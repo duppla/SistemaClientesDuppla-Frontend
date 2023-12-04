@@ -161,8 +161,8 @@ function Payment() {
             const sumaValores = gastos + administracion;
             const cambioValores = numeral(sumaValores).format('0,0')
             //validación de digitos 5, 6, 7, 8, 9
-            /*   console.log('precio prueba', precio);
-              console.log('sumaValores', sumaValores); */
+             console.log('precio prueba', precio);
+              console.log('sumaValores', sumaValores); 
             if (precio <= sumaValores) {
                 const mensajeAlert = "El valor mínimo a pagar es $" + cambioValores + "";
                 swal({
@@ -172,8 +172,8 @@ function Payment() {
                     timer: 5000,
                 });
                 return;
-            } else if (precio >= 12000001) {
-                const mensajeAlert = "El valor máximo de pago que permite la plataforma es de 12 millones de pesos. Si desea realizar un pago mayor, por favor, póngase en contacto con el asesor";
+            } else if (precio >= 50000001) {
+                const mensajeAlert = "El valor máximo de pago que permite la plataforma es de 50 millones de pesos. Si desea realizar un pago mayor, por favor, póngase en contacto con el asesor";
                 swal({
                     text: mensajeAlert,
                     icon: "info",
@@ -188,8 +188,6 @@ function Payment() {
             }
         }
     }
-
-
 
 
     // cambio de icono de ubicación en la barra de pago
