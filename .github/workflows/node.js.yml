@@ -32,6 +32,7 @@ jobs:
       with:
         amplify_command: configure
         amplify_env: staging
+        amplify_cli_version: 12.10.1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -47,6 +48,7 @@ jobs:
       with:
         amplify_command: publish
         amplify_env: staging
+        amplify_cli_version: 12.10.1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
