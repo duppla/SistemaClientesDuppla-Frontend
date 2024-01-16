@@ -42,30 +42,24 @@ const FormMentenimiento = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const estado = localStorage.getItem('estado');
-  /*  const email = localStorage.getItem('email'); */
   const emailWithQuotes = localStorage.getItem('email');
+  const navigate = useNavigate();
+  const [setIsSubmitted] = useState(false);
+  const email = emailWithQuotes.replace(/"/g, '');
+  
+  const [formData, setFormData] = useState({
+    email: email ? email : "",
+    /* inmueble: '', */
+    tipo_reclamacion_garantia: '',
+    tipo_afectacion: '',
+    subtipo_afectacion: '',
+    ubicacion_mmto: '',
+    asunto: '',
+    actividades_solicitadas: ''
+
+  });
 
   if (emailWithQuotes) {
-    // Eliminar las comillas alrededor del correo electrónico
-    const email = emailWithQuotes.replace(/"/g, '');
-
-
-
-    const navigate = useNavigate();
-    const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const [formData, setFormData] = useState({
-      email: email,
-      /* inmueble: '', */
-      tipo_reclamacion_garantia: '',
-      tipo_afectacion: '',
-      subtipo_afectacion: '',
-      ubicacion_mmto: '',
-      asunto: '',
-      actividades_solicitadas: ''
-
-    });
-
     const handleInputChange = (event) => {
       const { name, value } = event.target;
       setFormData({

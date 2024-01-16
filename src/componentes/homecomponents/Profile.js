@@ -44,7 +44,7 @@ const themeLogin = createTheme({
 });
 
 
-function profile() {
+function Profile() {
 
 
 
@@ -480,4 +480,4 @@ function profile() {
 }
 
 
-export default profile;
+export default Profile;

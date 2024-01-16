@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-function pagosHistorial() {
+function PagosHistorial() {
     // uso del localsotrage para traer estado del usuario
     const estado = localStorage.getItem('estado');
 
@@ -96,4 +96,4 @@ function pagosHistorial() {
 }
 
 
-export default pagosHistorial;
+export default PagosHistorial;
