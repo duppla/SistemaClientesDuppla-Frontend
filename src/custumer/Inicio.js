@@ -88,7 +88,7 @@ function Inicio() {
         const fechaFormateada = fecha.toLocaleDateString('es-CO', opcionesFecha).replace(' de', '').toLowerCase();
         return fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
     };
-    
+
 
     // trae la función  salida, que se declaro en el contexto para implementar aquí,
     const { logout } = useContext(AuthContext);
@@ -128,7 +128,7 @@ function Inicio() {
                         setBalanceApi(response.balance)
                     })
                     .catch(err => console.error(err));
-            })           
+            })
 
             .catch(err => {
                 console.error(err);
@@ -151,7 +151,7 @@ function Inicio() {
                 console.error(err);
             });
 
-            
+
     }, []);
 
     //url boton de pago
@@ -435,16 +435,26 @@ function Inicio() {
                                 </div>
                                 <div className="col-6 outline text-dropdown-right">
 
-                                 {balanceApi !== 0 ? ( <p className='text-end text-space-goal-data '>${balanceformat}</p>):(<p className='text-end text-space-goal-data '>¡Al día!</p>)}
+                                    {balanceApi !== 0 ? (<p className='text-end text-space-goal-data '>${balanceformat}</p>) : (<p className='text-end text-space-goal-data '>¡Al día!</p>)}
                                 </div>
                                 <br />
                             </div>
                         </div>
                     </div>
-                    {pendingPayments.length > 0  ? (
-                        <Container maxWidth="xl" justifyContent='center'>
+                    {pendingPayments.length > 0 ? (
+                        <Container maxWidth="xl" sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                            maxWidth: '390px',
+                           width: '374px',
+                            mb: 4,
+                            mt: 4,
+                        }}>
                             {pendingPayments.slice().reverse().map(payment => (
-                                <Accordion  /* className= 'cards-payment-jsx-mui' */ sx={{ mt: 2,  }} key={payment.billingPeriod} style={{ border: payment.daysUntilDueDate < 0 ? '2px solid red' : 'none' }}>
+                                <Accordion  /* className= 'cards-payment-jsx-mui' */ sx={{ mt: 2, }} key={payment.billingPeriod} style={{ border: payment.daysUntilDueDate < 0 ? '2px solid red' : 'none' }}>
                                     <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: 'red' }} />} sx={{ mt: 2, }}>
                                         <Grid container xs={12} sm={12} md={12} lg={12} justifyContent="space-between" alignItems="center" spacing={0.5}>
                                             <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'start' }}>
@@ -466,14 +476,14 @@ function Inicio() {
                                                             <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px' }}>Arrendamiento</Typography>
                                                         </Grid>
                                                         <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
-                                                            <Tooltip   title='Pago mensual que realizas por el uso del inmueble' >
+                                                            <Tooltip title='Pago mensual que realizas por el uso del inmueble' >
 
                                                                 <InfoIcon sx={{ fill: '#95B1FF', background: 'none', height: '16px', width: '16px' }} />
                                                             </Tooltip>
                                                         </Grid>
                                                         <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
-                                                           <Typography> $ {new Intl.NumberFormat('es-ES').format(payment.balance)}</Typography> 
-                                                        {/*    <Typography> $ {formatearBalance(payment.balance)}</Typography> */}
+                                                            <Typography> $ {new Intl.NumberFormat('es-ES').format(payment.balance)}</Typography>
+                                                            {/*    <Typography> $ {formatearBalance(payment.balance)}</Typography> */}
                                                         </Grid>
                                                     </Grid>
                                                 </Box>
@@ -481,7 +491,7 @@ function Inicio() {
 
                                             {formatterGastos !== '0' ? (
                                                 <Grid item xs={12} sm={12} md={12} lg={12}>
-                                                    <Box sx={{  }}>
+                                                    <Box sx={{}}>
                                                         <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
                                                             <Grid xs={6} sm={6} md={6} lg={6}>
                                                                 <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Gastos</Typography>
@@ -558,105 +568,105 @@ function Inicio() {
                         </Container>) : (
 
                         <Container maxWidth="xl" sx={{}}>
-                            { balanceApi !== 0 ? (
-                            <Accordion>
-                                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ mt: 2 }}>
-                                    <Grid container xs={12} sm={12} md={12} lg={12} justifyContent="space-between" alignItems="center" spacing={0.5}>
-                                        <Grid itemxs={6} md={6} lg={6} sx={{ textAlign: 'start' }}>
-                                            <Typography variant="h6">{mes}</Typography>
+                            {balanceApi !== 0 ? (
+                                <Accordion>
+                                    <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ mt: 2 }}>
+                                        <Grid container xs={12} sm={12} md={12} lg={12} justifyContent="space-between" alignItems="center" spacing={0.5}>
+                                            <Grid itemxs={6} md={6} lg={6} sx={{ textAlign: 'start' }}>
+                                                <Typography variant="h6">{mes}</Typography>
+                                            </Grid>
+                                            <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
+                                                <Typography sx={{ color: '#0A3323', fontSize: '12px' }}>Fecha de corte: {date}</Typography>
+                                            </Grid>
                                         </Grid>
-                                        <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
-                                            <Typography sx={{ color: '#0A3323', fontSize: '12px' }}>Fecha de corte: {date}</Typography>
-                                        </Grid>
-                                    </Grid>
-                                </AccordionSummary>
-                                <AccordionDetails sx={{ width: '100%' }}>
-                                    {/* Contenido del Accordion */}
-                                    <Grid container gap={1} spacing={2} sx={{}}>
-                                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                                            <Box sx={{ width: '100%' }}>
-                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
-                                                    <Grid xs={6} sm={6} md={6} lg={6}>
-                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Arrendamiento</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ width: '100%' }}>
+                                        {/* Contenido del Accordion */}
+                                        <Grid container gap={1} spacing={2} sx={{}}>
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{ width: '100%' }}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Arrendamiento</Typography>
+                                                        </Grid>
+                                                        <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                            <Tooltip title='Pago mensual que realizas por el uso del inmueble'>
+                                                                <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                            </Tooltip>
+                                                        </Grid>
+                                                        <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                            <Typography>${formatterCannon}</Typography>
+                                                        </Grid>
                                                     </Grid>
-                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
-                                                        <Tooltip title='Pago mensual que realizas por el uso del inmueble'>
-                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
-                                                        </Tooltip>
-                                                    </Grid>
-                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
-                                                        <Typography>${formatterCannon}</Typography>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Grid>
+                                                </Box>
+                                            </Grid>
 
-                                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                                            <Box sx={{ width: '100%' }}>
-                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
-                                                    <Grid xs={6} sm={6} md={6} lg={6}>
-                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Gastos</Typography>
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{ width: '100%' }}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Gastos</Typography>
+                                                        </Grid>
+                                                        <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                            <Tooltip title='Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.'>
+                                                                <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                            </Tooltip>
+                                                        </Grid>
+                                                        <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                            <Typography>${formatterGastos}</Typography>
+                                                        </Grid>
                                                     </Grid>
-                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
-                                                        <Tooltip title='Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.'>
-                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
-                                                        </Tooltip>
+                                                </Box>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{ width: '100%' }}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Reservas</Typography>
+                                                        </Grid>
+                                                        <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                            <Tooltip title=' Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.'>
+                                                                <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                            </Tooltip>
+                                                        </Grid>
+                                                        <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                            <Typography>${formatterReservas}</Typography>
+                                                        </Grid>
                                                     </Grid>
-                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
-                                                        <Typography>${formatterGastos}</Typography>
+                                                </Box>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{ width: '100%' }}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Administración</Typography>
+                                                        </Grid>
+                                                        <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                            <Tooltip title=' Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.'>
+                                                                <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                            </Tooltip>
+                                                        </Grid>
+                                                        <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                            <Typography>${formatterAdministracion}</Typography>
+                                                        </Grid>
                                                     </Grid>
-                                                </Grid>
-                                            </Box>
+                                                </Box>
+                                            </Grid>
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{ width: '100%' }}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 500, color: '#6C9FFF', fontSize: '20px', }}><strong> Total</strong></Typography>
+                                                        </Grid>
+                                                        <Grid xs={6} sm={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
+                                                            <Typography>${formatterPagoMinimo}</Typography>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Box>
+                                            </Grid>
                                         </Grid>
-                                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                                            <Box sx={{ width: '100%' }}>
-                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
-                                                    <Grid xs={6} sm={6} md={6} lg={6}>
-                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Reservas</Typography>
-                                                    </Grid>
-                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
-                                                        <Tooltip title=' Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.'>
-                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
-                                                        </Tooltip>
-                                                    </Grid>
-                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
-                                                        <Typography>${formatterReservas}</Typography>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Grid>
-                                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                                            <Box sx={{ width: '100%' }}>
-                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
-                                                    <Grid xs={6} sm={6} md={6} lg={6}>
-                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Administración</Typography>
-                                                    </Grid>
-                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
-                                                        <Tooltip title=' Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.'>
-                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
-                                                        </Tooltip>
-                                                    </Grid>
-                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
-                                                        <Typography>${formatterAdministracion}</Typography>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Grid>
-                                        <Grid item xs={12} sm={12} md={12} lg={12}>
-                                            <Box sx={{ width: '100%' }}>
-                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
-                                                    <Grid xs={6} sm={6} md={6} lg={6}>
-                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 500, color: '#6C9FFF', fontSize: '20px', }}><strong> Total</strong></Typography>
-                                                    </Grid>
-                                                    <Grid xs={6} sm={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
-                                                        <Typography>${formatterPagoMinimo}</Typography>
-                                                    </Grid>
-                                                </Grid>
-                                            </Box>
-                                        </Grid>
-                                    </Grid>
-                                </AccordionDetails>
-                            </Accordion>
+                                    </AccordionDetails>
+                                </Accordion>
                             ) : (null)}
                         </Container>
                     )}

@@ -1388,10 +1388,8 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 320%!important;
- 
-    margin-bottom: 5px;
-  
+    width: 320%!important; 
+    margin-bottom: 5px;  
     height: 90px;
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;
@@ -1622,7 +1620,7 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 380px !important;
+    width: 360px !important;
   /*   margin-top: 24px; */
     margin-bottom: 5px;
 
@@ -1895,10 +1893,8 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 100% !important;
-  
+    width: 600% !important;  
     margin-bottom: 5px;
-
     height: 90px;
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;

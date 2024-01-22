@@ -278,8 +278,8 @@ function Payment() {
                 </div>
             </div>) : (
 
-                <Container maxWidth="xl" sx={{ mt: 2, mb: 4, ml: 1, width: '100%', borderRadius: '20px', padding: '0px' }}
-                    className=''>
+                <Container maxWidth="xxl" sx={{ mt: 2, mb: 4, ml: 1, width: '100%', borderRadius: '20px', padding: '0px' }}
+                    className='centrado'>
                     {/* Componente resemen de pagos*/}
                     <Grid container sx={{ backgroundColor: '#093323', borderRadius: '24px', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', }}>
 
@@ -307,12 +307,23 @@ function Payment() {
                     </Grid>
                     {/* Componente opciones de pago*/}
                     <Grid container gap={0} columnSpacing={{ md: 1, lg: 1, }} sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        minWidth: '374px',
+                        width: '100%',
+                        mb: 4,
+                        mt: 4,
 
                     }}>
                         {/*Grafica principal-datos del inmueble*/}
-                        <Grid className='' xs={12} sm={12} md={12} lg={12} sx={{
+                        <Grid className='' xs={12} sm={12} md={12} lg={12} sx={{                        
+                           
+
                         }}>
-                            <form onSubmit={handlePayment}>
+                            <form onSubmit={handlePayment} >
                                 <RadioGroup
                                     name="flexRadioDefault"
                                     value={selectedOption}
@@ -327,8 +338,12 @@ function Payment() {
                                             {pendingPayments
                                                 .sort((a, b) => new Date(a.date) - new Date(b.date)) // Ordenar por fecha
                                                 .map((payment, index) => (
-                                                    <Grid key={index} xs={12} sm={12} md={12} lg={12}>
-                                                        <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === `dynamicOption${index}` ? 'selected' : ''}`} sx={{ mt: 2, justifyContent: 'space-between', padding: '16px' }}>
+                                                    <Grid key={index} xs={12} sm={12} md={12} lg={12} sx={{
+                                                        width: '100%',
+                                                        minWidth: '374px',
+                                                       
+                                                    }}>
+                                                        <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === `dynamicOption${index}` ? 'selected' : ''}`} sx={{ mt: 2, justifyContent: 'space-between', padding: '10px' }}>
                                                             {/* Radio button opción dinámica */}
                                                             <Grid xs={6} sm={6} md={6} lg={6} sx={{
                                                                 alignItems: "center",
@@ -356,7 +371,7 @@ function Payment() {
                                         {balanceformat !== '0' && pendingPayments.length >= 2 && (
                                             <Grid xs={12} sm={12} md={12} lg={12} >
                                                 <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
-                                                    mt: 2, justifyContent: 'space-between', padding: '6px'
+                                                    mt: 2, justifyContent: 'space-between', padding: '4px'
                                                 }}>
                                                     {/* Radio button opción 3 */}
                                                     <Grid xs={6} sm={6} md={6} lg={6} sx={{
@@ -406,7 +421,7 @@ function Payment() {
                                         {/* Radio button opción 2 */}
                                         <Grid xs={12} sm={12} md={12} lg={12} >
                                             <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === 'option2' ? 'selected' : ''}`} sx={{
-                                                mt: 2, mt: 2, justifyContent: 'space-between', padding: '16px'
+                                                mt: 2, mt: 2, justifyContent: 'space-between', padding: '10px'
                                             }}>
                                                 <Grid xs={6} sm={6} md={6} lg={6} sx={{
                                                     alignItems: "center",
@@ -432,10 +447,10 @@ function Payment() {
                                         <Grid xs={12} sm={12} md={12} lg={12}  >
                                             <Grid container
                                                 className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
-                                                    mt: 2, justifyContent: 'space-between', padding: '16px'
+                                                    mt: 2, justifyContent: 'space-between', padding: '10px'
                                                 }}>
                                                 {/* /* Container-cards-payment-c  */}
-                                                <Grid xs={6} sm={6} md={6} lg={6} >
+                                                <Grid xs={4} sm={4} md={6} lg={6} >
                                                     <Grid container
                                                         sx={{
                                                             mt: 1,
@@ -462,7 +477,7 @@ function Payment() {
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid xs={6} sm={6} md={6} lg={6} >
+                                                <Grid xs={5} sm={5} md={6} lg={6} >
                                                     {selectedOption === 'option4' && (
                                                         <TextField
                                                             id="paymentValue"
