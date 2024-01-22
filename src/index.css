@@ -296,6 +296,10 @@ code {
   letter-spacing: -0.015em;
   color: #0A3323
 }
+.MuiTooltip-tooltip {
+  background-color: #95B1FF !important; /* Color del fondo del contenido */
+  color: white !important; /* Color del texto dentro del tooltip */
+}
 
 .form-register {
   display: flex;
@@ -1384,16 +1388,20 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 340px !important;
-    margin-top: 24px;
+    width: 320%!important;
+ 
     margin-bottom: 5px;
-    padding: 16px 24px;
+  
     height: 90px;
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     border-radius: 12px;
 
+  }
+  .cards-payment-jsx-mui{
+    width: 100% !important;   
+   
   }
 
 }
@@ -1611,12 +1619,13 @@ a {
 
   }
 
+
   .Container-cards-payment-customer-mui {
 
     width: 380px !important;
-    margin-top: 24px;
+  /*   margin-top: 24px; */
     margin-bottom: 5px;
-    padding: 16px 24px;
+
     height: 90px;
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;
@@ -1721,7 +1730,10 @@ a {
     height: auto;
     width: 300px;
   }
-
+  .cards-payment-jsx-mui{
+    width: 356px !important;   
+    
+  }
 
 }
 
@@ -1777,24 +1789,6 @@ a {
     border-radius: 10px;
   }
 
-
-  /*   hr {
-   
-
-    width: 59px;
-    height: 0px;
-    left: 80px;
-    top: 65px;
-    margin-top: 30px;
-    margin-left: 5px;
-    bottom: 28px;
-
-    border: 1, 3px solid #FFFFFF !important;
-    background-color: #ffffff !important;
-  }
- */
-
-
   .img-duppla {
     position: absolute;
     padding: 0px;
@@ -1842,8 +1836,7 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-
-    width: 400px !important;
+    width: 420% !important;
     margin-top: 24px;
     margin-bottom: 5px;
     padding: 16px 24px;
@@ -1887,6 +1880,10 @@ a {
     height: auto;
     width: 1040px;
   }
+  .cards-payment-jsx-mui{
+    width: 460px !important;   
+    height: 90px;  
+  }
 
 }
 
@@ -1898,11 +1895,10 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-
-    width: 720px !important;
-    margin-top: 24px;
+    width: 100% !important;
+  
     margin-bottom: 5px;
-    padding: 16px 24px;
+
     height: 90px;
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;
@@ -1929,6 +1925,10 @@ a {
   .video-docs-text-date{
     height: auto;
     width: 640px;
+  }
+  .cards-payment-jsx-mui{
+    width: 480px !important;   
+   
   }
 }
 
@@ -1965,7 +1965,7 @@ a {
 
   }
 
-  .text-name-home {
+   .text-name-home {
 
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -2000,14 +2000,16 @@ a {
   }
 
   .margin-box-mui-payment {
-
     margin-left: 5px !important;
-
   }
 
   .loanding-state-mui{
     width: 160px;
     height:160px;    
+  }
+  .cards-payment-jsx-mui{
+    width: 374px !important;   
+    
   }
 }
 
@@ -2137,6 +2139,11 @@ a {
     height: auto;
     width: 1040px;
   }
+  .cards-payment-jsx-mui{
+    width: 374px !important;   
+    
+  }
+  
 }
 
 /* Dispositivos XX-Large (escritorios más grandes, 1400px y más)*/
@@ -2196,7 +2203,7 @@ a {
   .Container-cards-payment-customer-mui {
 
 
-    width: auto !important;
+    width: 100% !important;
     margin-top: 24px;
     margin-bottom: 5px;
     padding: 16px 24px;
@@ -2269,7 +2276,10 @@ a {
     height: auto;
     width: 1040px;
   }
-
+  .cards-payment-jsx-mui{
+    width: 374px !important;   
+    
+  }
 
 
 

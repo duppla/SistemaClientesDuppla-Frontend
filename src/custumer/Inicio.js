@@ -33,11 +33,14 @@ import numeral from "numeral";
 import GrafictHome from "./GrafictHome";
 import IconToolytip from "../../src/img/IconTooltip.svg";
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import { Button, Container, Grid } from "@mui/material";
+import { Button, Container, Accordion, AccordionSummary, AccordionDetails, Typography, Tooltip, Box } from "@mui/material";
+import InfoIcon from '@mui/icons-material/Info';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Lottie from 'lottie-react';
 import animationData from './../Components/loanding.json';
 import ReactGA from 'react-ga';
-
+import Grid from '@mui/material/Unstable_Grid2';
+import { Balance } from "@mui/icons-material";
 
 
 
@@ -56,11 +59,9 @@ function Inicio() {
         if (estado != "true") {
             navigate('/')
         }
-
     }, []);
 
     // Función fecha del día actual
-
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -69,10 +70,8 @@ function Inicio() {
 
 
     //Función fecha de corte
-
     let fechacorte = new Date(),
         date = '05' + '/' + (fechacorte.getMonth() + 1) + '/' + fechacorte.getFullYear();
-
 
     // Función fecha del mes actual
     const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -82,8 +81,16 @@ function Inicio() {
     const d = new Date();
     let mes = monthNames[d.getMonth()];
 
-    // trae la función  salida, que se declaro en el contexto para implementar aquí,
 
+    const formatearFechaShort = (dueDate) => {
+        const fecha = new Date(dueDate + 'T00:00:00-05:00'); // Añadir la hora y ajustar la zona horaria
+        const opcionesFecha = { day: 'numeric', month: 'short' };
+        const fechaFormateada = fecha.toLocaleDateString('es-CO', opcionesFecha).replace(' de', '').toLowerCase();
+        return fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+    };
+    
+
+    // trae la función  salida, que se declaro en el contexto para implementar aquí,
     const { logout } = useContext(AuthContext);
     const handleLogoutCustumer = () => {
         logout();
@@ -94,7 +101,9 @@ function Inicio() {
 
     // Trae los datos del API 
     const [dataCustumer, setDataCustumer] = useState({});
+    const [pendingPayments, setPendingPayments] = useState([]);
     const [formattedDataCustumer, setFormattedDataCustumer] = useState(null);
+    const [balanceApi, setBalanceApi] = useState(null);
 
     useEffect(() => {
         const email = localStorage.getItem('email');
@@ -110,18 +119,43 @@ function Inicio() {
                 setDataCustumer(response)
                 setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
                 setLoading(false);
-            })
+
+                const options2 = { method: 'GET', headers: { 'User-Agent': 'insomnia/2023.5.8' } };
+
+                fetch('https://salesforce-gdrive-conn.herokuapp.com/deuda?customer=' + response.cedula, options2)
+                    .then(response => response.json())
+                    .then(response => {
+                        setBalanceApi(response.balance)
+                    })
+                    .catch(err => console.error(err));
+            })           
 
             .catch(err => {
                 console.error(err);
                 setLoading(false);
             });
+        // Segunda llamada a la API para 'pendingPayments'
+        const optionsPendingPayments = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: '{ "email": ' + email + '}'
+        };
+
+        fetch('https://sistema-duppla-backend.herokuapp.com/pagos/pendingPayments', optionsPendingPayments)
+            .then(response => response.json())
+            .then(pendingPaymentsResponse => {
+                setPendingPayments(pendingPaymentsResponse);
+
+            })
+            .catch(err => {
+                console.error(err);
+            });
+
+            
     }, []);
 
     //url boton de pago
-    const btnpago = dataCustumer.linkPago;
     const whatsappLink = dataCustumer.Link_whatsapp;
-
 
     //formateo de los datos en pagos
     const formatted = dataCustumer.pagoMinimo;
@@ -142,33 +176,11 @@ function Inicio() {
     const formatterGastos = formatter.format(gastos);
     const formatterReservas = formatter.format(reservas);
     const formatterAdministracion = formatter.format(administracion);
+    const balanceformat = formatter.format(balanceApi);
     {/*Función que cambia el nobre de usurio a minuscula */ }
 
     function convertirAMinusculas(texto) {
         return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
-    }
-
-    function btnLinkPago() {
-
-        if (btnpago == null || btnpago == "" || btnpago == undefined) {
-            return <div className="col-2 btn input-group btn-pago-custumer centrado-btn btn-disabled" width="400px" height="68px">
-                <img src={Iconpago} className="img-btn-pagos-custumer btn-disabled " alt="" width="32px" height="32px" />
-                <button className="btn btn-custumer-disabled btn-disabled text-white" type="button" disabled>
-                    <h5>Pagar factura</h5>
-                </button>
-            </div>
-
-        } else {
-            return <div className="col-2 btn input-group btn-pago-custumer centrado-btn " width="400px" height="68px" >
-                <a className="links text-white"
-                    href={btnpago} >
-                    <img src={Iconpago} className="img-btn-pagos-custumer" alt="" width="32px" height="32px" />
-                    <button type="button" id="" className="btn btn-cerrar text-white " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <h5>Pagar factura</h5>
-                    </button>
-                </a>
-            </div>
-        }
     }
     // Estados y funciones que manejan los tooltips
     const [tooltips, setTooltips] = useState([]);
@@ -227,7 +239,6 @@ function Inicio() {
             return porcentajeActual;
         }
     }
-
     // Función que calcula el porcentaje de la meta anual
     const GrafictMeta = () => {
         const grafictPieValue = GrafictPie();
@@ -244,7 +255,6 @@ function Inicio() {
 
         return faltanteMeta;
     }
-
     //Función que calcula el porcentaje de la meta
     const dataGrafictT = () => {
         let porcentaje = dataCustumer.participacion - dataCustumer.participacionInicial;
@@ -253,9 +263,6 @@ function Inicio() {
 
         return porcentaje;
     }
-
-    // console.log(dataCustumer.participacionInicial +'prueba')
-
     const handleLinkClickPago = () => {
         // Envía un evento cuando se hace clic en un enlace de documento.
         ReactGA.event({
@@ -272,15 +279,16 @@ function Inicio() {
             'label': 'Button',
         });
     };
-    
-    function NavbarClickMenu (){     
+
+    function NavbarClickMenu() {
         // Envía un evento cuando el componente Navbar se renderiza.
-         ReactGA.event({
-          'category': 'Component Interaction',
-          'action': 'Item menu',
+        ReactGA.event({
+            'category': 'Component Interaction',
+            'action': 'Item menu',
         });
-     
-}
+
+    }
+
 
 
     return (
@@ -426,150 +434,232 @@ function Inicio() {
                                     <p>Pago mínimo</p>
                                 </div>
                                 <div className="col-6 outline text-dropdown-right">
-                                    <p className='text-end text-space-goal-data '>${formatterPagoMinimo}</p>
+
+                                 {balanceApi !== 0 ? ( <p className='text-end text-space-goal-data '>${balanceformat}</p>):(<p className='text-end text-space-goal-data '>¡Al día!</p>)}
                                 </div>
                                 <br />
                             </div>
                         </div>
                     </div>
-                    {/*Meta mensual 
-                    <div className="card-docs-init-customer  ">
-                        <div className="card-body-docs col-1">
-                            <img src={Istatem} className="  warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                        </div>
-                        <div className="card-body col-8 text-number-custumer">
-                            Meta mensual
-                        </div>
-                        <div className="col-4 outline text-number-custumer">
-                            <p>$1,900,000</p>
-                        </div>
-                    </div>*/}
+                    {pendingPayments.length > 0  ? (
+                        <Container maxWidth="xl" justifyContent='center'>
+                            {pendingPayments.slice().reverse().map(payment => (
+                                <Accordion  /* className= 'cards-payment-jsx-mui' */ sx={{ mt: 2,  }} key={payment.billingPeriod} style={{ border: payment.daysUntilDueDate < 0 ? '2px solid red' : 'none' }}>
+                                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: 'red' }} />} sx={{ mt: 2, }}>
+                                        <Grid container xs={12} sm={12} md={12} lg={12} justifyContent="space-between" alignItems="center" spacing={0.5}>
+                                            <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'start' }}>
+                                                <Typography variant="h6">{payment.billingPeriod.charAt(0).toUpperCase() + payment.billingPeriod.slice(1)}</Typography>
+                                            </Grid>
+                                            <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
+                                                <Typography sx={{ color: '#0A3323', fontSize: '12px' }}>Vencimiento {formatearFechaShort(payment.due_date)}</Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ width: '100%' }}>
+                                        {/* Contenido del Accordion */}
+                                        <Grid container gap={1} spacing={2} sx={{}}>
 
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{}}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px' }}>Arrendamiento</Typography>
+                                                        </Grid>
+                                                        <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                            <Tooltip   title='Pago mensual que realizas por el uso del inmueble' >
 
+                                                                <InfoIcon sx={{ fill: '#95B1FF', background: 'none', height: '16px', width: '16px' }} />
+                                                            </Tooltip>
+                                                        </Grid>
+                                                        <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                           <Typography> $ {new Intl.NumberFormat('es-ES').format(payment.balance)}</Typography> 
+                                                        {/*    <Typography> $ {formatearBalance(payment.balance)}</Typography> */}
+                                                        </Grid>
+                                                    </Grid>
+                                                </Box>
+                                            </Grid>
 
-                    {/*Sección dropdown Mes*/}
-                    <div className="accordion container-form-centrado-customer-card  " id="accordionExample">
-                        <div className="accordion-item  accordion-item-mui">
-                            <h2 className="accordion-header" id="headingTwo">
-                                <button onClick={NavbarClickMenu} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                    <div className=" text-start " id="basic-addon4"><h5>{mes}</h5></div>
-                                    <div className="form-text text-end text-space-custumer" id="basic-addon4">Fecha de corte: {date}</div>
-                                </button>
-                            </h2>
-                            {/*---------------------------------------------------------------------------------------------------------------------------------*/}
-                            <div className="card-payment-home-custumer ">
-                                <div className="collapse" id="collapseExample">
-                                    <div className="card ">
-                                        <div className="card card-new" >
-                                            <div className="d-grid">
-                                                <br />
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Arrendamiento</p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
-                                                            <div
-                                                                className="tooltip-container"
-                                                                onMouseEnter={() => handleMouseEnter(0)}
-                                                                onMouseLeave={() => handleMouseLeave(0)}
-                                                            >
-                                                                <img src={IconToolytip} className="warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                                {tooltips[0] && <div className="tooltip ">Pago mensual que realizas por el uso del inmueble</div>}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 outline text-dropdown-right">
-                                                        <p className='text-end text-space-card-c '>${formatterCannon}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c  row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Gastos</p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
-                                                            <div
-                                                                className="tooltip-container"
-                                                                onMouseEnter={() => handleMouseEnter(1)}
-                                                                onMouseLeave={() => handleMouseLeave(1)}
-                                                            >
-                                                                <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                                {tooltips[1] && <div className="tooltip">Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.</div>}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 outline">
-                                                        <p className='text-end text-space-card-c '>${formatterGastos}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c row col-6">
+                                            {formatterGastos !== '0' ? (
+                                                <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                    <Box sx={{  }}>
+                                                        <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                            <Grid xs={6} sm={6} md={6} lg={6}>
+                                                                <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Gastos</Typography>
+                                                            </Grid>
+                                                            <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                                <Tooltip title='Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.'>
+                                                                    <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                                </Tooltip>
+                                                            </Grid>
+                                                            <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                                <Typography>${formatterGastos}</Typography>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Box>
+                                                </Grid>
+                                            ) : null}
 
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Reservas</p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
-                                                            <div
-                                                                className="tooltip-container"
-                                                                onMouseEnter={() => handleMouseEnter(2)}
-                                                                onMouseLeave={() => handleMouseLeave(2)}
-                                                            >
-                                                                <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                                {tooltips[2] && <div className="tooltip">Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.</div>}
-                                                            </div>
-                                                        </div>
+                                            {formatterReservas !== '0' ? (
+                                                <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                    <Box sx={{ width: '100%' }}>
+                                                        {/* Contenido del Accordion */}
+                                                        <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                            <Grid xs={6} sm={6} md={6} lg={6}>
+                                                                <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px' }}>Reservas</Typography>
+                                                            </Grid>
+                                                            <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                                <Tooltip title=' Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.'>
+                                                                    <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                                </Tooltip>
+                                                            </Grid>
+                                                            <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                                <Typography>${formatterReservas}</Typography>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Box>
+                                                </Grid>
+                                            ) : null}
+                                            {formatterAdministracion !== '0' ? (
+                                                <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                    <Box sx={{ width: '100%' }}>
+                                                        <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                            <Grid xs={6} sm={6} md={6} lg={6}>
+                                                                <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Administración</Typography>
+                                                            </Grid>
+                                                            <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                                <Tooltip title=' Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.'>
+                                                                    <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                                </Tooltip>
+                                                            </Grid>
+                                                            <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                                <Typography>${formatterAdministracion}</Typography>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Box>
+                                                </Grid>
+                                            ) : null}
 
+                                            <Grid item xs={12} sm={12} md={12} lg={12}>
+                                                <Box sx={{ width: '100%' }}>
+                                                    <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                        <Grid xs={6} sm={6} md={6} lg={6}>
+                                                            <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 500, color: '#6C9FFF', fontSize: '20px', }}><strong> Total</strong></Typography>
+                                                        </Grid>
+                                                        <Grid xs={6} sm={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
+                                                            <Typography> $ {new Intl.NumberFormat('es-ES').format(payment.balance)}</Typography>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Box>
+                                            </Grid>
+                                        </Grid>
+                                    </AccordionDetails>
+                                </Accordion>
+                            ))}
+                        </Container>) : (
 
-                                                    </div>
-                                                    <div className="col-6 outline">
-                                                        <p className='text-end text-space-card-c'>${formatterReservas}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c row col-6">
-                                                        <div className=" col-5">
-                                                            <p className="space-title-dop">Administración</p>
-                                                        </div>
-                                                        <div className="col-2 tooltip-customer">
-                                                            <div
-                                                                className="tooltip-container"
-                                                                onMouseEnter={() => handleMouseEnter(3)}
-                                                                onMouseLeave={() => handleMouseLeave(3)}
-                                                            >
-                                                                <img src={IconToolytip} className="  warning font-medium-2 mr-2" alt="" height='20px' width='20px' />
-                                                                {tooltips[3] && <div className="tooltip">Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.</div>}
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 outline">
-                                                        < p className='text-end text-space-card-c'>${formatterAdministracion}</p>
-                                                    </div>
-                                                </div>
+                        <Container maxWidth="xl" sx={{}}>
+                            { balanceApi !== 0 ? (
+                            <Accordion>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ mt: 2 }}>
+                                    <Grid container xs={12} sm={12} md={12} lg={12} justifyContent="space-between" alignItems="center" spacing={0.5}>
+                                        <Grid itemxs={6} md={6} lg={6} sx={{ textAlign: 'start' }}>
+                                            <Typography variant="h6">{mes}</Typography>
+                                        </Grid>
+                                        <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
+                                            <Typography sx={{ color: '#0A3323', fontSize: '12px' }}>Fecha de corte: {date}</Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                <AccordionDetails sx={{ width: '100%' }}>
+                                    {/* Contenido del Accordion */}
+                                    <Grid container gap={1} spacing={2} sx={{}}>
+                                        <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Box sx={{ width: '100%' }}>
+                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                    <Grid xs={6} sm={6} md={6} lg={6}>
+                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Arrendamiento</Typography>
+                                                    </Grid>
+                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                        <Tooltip title='Pago mensual que realizas por el uso del inmueble'>
+                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                        </Tooltip>
+                                                    </Grid>
+                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                        <Typography>${formatterCannon}</Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Grid>
 
-                                                <div className="card-docs-init  ">
-                                                    <div className="card-body-docs-c col-6">
-                                                        <p className="text-blue"><b>Total</b></p>
-                                                    </div>
-                                                    <div className="col-6 outline">
-                                                        < p className='text-end text-space-card-c text-blue'><b>${formatterPagoMinimo}</b></p>
-                                                    </div>
-                                                </div>
-                                                {/*<div className="input  input-pago">
-                                            <span className="span-pago" id="inputPagos">Paga otro valor</span>
-                                            <input type="number" className="form-control" placeholder="$" aria-label="Username" aria-describedby="basic-addon1" />
-                </div>*/}
-                                                <br />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/*componente pago*/}
-
-
+                                        <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Box sx={{ width: '100%' }}>
+                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                    <Grid xs={6} sm={6} md={6} lg={6}>
+                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Gastos</Typography>
+                                                    </Grid>
+                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                        <Tooltip title='Pago mensual que corresponde de seguro, impuesto predial, fiducia y los honorarios de duppla.'>
+                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                        </Tooltip>
+                                                    </Grid>
+                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                        <Typography>${formatterGastos}</Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Box sx={{ width: '100%' }}>
+                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                    <Grid xs={6} sm={6} md={6} lg={6}>
+                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Reservas</Typography>
+                                                    </Grid>
+                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                        <Tooltip title=' Pago mensual que corresponde a un ahorro que hacemos para cubrir mantenimientos y reparaciones.'>
+                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                        </Tooltip>
+                                                    </Grid>
+                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                        <Typography>${formatterReservas}</Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Box sx={{ width: '100%' }}>
+                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                    <Grid xs={6} sm={6} md={6} lg={6}>
+                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 300, color: '#0A3323', fontSize: '16px', }}>Administración</Typography>
+                                                    </Grid>
+                                                    <Grid xs={2} sm={2} md={2} lg={2} sx={{}}>
+                                                        <Tooltip title=' Pago obligatorio para cubrir gastos de seguridad, aseo, mantenimientos, etc. del edificio o conjunto donde vives.'>
+                                                            <InfoIcon sx={{ fill: '#95B1FF', height: '16px', width: '16px', }} />
+                                                        </Tooltip>
+                                                    </Grid>
+                                                    <Grid xs={4} sm={4} md={4} lg={4} sx={{ textAlign: 'end' }}>
+                                                        <Typography>${formatterAdministracion}</Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Grid>
+                                        <Grid item xs={12} sm={12} md={12} lg={12}>
+                                            <Box sx={{ width: '100%' }}>
+                                                <Grid container xs={12} sm={12} md={12} lg={12} sx={{ width: '100%' }}>
+                                                    <Grid xs={6} sm={6} md={6} lg={6}>
+                                                        <Typography variant="subtitle1" sx={{ fontFamily: 'Helvetica', fontWeight: 500, color: '#6C9FFF', fontSize: '20px', }}><strong> Total</strong></Typography>
+                                                    </Grid>
+                                                    <Grid xs={6} sm={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
+                                                        <Typography>${formatterPagoMinimo}</Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionDetails>
+                            </Accordion>
+                            ) : (null)}
+                        </Container>
+                    )}
                     {/*componente botones cerrar sesión y whatsApp */}
                     <Container maxWidth="xl" sx={{
                         display: 'flex',
@@ -599,20 +689,17 @@ function Inicio() {
                                                 background: '#81A1F8',
                                                 borderRadius: '10px',
                                                 color: '#ffffff',
-
                                                 textTransform: 'none',
                                                 border: '1px solid #81A1F8',
                                                 height: '58px',
-
                                                 fontFamily: 'Helvetica',
                                                 fontSize: '20px',
-
-                                                maxWidth: '390px', // Utiliza maxWidth en lugar de width
-                                                width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                                margin: '0 auto', // Centrar horizontalmente
-                                                display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                                justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                                alignItems: 'center', // Centrar verticalmente el contenido
+                                                maxWidth: '390px',
+                                                width: '100%',
+                                                margin: '0 auto',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
                                                 minWidth: '380px',
                                             }}
                                         >
@@ -630,7 +717,7 @@ function Inicio() {
                     {/*componentes de menú deslizable*/}
                     <div className='container-fluid  centrado'>
                         <div className='container-btn-wrapper'>
-                            <div  onClick={handleLinkClickMenuMAH} className='space-btn-wrapper'>
+                            <div onClick={handleLinkClickMenuMAH} className='space-btn-wrapper'>
                                 <Link to='/formulario'>
                                     <div className='btn-wrapper-one'>
                                         <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />

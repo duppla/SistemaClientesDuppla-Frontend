@@ -121,7 +121,6 @@ function Payment() {
         return enlaceModificado;
     };
 
-
     // estados para el formulario
 
     const [selectedOption, setSelectedOption] = useState();
@@ -142,7 +141,6 @@ function Payment() {
         setSelectedOption(event.target.value);
         setIsButtonDisabled(false);
     }
-
 
     // Función que controla el input del formulario
     function handlePayment(e) {
@@ -357,7 +355,7 @@ function Payment() {
                             justifyContent: 'center',
 
                         }}>
-                            <Grid item sx={12} sm={12} md={12} lg={12} >
+                            <Grid  xs={12} sm={12} md={12} lg={12} >
 
                                 <form onSubmit={handlePayment}>
                                     <RadioGroup
@@ -369,7 +367,7 @@ function Payment() {
                                         <Grid container justifyContent="center" alignItems="stretch" sx={{
                                             mt: 2
                                         }}>
-                                            <Grid item sx={12} sm={12} md={10} lg={10} >
+                                            <Grid item xs={12} sm={12} md={10} lg={10} >
                                                 <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
                                                     mt: 2,
                                                 }}>
@@ -382,7 +380,7 @@ function Payment() {
                                                             checked={selectedOption === "option3"}
                                                         />
                                                     </Grid>
-                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                    <Grid item xs={6} sm={6} md={6} lg={6} >
                                                         <div className=" space-value">
                                                             <p className="card-text text-end more space-value"> $ {balanceformat}</p>
                                                         </div>
@@ -395,7 +393,7 @@ function Payment() {
                                                 <Grid container justifyContent="center" alignItems="center" className={`Container-cards-payment-customer-mui ${selectedOption === 'option1' ? 'selected' : ''}`} sx={{
                                                     mt: 2,
                                                 }}>
-                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                    <Grid xs={6} sm={6} md={6} lg={6} >
                                                         <FormControlLabel
                                                             value="option1"
                                                             control={<Radio />}
@@ -403,7 +401,7 @@ function Payment() {
                                                             checked={selectedOption === "option1"}
                                                         />
                                                     </Grid>
-                                                    <Grid item sx={6} sm={6} md={6} lg={6} >
+                                                    <Grid xs={6} sm={6} md={6} lg={6} >
                                                         <div className=" space-value">
                                                             <p className="card-text text-end more space-value">$ {formatterPagoMinimo}</p>
                                                         </div>

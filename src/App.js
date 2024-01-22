@@ -18,9 +18,10 @@ import Property from './componentes/homecomponents/Property';
 import Offer from './componentes/homecomponents/Offer';
 import Pagos from './Components/Pagos';
 import Form from './Components/FormMentenimiento';
+import Pagospaloma from './Components/Payment';
 
 import Inicio from './custumer/Inicio';
-import Payment from './custumer/Payment';
+/* import Payment from './custumer/Payment'; */
 import History from './custumer/History';
 import Goal from './custumer/Goal';
 import { AuthContext } from './context/Contextauth';
@@ -49,25 +50,6 @@ function App() {
     return children;
   }
 
-  /*const [isLogged, setIsLogged] = useState (false);*/
-  /*function handleCallbackResponse(response) {
-    console.log("Encoded JWT ID token: " + response.credential);
-  }
-  useEffect(() => {
-    // eslint-disable-next-line no-undef
-    google.accounts.id.initialize({
-      cliente_id: "459885345096-6i3s9tbafo45gb41nscs6gm490dnht8n.apps.googleusercontent.com",
-      callback: handleCallbackResponse
-    });
-    // eslint-disable-next-line no-undef
-    google.accounts.id.renderButton(
-      document.getElementById("btnInicioGoogle"),
-      { theme: "outline", size: "large" }
-
-    )
-  }, []);*/
-
-
   return (
     <AuthProvider>
       <Routes>
@@ -85,13 +67,14 @@ function App() {
         <Route exact path='/offer' element={<Private><Offer /></Private>} ></Route>
 
           <Route exact path='/inicio' element={<Private><Inicio /></Private>} ></Route>
-          <Route exact path='/pagos' element={<Private><Payment /></Private>} ></Route>
+         {/*  <Route exact path='/pagos' element={<Private><Payment /></Private>} ></Route> */}
           <Route exact path='/historial' element={<Private><History /></Private>} ></Route>
           <Route exact path='/Ajustemeta' element={<Private><Goal /></Private>} ></Route>
           <Route exact path='/Consolidado' element={<Private><Annual /></Private>} ></Route>
           <Route exact path='/Facturacion' element={<Private><Notification /></Private>} ></Route>
           <Route exact path='/pagosHistorial' element={<Private><Pagos /></Private>} ></Route>
           <Route exact path='/formulario' element={<Private><Form /></Private>} ></Route>
+          <Route exact path='/pagos' element={<Private><Pagospaloma /></Private>} ></Route>
 
 
         <Route path='/error404' element={<Error404 />} ></Route>
