@@ -447,7 +447,7 @@ function Payment() {
                                         <Grid xs={12} sm={12} md={12} lg={12}  >
                                             <Grid container
                                                 className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
-                                                    mt: 2, justifyContent: 'space-between', padding: '10px'
+                                                    mt: 2, justifyContent: 'space-between', padding: '4px'
                                                 }}>
                                                 {/* /* Container-cards-payment-c  */}
                                                 <Grid xs={4} sm={4} md={6} lg={6} >

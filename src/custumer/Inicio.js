@@ -567,7 +567,17 @@ function Inicio() {
                             ))}
                         </Container>) : (
 
-                        <Container maxWidth="xl" sx={{}}>
+                        <Container maxWidth="xl" sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                            maxWidth: '390px',
+                           width: '374px',
+                            mb: 4,
+                            mt: 4,
+                        }}>
                             {balanceApi !== 0 ? (
                                 <Accordion>
                                     <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ mt: 2 }}>
@@ -576,7 +586,7 @@ function Inicio() {
                                                 <Typography variant="h6">{mes}</Typography>
                                             </Grid>
                                             <Grid item xs={6} md={6} lg={6} sx={{ textAlign: 'end' }}>
-                                                <Typography sx={{ color: '#0A3323', fontSize: '12px' }}>Fecha de corte: {date}</Typography>
+                                                <Typography sx={{ color: '#0A3323', fontSize: '12px' }}>Vencimiento {date}</Typography>
                                             </Grid>
                                         </Grid>
                                     </AccordionSummary>
