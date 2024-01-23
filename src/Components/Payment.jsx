@@ -226,7 +226,7 @@ function Payment() {
 
     return (
 
-        <Box sx={{ flexGrow: 1, mt: 1, ml: 1, mr: 2, borderRadius: '20px' }} >
+        <Box sx={{ flexGrow: 1, mt: 1, ml:1, mr:1, borderRadius: '20px' }} >
             {/* sección 1 titulo */}
             <Box maxWidth="xl" sx={{}}>
                 <Grid container spacing={2}>
@@ -278,7 +278,7 @@ function Payment() {
                 </div>
             </div>) : (
 
-                <Container maxWidth="xxl" sx={{ mt: 2, mb: 4, ml: 1, width: '100%', borderRadius: '20px', padding: '0px' }}
+                <Container maxWidth="xxl" sx={{ mt: 2, mb: 4,  width: '100%', borderRadius: '20px', padding: '0px' }}
                     className='centrado'>
                     {/* Componente resemen de pagos*/}
                     <Grid container sx={{ backgroundColor: '#093323', borderRadius: '24px', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', }}>
@@ -312,7 +312,7 @@ function Payment() {
                         justifyContent: 'center',
                         alignContent: 'center',
                         alignItems: 'center',
-                        minWidth: '374px',
+                        minWidth: 'auto',
                         width: '100%',
                         mb: 4,
                         mt: 4,
@@ -321,7 +321,6 @@ function Payment() {
                         {/*Grafica principal-datos del inmueble*/}
                         <Grid className='' xs={12} sm={12} md={12} lg={12} sx={{                        
                            
-
                         }}>
                             <form onSubmit={handlePayment} >
                                 <RadioGroup
@@ -340,7 +339,7 @@ function Payment() {
                                                 .map((payment, index) => (
                                                     <Grid key={index} xs={12} sm={12} md={12} lg={12} sx={{
                                                         width: '100%',
-                                                        minWidth: '374px',
+                                                       
                                                        
                                                     }}>
                                                         <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === `dynamicOption${index}` ? 'selected' : ''}`} sx={{ mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px' }}>

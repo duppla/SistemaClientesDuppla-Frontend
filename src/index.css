@@ -1388,7 +1388,7 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 320%!important; 
+    width: 100% !important; 
     margin-bottom: 5px;  
     height: 90px;
     background-color: var(--color-fondo);
@@ -1620,7 +1620,7 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 360px !important;
+    width: 100% !important;
   /*   margin-top: 24px; */
     margin-bottom: 5px;
     height: 90px;
@@ -1833,10 +1833,10 @@ a {
 
   .Container-cards-payment-customer-mui {
 
-    width: 420% !important;
+    width: 100% !important;
     margin-top: 24px;
     margin-bottom: 5px;
-    padding: 16px 24px;
+  
     height: 90px;
     background-color: var(--color-fondo);
     border: 1px solid #E1EBF4;
