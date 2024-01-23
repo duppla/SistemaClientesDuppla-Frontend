@@ -343,7 +343,7 @@ function Payment() {
                                                         minWidth: '374px',
                                                        
                                                     }}>
-                                                        <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === `dynamicOption${index}` ? 'selected' : ''}`} sx={{ mt: 2, justifyContent: 'space-between', padding: '10px' }}>
+                                                        <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === `dynamicOption${index}` ? 'selected' : ''}`} sx={{ mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px' }}>
                                                             {/* Radio button opción dinámica */}
                                                             <Grid xs={6} sm={6} md={6} lg={6} sx={{
                                                                 alignItems: "center",
@@ -371,7 +371,7 @@ function Payment() {
                                         {balanceformat !== '0' && pendingPayments.length >= 2 && (
                                             <Grid xs={12} sm={12} md={12} lg={12} >
                                                 <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === 'option3' ? 'selected' : ''}`} sx={{
-                                                    mt: 2, justifyContent: 'space-between', padding: '4px'
+                                                    mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px'
                                                 }}>
                                                     {/* Radio button opción 3 */}
                                                     <Grid xs={6} sm={6} md={6} lg={6} sx={{
@@ -421,7 +421,7 @@ function Payment() {
                                         {/* Radio button opción 2 */}
                                         <Grid xs={12} sm={12} md={12} lg={12} >
                                             <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === 'option2' ? 'selected' : ''}`} sx={{
-                                                mt: 2, mt: 2, justifyContent: 'space-between', padding: '10px'
+                                                mt: 2, mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px'
                                             }}>
                                                 <Grid xs={6} sm={6} md={6} lg={6} sx={{
                                                     alignItems: "center",
@@ -447,17 +447,17 @@ function Payment() {
                                         <Grid xs={12} sm={12} md={12} lg={12}  >
                                             <Grid container
                                                 className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
-                                                    mt: 2, justifyContent: 'space-between', padding: '4px'
+                                                    mt: 2, justifyContent: 'space-between', paddingLeft: '4px', paddingRight: '4px'
                                                 }}>
                                                 {/* /* Container-cards-payment-c  */}
                                                 <Grid xs={4} sm={4} md={6} lg={6} >
                                                     <Grid container
                                                         sx={{
-                                                            mt: 1,
+                                                            mt: 2,
                                                             alignItems: "center",
 
                                                         }}>
-                                                        <Grid sx={4} sm={4} md={4} lg={4} >
+                                                        <Grid sx={3} sm={3} md={4} lg={4} >
                                                             <FormControlLabel
                                                                 value="option4"
                                                                 control={<Radio />}
@@ -477,7 +477,7 @@ function Payment() {
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid xs={5} sm={5} md={6} lg={6} >
+                                                <Grid xs={7} sm={7} md={6} lg={6} >
                                                     {selectedOption === 'option4' && (
                                                         <TextField
                                                             id="paymentValue"
@@ -489,7 +489,8 @@ function Payment() {
                                                             onChange={(event) => setPaymentValue(event.target.value)}
                                                             sx={{
 
-                                                                mb: 1
+                                                                mb: 1,
+                                                                mt:2
                                                             }}
                                                         />
                                                     )}
