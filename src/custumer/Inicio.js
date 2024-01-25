@@ -449,7 +449,7 @@ function Inicio() {
                             alignContent: 'center',
                             alignItems: 'center',
                             maxWidth: '390px',
-                           width: '374px',
+                            width: '374px',
                             mb: 4,
                             mt: 4,
                         }}>
@@ -574,7 +574,7 @@ function Inicio() {
                             alignContent: 'center',
                             alignItems: 'center',
                             maxWidth: '390px',
-                           width: '374px',
+                            width: '374px',
                             mb: 4,
                             mt: 4,
                         }}>

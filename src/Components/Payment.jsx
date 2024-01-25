@@ -226,7 +226,7 @@ function Payment() {
 
     return (
 
-        <Box sx={{ flexGrow: 1, mt: 1, ml:1, mr:1, borderRadius: '20px' }} >
+        <Box sx={{ flexGrow: 1, mt: 1, ml: 1, mr: 1, borderRadius: '20px' }} >
             {/* sección 1 titulo */}
             <Box maxWidth="xl" sx={{}}>
                 <Grid container spacing={2}>
@@ -278,7 +278,7 @@ function Payment() {
                 </div>
             </div>) : (
 
-                <Container maxWidth="xxl" sx={{ mt: 2, mb: 4,  width: '100%', borderRadius: '20px', padding: '0px' }}
+                <Container maxWidth="xxl" sx={{ mt: 2, mb: 4, width: '100%', borderRadius: '20px', padding: '0px' }}
                     className='centrado'>
                     {/* Componente resemen de pagos*/}
                     <Grid container sx={{ backgroundColor: '#093323', borderRadius: '24px', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', }}>
@@ -319,8 +319,8 @@ function Payment() {
 
                     }}>
                         {/*Grafica principal-datos del inmueble*/}
-                        <Grid className='' xs={12} sm={12} md={12} lg={12} sx={{                        
-                           
+                        <Grid className='' xs={12} sm={12} md={12} lg={12} sx={{
+
                         }}>
                             <form onSubmit={handlePayment} >
                                 <RadioGroup
@@ -339,8 +339,8 @@ function Payment() {
                                                 .map((payment, index) => (
                                                     <Grid key={index} xs={12} sm={12} md={12} lg={12} sx={{
                                                         width: '100%',
-                                                       
-                                                       
+
+
                                                     }}>
                                                         <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === `dynamicOption${index}` ? 'selected' : ''}`} sx={{ mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px' }}>
                                                             {/* Radio button opción dinámica */}
@@ -351,7 +351,7 @@ function Payment() {
                                                                 <FormControlLabel
                                                                     value={`dynamicOption${index}`}
                                                                     control={<Radio />}
-                                                                    label={`Arriendo ${payment.billingPeriod}`}
+                                                                    label={<Typography className='text-label-form-payment' >{`Arriendo ${payment.billingPeriod}`}</Typography>}
                                                                     checked={selectedOption === `dynamicOption${index}`}
                                                                 />
                                                             </Grid>
@@ -360,7 +360,7 @@ function Payment() {
                                                                 alignItems: "center",
                                                                 mt: 1
                                                             }}>
-                                                                <Typography sx={{ mt: 1 }}>$ {new Intl.NumberFormat('es-ES').format(payment.balance)}</Typography>
+                                                                <Typography className='text-label-form-payment' sx={{ mt: 1 }}>$ {new Intl.NumberFormat('es-ES').format(payment.balance)}</Typography>
                                                             </Grid>
                                                         </Grid>
                                                     </Grid>
@@ -378,9 +378,10 @@ function Payment() {
                                                         mt: 2
                                                     }}>
                                                         <FormControlLabel
+                                                       
                                                             value="option3"
-                                                            control={<Radio />}
-                                                            label="Todos los arriendos pendientes"
+                                                            control={<Radio />}                                                          
+                                                            label={<Typography  className='text-label-form-payment' >Todos los arriendos pendientes</Typography>}
                                                             checked={selectedOption === "option3"}
                                                         />
                                                     </Grid>
@@ -388,7 +389,7 @@ function Payment() {
                                                         alignItems: "center",
                                                         mt: 2
                                                     }}>
-                                                        <Typography sx={{ mt: 1 }}>$ {balanceformat}</Typography>
+                                                        <Typography className='text-label-form-payment' sx={{ mt: 1 }}>$ {balanceformat}</Typography>
                                                     </Grid>
 
                                                 </Grid>
@@ -420,7 +421,8 @@ function Payment() {
                                         {/* Radio button opción 2 */}
                                         <Grid xs={12} sm={12} md={12} lg={12} >
                                             <Grid container className={`Container-cards-payment-customer-mui ${selectedOption === 'option2' ? 'selected' : ''}`} sx={{
-                                                mt: 2, mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px'
+                                                mt: 2, mt: 2, justifyContent: 'space-between', paddingTop: '16px', paddingBottom: '16px', paddingRight: '4px', paddingLeft: '4px',  
+
                                             }}>
                                                 <Grid xs={6} sm={6} md={6} lg={6} sx={{
                                                     alignItems: "center",
@@ -428,40 +430,41 @@ function Payment() {
                                                 }}>
                                                     <FormControlLabel
                                                         value="option2"
-                                                        control={<Radio />}
-                                                        label={balanceformat !== '0' ? "Arriendo + inversión sugerida" : "Inversión sugerida"}
+                                                        control={<Radio />}                                                       
+                                                        label={<Typography className='text-label-form-payment '  >{balanceformat !== '0' ? "Arriendo + inversión sugerida" : "Inversión sugerida"}</Typography>}
                                                         checked={selectedOption === "option2"}
+                                                        
                                                     />
                                                 </Grid>
                                                 <Grid xs={6} sm={6} md={6} lg={6} sx={{
                                                     alignItems: "center",
                                                     mt: 1
                                                 }}>
-                                                    <Typography sx={{ mt: 1 }}>$ {formatoSug}</Typography>
+                                                    <Typography className='text-label-form-payment' sx={{ mt: 1 }}>$ {formatoSug}</Typography>
                                                 </Grid>
                                             </Grid>
                                         </Grid>
 
                                         {/* Radio button opción 4 */}
                                         <Grid xs={12} sm={12} md={12} lg={12}  >
-                                            <Grid container
+                                            <Grid container gap={0.5} columnSpacing={{ md: 1, lg: 1, }}   
                                                 className={` Container-cards-payment-customer-mui ${selectedOption === 'option4' ? 'selected' : ''}`} sx={{
                                                     mt: 2, justifyContent: 'space-between', paddingLeft: '4px', paddingRight: '4px'
                                                 }}>
                                                 {/* /* Container-cards-payment-c  */}
-                                                <Grid xs={4} sm={4} md={6} lg={6} >
+                                                <Grid xs={5} sm={5} md={6} lg={6} >
                                                     <Grid container
                                                         sx={{
                                                             mt: 2,
                                                             alignItems: "center",
 
                                                         }}>
-                                                        <Grid sx={3} sm={3} md={4} lg={4} >
+                                                        <Grid sx={4} sm={4} md={4} lg={4} >
                                                             <FormControlLabel
                                                                 value="option4"
                                                                 control={<Radio />}
                                                                 checked={selectedOption === "option4"}
-                                                                label="Otro valor"
+                                                                label={<Typography className='text-label-form-payment' sx={{ mt: 1 }}>Otro valor</Typography>}
                                                             />
                                                         </Grid>
                                                         <Grid sx={1} sm={1} md={1} lg={1} >
@@ -476,7 +479,7 @@ function Payment() {
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
-                                                <Grid xs={7} sm={7} md={6} lg={6} >
+                                                <Grid xs={6} sm={6} md={6} lg={6} >
                                                     {selectedOption === 'option4' && (
                                                         <TextField
                                                             id="paymentValue"
@@ -487,9 +490,9 @@ function Payment() {
                                                             maxLength={11}
                                                             onChange={(event) => setPaymentValue(event.target.value)}
                                                             sx={{
-
                                                                 mb: 1,
-                                                                mt:2
+                                                                mt: { xs: 2, sm: 2, md: 2, lg: 2 },  // Ajusta el margen superior según el tamaño de la pantalla
+                                                                width: '100%',  // Hace que el TextField ocupe todo el ancho del contenedor
                                                             }}
                                                         />
                                                     )}
