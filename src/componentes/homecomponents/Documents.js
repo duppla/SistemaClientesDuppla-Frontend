@@ -133,20 +133,21 @@ function Docs() {
         /*  console.log(file.drive_url + 'prueba del documento'); */
     };
 
-    /* Función condicional video */
-    function getVideoUrl(documentName) {
 
+
+    function getVideoUrl(documentName) {
         switch (documentName) {
             case "Promesa compra venta cliente":
-                return "https://drive.google.com/uc?id=1QcaNa3XnwxSZVXv7TvxT9WWmDvjYfc8l";
+                return "https://drive.google.com/file/d/1QcaNa3XnwxSZVXv7TvxT9WWmDvjYfc8l/preview";
             case "Anexo 1":
-                return "https://drive.google.com/uc?id=1fNpzCTnjlPYvyjyIMVzBzEtSB8CA2AgX";
+                return "https://drive.google.com/file/d/1fNpzCTnjlPYvyjyIMVzBzEtSB8CA2AgX/preview";
             case "Contrato Arriendo":
-                return "https://drive.google.com/uc?id=1POkkzfbbIKsX21znufG3314CfBYHgudu";
+                return "https://drive.google.com/file/d/1POkkzfbbIKsX21znufG3314CfBYHgudu/preview";
             default:
-                return ""; // Si no coincide con ninguno, devolver una URL vacía o la URL por defecto
+                return "";
         }
-    }
+    }    
+      
     /* Cambio de texto según video <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p> */
     function textVideoUrl(documentNameText) {
         switch (documentNameText) {
@@ -195,7 +196,6 @@ function Docs() {
             default:
                 return ""; // Si no coincide con ninguno, devolver una URL vacía o la URL por defecto
         }
-
     }
     /* Estados Función condicional checkbox */
     const [elementos, setElementos] = useState([
@@ -210,9 +210,7 @@ function Docs() {
         if (element == undefined) {
             return;
         } else {
-
             const updatedDocumentTypes = { ...documentTypes };
-
             if (carriendo_c === false && element.name === "Contrato Arriendo") {
                 updatedDocumentTypes.Check_video_Contrato_Arrendamiento__c = true;
                 carriendo_c = true;
@@ -267,13 +265,8 @@ function Docs() {
             } catch (error) {
                 console.error('Fetch error: ', error);
             }
-
-            /*             
-             const dataJson = await response.json();
-             console.log(dataJson + 'dataJson');  
-             */
             
-        }/* cierre else */
+        }
     }/* cierre función */
 
     useEffect(() => {
@@ -358,10 +351,6 @@ function Docs() {
     const fechaFormateada = formatFecha(fechaOriginal);
     const fechaFormateadaCompraventa = formatFecha(fechaVideoCompraventa);
     const fechaFormateadaArriendo = formatFecha(fechaVideoArriendo);
-
-
-
-
 
 
     return (

@@ -1,12 +1,18 @@
 import React from 'react';
 
-const VideoPlayer = ({ src }) => {
+function VideoPlayer({ src }) {
+  const sandboxAttributes = 'allow-same-origin allow-scripts allow-popups allow-forms allow-downloads="false"';
+
   return (
-    <video className='video-docs' controls controlsList="nodownload">
-      <source src={src} type="video/mp4" />
-      Tu navegador no soporta el elemento de video.
-    </video>
+    <iframe
+      className='video-docs'
+      src={src}
+      allowFullScreen
+      title='Google Drive Video'
+      sandbox={sandboxAttributes}
+    ></iframe>
   );
-};
+}
+
 
 export default VideoPlayer;
