@@ -133,16 +133,14 @@ function Docs() {
         /*  console.log(file.drive_url + 'prueba del documento'); */
     };
 
-
-
     function getVideoUrl(documentName) {
         switch (documentName) {
             case "Promesa compra venta cliente":
-                return "https://drive.google.com/file/d/1QcaNa3XnwxSZVXv7TvxT9WWmDvjYfc8l/preview";
+                return "https://d2g37sbj1xsk90.cloudfront.net/contrato-promesa.mp4";
             case "Anexo 1":
-                return "https://drive.google.com/file/d/1fNpzCTnjlPYvyjyIMVzBzEtSB8CA2AgX/preview";
+                return "https://d2g37sbj1xsk90.cloudfront.net/anexo-1-final.mp4";
             case "Contrato Arriendo":
-                return "https://drive.google.com/file/d/1POkkzfbbIKsX21znufG3314CfBYHgudu/preview";
+                return "https://d2g37sbj1xsk90.cloudfront.net/contrato-de-arrendamiento.mp4";
             default:
                 return "";
         }

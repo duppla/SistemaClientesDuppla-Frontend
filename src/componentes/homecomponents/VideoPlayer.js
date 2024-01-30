@@ -5,17 +5,20 @@ function VideoPlayer({ src }) {
   const sandboxAttributes = 'allow-same-origin allow-scripts allow-popups allow-forms allow-downloads';
 
   return (
-    <iframe
+
+      <video
       className='video-docs'
-      src={src}
-      allowFullScreen
-      title='Google Drive Video'
-      sandbox={sandboxAttributes}
-      target="_self"
-    ></iframe>
+     /*  autoPlay */
+      controls
+      controlsList="nodownload"
+      onContextMenu={(e) => e.preventDefault()} // Evita el menú contextual
+    >
+      <source src={src} type="video/mp4" />
+      Tu navegador no soporta el elemento de video.
+    </video>
+    
+  
   );
 }
-
-
 
 export default VideoPlayer;
