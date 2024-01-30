@@ -353,6 +353,8 @@ function Docs() {
     const fechaFormateadaArriendo = formatFecha(fechaVideoArriendo);
 
 
+
+
     return (
         <div className="Documents container-fluid">
             {testRedireccion(estado)}
