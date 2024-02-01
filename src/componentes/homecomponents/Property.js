@@ -639,7 +639,7 @@ function Property() {
 
                                 <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
                                 }}>
-                                    <Grid item sx={12} sm={12} md={12} lg={12} >
+                                    <Grid item xs={12} sm={12} md={12} lg={12} >
                                         <div className="">
                                             <a className="links" href={whatsappLink}>
                                                 <Button

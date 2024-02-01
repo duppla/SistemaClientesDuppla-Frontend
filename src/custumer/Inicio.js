@@ -737,7 +737,7 @@ function Inicio() {
                     {/*componentes de menú deslizable*/}
                     <div className='container-fluid  centrado'>
                         <div className='container-btn-wrapper'>
-                            <div onClick={handleLinkClickMenuMAH} className='space-btn-wrapper'>
+                        {/*     <div onClick={handleLinkClickMenuMAH} className='space-btn-wrapper'>
                                 <Link to='/formulario'>
                                     <div className='btn-wrapper-one'>
                                         <img src={Imantenimiento} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
@@ -747,7 +747,7 @@ function Inicio() {
                                 <div>
                                     <p className='text-btn-wrapper'>Mantenimiento </p>
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/*<div className='space-btn-wrapper'>
                         <a className="links text-white"
@@ -762,13 +762,12 @@ function Inicio() {
                         </div>
                     </div>*/}
                             <div onClick={handleLinkClickMenuMAH} className='space-btn-wrapper' >
-                                <a className="links"
-                                    href={whatsappLink}>
+                            <Link to='/formulario'>
                                     <div className='btn-wrapper'>
                                         <img src={Iayuda} className=" img-btn-wrapper warning font-medium-2 mr-2" alt="" height='32px' width='32px' />
                                         <br />
                                     </div>
-                                </a>
+                              </Link>
                                 <div>
                                     <p className='text-btn-wrapper'>Tengo un problema </p>
                                 </div>
