@@ -1,9 +1,85 @@
 // InconformidadForm.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 function MantenimientoForm() {
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        tipo_afectacion: '',
+        subtipo_afectacion: '',
+        ubicacion_mmto: '',
+        asunto: '',
+        comentario: '',
+        calificacion: '',
+        email: localStorage.getItem('email').replace(/"/g, '') || '',
+ // Obtener el email del localStorage
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        
+        // Cambiar el nombre del campo 'rating' a 'calificacion'
+        const updatedName = name === 'rating' ? 'calificacion' : name;
+        const updatedFormData = { ...formData, [updatedName]: value };
+        setFormData(updatedFormData);
+    };
+    
+    
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true); // Establecer isSubmitting en true mientras se envía el formulario
+       
+
+        try {
+            const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/case_mantenimiento', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                // Éxito: mostrar una alerta de éxito y redirigir al usuario al home de la app
+                swal({
+
+                    text: "¡El formulario se envió con éxito!",
+                    icon: "success",
+                    button: "Cerrar",
+                    timer: 4000,
+                });
+
+                navigate('/inicio'); // Redireccionar al home de la app
+            } else {
+                
+                swal({
+                    text: "¡Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.!",
+                    icon: "info",
+                    button: "Cerrar",
+                    timer: 4000,
+                });
+            }
+        } catch (error) {
+            /* console.error('Error al enviar los datos:', error); */
+            swal({
+                text: "¡Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.!",
+                icon: "info",
+                button: "Cerrar",
+                timer: 4000,
+            });
+        } finally {
+            setIsSubmitting(false); // Establecer isSubmitting en false después de completar el envío o en caso de error
+        }
+    };
+
     useEffect(() => {
         try {
             restrictRatingInput();
@@ -77,11 +153,11 @@ function MantenimientoForm() {
             <div className='centrado'>
                 <h2 style={h2Style}>Mantenimiento</h2>
             </div>
-            <form style={formStyle} action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D8V000000iJuG" method="POST" id="modern-form">
+            <form style={formStyle} onSubmit={handleSubmit} id="modern-form">
 
                 <div class="dropdown">
                     <label for="afectacion">Tipo de Afectación:</label>
-                    <select style={selectStyle} id="00N8V00000IUPiP" name="00N8V00000IUPiP" title="tipo_afectacion"><option value="">--Elegir--</option>
+                    <select style={selectStyle} id="00N8V00000IUPiP" name="tipo_afectacion" title="tipo_afectacion" onChange={handleChange} ><option value="">--Elegir--</option>
                         <option value="electricidad_">Eléctrico</option>
                         <option value="plomeria">Plomería</option>
                         <option value="climatizacion">Calefacción/Ventilación/Aire Acondicionado</option>
@@ -97,7 +173,7 @@ function MantenimientoForm() {
 
                 <div class="dropdown">
                     <label for="specific-issue">Sub-tipo de afectación:</label>
-                    <select style={selectStyle} id="00N8V00000IUPiy" name="00N8V00000IUPiy" title="subtipo_afectacion"><option value="">--Elegir--</option>
+                    <select style={selectStyle} id="00N8V00000IUPiy" name="subtipo_afectacion" title="subtipo_afectacion" onChange={handleChange}><option value="">--Elegir--</option>
                         <option value="interrupcionEnergia">Interrupción de Suministro Eléctrico</option>
                         <option value="problemasTomasCorriente">Problemas con Tomas de Corriente</option>
                         <option value="fallosInterruptores">Fallos en Interruptores/Lámparas</option>
@@ -123,7 +199,7 @@ function MantenimientoForm() {
 
                 <div class="dropdown">
                     <label for="ubicacion">Ubicación del mantenimiento:</label>
-                    <select style={selectStyle} id="00N8V00000IUPj3" name="00N8V00000IUPj3" title="ubicacion_mmto"><option value="">--Elegir--</option>
+                    <select style={selectStyle} id="00N8V00000IUPj3" name="ubicacion_mmto" title="ubicacion_mmto"onChange={handleChange}><option value="">--Elegir--</option>
                         <option value="salaEstar">Sala de estar</option>
                         <option value="dormitorioPrincipal">Dormitorio principal</option>
                         <option value="dormitorioSecundario">Dormitorio secundario</option>
@@ -141,20 +217,20 @@ function MantenimientoForm() {
 
                 <div class="input-field">
                     <label for="short-text">Asunto:</label>
-                    <input style={inputStyle} type="text" id="00N8V00000IUPj8" name="00N8V00000IUPj8" />
+                    <input style={inputStyle} type="text" id="00N8V00000IUPj8" name="asunto" onChange={handleChange} />
                 </div>
 
-                <div class="rating-field">
+               <div class="rating-field">
                     <label for="rating">Evalúe nuestro servicio (0 a 5):</label>
-                    <input style={inputStyle} type="number" id="rating" name="rating" min="0" max="5" oninput="this.value=this.value.slice(0,1)" />
-                </div>
+                    <input style={inputStyle} type="number" id="rating" name="rating" min="0" max="5" onChange={handleChange} oninput="this.value=this.value.slice(0,1)" />
+                </div> 
 
                 <div class="textarea-field">
                     <label for="comment">Comentario:</label>
-                    <textarea style={inputStyle} id="comment" name="comment" rows="4"></textarea>
+                    <textarea style={inputStyle} id="comment" name="comentario" rows="4" onChange={handleChange}></textarea>
                 </div>
 
-                <button style={buttonStyle} type="submit">Enviar</button>
+                <button style={buttonStyle} disabled={isSubmitting} type="submit"> {isSubmitting ? 'Enviando...' : 'Enviar'}</button>
             </form>
         </div>
     );

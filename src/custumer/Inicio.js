@@ -700,6 +700,7 @@ function Inicio() {
                                         href='/pagos' >
                                         <Button
                                             fullWidth
+                                            id='boton_pagar'
                                             variant="contained"
                                             startIcon={<MonetizationOnIcon style={{ color: '#ffffff', width: '32px', height: '32px' }} />}
                                             onClick={handleLinkClickPago}
