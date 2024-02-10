@@ -22,7 +22,7 @@ const themeFormMantenimiento = createTheme({
   },
   palette: {
     primary: {
-      main: '#FF864B',
+      main: '#6C9FFF',
       darker: '#0A3323',
     },
     neutral: {
@@ -57,69 +57,6 @@ const FormMentenimiento = () => {
     const navigate = useNavigate();
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const [formData, setFormData] = useState({
-      email: email,
-      /* inmueble: '', */
-      tipo_reclamacion_garantia: '',
-      tipo_afectacion: '',
-      subtipo_afectacion: '',
-      ubicacion_mmto: '',
-      asunto: '',
-      actividades_solicitadas: ''
-
-    });
-  
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setFormData({
-        ...formData,
-        [name]: value
-      });
-    };
-
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setIsLoading(true); // Mostrar la animación de carga
-
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-
-        },
-        body: JSON.stringify(formData)
-      };
-
-      try {
-        // Envía la solicitud y espera la respuesta
-        const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/cases_app_clientes', options);
-        const data = await response.json();
-        console.log(data + "Prueba de envio 1");
-        // Si la respuesta es exitosa, marca que se ha enviado la solicitud
-        if (response.status === 200) {
-          setIsSubmitted(true);
-          setIsLoading(false); // Ocultar la animación de carga
-          swal({
-            text: "Tu requerimiento ha sido creado con éxito, recibirás una confirmación en tu correo",
-            icon: "success",
-            button: "Ok",
-            timer: 5000,
-          });
-          navigate(`/inicio`);
-
-        } else {
-          setIsLoading(false);
-          alert("Solicitud no enviada");
-        }
-      } catch (error) {
-        setIsLoading(false);
-        console.error('Error al enviar la solicitud', error);
-      }
-      finally {
-        setIsLoading(false); // Ocultar la animación de carga independientemente del resultado de la solicitud
-      }
-    };
-
     // función que redirecciona al usuario de buyer a custumer
     function testRedireccion() {
       const estado = localStorage.getItem('estado');
@@ -142,6 +79,11 @@ const FormMentenimiento = () => {
         </div>
       }
     }
+    // Función para volver a mostrar los botones de opción
+    const handleBackToOptions = () => {
+      setSelectedForm(null);
+      setShowButtons(true);
+    };
 
     return (
       <ThemeProvider theme={themeFormMantenimiento} sx={{ m: 0, p: 0, }}>
@@ -149,6 +91,7 @@ const FormMentenimiento = () => {
         <Box sx={{ display: 'flex', height: '96px' }} className='profile ' >
         </Box>
         {testRedireccion(estado)}
+
         <div className="title-register ">
           <h1> <b></b>
           </h1>
@@ -185,139 +128,161 @@ const FormMentenimiento = () => {
                   </Typography>
                 </Grid>
               )}
-               {showButtons && (
-              <Grid item xs={12} sm={12} md={12} lg={12} sx={{
-                display: 'flex', justifyContent: 'center',
-                justifyItems: 'center',
-                alignItems: 'center',
-              }}>
+              {showButtons && (
+                <Grid item xs={12} sm={12} md={12} lg={12} sx={{
+                  display: 'flex', justifyContent: 'center',
+                  justifyItems: 'center',
+                  alignItems: 'center',
+                }}>
+                  <Stack direction="column" spacing={1} sx={{ justifyContent: 'center' }}>
 
-                <Stack direction="column" spacing={1} sx={{ justifyContent: 'center' }}>
+                    <Button variant="outlined"
+                      onClick={() => {
+                        setSelectedForm('mantenimiento');
+                        setShowButtons(false); // Oculta los botones después de hacer clic
+                      }}
+                      sx={{
+                        mt: '20px',
+                        mb: 3,
+                        background: '#6C9FFF',
+                        borderRadius: '10px',
+                        color: '#ffffff',
+                        textTransform: 'none',
+                        border: '1px solid #5682F2',
+                        height: '58px',
+                        fontFamily: 'Helvetica',
+                        fontSize: '0.8rem',
+                        maxWidth: '390px',
+                        width: '100%',
+                        minWidth: '340px',
+                        fontWeight: 700,
 
-                  <Button variant="outlined"
-                    onClick={() => {
-                      setSelectedForm('mantenimiento');
-                      setShowButtons(false); // Oculta los botones después de hacer clic
-                    }}
-                    sx={{
-                      mt: '20px',
-                      mb: 3,
-                      background: '#6C9FFF',
-                      borderRadius: '10px',
-                      color: '#ffffff',
-                      textTransform: 'none',
-                      border: '1px solid #5682F2',
-                      height: '58px',
-                      fontFamily: 'Helvetica',
-                      fontSize: '0.8rem',
-                      maxWidth: '390px',
-                      width: '100%',
-                      minWidth: '340px',
-                      fontWeight: 700,
+                        '&:hover': {
+                          backgroundColor: '#3158A3', // Cambia el fondo al pasar el mouse
+                          borderColor: '#3158A3', // Cambia el borde al pasar el mouse
+                        },
+                        '&.Mui-disabled': {
+                          color: '#9A9A9A',
+                          backgroundColor: '#6C9FFF',
+                        },
+                      }}>
+                      Mantenimiento
+                    </Button>
 
-                      '&:hover': {
-                        backgroundColor: '#3158A3', // Cambia el fondo al pasar el mouse
-                        borderColor: '#3158A3', // Cambia el borde al pasar el mouse
-                      },
-                      '&.Mui-disabled': {
-                        color: '#9A9A9A',
-                        backgroundColor: '#6C9FFF',
-                      },
-                    }}>
-                    Mantenimiento
-                  </Button>
+                    <Button variant="outlined"
+                      onClick={() => {
+                        setSelectedForm('inconformidad');
+                        setShowButtons(false); // Oculta los botones después de hacer clic
+                      }}
+                      sx={{
+                        mt: '20px',
+                        mb: 3,
+                        background: '#6C9FFF',
+                        borderRadius: '10px',
+                        color: '#ffffff',
+                        textTransform: 'none',
+                        border: '1px solid #5682F2',
+                        height: '58px',
+                        fontFamily: 'Helvetica',
+                        fontSize: '0.8rem',
+                        maxWidth: '390px',
+                        width: '100%',
+                        minWidth: '340px',
+                        fontWeight: 700,
+                        '&:hover': {
+                          backgroundColor: '#3158A3', // Cambia el fondo al pasar el mouse
+                          borderColor: '#3158A3', // Cambia el borde al pasar el mouse
+                        },
+                        '&.Mui-disabled': {
+                          color: '#9A9A9A',
+                          backgroundColor: '#6C9FFF',
+                          // Letra blanca cuando está deshabilitado
+                        },
+                      }}>
+                      Inconformidad con el servicio
+                    </Button>
 
-                  <Button variant="outlined"
-                    onClick={() => {
-                      setSelectedForm('inconformidad');
-                      setShowButtons(false); // Oculta los botones después de hacer clic
-                    }}
-                    sx={{
-                      mt: '20px',
-                      mb: 3,
-                      background: '#6C9FFF',
-                      borderRadius: '10px',
-                      color: '#ffffff',
-                      textTransform: 'none',
-                      border: '1px solid #5682F2',
-                      height: '58px',
-                      fontFamily: 'Helvetica',
-                      fontSize: '0.8rem',
-                      maxWidth: '390px',
-                      width: '100%',
-                      minWidth: '340px',
-                      fontWeight: 700,
-                      '&:hover': {
-                        backgroundColor: '#3158A3', // Cambia el fondo al pasar el mouse
-                        borderColor: '#3158A3', // Cambia el borde al pasar el mouse
-                      },
-                      '&.Mui-disabled': {
-                        color: '#9A9A9A',
-                        backgroundColor: '#6C9FFF',
-                        // Letra blanca cuando está deshabilitado
-                      },
-                    }}>
-                    Inconformidad con el servicio
-                  </Button>
+                    <Button variant="outlined"
+                      onClick={() => {
+                        setSelectedForm('solicitudes');
+                        setShowButtons(false); // Oculta los botones después de hacer clic
+                      }}
+                      sx={{
 
-                  <Button variant="outlined"
-                    onClick={() => {
-                      setSelectedForm('solicitudes');
-                      setShowButtons(false); // Oculta los botones después de hacer clic
-                    }}
-                    sx={{
+                        mt: '20px',
+                        mb: 3,
+                        background: '#6C9FFF',
+                        borderRadius: '10px',
+                        color: '#ffffff',
+                        textTransform: 'none',
+                        border: '1px solid #81A1F8',
+                        height: '58px',
+                        fontFamily: 'Helvetica',
+                        fontSize: '0.8rem',
+                        maxWidth: '390px',
+                        width: '100%',
+                        minWidth: '340px',
+                        fontWeight: 700,
 
-                      mt: '20px',
-                      mb: 3,
-                      background: '#6C9FFF',
-                      borderRadius: '10px',
-                      color: '#ffffff',
-                      textTransform: 'none',
-                      border: '1px solid #81A1F8',
-                      height: '58px',
-                      fontFamily: 'Helvetica',
-                      fontSize: '0.8rem',
-                      maxWidth: '390px',
-                      width: '100%',
-                      minWidth: '340px',
-                      fontWeight: 700,
+                        '&:hover': {
+                          backgroundColor: '#3158A3', // Cambia el fondo al pasar el mouse
+                          borderColor: '#3158A3', // Cambia el borde al pasar el mouse
+                        },
+                        '&.Mui-disabled': {
+                          color: '#9A9A9A',
+                          backgroundColor: '#6C9FFF',
+                          // Letra blanca cuando está deshabilitado
+                        },
+                      }}>
+                      Solicitudes inmueble, cuenta o contrato
+                    </Button>
 
-                      '&:hover': {
-                        backgroundColor: '#3158A3', // Cambia el fondo al pasar el mouse
-                        borderColor: '#3158A3', // Cambia el borde al pasar el mouse
-                      },
-                      '&.Mui-disabled': {
-                        color: '#9A9A9A',
-                        backgroundColor: '#6C9FFF',
-                        // Letra blanca cuando está deshabilitado
-                      },
-                    }}>
-                    Solicitudes inmueble, cuenta o contrato
-                  </Button>
-
-                </Stack>
-              </Grid>
-             
-               )}
-
-                < Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', justifyItems: 'center', alignItems: 'center' }}>
-                  {selectedForm === 'inconformidad' && <InconformidadForm />}
-                  {selectedForm === 'mantenimiento' && <MantenimientoForm />}
-                  {selectedForm === 'solicitudes' && <Pqr />}
+                  </Stack>
                 </Grid>
 
-           
+              )}
 
+              < Grid item xs={12} sm={12} md={12} lg={12} sx={{ display: 'flex', justifyContent: 'center', justifyItems: 'center', alignItems: 'center' }}>
+                {selectedForm === 'inconformidad' && <InconformidadForm />}
+                {selectedForm === 'mantenimiento' && <MantenimientoForm />}
+                {selectedForm === 'solicitudes' && <Pqr />}
+              </Grid>
+
+              <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+              {selectedForm && (
+                <Button variant="outlined" onClick={handleBackToOptions} sx={{
+                  marginTop: '20px',
+                  mb: 3,
+                  background: '#ffffff',
+                  borderRadius: '4px',
+                  color: '#3158A3',
+                  textTransform: 'none',
+                  border: '1px solid #3158A3',
+                  height: '42px',
+                  fontFamily: 'Helvetica',
+                  fontSize: '0.8rem',
+                  maxWidth: '340px',
+                  width: '100%',
+                  minWidth: '290px',
+                  fontWeight: 700,         
+                  margin: '0 auto',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                 
+                }}>
+                  Regresar al menú de PQR
+                </Button>
+              )}
+              </Grid>
 
             </Grid>
           </Container>
         )
         }
-
-
       </ThemeProvider >
     )
   }
 }
 
-  export default FormMentenimiento;
+export default FormMentenimiento;

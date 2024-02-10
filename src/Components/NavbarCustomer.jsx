@@ -27,24 +27,24 @@ import ReactGA from 'react-ga';
 import { useState } from 'react'
 
 const NavbarCustomer = () => {
-   
-    function NavbarClick (){     
-            // Envía un evento cuando el componente Navbar se renderiza.
-             ReactGA.event({
-              'category': 'Component Interaction',
-              'action': 'Profile Component',
-            });
-         
+
+    function NavbarClick() {
+        // Envía un evento cuando el componente Navbar se renderiza.
+        ReactGA.event({
+            'category': 'Component Interaction',
+            'action': 'Profile Component',
+        });
+
     }
 
-    function NavbarClickMenu (){     
+    function NavbarClickMenu() {
         // Envía un evento cuando el componente Navbar se renderiza.
-         ReactGA.event({
-          'category': 'Component Interaction',
-          'action': 'Item menu',
+        ReactGA.event({
+            'category': 'Component Interaction',
+            'action': 'Item menu',
         });
-     
-}
+
+    }
 
     // Función fecha del día actual
     let today = new Date();
@@ -137,10 +137,7 @@ const NavbarCustomer = () => {
 
     return (
         <Box sx={{ display: 'flex' }} className='profile '>
-
-
             {/*-----------------------------------------------------------contendeor principal----------------------------------------------------- */}
-
             <Container maxWidth="xl" sx={{ mt: 4, mb: 4, }}
                 className=''>
                 <Grid container className='centrado' maxWidth="xl" spacing={1} sx={{
@@ -152,7 +149,7 @@ const NavbarCustomer = () => {
                             <Grid item className='centrado' xs={8} md={8} lg={12} sx={{ mt: -4 }}>
                                 <img src={Idupplanaranja} className="  img-duppla-naranja " alt="" />
                             </Grid>
-                            <Grid  onClick={NavbarClick}  className='centrado' item xs={8} md={8} lg={12} sx={{ mt: 2 }}>
+                            <Grid onClick={NavbarClick} className='centrado' item xs={8} md={8} lg={12} sx={{ mt: 2 }}>
                                 <Link to='/profile' className="link-styles"> <img src={Iperfil}
                                     className="  img-user-mui"
                                     alt="perfil" />
@@ -160,15 +157,11 @@ const NavbarCustomer = () => {
                             </Grid>
                         </Grid>
                     </Grid>
-
                     {/* */}
 
-
                     <Grid item xs={8} md={8} lg={8}>
-
                         <Grid container maxWidth="xl" spacing={1} sx={{
                         }}>
-
                             <Grid item xs={2} md={2} lg={2}>
                                 <hr />
                             </Grid>
@@ -180,19 +173,14 @@ const NavbarCustomer = () => {
                                     {/* <p className="text-orange">{fecha}</p> */}
                                 </Typography>
                             </Grid>
-
                         </Grid>
                     </Grid>
-
-
                     <Grid item xs={2} md={2} lg={2} className='centrado'>
-
                         <Grid container className='centrado' maxWidth="xl" spacing={1} sx={{
-
-mt:4
+                            mt: 4
                         }}>
 
-                            <Grid item xs={10} md={10} lg={10} sx={{mt:3}} >
+                            <Grid item xs={10} md={10} lg={10} sx={{ mt: 3 }} >
 
                                 {/* <div className="centrado">
                                     <nav className="navbar ">
@@ -221,157 +209,136 @@ mt:4
                                 </div> */}
                             </Grid>
                             <Grid item xs={10} md={10} lg={10} className='centrado'>
-                            <nav onClick={NavbarClickMenu} className=" col-2 navbar  " >
-                                <div className="icon-navbar-customer">
-                                    <button className="navbar-toggler border-none"
-                                        type="button"
-                                        data-bs-toggle="offcanvas"
-                                        data-bs-target="#offcanvasNavbar"
-                                        aria-controls="offcanvasNavbar">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="menu-navbar-customer" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
-                                    </button>
-                                    <div className="">
-                                        <div className=" offcanvas offcanvas-bottom navbar-container navbar-move " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                                            <div className="offcanvas-body ">
-                                                <div className="img-navbar-home">
+                                <nav onClick={NavbarClickMenu} className=" col-2 navbar  " >
+                                    <div className="icon-navbar-customer">
+                                        <button className="navbar-toggler border-none"
+                                            type="button"
+                                            data-bs-toggle="offcanvas"
+                                            data-bs-target="#offcanvasNavbar"
+                                            aria-controls="offcanvasNavbar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="menu-navbar-customer" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+                                        </button>
+                                        <div className="">
+                                            <div className=" offcanvas offcanvas-bottom navbar-container navbar-move " id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                                <div className="offcanvas-body ">
+                                                    <div className="img-navbar-home">
 
-                                                    <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
-                                                </div>
-                                                <ul className="navbar-nav " >
-                                                    <li onClick={NavbarClickMenu}  className="nav-item ">
-                                                        <Link to="/profile">
-                                                            <div className="row ">
-                                                                <div className="col-8 outline ">
-                                                                    <div className="row">
-                                                                        <div className="card-state-properties-home nav-link active text-navbar-options">
-                                                                            <div className="card-body col-1  img-state-propety">
-                                                                                <img src={Vperfil} className="" alt="" height='24px' width='24px' />
-                                                                            </div>
-                                                                            <div className="col-10 outline">
-                                                                                <p className=" text-docs "><b >Perfil </b></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
-                                                    </li>
-                                                    <li onClick={NavbarClickMenu} className="nav-item  nav-section">
-                                                        <Link to="/pagos" className="links text-white"
-                                                        >
-                                                            <div className="row ">
-                                                                <div className="col-8 outline ">
-                                                                    <div className="row">
-                                                                        <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
-                                                                            <div className="card-body col-1  img-state-propety">
-                                                                                <img src={Vmoney} className="" alt="" height='24px' width='24px' />
-                                                                            </div>
-                                                                            <div className="col-10 outline">
-                                                                                <p className=" text-docs"><b >Pagar factura</b></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
-                                                    </li>
-                                                    {/*  <li className="nav-item">
-                                            <Link to="/historial">
-                                                <div className="row ">
-                                                    <div className="col-8 outline ">
-                                                        <div className="row">
-                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
-                                                                <div className="card-body col-1  img-state-propety">
-                                                                <img src={Ihistorialpago} className="" alt="" height='18px' width='18px' />
-                                                                </div>
-                                                             
-                                                                <div className="col-10 outline">
-                                                                    <p className=" text-docs"><b >Historial</b></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <img src={Vrectangulo} className=" img-navbar centrado " data-bs-dismiss="offcanvas" alt="" />
                                                     </div>
-                                                </div>
-                                            </Link>
-                                        </li>*/}
-                                                    <li onClick={NavbarClickMenu}  className="">
-                                                        <div className="row ">
-                                                            <div className="col-8 outline ">
-                                                                <a className="links  "
-                                                                    href={whatsappLink}>
+                                                    <ul className="navbar-nav " >
+                                                        <li onClick={NavbarClickMenu} className="nav-item ">
+                                                            <Link to="/profile">
+                                                                <div className="row ">
+                                                                    <div className="col-8 outline ">
+                                                                        <div className="row">
+                                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                                                <div className="card-body col-1  img-state-propety">
+                                                                                    <img src={Vperfil} className="" alt="" height='24px' width='24px' />
+                                                                                </div>
+                                                                                <div className="col-10 outline">
+                                                                                    <p className=" text-docs "><b >Perfil </b></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
+                                                        </li>
+                                                        <li onClick={NavbarClickMenu} className="nav-item  nav-section">
+                                                            <Link to="/pagos" className="links text-white"
+                                                            >
+                                                                <div className="row ">
+                                                                    <div className="col-8 outline ">
+                                                                        <div className="row">
+                                                                            <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                                                                <div className="card-body col-1  img-state-propety">
+                                                                                    <img src={Vmoney} className="" alt="" height='24px' width='24px' />
+                                                                                </div>
+                                                                                <div className="col-10 outline">
+                                                                                    <p className=" text-docs"><b >Pagar factura</b></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
+                                                        </li>                                                        
+                                                        <li onClick={NavbarClickMenu} className="">
+                                                            <div className="row ">
+                                                                <Link to="/formulario">
+                                                                    <div className="col-8 outline ">
+                                                                        <div className="row">
+                                                                            <div className="card-state-properties-home nav-link active text-navbar-options">
+                                                                                <div className="card-body col-1  img-state-propety">
+                                                                                    <img src={Vayuda} className="" alt="" height='24px' width='24px' />
+                                                                                </div>
+                                                                                <div className="col-10 outline">
+                                                                                    <p className=" text-docs"><b>Ayuda</b></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </Link>
+                                                            </div>
+                                                        </li>
+                                                        <li onClick={NavbarClickMenu} className="nav-item  nav-section">
+                                                            <Link to="/documents">
+                                                                <div className="row ">
+                                                                    <div className="col-8 outline ">
+                                                                        <div className="row">
+                                                                            <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                                                                <div className="card-body col-1  img-state-propety">
+                                                                                    <img src={Vdocs} className="" alt="" height='24px' width='24px' />
+                                                                                </div>
+                                                                                <div className="col-10 outline">
+                                                                                    <p className=" text-docs"><b >Documentos</b></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
+                                                        </li>
+                                                        <li onClick={NavbarClickMenu} className="nav-item  nav-section">
+                                                            <Link to="/property">
+                                                                <div className="row ">
+                                                                    <div className="col-8 outline ">
+                                                                        <div className="row">
+                                                                            <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
+                                                                                <div className="card-body col-1  img-state-propety">
+                                                                                    <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
+                                                                                </div>
+                                                                                <div className="col-10 outline">
+                                                                                    <p className=" text-docs"><b >Inmueble</b></p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Link>
+                                                        </li>
+                                                        <li onClick={NavbarClickMenu} className="nav-item">
+                                                            <div className="row ">
+                                                                <div className="col-8 outline ">
                                                                     <div className="row">
                                                                         <div className="card-state-properties-home nav-link active text-navbar-options">
                                                                             <div className="card-body col-1  img-state-propety">
-                                                                                <img src={Vayuda} className="" alt="" height='24px' width='24px' />
+                                                                                <img src={Vlogout} className="" alt="" height='24px' width='24px' />
                                                                             </div>
-                                                                            <div className="col-10 outline">
-                                                                                <p className=" text-docs"><b>Ayuda</b></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li  onClick={NavbarClickMenu}  className="nav-item  nav-section">
-                                                        <Link to="/documents">
-                                                            <div className="row ">
-                                                                <div className="col-8 outline ">
-                                                                    <div className="row">
-                                                                        <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
-                                                                            <div className="card-body col-1  img-state-propety">
-                                                                                <img src={Vdocs} className="" alt="" height='24px' width='24px' />
-                                                                            </div>
-                                                                            <div className="col-10 outline">
-                                                                                <p className=" text-docs"><b >Documentos</b></p>
+                                                                            <div className="col-10 outline" onClick={handleLogoutCustumer}>
+                                                                                <p className=" text-docs"><b >Cerrar sesión</b></p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </Link>
-                                                    </li>
-                                                    <li onClick={NavbarClickMenu}  className="nav-item  nav-section">
-                                                        <Link to="/property">
-                                                            <div className="row ">
-                                                                <div className="col-8 outline ">
-                                                                    <div className="row">
-                                                                        <div className="card-state-properties-home nav-section nav-link active text-navbar-options">
-                                                                            <div className="card-body col-1  img-state-propety">
-                                                                                <img src={Vinmueble} className="" alt="" height='24px' width='24px' />
-                                                                            </div>
-                                                                            <div className="col-10 outline">
-                                                                                <p className=" text-docs"><b >Inmueble</b></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
-                                                    </li>
-                                                    <li onClick={NavbarClickMenu}  className="nav-item">
-
-                                                        <div className="row ">
-                                                            <div className="col-8 outline ">
-                                                                <div className="row">
-                                                                    <div className="card-state-properties-home nav-link active text-navbar-options">
-                                                                        <div className="card-body col-1  img-state-propety">
-                                                                            <img src={Vlogout} className="" alt="" height='24px' width='24px' />
-                                                                        </div>
-                                                                        <div className="col-10 outline" onClick={handleLogoutCustumer}>
-                                                                            <p className=" text-docs"><b >Cerrar sesión</b></p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </nav>
+                                </nav>
                             </Grid>
 
                         </Grid>
