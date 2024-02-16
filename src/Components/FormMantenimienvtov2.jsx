@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import PicklistService from '../services/PickListsService';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
-import { PickList } from '../models/picklist';
 
 
 
@@ -16,6 +15,24 @@ function MantenimientoForm() {
         asunto: '',
         comentario: '',
         calificacion: '',
+        picklist_tipo_afectacion: {
+            label:          '',
+            dependsOn:      '',
+            apiName:        '',
+            picklistValues: []
+        },
+        picklist_subtipo_afectacion: {
+            label:          '',
+            dependsOn:      '',
+            apiName:        '',
+            picklistValues: []
+        },
+        picklist_ubicacion_mantenimiento: {
+            label:          '',
+            dependsOn:      '',
+            apiName:        '',
+            picklistValues: []
+        },
         email: localStorage.getItem('email').replace(/"/g, '') || '',
      
 
@@ -23,7 +40,6 @@ function MantenimientoForm() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [picklists, setPicklists] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -71,7 +87,6 @@ function MantenimientoForm() {
                 });
             }
         } catch (error) {
-            /* console.error('Error al enviar los datos:', error); */
             swal({
                 text: "¡Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.!",
                 icon: "info",
@@ -89,6 +104,7 @@ function MantenimientoForm() {
                 const picklists = await PicklistService.getInstance().getPicklists();
                 let picklistTipoAfectacion;
                 let picklistSubtipoAfectacion;
+                let picklistUbicacionMmto;
                 for (let picklist of picklists) {
                     if (picklist.apiName === 'tipo_afectacion__c') {
                         picklistTipoAfectacion = picklist;
@@ -97,12 +113,16 @@ function MantenimientoForm() {
                         picklist.picklistValues = picklist.picklistValues.filter((value) => value.validForapiName === 'Mantenimientos');
                         picklistSubtipoAfectacion = picklist;
                     }
+                    if (picklist.apiName === 'ubicacion_mmto__c') {
+                        picklistUbicacionMmto = picklist;
+                    }
                 }
                 if (picklistTipoAfectacion && picklistSubtipoAfectacion) {
                     setFormData((prevFormData) => ({
                         ...prevFormData,
                         picklist_tipo_afectacion: picklistTipoAfectacion,
                         picklist_subtipo_afectacion: picklistSubtipoAfectacion,
+                        picklist_ubicacion_mantenimiento: picklistUbicacionMmto
                     }));
                 }
             } catch (error) {
@@ -176,7 +196,7 @@ function MantenimientoForm() {
                     <select style={selectStyle} name="tipo_afectacion" title="Tipo de afectación" onChange={handleChange}>
                         <option value="">--Elegir--</option>
                         {/* Renderizar opciones basadas en datos de la picklist */}
-                        {picklists.tipo_afectacion && picklists.tipo_afectacion.picklistValues.map(option => (
+                        {formData.picklist_tipo_afectacion.picklistValues.map(option => (
                             <option key={option.apiName} value={option.apiName}>{option.label}</option>
                         ))}
                     </select>
@@ -187,7 +207,7 @@ function MantenimientoForm() {
                     <select style={selectStyle} name="subtipo_afectacion" title="Sub-tipo de afectación" onChange={handleChange}>
                         <option value="">--Elegir--</option>
                         {/* Renderizar opciones basadas en datos de la picklist */}
-                        {picklists.subtipo_afectacion && picklists.subtipo_afectacion.picklistValues.map(option => (
+                        {formData.picklist_subtipo_afectacion.picklistValues.map(option => (
                             <option key={option.apiName} value={option.apiName}>{option.label}</option>
                         ))}
                     </select>
@@ -198,7 +218,7 @@ function MantenimientoForm() {
                     <select style={selectStyle} name="ubicacion_mmto" title="Ubicación del mantenimiento" onChange={handleChange}>
                         <option value="">--Elegir--</option>
                         {/* Renderizar opciones basadas en datos de la picklist */}
-                        {picklists.ubicacion_mmto && picklists.ubicacion_mmto.picklistValues.map(option => (
+                        {formData.picklist_ubicacion_mantenimiento.picklistValues.map(option => (
                             <option key={option.apiName} value={option.apiName}>{option.label}</option>
                         ))}
                     </select>
