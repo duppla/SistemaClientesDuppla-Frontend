@@ -17,7 +17,7 @@ class PicklistService {
   public async getPicklists(): Promise<PickList[]> {
     try {
       const response = await fetch(
-        "http://backduppla-prod.eba-mmjhxq8z.us-east-1.elasticbeanstalk.com/casos/picklists"
+        "https://backduppla-prod.eba-mmjhxq8z.us-east-1.elasticbeanstalk.com/casos/picklists"
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -33,7 +33,7 @@ class PicklistService {
   public async createCase(caseData: CaseDto): Promise<boolean> {
     try {
       const { data } = await axios.put(
-        "http://backduppla-prod.eba-mmjhxq8z.us-east-1.elasticbeanstalk.com/casos",
+        "https://backduppla-prod.eba-mmjhxq8z.us-east-1.elasticbeanstalk.com/casos",
         caseData,
         {
           headers: {
