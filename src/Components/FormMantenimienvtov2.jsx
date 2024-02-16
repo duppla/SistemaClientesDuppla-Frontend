@@ -16,6 +16,7 @@ function MantenimientoForm() {
         comentario: '',
         calificacion: '',
         email: localStorage.getItem('email').replace(/"/g, '') || '',
+        picklistMantenimiento: 'Mantenimiento',
  // Obtener el email del localStorage
     });
 
