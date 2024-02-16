@@ -14,7 +14,7 @@ export interface CaseDto {
   }
   
 export enum Tipo {
-    INCONFORMIDAD_CON_SERVICIO_PRESTADO = 'INCONFORMIDAD_CON_SERVICIO_PRESTADO',
-    MANTENIMIENTOS = 'MANTENIMIENTOS',
-    PETICIONES_Y_RECLAMOS = 'PETICIONES_Y_RECLAMOS',
+    INCONFORMIDAD_CON_SERVICIO_PRESTADO = 'Inconformidad con servicio prestado',
+    MANTENIMIENTOS = 'Mantenimientos',
+    PETICIONES_Y_RECLAMOS = 'Peticiones y reclamos',
   }

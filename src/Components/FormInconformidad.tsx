@@ -55,8 +55,10 @@ function InconformidadForm() {
         
 
         try {
+            let emailBody = localStorage.getItem('email') || '';
+            emailBody = emailBody.replace(/"/g, '');
             const body = {
-                email: formData.email,
+                email: emailBody,
                 tipo: Tipo.INCONFORMIDAD_CON_SERVICIO_PRESTADO,
                 asunto: formData.asunto,
                 comentario: formData.comentario,
@@ -138,6 +140,7 @@ function InconformidadForm() {
         console.log('fetchPicklists');
         //get email from local storage
         const emailLocalStorage = localStorage.getItem('email');
+        console.log('xd'+emailLocalStorage);
         if (emailLocalStorage){
             emailLocalStorage.replace(/"/g, '');
             setFormData({
