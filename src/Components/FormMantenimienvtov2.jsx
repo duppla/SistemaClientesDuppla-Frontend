@@ -58,15 +58,24 @@ function MantenimientoForm() {
 
 
         try {
-            const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/case_mantenimiento', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            const body = {
+                email: formData.email,
+                tipo: "Mantenimientos",
+                asunto: formData.asunto,
+                comentario: formData.comentario,
+                calificacion: formData.calificacion,
 
-            if (response.ok) {
+                tipo_afectacion: formData.tipo_afectacion,
+                subtipo_afectacion: formData.subtipo_afectacion,
+                ubicacion_mmto: formData.ubicacion_mmto,
+
+                servicio_inconformidad: 'None',
+                tipo_inconformidad: 'None',
+                tipo_solicitud: 'None'
+
+            }
+            const response = await PicklistService.getInstance().createCase(body);
+            if (response) {
                 // Éxito: mostrar una alerta de éxito y redirigir al usuario al home de la app
                 swal({
 

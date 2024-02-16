@@ -4,6 +4,7 @@ import PicklistService from '../services/PickListsService';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { PickList } from '../models/picklist';
+import { Tipo } from '../models/case';
 
 
 
@@ -15,7 +16,7 @@ function InconformidadForm() {
         servicio_inconformidad: '',
         tipo_inconformidad: '',       
         asunto: '',
-        calificacion: '',
+        calificacion: 5,
         comentario: '',
         tipo: 'Inconformidad con servicio prestado',
         picklist_servicio_inconformidad: {
@@ -54,15 +55,25 @@ function InconformidadForm() {
         
 
         try {
-            const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/case_inconformidad_cliente', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            const body = {
+                email: formData.email,
+                tipo: Tipo.INCONFORMIDAD_CON_SERVICIO_PRESTADO,
+                asunto: formData.asunto,
+                comentario: formData.comentario,
+                calificacion: formData.calificacion,
+                servicio_inconformidad: formData.servicio_inconformidad,
+                tipo_inconformidad: formData.tipo_inconformidad,
+                
+                tipo_afectacion: 'None',
+                subtipo_afectacion: 'None',
+                ubicacion_mmto: 'None',
+                
+                tipo_solicitud: 'None'
 
-            if (response.ok) {
+            }
+            const response = await PicklistService.getInstance().createCase(body);
+
+            if (response) {
                 // Éxito: mostrar una alerta de éxito y redirigir al usuario al home de la app
                 swal({
                     text: "¡El formulario se envió con éxito!",

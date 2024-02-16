@@ -4,6 +4,7 @@ import PicklistService from '../services/PickListsService';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { PickList } from '../models/picklist';
+import { Tipo } from '../models/case';
 
 
 
@@ -16,6 +17,7 @@ function SolicitudesForm() {
         asunto: '',
         comentario: '',
         tipo: 'Solicitud',
+        calificacion: 5,
         picklist_solicitud: {
             label:          '',
             dependsOn:      '',
@@ -43,15 +45,25 @@ function SolicitudesForm() {
         
 
         try {
-            const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/case_inconformidad_cliente', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+            const body = {
+                email: formData.email,
+                tipo: Tipo.PETICIONES_Y_RECLAMOS,
+                asunto: formData.asunto,
+                comentario: formData.comentario,
+                tipo_solicitud: formData.tipo_solicitud,
+                calificacion: formData.calificacion,
 
-            if (response.ok) {
+                tipo_afectacion: 'None',
+                subtipo_afectacion: 'None',
+                ubicacion_mmto: 'None',
+
+                servicio_inconformidad: 'None',
+                tipo_inconformidad: 'None',
+
+            }
+            const response = await PicklistService.getInstance().createCase(body);
+
+            if (response) {
                 // Éxito: mostrar una alerta de éxito y redirigir al usuario al home de la app
                 swal({
                     text: "¡El formulario se envió con éxito!",
@@ -92,7 +104,7 @@ function SolicitudesForm() {
                 let picklistServicioSolicitudes : PickList | undefined;
                 for (let picklist of picklists) {
                     if (picklist.apiName === 'Tipo_requerimiento__c') {
-                        picklist.picklistValues = picklist.picklistValues.filter((value) => value.validForapiName === 'Inconformidad con servicio prestado');
+                        picklist.picklistValues = picklist.picklistValues.filter((value) => value.validForapiName === 'Peticiones y reclamos');
                         picklistServicioSolicitudes = picklist;
                     }
                 }
