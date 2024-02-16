@@ -1,8 +1,9 @@
 // InconformidadForm.js
 import React, { useEffect, useState } from 'react';
+import PicklistService from '../services/PickListsService';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
-
+import { PickList } from '../models/picklist';
 
 
 
@@ -16,28 +17,29 @@ function MantenimientoForm() {
         comentario: '',
         calificacion: '',
         email: localStorage.getItem('email').replace(/"/g, '') || '',
-        picklistMantenimiento: 'Mantenimiento',
- // Obtener el email del localStorage
+     
+
+        // Obtener el email del localStorage
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-
+    const [picklists, setPicklists] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        
+
         // Cambiar el nombre del campo 'rating' a 'calificacion'
         const updatedName = name === 'rating' ? 'calificacion' : name;
         const updatedFormData = { ...formData, [updatedName]: value };
         setFormData(updatedFormData);
     };
-    
-    
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true); // Establecer isSubmitting en true mientras se envía el formulario
-       
+
 
         try {
             const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/case_mantenimiento', {
@@ -60,7 +62,7 @@ function MantenimientoForm() {
 
                 navigate('/inicio'); // Redireccionar al home de la app
             } else {
-                
+
                 swal({
                     text: "¡Hubo un error al enviar el formulario. Por favor, inténtelo de nuevo.!",
                     icon: "info",
@@ -82,26 +84,44 @@ function MantenimientoForm() {
     };
 
     useEffect(() => {
-        try {
-            restrictRatingInput();
-
-        } catch (error) {
-            console.error('Error en el componente Mantenimiento:', error);
-        }
-        return () => {
-
-        };
-    }, []);
-
-    function restrictRatingInput() {
-        let ratingInput = document.getElementById('rating');
-        ratingInput.addEventListener('input', function () {
-            let value = ratingInput.value;
-            if (value !== '' && (value < 0 || value > 5)) {
-                ratingInput.value = '';
+        async function fetchPicklists() {
+            try {
+                const picklists = await PicklistService.getInstance().getPicklists();
+                let picklistTipoAfectacion;
+                let picklistSubtipoAfectacion;
+                for (let picklist of picklists) {
+                    if (picklist.apiName === 'tipo_afectacion__c') {
+                        picklistTipoAfectacion = picklist;
+                    }
+                    if (picklist.apiName === 'subtipo_afectacion__c') {
+                        picklist.picklistValues = picklist.picklistValues.filter((value) => value.validForapiName === 'Mantenimientos');
+                        picklistSubtipoAfectacion = picklist;
+                    }
+                }
+                if (picklistTipoAfectacion && picklistSubtipoAfectacion) {
+                    setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        picklist_tipo_afectacion: picklistTipoAfectacion,
+                        picklist_subtipo_afectacion: picklistSubtipoAfectacion,
+                    }));
+                }
+            } catch (error) {
+                console.error('Error fetching picklists or initializing form:', error);
             }
-        });
-    }
+        }
+    
+        //get email from local storage
+        const emailLocalStorage = localStorage.getItem('email');
+        if (emailLocalStorage){
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                email: emailLocalStorage.replace(/"/g, ''),
+            }));
+        }
+    
+        fetchPicklists();
+    }, []);
+    
 
     const formStyle = {
         maxWidth: '400px',
@@ -139,13 +159,9 @@ function MantenimientoForm() {
         fontSize: '16px',
     };
 
-    const buttonHoverStyle = {
-        backgroundColor: '#4169c9',
-    };
-
     const h2Style = {
         color: '#5782F2',
-        testAlign: 'center',
+        textAlign: 'center',
         marginBottom: '20px',
     };
 
@@ -155,83 +171,55 @@ function MantenimientoForm() {
                 <h2 style={h2Style}>Mantenimiento</h2>
             </div>
             <form style={formStyle} onSubmit={handleSubmit} id="modern-form">
-
-                <div class="dropdown">
-                    <label for="afectacion">Tipo de Afectación:</label>
-                    <select style={selectStyle} id="00N8V00000IUPiP" name="tipo_afectacion" title="tipo_afectacion" onChange={handleChange} ><option value="">--Elegir--</option>
-                        <option value="electricidad_">Eléctrico</option>
-                        <option value="plomeria">Plomería</option>
-                        <option value="climatizacion">Calefacción/Ventilación/Aire Acondicionado</option>
-                        <option value="electrodomesticos">Electrodomésticos</option>
-                        <option value="pintura">Pintura</option>
-                        <option value="mobiliario">Mobiliario</option>
-                        <option value="seguridad">Seguridad</option>
-                        <option value="iluminacion">Iluminación</option>
-                        <option value="suelos">Suelos/Revestimientos</option>
-                        <option value="otro">otro</option>
+                <div className="dropdown">
+                    <label htmlFor="tipo_afectacion">Tipo de afectación:</label>
+                    <select style={selectStyle} name="tipo_afectacion" title="Tipo de afectación" onChange={handleChange}>
+                        <option value="">--Elegir--</option>
+                        {/* Renderizar opciones basadas en datos de la picklist */}
+                        {picklists.tipo_afectacion && picklists.tipo_afectacion.picklistValues.map(option => (
+                            <option key={option.apiName} value={option.apiName}>{option.label}</option>
+                        ))}
                     </select>
                 </div>
 
-                <div class="dropdown">
-                    <label for="specific-issue">Sub-tipo de afectación:</label>
-                    <select style={selectStyle} id="00N8V00000IUPiy" name="subtipo_afectacion" title="subtipo_afectacion" onChange={handleChange}><option value="">--Elegir--</option>
-                        <option value="interrupcionEnergia">Interrupción de Suministro Eléctrico</option>
-                        <option value="problemasTomasCorriente">Problemas con Tomas de Corriente</option>
-                        <option value="fallosInterruptores">Fallos en Interruptores/Lámparas</option>
-                        <option value="cableadoDanado">Cableado Dañado</option>
-                        <option value="fugasAgua">Fugas de Agua</option>
-                        <option value="problemasDrenaje">Problemas de Drenaje</option>
-                        <option value="malCalefaccion">Mal Funcionamiento de Calefacción</option>
-                        <option value="malVentilacion">Mal Funcionamiento de Ventilación</option>
-                        <option value="malAireAcondicionado">Mal Funcionamiento de Aire Acondicionado</option>
-                        <option value="electrodomesticoDefectuoso">Electrodoméstico Defectuoso</option>
-                        <option value="pinturaDescascarada">Pintura Descascarada</option>
-                        <option value="agujerosParedes">Agujeros/Desperfectos en Paredes</option>
-                        <option value="mueblesDanados">Muebles Dañados/Roturas</option>
-                        <option value="problemasCerraduras">Problemas con Cerraduras</option>
-                        <option value="problemasIluminacion">Problemas de Iluminación</option>
-                        <option value="suelosDanados">Suelos/Revestimientos Dañados</option>
-                        <option value="Otro">otro</option>
-                        <option value="Tiempos de respuesta">Tiempos de respuesta</option>
-                        <option value="Calidad del proceso">Calidad del proceso</option>
-                        <option value="Solución de dudas">Solución de dudas</option>
+                <div className="dropdown">
+                    <label htmlFor="subtipo_afectacion">Sub-tipo de afectación:</label>
+                    <select style={selectStyle} name="subtipo_afectacion" title="Sub-tipo de afectación" onChange={handleChange}>
+                        <option value="">--Elegir--</option>
+                        {/* Renderizar opciones basadas en datos de la picklist */}
+                        {picklists.subtipo_afectacion && picklists.subtipo_afectacion.picklistValues.map(option => (
+                            <option key={option.apiName} value={option.apiName}>{option.label}</option>
+                        ))}
                     </select>
                 </div>
 
-                <div class="dropdown">
-                    <label for="ubicacion">Ubicación del mantenimiento:</label>
-                    <select style={selectStyle} id="00N8V00000IUPj3" name="ubicacion_mmto" title="ubicacion_mmto"onChange={handleChange}><option value="">--Elegir--</option>
-                        <option value="salaEstar">Sala de estar</option>
-                        <option value="dormitorioPrincipal">Dormitorio principal</option>
-                        <option value="dormitorioSecundario">Dormitorio secundario</option>
-                        <option value="Cocina">cocina</option>
-                        <option value="banoPrincipal">Baño principal</option>
-                        <option value="banoSecundario">Baño secundario</option>
-                        <option value="Comedor">comedor</option>
-                        <option value="balconTerraza">Balcón/Terraza</option>
-                        <option value="areaLavanderia">Área de lavandería</option>
-                        <option value="Pasillos">pasillos</option>
-                        <option value="areaAlmacenamiento">Área de almacenamiento</option>
-                        <option value="Otro">otro</option>
+                <div className="dropdown">
+                    <label htmlFor="ubicacion_mmto">Ubicación del mantenimiento:</label>
+                    <select style={selectStyle} name="ubicacion_mmto" title="Ubicación del mantenimiento" onChange={handleChange}>
+                        <option value="">--Elegir--</option>
+                        {/* Renderizar opciones basadas en datos de la picklist */}
+                        {picklists.ubicacion_mmto && picklists.ubicacion_mmto.picklistValues.map(option => (
+                            <option key={option.apiName} value={option.apiName}>{option.label}</option>
+                        ))}
                     </select>
                 </div>
 
-                <div class="input-field">
-                    <label for="short-text">Asunto:</label>
-                    <input style={inputStyle} type="text" id="00N8V00000IUPj8" name="asunto" onChange={handleChange} />
+                <div className="input-field">
+                    <label htmlFor="asunto">Asunto:</label>
+                    <input style={inputStyle} type="text" name="asunto" onChange={handleChange} />
                 </div>
 
-               <div class="rating-field">
-                    <label for="rating">Evalúe nuestro servicio (0 a 5):</label>
-                    <input style={inputStyle} type="number" id="rating" name="rating" min="0" max="5" onChange={handleChange} oninput="this.value=this.value.slice(0,1)" />
-                </div> 
-
-                <div class="textarea-field">
-                    <label for="comment">Comentario:</label>
-                    <textarea style={inputStyle} id="comment" name="comentario" rows="4" onChange={handleChange}></textarea>
+                <div className="rating-field">
+                    <label htmlFor="calificacion">Evalúe nuestro servicio (0 a 5):</label>
+                    <input style={inputStyle} type="number" name="calificacion" min="0" max="5" onChange={handleChange} />
                 </div>
 
-                <button style={buttonStyle} disabled={isSubmitting} type="submit"> {isSubmitting ? 'Enviando...' : 'Enviar'}</button>
+                <div className="textarea-field">
+                    <label htmlFor="comentario">Comentario:</label>
+                    <textarea style={inputStyle} name="comentario" rows="4" onChange={handleChange}></textarea>
+                </div>
+
+                <button style={buttonStyle} disabled={isSubmitting} type="submit">{isSubmitting ? 'Enviando...' : 'Enviar'}</button>
             </form>
         </div>
     );
