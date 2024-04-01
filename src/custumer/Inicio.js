@@ -140,7 +140,6 @@ function Inicio() {
             headers: { 'Content-Type': 'application/json' },
             body: '{ "email": ' + email + '}'
         };
-
         fetch('https://sistema-duppla-backend.herokuapp.com/pagos/pendingPayments', optionsPendingPayments)
             .then(response => response.json())
             .then(pendingPaymentsResponse => {
@@ -217,6 +216,7 @@ function Inicio() {
         const diffYears = 1 + (fecha2.getFullYear() - fecha1.getFullYear()) * -1;
         let years = 5;
         let participacionInicialCustumer = dataCustumer.participacionInicial;
+        let participacion= dataCustumer.participacion;
 
         if (participacionInicialCustumer > 0.3) {
             // Aplicar nuevas indicaciones cuando la participación inicial sea mayor a 30%
@@ -224,7 +224,7 @@ function Inicio() {
             const metaAnual = (MetaTotal - participacionInicialCustumer) / years; // Dividir la participación inicial por 5 años
 
             // Resto del código que utiliza la nueva metaAnual calculada
-            let porcentajeActual = participacionInicialCustumer + (metaAnual * diffYears);
+            let porcentajeActual = Math.max(participacionInicialCustumer + (metaAnual * diffYears), participacion);
 
 
             return porcentajeActual;
@@ -358,7 +358,7 @@ function Inicio() {
                                     <div className="col-2 ">
                                     </div>
                                     <div className="col-4 ">
-                                        <p className="text-inicio-gra ">{dataCustumer.participacionInicial}% </p>
+                                        <p className="text-inicio-gra ">{dataCustumer.participacionInicial}%</p>
                                     </div>
                                 </div >
                             </div>
