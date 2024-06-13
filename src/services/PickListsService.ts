@@ -2,6 +2,17 @@ import axios from "axios";
 import { PickList } from "../models/picklist";
 import { CaseDto } from "../models/case";
 
+export interface CheckVideosDTO {
+  document_number: string;
+  document_type: string;
+  id_video: string;
+  ip_address: string;
+
+  webkit: string;
+  screen_resolution: string;
+  browser: string;
+}
+
 class PicklistService {
   private static instance: PicklistService;
 
@@ -14,11 +25,30 @@ class PicklistService {
     return PicklistService.instance;
   }
 
+  public async postFingerprintVideo(data: CheckVideosDTO): Promise<boolean> {
+    try {
+      const response = await axios.post(
+        "https://back.duppla.co/user/seen_video",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 200) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error("Error creating fingerprint:", error);
+      throw error;
+    }
+  }
+
   public async getPicklists(): Promise<PickList[]> {
     try {
-      const response = await fetch(
-        "https://back.duppla.co/casos/picklists"
-      );
+      const response = await fetch("https://back.duppla.co/casos/picklists");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

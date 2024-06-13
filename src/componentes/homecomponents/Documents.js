@@ -1,15 +1,14 @@
+import { Box, Button, CardActions, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography, createTheme } from "@mui/material";
+import Lottie from 'lottie-react';
 import React, { useEffect, useState } from "react";
+import ReactGA from 'react-ga';
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
+import animationData from '../../Components/loanding.json';
+import Idefaultoffer from "../../img/Idefaultoffer.png";
 import Istateg from "../../img/Istateg.png";
 import Istatev from "../../img/Istatev.png";
-import { Box, Button, Card, CardActions, CardContent, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography, createTheme } from "@mui/material";
-import Idefaultoffer from "../../img/Idefaultoffer.png";
 import VideoPlayer from './VideoPlayer';
-import Lottie from 'lottie-react';
-import animationData from '../../Components/loanding.json';
-import swal from 'sweetalert';
-import ReactGA from 'react-ga';
-import { type } from "@testing-library/user-event/dist/type";
 
 const themeLogin = createTheme({
     status: {
