@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import Idocumento from "../../img/iconodocumentos.png"
 import Iinmueble from "../../img/iconoinmueble.png"
-import Iperfil from "../../img/iconoperfil.png"
 import BarraProgreso from "../../img/barraprogreso.png"
 import Iprogresive1 from "../../img/Iprogresive1.png"
 import Iprogresive2 from "../../img/Iprogresive2.png"
@@ -10,23 +9,12 @@ import Iprogresive4 from "../../img/Iprogresive4.png"
 
 
 import Istateg from "../../img/Istateg.png"
-import Istaten from "../../img/Istaten.png"
-import Istatem from "../../img/Istatem.png"
 import Istatev from "../../img/Istatev.svg"
 import Istater from "../../img/Istater.svg"
 
-import Istatea from "../../img/Istatea.svg"
 import Istateblue from "../../img/Istateblue.svg"
 import IconDocs from "../../img/folderDocs.svg"
 
-import Idupplanaranja from "../../img/Idupplanaranja.png"
-import Vperfil from "../../img/vperfil.svg"
-import Voferta from "../../img/voferta.svg"
-import Vinmueble from "../../img/vinmueble.svg"
-import Vdocs from "../../img/vdocs.svg"
-import Vlogout from "../../img/vlogout.svg"
-import Vrectangulo from "../../img/vrectanguler.svg"
-import Iconinm from "../../img/Iconinm.png"
 import Igo from "../../img/go.png"
 
 import { Link } from "react-router-dom";
@@ -111,10 +99,8 @@ function Home() {
       };
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/inm/getInm`, options)
       const datos = await response.json();
-      //console.log(datos);
       setStateInmu(datos);
-      //console.log(datos);
-
+      
     }
     fetchDatos();
     handleProgress();
@@ -136,13 +122,7 @@ function Home() {
   const whatsappLink = data.link_whatsapp;
 
 
-  {/*Función que cambia el nobre de usurio a minuscula */ }
 
-  function convertirAMinusculas(texto) {
-    return texto.toLowerCase().replace(/\b\w/g, (letra) => letra.toUpperCase());
-  }
-
-  const pruebaprogreso = state.estado;
 
 
   const stateChange = (stateUser) => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-function pagosHistorial() {
+function PagosHistorial() {
     // uso del localsotrage para traer estado del usuario
     const estado = localStorage.getItem('estado');
 
@@ -28,11 +28,6 @@ function pagosHistorial() {
     },[]);
 
     const dato = dataPago.document;
-
-
-    //console.log("Aqui debria haber algo", dato);
-
-    // función que redirecciona al usuario de buyer a custumer
 
     function testRedireccion() {
         const estado = localStorage.getItem('estado');
@@ -96,4 +91,4 @@ function pagosHistorial() {
 }
 
 
-export default pagosHistorial;
+export default PagosHistorial;

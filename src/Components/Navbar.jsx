@@ -42,15 +42,13 @@ const Navbar = () => {
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0');
     let yyyy = today.getFullYear();
-    let fecha = `${dd}/${mm}/${yyyy}`;
-
+    
     //Datos del usuario
     const [data, setData] = useState({});
     const [state, setState] = useState({});
     const estado = localStorage.getItem('estado');
     const [stateInmu, setStateInmu] = useState({});
-    //console.log(estado);
-
+    
     useEffect(() => {
         // GET request using fetch inside useEffect React hook
         const email = localStorage.getItem('email');

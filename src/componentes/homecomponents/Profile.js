@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import Iperfil from "../../img/iconoperfil.png";
-import Idata from "../../img/imgdata.png";
-import Icerrarsesion from "../../img/imgcerrarsesion.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/Contextauth";
 import swal from 'sweetalert';
@@ -44,7 +42,7 @@ const themeLogin = createTheme({
 });
 
 
-function profile() {
+function Profile() {
 
 
 
@@ -480,4 +478,4 @@ function profile() {
 }
 
 
-export default profile;
+export default Profile;
