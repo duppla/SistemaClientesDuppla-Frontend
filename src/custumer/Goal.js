@@ -21,7 +21,7 @@ function Goal() {
       body: '{"id":"'+id+'","meta":"'+meta+'"}'
     };
     
-    fetch('https://sistema-duppla-backend.herokuapp.com/users/editMeta', options)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/users/editMeta`, options)
       .then(response => window.location.reload())
       .catch(err => console.error(err));
   }
@@ -34,7 +34,7 @@ function Goal() {
         body: '{"email":"pgutierrez@duppla.co"}'
       };
       
-      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/meta', options)
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/meta`, options)
       const jsonData = await response.json();
       //console.log(JSON.stringify(jsonData[0].Meta__c));
       setData(jsonData[0]);

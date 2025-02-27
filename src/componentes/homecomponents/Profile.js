@@ -84,7 +84,7 @@ function profile() {
             headers: { 'Content-Type': 'application/json' },
             body: '{ "email": ' + email + '}'
         };
-        fetch('https://sistema-duppla-backend.herokuapp.com/users/perfil', options)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/users/perfil`, options)
             .then(response => response.json())
             .then(response => {
                 setData(response)

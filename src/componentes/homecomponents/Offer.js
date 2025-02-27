@@ -77,7 +77,7 @@ function Offer() {
     };
 
     try {
-      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/ofertas/accept', options);
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/ofertas/accept`, options);
       if (response.status === 200) {
         setIsButtonDisabled(true);
       }

@@ -61,7 +61,7 @@ function Annual() {
             body: '{ "email": ' + email + '}' // Pasamos el email en el cuerpo como JSON
         };
 
-        fetch('https://sistema-duppla-backend.herokuapp.com/pagos/sigo', options)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/pagos/sigo`, options)
             .then(response => response.json())
             .then(jsonData => {
                 const extractedData = jsonData.map(item => {

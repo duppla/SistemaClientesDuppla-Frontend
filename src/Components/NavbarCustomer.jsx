@@ -66,7 +66,7 @@ const NavbarCustomer = () => {
             body: '{ "email": ' + email + '}'
         };
 
-        fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/users/homeCustomer`, options)
             .then(response => response.json())
             .then(response => {
                 setDataCustumer(response)

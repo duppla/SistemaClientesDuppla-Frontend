@@ -93,7 +93,7 @@ function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: '{ "email": ' + email + '}'
       };
-      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/home', options)
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/home`, options)
       const data = await response.json();
       setData(data)
       setState(estado);
@@ -109,7 +109,7 @@ function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: '{ "email": ' + email + '}'
       };
-      const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options)
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/inm/getInm`, options)
       const datos = await response.json();
       //console.log(datos);
       setStateInmu(datos);

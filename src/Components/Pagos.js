@@ -20,7 +20,7 @@ function pagosHistorial() {
            body: '{ "email": ' + email + '}'
           };
           
-          fetch('https://sistema-duppla-backend.herokuapp.com/pagos/sigo', options)
+          fetch(`${process.env.REACT_APP_BACKEND_URL}/pagos/sigo`, options)
             .then(response => response.json())
             .then(response => setDatapago(response))
             .catch(err => console.error(err));

@@ -113,7 +113,7 @@ function Inicio() {
             body: '{ "email": ' + email + '}'
         };
 
-        fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/users/homeCustomer`, options)
             .then(response => response.json())
             .then(response => {
                 setDataCustumer(response)
@@ -140,7 +140,7 @@ function Inicio() {
             headers: { 'Content-Type': 'application/json' },
             body: '{ "email": ' + email + '}'
         };
-        fetch('https://sistema-duppla-backend.herokuapp.com/pagos/pendingPayments', optionsPendingPayments)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/pagos/pendingPayments`, optionsPendingPayments)
             .then(response => response.json())
             .then(pendingPaymentsResponse => {
                 setPendingPayments(pendingPaymentsResponse);

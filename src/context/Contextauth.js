@@ -17,9 +17,10 @@ export const AuthProvider = ({ children }) => {
 
 
     useEffect(() => {
-        const recovereToken = localStorage.getItem("token");
-        if (recovereToken) {
-            setToken(JSON.parse(recovereToken));
+        const recoveredToken = localStorage.getItem("token");
+        if (recoveredToken) {
+            // Don't parse the token, just use it as is
+            setToken(recoveredToken);
         }
         setLoanding(false);
 
@@ -28,14 +29,13 @@ export const AuthProvider = ({ children }) => {
 //ejemplo de operador ternario condicion ? true : false
     const login = (tokenUser, email,estado) => {
 
-        localStorage.setItem('token', JSON.stringify(tokenUser));
-        localStorage.setItem('email', JSON.stringify(email)); 
-        localStorage.setItem('estado', JSON.stringify(estado));      
-        
-
         if (tokenUser) {
-           // console.log('ver si entra el', tokenUser);
-           // se verifica que el token sea el correcto
+            // Store the token as is, without stringifying
+            localStorage.setItem('token', tokenUser);
+            localStorage.setItem('email', JSON.stringify(email)); 
+            localStorage.setItem('estado', JSON.stringify(estado));      
+            
+
             const options = {
                 method: 'POST',
                 headers: {
@@ -43,12 +43,11 @@ export const AuthProvider = ({ children }) => {
                 }
               };
               
-              fetch('https://sistema-duppla-backend.herokuapp.com/users/check', options)
+              fetch(`${process.env.REACT_APP_BACKEND_URL}/users/check`, options)
                 .then(response => response.json())
                 .then(response => {
-                    setToken({ token: tokenUser }
-                        
-                        );
+                    // Set the token directly without wrapping in an object
+                    setToken(tokenUser);
                     
                     //console.log(response);
                     if(tokenUser == "undefined"){

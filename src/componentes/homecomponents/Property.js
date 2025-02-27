@@ -70,11 +70,12 @@ function Property() {
             };
 
             try {
-                const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/getInm', options);
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/inm/getInm`, options);
                 if (!response.ok) {
                     throw new Error('Error en la solicitud');
                 }
                 const datos = await response.json();
+                console.log('Property data:', datos);
                 setDatos(datos);
                 setError(false); // No hay error
                 setIsLoading(false);
@@ -93,7 +94,7 @@ function Property() {
                 body: '{"codigo":"' + datos.name + '"}'
             };
 
-            const response = await fetch('https://sistema-duppla-backend.herokuapp.com/inm/fotos', options)
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/inm/fotos`, options)
             const data = await response.json();
             //console.log(data);
             setFotos(data);
@@ -291,7 +292,7 @@ function Property() {
     //formateo de los datos de valor inmueble duppla
     const number = datos.Valor_inmueble_compra_duppla;
     const costm = datos.Evaluacion_m2;
-    const compraDuppla = datos.valor_opcion_compra;
+    const compraDuppla = datos.valor_opcion_compra || datos.Valor_opcion_compra || 0;
     const whatsappLink = datos.link_whatsapp;
 
 
@@ -300,9 +301,9 @@ function Property() {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
     });
-    const formattedNumber = formatter.format(number);
-    const formattedcostm = formatter.format(costm);
-    const formattedCompraDuppla = formatter.format(compraDuppla);
+    const formattedNumber = formatter.format(number || 0);
+    const formattedcostm = formatter.format(costm || 0);
+    const formattedCompraDuppla = formatter.format(compraDuppla || 0);
 
     // Función para 
     const handleInm = () => {

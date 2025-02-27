@@ -44,7 +44,7 @@ function Payment() {
             body: '{ "email": ' + email + '}'
         };
 
-        fetch('https://sistema-duppla-backend.herokuapp.com/users/homeCustomer', options)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/users/homeCustomer`, options)
             .then(response => response.json())
             .then(response => {
                 setDataCustumer(response)
@@ -60,7 +60,7 @@ function Payment() {
                     .catch(err => console.error(err));
 
                 // Agregamos un nuevo endpoint aquí
-                fetch('https://sistema-duppla-backend.herokuapp.com/pagos/pendingPayments', options)
+                fetch(`${process.env.REACT_APP_BACKEND_URL}/pagos/pendingPayments`, options)
                     .then(response => response.json())
                     .then(response => {
                         setPendingPayments(response)

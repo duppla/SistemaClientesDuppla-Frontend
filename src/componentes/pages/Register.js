@@ -82,7 +82,7 @@ function Register() {
         };
 
         try {
-            const response = await fetch('https://sistema-duppla-backend.herokuapp.com/users/login', options);
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/login`, options);
             const responseData = await response.json();
 
             if (response.status === 200) {
