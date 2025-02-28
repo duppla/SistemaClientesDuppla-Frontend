@@ -29,20 +29,36 @@ import { AuthProvider } from './context/Contextauth';
 import Annual from './custumer/Annual';
 import Notification from './custumer/Notification';
 
+import Lottie from 'lottie-react';
+import animationData from './Components/loading.json';
 
-
-
+export const LoadingSpinner = () => (
+  <div className='loading-container'>
+    <div className='loading-container'>
+      <h2 className='text-loading'>Cargando...</h2>
+      <div className='text-loading'>
+        <div className='loading-state-mui'>
+          <Lottie
+            animationData={animationData}
+            loop
+            autoplay
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 function App() {
   //  el children viene de context
   const Private = ({ children }) => {
 
-    const { authenticated, loanding } = useContext(AuthContext);
+    const { authenticated, loading } = useContext(AuthContext);
 
     // valida que este en localsotore- si no esta logueado se redirecciona a login
 
-    if (loanding) {
-      return <div>cargando...</div>;
+    if (loading) {
+      return <LoadingSpinner />;
     }
     if (!authenticated) {
       return <Navigate to="/login" />;

@@ -4,7 +4,7 @@ import './../custumer/Annual.css'
 import Idefaultoffer from "./../img/Idefaultoffer.png";
 import { Box, Container, CssBaseline } from '@mui/material';
 import Lottie from 'lottie-react';
-import animationData from './../Components/loanding.json';
+import animationData from './../Components/loading.json';
 import ReactGA from 'react-ga';
 
 function Annual() {
@@ -143,12 +143,12 @@ function Annual() {
                 </h4>
             </div>
 
-            {loading ? (<div className='loanding '>
-                <div className='loanding-container'>
-                    <h2 className='text-loandig '>Cargando...</h2>
-                    <div className='text-loandig '
+            {loading ? (<div className='loading '>
+                <div className='loading-container'>
+                    <h2 className='text-loading '>Cargando...</h2>
+                    <div className='text-loading '
                     >
-                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                        <div className='loading-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
                             <Lottie
                                 animationData={animationData}
                                 loop

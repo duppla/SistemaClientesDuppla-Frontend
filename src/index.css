@@ -1717,7 +1717,7 @@ a {
     margin-left: 32px !important;
   }
 
-  .loanding {
+  .loading-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1727,7 +1727,7 @@ a {
     border-radius: 10px;
   }
 
-  .loanding-container {
+  .loading-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1735,12 +1735,12 @@ a {
     margin-top: 50px;
   }
 
-  .text-loandig {
+  .text-loading {
     color: #0A3323;
     margin-bottom: 20px;
   }
 
-  .loanding-state-mui {
+  .loading-state-mui {
     width: 140px;
     height: 140px;
   }
@@ -1958,7 +1958,7 @@ a {
 
   }
 
-  .loanding-state-mui {
+  .loading-state-mui {
     width: 200px;
     height: 200px;
   }
@@ -2060,7 +2060,7 @@ a {
     margin-left: 5px !important;
   }
 
-  .loanding-state-mui {
+  .loading-state-mui {
     width: 160px;
     height: 160px;
   }
@@ -2193,7 +2193,7 @@ a {
 
   }
 
-  .loanding-state-mui {
+  .loading-state-mui {
     width: 160px;
     height: 160px;
   }
@@ -2327,7 +2327,7 @@ a {
     margin-left: 4px !important;
   }
 
-  .loanding-state-mui {
+  .loading-state-mui {
     margin-top: 24px !important;
     width: 160px;
     height: 160px;

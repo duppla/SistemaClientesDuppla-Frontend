@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
     const [token, setToken] = useState(null);
 
-    const [loanding, setLoanding] = useState(true);
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
             // Don't parse the token, just use it as is
             setToken(recoveredToken);
         }
-        setLoanding(false);
+        setLoading(false);
 
     }, []);
 
@@ -72,7 +72,6 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        //console.log('logout');
         localStorage.removeItem('token');
         localStorage.removeItem('email');
         localStorage.removeItem('estado');
@@ -82,7 +81,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider
-            value={{ authenticated: !!token, token, loanding, login, logout }}>
+            value={{ authenticated: !!token, token, loading, login, logout }}>
             {children}
         </AuthContext.Provider>
     )
