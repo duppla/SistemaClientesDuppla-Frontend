@@ -6,7 +6,7 @@ import { Box, Button, Grid, Container, Typography, createTheme, ThemeProvider, S
 import ReactGA from 'react-ga';
 
 import Lottie from 'lottie-react';
-import animationData from './../Components/loanding.json';
+import animationData from './../Components/loading.json';
 import Pqr from './Pqr';
 import InconformidadForm from './FormInconformidad';
 import MantenimientoForm from './FormMantenimienvtov2';

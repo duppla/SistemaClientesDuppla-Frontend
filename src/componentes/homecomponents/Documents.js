@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import Istateg from "../../img/Istateg.png";
 import Istatev from "../../img/Istatev.png";
-import { Box, Button, Card, CardActions, CardContent, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography, createTheme } from "@mui/material";
+import { Box, Button, CardActions, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Typography, createTheme } from "@mui/material";
 import Idefaultoffer from "../../img/Idefaultoffer.png";
 import VideoPlayer from './VideoPlayer';
-import Lottie from 'lottie-react';
-import animationData from '../../Components/loanding.json';
 import swal from 'sweetalert';
 import ReactGA from 'react-ga';
-import { type } from "@testing-library/user-event/dist/type";
+import { LoadingSpinner } from '../../App';
 
 const themeLogin = createTheme({
     status: {
@@ -27,27 +26,176 @@ const themeLogin = createTheme({
     },
 });
 
+const NoDocuments = () => {
+    return (
+        <Container maxWidth="xl" sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignContent: 'center',
+            alignItems: 'center',
+            mb: 4,
+        }}>
+            <div className='img-offer-conatiner '>
+                <Typography component="h1" variant="" sx={{
+                    /*  ml: 2, */
+                    fontFamily: 'Rustica',
+                    fontStyle: 'normal',
+                    fontWeight: '500',
+                    fontSize: '18px',
+                    color: '#0A3323',
+                    lineHeight: '20px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    mb: 4,
+                }}>
+                    <h4>No cuenta con documentos</h4>
+                </Typography>
+                {/* <p>No cuenta con documentos</p> */}
+                <img src={Idefaultoffer} className="container fluid" alt="..." />
+            </div>
+        </Container>
+    )
+}
+
+const DocumentHeader = ({ file, isSignedDoc }) => (
+    <Grid container spacing={2} sx={{
+      maxWidth: '600px',
+      width: '100%',
+      margin: '0 auto',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minWidth: '280px',
+    }}>
+      <Grid item sx={2} sm={2} md={3} lg={3}>
+        <img 
+          src={isSignedDoc ? Istatev : Istateg} 
+          className="warning font-medium-2 mr-2" 
+          alt="" 
+          height='12px' 
+          width='12px' 
+        />
+      </Grid>
+      <Grid item sx={8} sm={8} md={9} lg={9}>
+        <Typography component="h1" variant="" sx={{
+          mt: 0,
+          textAlign: 'start',
+          fontFamily: 'Rustica',
+          fontStyle: 'normal',
+          fontWeight: '500',
+          fontSize: '18px',
+          color: '#0A3323',
+          lineHeight: '20px',
+          width: '220px',
+        }}>
+          {file.name}
+        </Typography>
+      </Grid>
+    </Grid>
+  );
+
+DocumentHeader.propTypes = {
+  file: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  isSignedDoc: PropTypes.bool.isRequired
+};
+
+const DateDisplay = ({ documentName, date }) => (
+  <div className='video-docs-text-date'>
+    <Grid container spacing={0.5} sx={{ width: '100%' }}>
+      <Grid item sx={10} sm={10} md={10} lg={10}>
+        <Typography sx={{
+          mt: 2,
+          textAlign: 'start',
+          fontFamily: 'Roboto',
+          fontStyle: 'normal',
+          fontWeight: '300',
+          fontSize: '14px',
+          color: '#0A3323',
+          lineHeight: '20px',
+          ml: 1,
+        }}>
+          Acepto que he visto la información anterior el día: {date}
+        </Typography>
+      </Grid>
+    </Grid>
+  </div>
+);
+
+DateDisplay.propTypes = {
+  documentName: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
+};
+
+const ConfirmationText = () => (
+    <Grid item sx={8} sm={8} md={10} lg={10}>
+        <Typography className='text-autorizacion-form'>
+            Confirmo que he visto y comprendido la explicación del documento que se muestra en el video.
+        </Typography>
+    </Grid>
+);
+
+const ReadDocumentButton = ({ file, isDisabled, onClickRead }) => (
+    <Grid item sx={12} sm={12} md={12} lg={12}>
+        <div className="">
+            <Button
+                fullWidth
+                id={file.name.replace(/\s+/g, "_")}
+                variant="contained"
+                sx={{
+                    marginTop: '20px',
+                    mb: 3,
+                    background: '#81A1F8',
+                    borderRadius: '10px',
+                    color: '#ffffff',
+                    textTransform: 'none',
+                    border: '1px solid #81A1F8',
+                    height: '58px',
+                    fontFamily: 'Helvetica',
+                    fontSize: '20px',
+                    width: '100%',
+                    margin: '0 auto',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+                onClick={() => onClickRead(file)}
+                disabled={isDisabled}
+                data-document-name={file.name}
+            >
+                <b>Leer documento</b>
+            </Button>
+            <br />
+        </div>
+    </Grid>
+);
+
+ReadDocumentButton.propTypes = {
+    file: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+    }).isRequired,
+    isDisabled: PropTypes.bool.isRequired,
+    onClickRead: PropTypes.func.isRequired
+};
 
 function Docs() {
 
     useEffect(() => {
-        // Envía un evento cuando el componente Docs se monta (se renderiza).
         ReactGA.pageview(window.location.pathname);
     }, []);
 
-    // uso del localsotrage para traer estado del usuario
     const estado = localStorage.getItem('estado');
     const email = localStorage.getItem('email');
 
 
-
     const [docsBuyer, setDocsBuyer] = useState({});
-    /* Estado que maneja el loading generar */
     const [loading, setLoading] = useState(true);   
     const [documentTypes, setDocumentTypes] = useState({}); /* UseState get estado actual de los campos de video en sF */
 
 
-    /*Consulta al primer enpoint de documentos formados y no  */
     useEffect(() => {
         const emailWithQuotes = localStorage.getItem('email');
         if (emailWithQuotes) {
@@ -56,7 +204,7 @@ function Docs() {
 
             const options = { method: 'GET' };
 
-            fetch(`https://salesforce-gdrive-conn.herokuapp.com/clientes/documentos?email=${email}`, options)
+            fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/?email=${email}`, options)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -65,15 +213,17 @@ function Docs() {
                 })
                 .then(response => {
                     setDocsBuyer(response);
-                    /* console.log(response); */
                     setLoading(false);
                 })
+                .catch(err => {
+                    console.error('Fetch error:', err);
+                    setLoading(false);
+                });
 
-            fetch(`https://salesforce-gdrive-conn.herokuapp.com/consultar/estado/videos?email=${email}`, options)
+            fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/videos?email=${email}`, options)
                 .then(response => response.json())
                 .then(response => {
                     setDocumentTypes(response);
-                    /* console.log(setDocumentTypes + 'prueba estado campos'); */
                 })
                 .catch(err => {
                     console.error('Fetch error:', err);
@@ -92,9 +242,6 @@ function Docs() {
         compraventa_c: compraventa_c,
         carriendo_c: carriendo_c,
     });
-
-    /* console.log(anexo_c + 'anexo' + compraventa_c + 'compraventa' + carriendo_c + 'arriendo' + ''  + 'fechaVideo' + email);  */
-    /* Función que según el estado general direcciona a inicio de prospecto o customer */
 
     function testRedireccion() {
         const estado = localStorage.getItem('estado');
@@ -121,31 +268,24 @@ function Docs() {
     // envia la data recolectada de los documentos a google analytics
 
     const handleDocumentLinkClick = (file) => {
-        // Envía un evento cuando se hace clic en un enlace de documento.
         ReactGA.event({
-
             'category': 'Document Interaction',
             'action': `Clicked on Document Link: ${file.name}`,
             'label': 'Botón generar documento',
         });
-        // Tu lógica para abrir el enlace del documento.
-        window.open(file.drive_url, '_blank'); // Abre el enlace en una nueva pestaña.
-        /*  console.log(file.drive_url + 'prueba del documento'); */
+        window.open(file.drive_url, '_blank');
+    };
+
+    const VIDEO_URLS = {
+        "Promesa compra venta cliente": "https://d2g37sbj1xsk90.cloudfront.net/contrato-promesa.mp4",
+        "Anexo 1": "https://d2g37sbj1xsk90.cloudfront.net/anexo-1-final.mp4",
+        "Contrato Arriendo": "https://d2g37sbj1xsk90.cloudfront.net/contrato-de-arrendamiento.mp4"
     };
 
     function getVideoUrl(documentName) {
-        switch (documentName) {
-            case "Promesa compra venta cliente":
-                return "https://d2g37sbj1xsk90.cloudfront.net/contrato-promesa.mp4";
-            case "Anexo 1":
-                return "https://d2g37sbj1xsk90.cloudfront.net/anexo-1-final.mp4";
-            case "Contrato Arriendo":
-                return "https://d2g37sbj1xsk90.cloudfront.net/contrato-de-arrendamiento.mp4";
-            default:
-                return "";
-        }
-    }    
-      
+        return VIDEO_URLS[documentName] || "";
+    }
+
     /* Cambio de texto según video <p>Todo lo que necesitas saber sobre la promesa de compraventa, explicado en menos de 5 minutos.</p> */
     function textVideoUrl(documentNameText) {
         switch (documentNameText) {
@@ -222,15 +362,12 @@ function Docs() {
                 anexo_c = true;
             }
 
-            setDocumentTypes(updatedDocumentTypes); // Actualiza el estado
+            setDocumentTypes(updatedDocumentTypes);
 
-            // Emitir un evento para habilitar el botón
             const event = new Event('enableButtonEvent');
             document.dispatchEvent(event);
 
             const email = localStorage.getItem('email');
-
-            //console.log(email + 'email prueba');
 
             let data = {
                 anexo_c: anexo_c,
@@ -239,18 +376,30 @@ function Docs() {
                 email: email.replace(/"/g, '')
             }
 
-           /*  console.log(JSON.stringify(data) + 'data prueba'); */
             try {
-                 const response = await fetch("https://salesforce-gdrive-conn.herokuapp.com/actualizar/video", {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data),
-              });
-              if (!response.ok) {
-                  throw new Error('Network response was not ok');
-              }   
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/videos`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }   
+
+                // Refetch the video status data to get updated dates
+                const getResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/videos?email=${email.replace(/"/g, '')}`, {
+                    method: 'GET'
+                });
+                
+                if (!getResponse.ok) {
+                    throw new Error('Failed to fetch updated video status');
+                }
+
+                const updatedData = await getResponse.json();
+                setDocumentTypes(updatedData);
 
                 swal({
                     title: "¡Listo!",
@@ -259,11 +408,15 @@ function Docs() {
                     button: "Aceptar",
                 });
 
-                // handle successful response here
             } catch (error) {
                 console.error('Fetch error: ', error);
+                swal({
+                    title: "Error",
+                    text: "Hubo un problema al registrar tu confirmación",
+                    icon: "error",
+                    button: "Aceptar",
+                });
             }
-            
         }
     }/* cierre función */
 
@@ -319,7 +472,6 @@ function Docs() {
         if (docsLink == undefined) {
             return;
         } else {
-            /* console.log(docsLink.drive_url + 'prueba del documento'); */
             window.open(docsLink.drive_url, '_blank'); // Abre el enlace en una nueva pestaña.
         }
     }
@@ -327,7 +479,10 @@ function Docs() {
     /* Función que cambia el formato de fecha del check */
 
     function formatFecha(fecha) {
+        if (!fecha) return 'Fecha no disponible';
+        
         const date = new Date(fecha);
+        if (isNaN(date.getTime())) return 'Fecha no disponible';
 
         const dia = date.getDate();
         const mes = date.getMonth() + 1;
@@ -335,7 +490,7 @@ function Docs() {
         const horas = date.getHours();
         const minutos = date.getMinutes();
         const ampm = horas >= 12 ? 'pm' : 'am';
-        const hora12 = horas % 12 || 12; // Convierte la hora en formato 12 horas
+        const hora12 = horas % 12 || 12;
 
         const fechaFormateada = `${dia}/${mes}/${año}`;
         const horaFormateada = `${hora12}:${minutos.toString().padStart(2, '0')} ${ampm}`;
@@ -350,8 +505,20 @@ function Docs() {
     const fechaFormateadaCompraventa = formatFecha(fechaVideoCompraventa);
     const fechaFormateadaArriendo = formatFecha(fechaVideoArriendo);
 
+    const getFormattedDate = (documentName) => {
+        if (documentName === "Anexo 1") return fechaFormateada;
+        if (documentName === "Promesa compra venta cliente") return fechaFormateadaCompraventa;
+        return fechaFormateadaArriendo;
+    };
 
-
+    const shouldShowDate = (documentName, documentTypes, isChecked) => {
+        const checkMap = {
+            "Anexo 1": documentTypes.Check_video_Anexo1__c,
+            "Promesa compra venta cliente": documentTypes.Check_video_Promesa_C__c,
+            "Contrato Arriendo": documentTypes.Check_video_Contrato_Arrendamiento__c
+        };
+        return checkMap[documentName] === true && !isChecked;
+    };
 
     return (
         <div className="Documents container-fluid">
@@ -360,20 +527,7 @@ function Docs() {
                 <h1><b>Documentos</b></h1>
             </div>
             {loading ? (
-                <div className='loanding '>
-                    <div className='loanding-container'>
-                        <h2 className='text-loandig'>Cargando...</h2>
-                        <div className='text-loandig'>
-                            <div className='loanding-state-mui'>
-                                <Lottie
-                                    animationData={animationData}
-                                    loop
-                                    autoplay
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <LoadingSpinner />
             ) : (
                 <Box sx={{
                     display: 'flex',
@@ -385,8 +539,7 @@ function Docs() {
                     <CssBaseline />
 
                     {/* Componente cards-acordeón */}
-                    {((docsBuyer.signed_files && docsBuyer.signed_files.length > 0) ||
-                        (docsBuyer.unsigned_files && docsBuyer.unsigned_files.length > 0)) ? (
+                    {(docsBuyer.length > 0) ? (
                         <Container maxWidth="xl" sx={{
                             display: 'flex',
                             flexDirection: 'column',
@@ -396,53 +549,24 @@ function Docs() {
                             mb: 4,
                         }}
                             className=''>
-                            {(docsBuyer.signed_files || []).map((file, index, element) => (
-                                <div key={index} className="card-docs-grid-mui ">
-                                    <div className="accordion " id={`accordionExample-${index}`}>
+                            {docsBuyer.filter(file => file.signed).map((file, index, element) => (
+                                <div key={`signed-${index}`} className="card-docs-grid-mui ">
+                                    <div className="accordion " id={`accordionExample-signed-${index}`}>
                                         <div className=" ">
-                                            <h2 className="" id={`headingTwo-${index}`}>
-                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-${index}`} aria-expanded="false" aria-controls={`mesDos-${index}`}>
+                                            <h2 className="" id={`headingTwo-signed-${index}`}>
+                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-signed-${index}`} aria-expanded="false" aria-controls={`mesDos-signed-${index}`}>
 
                                                     <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
                                                     }}>
                                                         <Grid item sx={12} sm={12} md={12} lg={12} >
-                                                            <Grid container spacing={2} sx={{
-                                                                maxWidth: '600px',
-                                                                width: '100%',
-                                                                margin: '0 auto',
-                                                                display: 'flex',
-                                                                justifyContent: 'center',
-                                                                alignItems: 'center',
-                                                                minWidth: '280px',
-                                                            }}>
-                                                                <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                                    <img src={Istatev} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                                                </Grid>
-                                                                <Grid item sx={8} sm={8} md={9} lg={9} >
-                                                                    <Typography component="h1" variant="" sx={{
-                                                                        mt: 0,
-                                                                        textAlign: 'start',
-                                                                        fontFamily: 'Rustica',
-                                                                        fontStyle: 'normal',
-                                                                        fontWeight: '500',
-                                                                        fontSize: '18px',
-                                                                        color: '#0A3323',
-                                                                        lineHeight: '20px',
-                                                                        width: '220px',
-                                                                    }}
-                                                                    //onClick={() => handleDocumentLinkClick(file)} // Llama a la función al hacer clic en el enlace.
-                                                                    >
-                                                                        {file.name}
-                                                                    </Typography>
-                                                                </Grid>
-                                                            </Grid>
+                                                            <DocumentHeader file={file} isSignedDoc={file.signed} />
                                                         </Grid>
                                                     </Grid>
                                                 </button>
                                             </h2>
                                             {/*---------------------------------------------------------------------------------------------------------------------------------*/}
                                             <div className=" ">
-                                                <div className="collapse" id={`mesDos-${index}`}>
+                                                <div className="collapse" id={`mesDos-signed-${index}`}>
                                                     <div className=''>
                                                         {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
                                                             <div className='notice-up-to-date '>
@@ -459,7 +583,6 @@ function Docs() {
                                                                         width: '220px',
                                                                         ml: 1,
                                                                     }}
-                                                                    //onClick={() => handleDocumentLinkClick(file)} // Llama a la función al hacer clic en el enlace.
                                                                     >
                                                                         Video informativo:
                                                                     </Typography>
@@ -476,97 +599,27 @@ function Docs() {
                                                                 <br />
                                                                 {/* sección checkbox */}
                                                                 <CardActions>
-                                                                    {file.name === "Anexo 1" && documentTypes.Check_video_Anexo1__c === true && !element.isChecked ? (
-                                                                        <div className='video-docs-text-date'>
-                                                                            <Grid container spacing={0.5} sx={{ width: '100%' }} >
-                                                                                <Grid item sx={10} sm={10} md={10} lg={10} >
-                                                                                    <Typography sx={{
-                                                                                        mt: 0,
-                                                                                        textAlign: 'start',
-                                                                                        fontFamily: 'Roboto',
-                                                                                        fontStyle: 'normal',
-                                                                                        fontWeight: '300',
-                                                                                        fontSize: '14px',
-                                                                                        color: '#0A3323',
-                                                                                        lineHeight: '20px',
-                                                                                        /* width: '300px',
-                                                                                        maxWidth: '1290px', */
-                                                                                        ml: 1,
-                                                                                    }} >
-                                                                                        Acepto que he visto la información anterior el día: {fechaFormateada}
-                                                                                    </Typography>
-                                                                                </Grid>
-                                                                            </Grid>
-                                                                        </div>
-
-                                                                    ) : file.name === "Promesa compra venta cliente" && documentTypes.Check_video_Promesa_C__c === true && !element.isChecked ? (
-                                                                        <div className='video-docs-text-date'>
-                                                                            <Grid container spacing={0.5} sx={{ width: '100%' }} >
-                                                                                <Grid item sx={10} sm={10} md={10} lg={10} >
-                                                                                    <Typography sx={{
-                                                                                        mt: 0,
-                                                                                        textAlign: 'start',
-                                                                                        fontFamily: 'Roboto',
-                                                                                        fontStyle: 'normal',
-                                                                                        fontWeight: '300',
-                                                                                        fontSize: '14px',
-                                                                                        color: '#0A3323',
-                                                                                        lineHeight: '20px',
-                                                                                        /* width: '300px',
-                                                                                        maxWidth: '1290px', */
-                                                                                        ml: 1,
-                                                                                    }} >
-                                                                                        Acepto que he visto la información anterior el día: {fechaFormateadaCompraventa}
-                                                                                    </Typography>
-                                                                                </Grid>
-                                                                            </Grid>
-                                                                        </div>
-                                                                    ) : file.name === "Contrato Arriendo" && documentTypes.Check_video_Contrato_Arrendamiento__c === true && !element.isChecked ? (
-                                                                        <div className='video-docs-text-date'>
-                                                                            <Grid container spacing={0.5} sx={{ width: '100%' }} >
-                                                                                <Grid item sx={10} sm={10} md={10} lg={10} >
-                                                                                    <Typography sx={{
-                                                                                        mt: 0,
-                                                                                        textAlign: 'start',
-                                                                                        fontFamily: 'Roboto',
-                                                                                        fontStyle: 'normal',
-                                                                                        fontWeight: '300',
-                                                                                        fontSize: '14px',
-                                                                                        color: '#0A3323',
-                                                                                        lineHeight: '20px',
-                                                                                        /* width: '300px',
-                                                                                        maxWidth: '1290px', */
-                                                                                        ml: 1,
-                                                                                    }} >
-                                                                                        Acepto que he visto la información anterior el día: {fechaFormateadaArriendo}
-                                                                                    </Typography>
-                                                                                </Grid>
-                                                                            </Grid>
-                                                                        </div>
+                                                                    {shouldShowDate(file.name, documentTypes, element.isChecked) ? (
+                                                                        <DateDisplay 
+                                                                            documentName={file.name} 
+                                                                            date={getFormattedDate(file.name)} 
+                                                                        />
                                                                     ) : (
                                                                         <div className='centrado'>
-                                                                            <Grid container spacing={0.5} sx={{}} >
-                                                                                <Grid item sx={2} sm={2} md={2} lg={2} >
+                                                                            <Grid container spacing={0.5} sx={{}}>
+                                                                                <Grid item sx={2} sm={2} md={2} lg={2}>
                                                                                     <FormControlLabel
                                                                                         key={element.id}
                                                                                         control={
                                                                                             <Checkbox
                                                                                                 checked={element.isChecked}
-                                                                                                onChange={() => {
-                                                                                                    handleCheckboxChangePrueba(file);
-                                                                                                }}
+                                                                                                onChange={() => handleCheckboxChangePrueba(file)}
                                                                                                 value={elementos}
-                                                                                                id={`check${file.name.replace(/\s+/g, "_")}`}
-                                                                                            />
+                                                                                                id={`check${file.name.replace(/\s+/g, "_")}`}                                                                                            />
                                                                                         }
                                                                                     />
                                                                                 </Grid>
-
-                                                                                <Grid item sx={8} sm={8} md={10} lg={10} >
-                                                                                    <Typography className='text-autorizacion-form'>
-                                                                                        Confirmo que he visto y comprendido la explicación del documento que se muestra en el video.
-                                                                                    </Typography>
-                                                                                </Grid>
+                                                                                <ConfirmationText />
                                                                             </Grid>
 
                                                                         </div>
@@ -578,42 +631,11 @@ function Docs() {
                                                         ) : null}
                                                         <br />
                                                         <div className=' centrado '>
-                                                            <Grid item sx={12} sm={12} md={12} lg={12} >
-                                                                <div className="">
-                                                                    <Button
-                                                                        fullWidth
-                                                                        id={file.name.replace(/\s+/g, "_")}
-                                                                        variant="contained"
-                                                                        sx={{
-                                                                            marginTop: '20px',
-                                                                            mb: 3,
-                                                                            background: '#81A1F8',
-                                                                            borderRadius: '10px',
-                                                                            color: '#ffffff',
-
-                                                                            textTransform: 'none',
-                                                                            border: '1px solid #81A1F8',
-                                                                            height: '58px',
-
-                                                                            fontFamily: 'Helvetica',
-                                                                            fontSize: '20px',
-                                                                            width: '100%',
-                                                                            //maxWidth: '390px', // Utiliza maxWidth en lugar de width
-                                                                            // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                                                            margin: '0 auto', // Centrar horizontalmente
-                                                                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                                                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                                                            alignItems: 'center', // Centrar verticalmente el contenido
-                                                                        }}
-                                                                        onClick={() => linkDocs(file)}// función que trae el link del documento
-                                                                        disabled={isButtonDisabled(file)}//controla el boton si esta habilitado
-                                                                        data-document-name={file.name}
-                                                                    >
-                                                                        <b> Leer documento</b>
-                                                                    </Button>
-                                                                    <br />
-                                                                </div>
-                                                            </Grid>
+                                                            <ReadDocumentButton 
+                                                                file={file} 
+                                                                isDisabled={isButtonDisabled(file)}
+                                                                onClickRead={linkDocs}
+                                                            />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -623,54 +645,25 @@ function Docs() {
                                 </div>
                             ))}
 
-                            {(docsBuyer.unsigned_files || []).map((file, index, element) => (
-                                <div key={index} className="card-docs-grid-mui ">
+                            {docsBuyer.filter(file => !file.signed).map((file, index, element) => (
+                                <div key={`unsigned-${index}`} className="card-docs-grid-mui ">
 
-                                    <div className="accordion " id={`accordionExample-${index}`}>
+                                    <div className="accordion " id={`accordionExample-unsigned-${index}`}>
                                         <div className=" ">
-                                            <h2 className="" id={`headingTwo-${index}`}>
-                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-${index}`} aria-expanded="false" aria-controls={`mesDos-${index}`}>
+                                            <h2 className="" id={`headingTwo-unsigned-${index}`}>
+                                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#mesDos-unsigned-${index}`} aria-expanded="false" aria-controls={`mesDos-unsigned-${index}`}>
 
                                                     <Grid container className="" justifyContent="center" alignItems="center" spacing={2} sx={{
                                                     }}>
                                                         <Grid item sx={12} sm={12} md={12} lg={12} >
-                                                            <Grid container spacing={2} sx={{
-                                                                maxWidth: '600px',
-                                                                width: '100%',
-                                                                margin: '0 auto',
-                                                                display: 'flex',
-                                                                justifyContent: 'center',
-                                                                alignItems: 'center',
-                                                                minWidth: '280px',
-                                                            }}>
-                                                                <Grid item sx={2} sm={2} md={3} lg={3} >
-                                                                    <img src={Istateg} className="warning font-medium-2 mr-2" alt="" height='12px' width='12px' />
-                                                                </Grid>
-                                                                <Grid item sx={8} sm={8} md={9} lg={9} >
-                                                                    <Typography component="h1" variant="" sx={{
-                                                                        mt: 0,
-                                                                        textAlign: 'start',
-                                                                        fontFamily: 'Rustica',
-                                                                        fontStyle: 'normal',
-                                                                        fontWeight: '500',
-                                                                        fontSize: '18px',
-                                                                        color: '#0A3323',
-                                                                        lineHeight: '20px',
-                                                                        width: '220px',
-                                                                    }}
-                                                                    //onClick={() => handleDocumentLinkClick(file)} // Llama a la función al hacer clic en el enlace.
-                                                                    >
-                                                                        {file.name}
-                                                                    </Typography>
-                                                                </Grid>
-                                                            </Grid>
+                                                            <DocumentHeader file={file} isSignedDoc={file.signed} />
                                                         </Grid>
                                                     </Grid>
                                                 </button>
                                             </h2>
                                             {/*---------------------------------------------------------------------------------------------------------------------------------*/}
                                             <div className=" ">
-                                                <div className="collapse" id={`mesDos-${index}`}>
+                                                <div className="collapse" id={`mesDos-unsigned-${index}`}>
                                                     <div className=''>
                                                         {file.name === "Promesa compra venta cliente" || file.name === "Anexo 1" || file.name === "Contrato Arriendo" ? (
                                                             <div className='notice-up-to-date '>
@@ -687,7 +680,6 @@ function Docs() {
                                                                         lineHeight: '20px',
                                                                         width: '220px',
                                                                     }}
-                                                                    //onClick={() => handleDocumentLinkClick(file)} // Llama a la función al hacer clic en el enlace.
                                                                     >
                                                                         Video informativo:
                                                                     </Typography>
@@ -702,97 +694,27 @@ function Docs() {
                                                                 </div >
 
                                                                 <CardActions>
-                                                                    {file.name === "Anexo 1" && documentTypes.Check_video_Anexo1__c === true && !element.isChecked ? (
-                                                                        <div className='video-docs-text-date'>
-                                                                            <Grid container spacing={0.5} sx={{ width: '100%' }} >
-                                                                                <Grid item sx={10} sm={10} md={10} lg={10} >
-                                                                                    <Typography sx={{
-                                                                                        mt: 2,
-                                                                                        textAlign: 'start',
-                                                                                        fontFamily: 'Roboto',
-                                                                                        fontStyle: 'normal',
-                                                                                        fontWeight: '300',
-                                                                                        fontSize: '14px',
-                                                                                        color: '#0A3323',
-                                                                                        lineHeight: '20px',
-                                                                                        /* width: '300px',
-                                                                                        maxWidth: '1290px', */
-                                                                                        ml: 1,
-                                                                                    }} >
-                                                                                        Acepto que he visto la información anterior el día: {fechaFormateada}
-                                                                                    </Typography>
-                                                                                </Grid>
-                                                                            </Grid>
-                                                                        </div>
-
-                                                                    ) : file.name === "Promesa compra venta cliente" && documentTypes.Check_video_Promesa_C__c === true && !element.isChecked ? (
-                                                                        <div className='video-docs-text-date'>
-                                                                            <Grid container spacing={0.5} sx={{ width: '100%' }} >
-                                                                                <Grid item sx={10} sm={10} md={10} lg={10} >
-                                                                                    <Typography sx={{
-                                                                                        mt: 2,
-                                                                                        textAlign: 'start',
-                                                                                        fontFamily: 'Roboto',
-                                                                                        fontStyle: 'normal',
-                                                                                        fontWeight: '300',
-                                                                                        fontSize: '14px',
-                                                                                        color: '#0A3323',
-                                                                                        lineHeight: '20px',
-                                                                                        /* width: '300px',
-                                                                                        maxWidth: '1290px', */
-                                                                                        ml: 1,
-                                                                                    }} >
-                                                                                        Acepto que he visto la información anterior el día: {fechaFormateadaCompraventa}
-                                                                                    </Typography>
-                                                                                </Grid>
-                                                                            </Grid>
-                                                                        </div>
-                                                                    ) : file.name === "Contrato Arriendo" && documentTypes.Check_video_Contrato_Arrendamiento__c === true && !element.isChecked ? (
-                                                                        <div className='video-docs-text-date'>
-                                                                            <Grid container spacing={0.5} sx={{ width: '100%' }} >
-                                                                                <Grid item sx={10} sm={10} md={10} lg={10} >
-                                                                                    <Typography sx={{
-                                                                                        mt: 2,
-                                                                                        textAlign: 'start',
-                                                                                        fontFamily: 'Roboto',
-                                                                                        fontStyle: 'normal',
-                                                                                        fontWeight: '300',
-                                                                                        fontSize: '14px',
-                                                                                        color: '#0A3323',
-                                                                                        lineHeight: '20px',
-                                                                                        /* width: '300px',
-                                                                                        maxWidth: '1290px', */
-                                                                                        ml: 1,
-                                                                                    }} >
-                                                                                        Acepto que he visto la información anterior el día: {fechaFormateadaArriendo}
-                                                                                    </Typography>
-                                                                                </Grid>
-                                                                            </Grid>
-                                                                        </div>
+                                                                    {shouldShowDate(file.name, documentTypes, element.isChecked) ? (
+                                                                        <DateDisplay 
+                                                                            documentName={file.name} 
+                                                                            date={getFormattedDate(file.name)} 
+                                                                        />
                                                                     ) : (
                                                                         <div className='centrado'>
-                                                                            <Grid container spacing={0.5} sx={{}} >
-                                                                                <Grid item sx={2} sm={2} md={2} lg={2} >
+                                                                            <Grid container spacing={0.5} sx={{}}>
+                                                                                <Grid item sx={2} sm={2} md={2} lg={2}>
                                                                                     <FormControlLabel
                                                                                         key={element.id}
                                                                                         control={
                                                                                             <Checkbox
                                                                                                 checked={element.isChecked}
-                                                                                                onChange={() => {
-                                                                                                    handleCheckboxChangePrueba(file);
-                                                                                                }}
+                                                                                                onChange={() => handleCheckboxChangePrueba(file)}
                                                                                                 value={elementos}
-                                                                                                id={`check${file.name.replace(/\s+/g, "_")}`}
-                                                                                            />
+                                                                                                id={`check${file.name.replace(/\s+/g, "_")}`}                                                                                            />
                                                                                         }
                                                                                     />
                                                                                 </Grid>
-
-                                                                                <Grid item sx={8} sm={8} md={10} lg={10} >
-                                                                                    <Typography className='text-autorizacion-form'>
-                                                                                        Confirmo que he visto y comprendido la explicación del documento que se muestra en el video.
-                                                                                    </Typography>
-                                                                                </Grid>
+                                                                                <ConfirmationText />
                                                                             </Grid>
 
                                                                         </div>
@@ -804,44 +726,11 @@ function Docs() {
                                                         ) : null}
                                                         <br />
                                                         <div className=' centrado '>
-                                                            <Grid item sx={12} sm={12} md={12} lg={12} >
-                                                                <div className="">
-
-                                                                    <Button
-                                                                        fullWidth
-                                                                        id={file.name.replace(/\s+/g, "_")}
-                                                                        variant="contained"
-                                                                        sx={{
-                                                                            marginTop: '20px',
-                                                                            mb: 3,
-                                                                            background: '#81A1F8',
-                                                                            borderRadius: '10px',
-                                                                            color: '#ffffff',
-
-                                                                            textTransform: 'none',
-                                                                            border: '1px solid #81A1F8',
-                                                                            height: '58px',
-
-                                                                            fontFamily: 'Helvetica',
-                                                                            fontSize: '20px',
-                                                                            width: '100%',
-                                                                            //maxWidth: '390px', // Utiliza maxWidth en lugar de width
-                                                                            // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                                                                            margin: '0 auto', // Centrar horizontalmente
-                                                                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                                                                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                                                                            alignItems: 'center', // Centrar verticalmente el contenido
-                                                                        }}
-                                                                        onClick={() => linkDocs(file)}// función que trae el link del documento
-                                                                        disabled={isButtonDisabled(file)}//controla el boton si esta habilitado
-                                                                        data-document-name={file.name}
-                                                                    >
-                                                                        <b> Leer documento</b>
-                                                                    </Button>
-                                                                    <br />
-
-                                                                </div>
-                                                            </Grid>
+                                                            <ReadDocumentButton 
+                                                                file={file} 
+                                                                isDisabled={isButtonDisabled(file)}
+                                                                onClickRead={linkDocs}
+                                                            />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -852,34 +741,7 @@ function Docs() {
                             ))}
                         </Container>
                     ) : (
-                        <Container maxWidth="xl" sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            mb: 4,
-                        }}>
-                            <div className='img-offer-conatiner '>
-                                <Typography component="h1" variant="" sx={{
-                                    /*  ml: 2, */
-                                    fontFamily: 'Rustica',
-                                    fontStyle: 'normal',
-                                    fontWeight: '500',
-                                    fontSize: '18px',
-                                    color: '#0A3323',
-                                    lineHeight: '20px',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    mb: 4,
-                                }}>
-                                    <h4>No cuenta con documentos</h4>
-                                </Typography>
-                                {/* <p>No cuenta con documentos</p> */}
-                                <img src={Idefaultoffer} className="container fluid" alt="..." />
-                            </div>
-                        </Container>
+                        <NoDocuments />
                     )
                     }
                 </Box >
@@ -888,3 +750,4 @@ function Docs() {
     );
 }
 export default Docs
+

@@ -26,10 +26,9 @@ function SolitudForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true); // Establecer isSubmitting en true mientras se envía el formulario
-        /* console.log('Datos del formulario:', formData); */
-
+        
         try {
-            const response = await fetch('https://salesforce-gdrive-conn.herokuapp.com/case_solicitud', {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/case_solicitud`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

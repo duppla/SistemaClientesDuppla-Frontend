@@ -4,14 +4,13 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Link } from 'react-router-dom';
-import MoodBadIcon from '@mui/icons-material/MoodBad';
 import IconToolytip from "./../img/IconTooltip.svg";
 
 import Lottie from 'lottie-react';
-import animationData from './loanding.json';
+import animationData from './loading.json';
 import ReactGA from 'react-ga';
 import swal from 'sweetalert';
-import numeral, { options } from 'numeral';
+import numeral  from 'numeral';
 
 
 
@@ -50,16 +49,15 @@ function Payment() {
                 setDataCustumer(response)
                 setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
 
-                const options2 = { method: 'GET', headers: { 'User-Agent': 'insomnia/2023.5.8' } };
+                const options2 = { method: 'GET' };
 
-                fetch('https://salesforce-gdrive-conn.herokuapp.com/deuda?customer=' + response.cedula, options2)
+                fetch(`${process.env.REACT_APP_BACKEND_URL_2}/deuda?customer=` + response.cedula, options2)
                     .then(response => response.json())
                     .then(response => {
                         setBalance(response.balance)
                     })
                     .catch(err => console.error(err));
 
-                // Agregamos un nuevo endpoint aquí
                 fetch(`${process.env.REACT_APP_BACKEND_URL}/pagos/pendingPayments`, options)
                     .then(response => response.json())
                     .then(response => {
@@ -262,12 +260,12 @@ function Payment() {
                 </Grid>
             </Box>
 
-            {loading ? (<div className='loanding '>
-                <div className='loanding-container'>
-                    <h2 className='text-loandig '>Cargando...</h2>
-                    <div className='text-loandig '
+            {loading ? (<div className='loading '>
+                <div className='loading-container'>
+                    <h2 className='text-loading '>Cargando...</h2>
+                    <div className='text-loading '
                     >
-                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                        <div className='loading-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
                             <Lottie
                                 animationData={animationData}
                                 loop

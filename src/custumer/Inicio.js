@@ -37,7 +37,7 @@ import { Button, Container, Accordion, AccordionSummary, AccordionDetails, Typog
 import InfoIcon from '@mui/icons-material/Info';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Lottie from 'lottie-react';
-import animationData from './../Components/loanding.json';
+import animationData from './../Components/loading.json';
 import ReactGA from 'react-ga';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Balance } from "@mui/icons-material";
@@ -120,9 +120,9 @@ function Inicio() {
                 setFormattedDataCustumer(numeral(dataCustumer).format('0,0.00'))
                 setLoading(false);
 
-                const options2 = { method: 'GET', headers: { 'User-Agent': 'insomnia/2023.5.8' } };
+                const options2 = { method: 'GET' };
 
-                fetch('https://salesforce-gdrive-conn.herokuapp.com/deuda?customer=' + response.cedula, options2)
+                fetch(`${process.env.REACT_APP_BACKEND_URL_2}/deuda?customer=` + response.cedula, options2)
                     .then(response => response.json())
                     .then(response => {
                         setBalanceApi(response.balance)
@@ -295,12 +295,12 @@ function Inicio() {
         <div className=" container-fluid ">
             <NavbarCustomer />
 
-            {loading ? (<div className='loanding '>
-                <div className='loanding-container'>
-                    <h2 className='text-loandig '>Cargando...</h2>
-                    <div className='text-loandig '
+            {loading ? (<div className='loading '>
+                <div className='loading-container'>
+                    <h2 className='text-loading '>Cargando...</h2>
+                    <div className='text-loading '
                     >
-                        <div className='loanding-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
+                        <div className='loading-state-mui' /* style={{ width: '150px', height: '150px', background:'#F1FFEB' }} */>
                             <Lottie
                                 animationData={animationData}
                                 loop
