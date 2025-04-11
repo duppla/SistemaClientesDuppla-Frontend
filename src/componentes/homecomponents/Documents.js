@@ -204,7 +204,7 @@ function Docs() {
 
             const options = { method: 'GET' };
 
-            fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/?email=${email}`, options)
+            fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes_legacy/documents?email=${email}`, options)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -220,7 +220,7 @@ function Docs() {
                     setLoading(false);
                 });
 
-            fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/videos?email=${email}`, options)
+            fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes_legacy/videos?email=${email}`, options)
                 .then(response => response.json())
                 .then(response => {
                     setDocumentTypes(response);
@@ -377,7 +377,7 @@ function Docs() {
             }
 
             try {
-                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/videos`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes_legacy/videos`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -390,7 +390,7 @@ function Docs() {
                 }   
 
                 // Refetch the video status data to get updated dates
-                const getResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes/documents/videos?email=${email.replace(/"/g, '')}`, {
+                const getResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL_2}/clientes_legacy/videos?email=${email.replace(/"/g, '')}`, {
                     method: 'GET'
                 });
                 

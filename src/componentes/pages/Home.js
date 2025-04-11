@@ -564,8 +564,6 @@ function Home() {
                 </Link>
               </div>
 
-
-
               {/*componente de estados*/}
               <div className="centrado space-docs-home container-fluid">
                 <div className="row ">
@@ -573,123 +571,6 @@ function Home() {
                 </div>
               </div>
 
-
-              {/*componente de estados*/}
-
-              <div className=" Container-cards-seccion-mui-mensajesalesforce" id="cardComponet">
-
-                <Container maxWidth='xl' className="">
-                  <Grid container className="" sx={{
-                    ml: 1,
-                   
-                  }}>
-                    <Grid item xs={10} md={10} lg={10}>
-                      <Grid container maxWidth="xl" spacing={2} sx={{
-                        mt: 2,                        
-                      }}>
-                        <Grid item xs={10} sm={10} md={12} lg={12} >
-                          <div className="">
-                            <h6>Estado:</h6>
-                            {/* */}
-                            <b> {mensajeSf()} </b>                            
-                          </div>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Container>
-              </div>
-
-             
-
-              <Container maxWidth="xl" sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignContent: 'center',
-                alignItems: 'center',
-                mb: 2,
-                mt: 4,
-              }}
-                className=''>
-                <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{
-                }}>
-
-                  <Grid item sx={12} sm={12} md={12} lg={12} >
-                    <div className="">
-                      <a className="links" href="https://calendly.com/agendadaniel">
-                        <Button
-                          fullWidth
-                          variant="contained"
-                          onClick={handleHometLinkClickCalendly}
-                          sx={{
-                            marginTop: '10px',
-                            mb: 3,
-                            background: '#81A1F8',
-                            borderRadius: '10px',
-                            color: '#ffffff',
-
-                            textTransform: 'none',
-                            border: '1px solid #81A1F8',
-                            height: '58px',
-
-                            fontFamily: 'Helvetica',
-                            fontSize: '18px',
-
-                            maxWidth: '430px', // Utiliza maxWidth en lugar de width
-                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                            margin: '0 auto', // Centrar horizontalmente
-                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                            alignItems: 'center', // Centrar verticalmente el contenido
-                            minWidth: '300px',
-                          }}
-                        >
-                          Agendar una cita
-                        </Button>
-                      </a>
-                    </div>
-
-                  </Grid>
-                  <Grid item sx={12} sm={12} md={12} lg={12} >
-                    <div className="">
-                      <a className="links" href={whatsappLink}>
-                        <Button
-                          fullWidth
-                          variant="contained"
-                          onClick={handleHometLinkClickWhasApp}
-
-                          sx={{
-
-                            marginTop: '10px',
-                            mb: 3,
-                            background: '#ffffff',
-                            borderRadius: '10px',
-                            color: '#6C9FFF',
-
-                            textTransform: 'none',
-                            border: '1px solid #6C9FFF',
-                            height: '58px',
-
-                            fontFamily: 'Helvetica',
-                            fontSize: '18px',
-
-                            maxWidth: '430px', // Utiliza maxWidth en lugar de width
-                            width: '100%', // Opcionalmente, puedes agregar width: '100%' para mantenerlo sensible
-                            margin: '0 auto', // Centrar horizontalmente
-                            display: 'flex', // Agrega display: flex para centrar el contenido dentro del botón
-                            justifyContent: 'center', // Asegura que el contenido comience desde la izquierda
-                            alignItems: 'center', // Centrar verticalmente el contenido
-                            minWidth: '300px',
-                          }}
-                        >
-                          Tengo algún problema
-                        </Button>
-                      </a>
-                    </div>
-                  </Grid>
-                </Grid>
-              </Container>
             </div>
           </Box>
         )}
